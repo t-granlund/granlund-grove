@@ -285,7 +285,9 @@ def check_case_study_count() -> "tuple[bool, str]":
 
 
 def check_case_study_beats() -> "tuple[bool, str]":
-    txt = _read(SITE / "Projects.tsx")
+    # The five-beat narrative labels live in CaseStudyModal.tsx (the cards in
+    # Projects.tsx open it); scan both so the model can be split for cohesion.
+    txt = _read(SITE / "Projects.tsx") + _read(SITE / "CaseStudyModal.tsx")
     missing = [b for b in BEATS if b not in txt]
     return len(missing) == 0, "narrative beats present" if not missing else f"missing beats: {missing}"
 

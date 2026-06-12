@@ -103,7 +103,7 @@ export function Nav() {
                 Tyler Granlund
               </span>
               {/* gran·lund (Swedish) = spruce grove — linguistic gloss inline with name */}
-              <span className="hidden sm:inline font-mono text-[9px] tracking-[0.14em] text-muted-foreground/60">
+              <span className="hidden sm:inline font-mono text-[10px] tracking-[0.12em] text-muted-foreground/80">
                 gran·lund&nbsp;&middot;&nbsp;sv.&nbsp;&middot;&nbsp;spruce grove
               </span>
             </div>

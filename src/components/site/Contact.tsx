@@ -1,6 +1,13 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { SectionLabel } from "./SectionLabel";
 import { Picture } from "./Picture";
+
+// Shared field styling. Border is intentionally light enough to meet WCAG 2.2
+// 1.4.11 non-text contrast (>=3:1) against the form card; focus swaps to cedar.
+const FIELD_CLASS =
+  "w-full rounded-xl bg-[oklch(0.16_0.012_150)] border border-[oklch(0.52_0.02_150)] " +
+  "focus:border-cedar focus:outline-none focus:ring-2 focus:ring-cedar/40 " +
+  "px-4 py-3 text-foreground placeholder:text-muted-foreground transition-colors";
 
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "fallback">("idle");
@@ -139,7 +146,7 @@ export function Contact() {
                 name="message"
                 rows={5}
                 required
-                className="w-full rounded-xl bg-[oklch(0.16_0.012_150)] border border-border focus:border-cedar focus:outline-none focus:ring-2 focus:ring-cedar/30 px-4 py-3 text-foreground transition-colors resize-none"
+                className={`${FIELD_CLASS} resize-none`}
               />
             </div>
             <button
@@ -204,7 +211,7 @@ function Field({
         type={type}
         required
         autoComplete={autoComplete}
-        className="w-full rounded-xl bg-[oklch(0.16_0.012_150)] border border-border focus:border-cedar focus:outline-none focus:ring-2 focus:ring-cedar/30 px-4 py-3 text-foreground transition-colors"
+        className={FIELD_CLASS}
       />
     </div>
   );

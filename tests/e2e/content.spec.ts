@@ -1,7 +1,9 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("home content sections", () => {
-  test("renders all six flagship case studies with the five-beat narrative", async ({ page }) => {
+  test("renders all six flagship case studies, each with the five-beat narrative in its modal", async ({
+    page,
+  }) => {
     await page.goto("/work");
     const projects = page.locator("#projects");
 
@@ -16,11 +18,24 @@ test.describe("home content sections", () => {
       await expect(projects.getByRole("heading", { name })).toBeVisible();
     }
 
-    for (const beat of ["Problem", "Architecture", "Outcome", "My take"]) {
-      await expect(projects.getByText(beat, { exact: true }).first()).toBeVisible();
-    }
-
     await expect(projects.getByRole("heading", { name: /more from the workshop/i })).toBeVisible();
+
+    // The five-beat narrative now lives inside each case study's modal — open
+    // the first one and assert the beats render there. The Radix trigger only
+    // opens once React has hydrated, so wait for the fiber before clicking.
+    await page.waitForFunction(() => {
+      const btn = document.querySelector("#projects button");
+      return !!btn && Object.keys(btn).some((k) => k.startsWith("__react"));
+    });
+    await projects
+      .getByRole("button", { name: /explore the system/i })
+      .first()
+      .click();
+    const dialog = page.getByRole("dialog");
+    await expect(dialog).toBeVisible();
+    for (const beat of ["Problem", "Architecture", "Outcome", "My take"]) {
+      await expect(dialog.getByText(beat, { exact: true }).first()).toBeVisible();
+    }
   });
 
   test("groups skills the way the resume does", async ({ page }) => {
