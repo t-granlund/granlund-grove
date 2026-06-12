@@ -14,6 +14,7 @@ import { EstateTraceDiagram } from "./diagrams/EstateTraceDiagram";
 import { ControlTowerDiagram } from "./diagrams/ControlTowerDiagram";
 import { KnowledgeFabricDiagram } from "./diagrams/KnowledgeFabricDiagram";
 import { ZeroSecretDiagram } from "./diagrams/ZeroSecretDiagram";
+import { GroupManagementDiagram } from "./diagrams/GroupManagementDiagram";
 
 export type Metric = { value: string; label: string };
 
@@ -21,6 +22,8 @@ export type CaseStudy = {
   name: string;
   kicker: string;
   tag: string;
+  /** One-line hook for the modal header — distinct from the Problem beat. */
+  teaser: string;
   metrics: Metric[];
   problem: string;
   architecture: string;
@@ -43,6 +46,7 @@ export const caseStudies: CaseStudy[] = [
   {
     name: "Control Tower",
     kicker: "Multi-tenant governance platform",
+    teaser: "One control plane for cost, identity, and compliance across the whole estate.",
     tag: "Production · v2.5.0",
     metrics: [
       { value: "7,386", label: "tests gating release" },
@@ -66,6 +70,7 @@ export const caseStudies: CaseStudy[] = [
   {
     name: "Knowledge Fabric",
     kicker: "Identity-aware RAG",
+    teaser: "Identity-aware answers from 100K+ support tickets — scoped to who's asking.",
     tag: "Phase 2 · In build",
     metrics: [
       { value: "52/52", label: "Phase 1 QA checks" },
@@ -90,6 +95,7 @@ export const caseStudies: CaseStudy[] = [
   {
     name: "Estate Trace",
     kicker: "Cost governance the COO actually uses",
+    teaser: "What do we run, and what does it cost? Answered across every cloud and repo.",
     tag: "Live · Drives exec decisions",
     metrics: [
       { value: "12/12", label: "verification checks" },
@@ -108,7 +114,7 @@ export const caseStudies: CaseStudy[] = [
     oversight:
       "Each pull is verified against the prior canonical snapshot; all 12/12 checks must pass before the workbook is published as source of truth.",
     outcome:
-      "~$12.2K/mo IT run-rate quantified — with a ~40% optimization path (a single over-provisioned capacity is ~54% of it) and 25 prioritized remediation actions. It drives executive financial decisions.",
+      "The full IT run-rate quantified — with a ~40% optimization path (a single over-provisioned capacity is ~54% of it) and 25 prioritized remediation actions. It drives executive financial decisions.",
     reflection:
       "The real value was the verification checks. Once people trusted the numbers, the workbook became the thing every cost conversation started from.",
     stack: ["Python", "DuckDB", "GitHub API", "MS Graph", "Azure Cost Mgmt"],
@@ -116,6 +122,7 @@ export const caseStudies: CaseStudy[] = [
   {
     name: "Zero-secret automation",
     kicker: "OIDC lifecycle across 5 tenants",
+    teaser: "Full lifecycle automation across five tenants — without storing one credential.",
     tag: "Production",
     metrics: [
       { value: "5", label: "tenants federated" },
@@ -139,6 +146,7 @@ export const caseStudies: CaseStudy[] = [
   {
     name: "Mysa Mail",
     kicker: "Local-first AI email agent (personal)",
+    teaser: "A local-first email agent that asks before it acts.",
     tag: "Personal · Shipped",
     metrics: [
       { value: "5,700+", label: "LOC backend" },
@@ -162,6 +170,8 @@ export const caseStudies: CaseStudy[] = [
   {
     name: "Group Management Hub",
     kicker: "The production quality bar",
+    teaser: "Group governance held to a strict, fully test-gated quality bar.",
+    diagram: <GroupManagementDiagram />,
     tag: "Production",
     metrics: [
       { value: "7,984", label: "tests gating release" },

@@ -2,13 +2,15 @@
 // Intentionally generalized for public viewing: achievement framing,
 // no client-specific dollar amounts or vendor contract details.
 
+// Figures relativized as a share of realized savings (no raw client dollars)
+// pending the financial-number verification gate (bd dev-jgu.2).
 const SAVINGS = [
-  { item: "M365 licensing consolidation", how: "migrated to managed bundle", result: "~$13K/yr" },
-  { item: "Cloud storage overprovisioning", how: "right-sized and cancelled", result: "~$7.5K/yr" },
-  { item: "License tier right-sizing", how: "Standard \u2192 Basic where fit", result: "~$6K/yr" },
-  { item: "Unused SaaS add-ons", how: "cancelled 3 subscriptions", result: "~$8K/yr" },
-  { item: "Decommissioned infra", how: "firewall + database removed", result: "~$6.5K/yr" },
-  { item: "Additional vendor consolidations", how: "various", result: "~$7.5K/yr" },
+  { item: "M365 licensing consolidation", how: "migrated to managed bundle", result: "27%" },
+  { item: "Cloud storage overprovisioning", how: "right-sized and cancelled", result: "15%" },
+  { item: "License tier right-sizing", how: "Standard \u2192 Basic where fit", result: "12%" },
+  { item: "Unused SaaS add-ons", how: "cancelled 3 subscriptions", result: "16%" },
+  { item: "Decommissioned infra", how: "firewall + database removed", result: "13%" },
+  { item: "Additional vendor consolidations", how: "various", result: "17%" },
 ] as const;
 
 const FEATURES = [
@@ -67,7 +69,9 @@ export function EstateTraceDeepDive() {
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-cedar">
               Realized &amp; actioned
             </span>
-            <span className="font-display text-xl font-light text-mist">~$48K/yr</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-stone/50">
+              share of realized
+            </span>
           </div>
           <table className="w-full text-sm">
             <tbody>
@@ -97,7 +101,12 @@ export function EstateTraceDeepDive() {
               ~54% of total IT run-rate &middot; the ~40% optimization path
             </div>
           </div>
-          <span className="shrink-0 font-display text-2xl font-light text-mist">~$79K/yr</span>
+          <div className="shrink-0 text-right">
+            <span className="font-display text-2xl font-light text-mist">~1.6&times;</span>
+            <div className="font-mono text-[9px] uppercase tracking-[0.15em] text-stone/50">
+              vs. realized
+            </div>
+          </div>
         </div>
       </section>
 

@@ -80,7 +80,7 @@ function Arr({ x1, y1, x2, y2 }: { x1: number; y1: number; x2: number; y2: numbe
 }
 
 export function ZeroSecretDiagram() {
-  const tenants = ["HTT", "BCC", "FN", "TLL", "DCE"];
+  const tenants = ["Brand A", "Brand B", "Brand C", "Brand D", "Brand E"];
   const tW = 110,
     tH = 68,
     tGap = 14,

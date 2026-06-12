@@ -20,10 +20,11 @@ const WIDTHS = [480, 760, 1122];
 const overlay = (w, h) =>
   Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
     <defs>
-      <radialGradient id="vig" cx="50%" cy="36%" r="72%">
-        <stop offset="0%" stop-color="${SPRUCE_DEEP}" stop-opacity="0.30"/>
-        <stop offset="30%" stop-color="${SPRUCE_DEEP}" stop-opacity="0.36"/>
-        <stop offset="72%" stop-color="${SPRUCE_DEEP}" stop-opacity="0.82"/>
+      <radialGradient id="vig" cx="50%" cy="38%" r="74%">
+        <stop offset="0%" stop-color="${SPRUCE_DEEP}" stop-opacity="0"/>
+        <stop offset="42%" stop-color="${SPRUCE_DEEP}" stop-opacity="0.06"/>
+        <stop offset="68%" stop-color="${SPRUCE_DEEP}" stop-opacity="0.5"/>
+        <stop offset="86%" stop-color="${SPRUCE_DEEP}" stop-opacity="0.88"/>
         <stop offset="100%" stop-color="${SPRUCE_DEEP}" stop-opacity="1"/>
       </radialGradient>
       <linearGradient id="top" x1="0" y1="0" x2="0" y2="1">
@@ -50,7 +51,7 @@ for (const w of WIDTHS) {
   // Slight cool/darken on the base first, then composite the vignette.
   const composed = await sharp(src)
     .resize(w, h)
-    .modulate({ brightness: 0.85, saturation: 0.9 })
+    .modulate({ brightness: 1.02, saturation: 0.95 })
     .composite([{ input: overlay(w, h), top: 0, left: 0 }])
     .toBuffer();
   await sharp(composed)

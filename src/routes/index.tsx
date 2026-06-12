@@ -99,7 +99,7 @@ const structuredData = {
       ],
       worksFor: {
         "@type": "Organization",
-        name: "HTT Brands",
+        name: "Multi-Brand Franchise Group",
       },
     },
   ],

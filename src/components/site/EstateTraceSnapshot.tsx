@@ -4,11 +4,11 @@
 
 // Relative licensing spend across tenants (normalized to 100, no raw $).
 const TENANTS = [
-  { code: "TLL", w: "100%", label: "Largest" },
-  { code: "FN", w: "37%", label: "" },
-  { code: "BCC", w: "20%", label: "" },
-  { code: "HTT", w: "19%", label: "" },
-  { code: "DCE", w: "2%", label: "" },
+  { code: "Brand A", w: "100%", label: "Largest" },
+  { code: "Brand B", w: "37%", label: "" },
+  { code: "Brand C", w: "20%", label: "" },
+  { code: "Brand D", w: "19%", label: "" },
+  { code: "Brand E", w: "2%", label: "" },
 ] as const;
 
 const TILES = [
@@ -75,7 +75,7 @@ export function EstateTraceSnapshot() {
           <div className="mt-2.5 space-y-1.5">
             {TENANTS.map((t) => (
               <div key={t.code} className="flex items-center gap-2.5">
-                <span className="w-8 shrink-0 font-mono text-[10px] text-stone/70">{t.code}</span>
+                <span className="w-16 shrink-0 font-mono text-[10px] text-stone/70">{t.code}</span>
                 <span className="relative h-2.5 flex-1 overflow-hidden rounded-full bg-[oklch(0.22_0.014_155)]">
                   <span
                     className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-cedar/50 to-cedar"

@@ -56,7 +56,7 @@ export function CaseStudyModal({ study, extraContent }: Props) {
           </DialogTitle>
           <DialogDescription asChild>
             <div className="flex items-center gap-3 text-left">
-              <span className="text-sm text-stone/70">{study.problem}</span>
+              <span className="text-sm text-stone/70">{study.teaser}</span>
               <span className="shrink-0 text-[10px] font-mono uppercase tracking-[0.2em] text-stone/50 px-2.5 py-1 rounded-full border border-border">
                 {study.tag}
               </span>

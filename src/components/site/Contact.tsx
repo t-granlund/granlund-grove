@@ -1,6 +1,7 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { SectionLabel } from "./SectionLabel";
 import { Picture } from "./Picture";
+import { TreeMark } from "./TreeMark";
 
 // Shared field styling. Border is intentionally light enough to meet WCAG 2.2
 // 1.4.11 non-text contrast (>=3:1) against the form card; focus swaps to cedar.
@@ -12,6 +13,14 @@ const FIELD_CLASS =
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "fallback">("idle");
   const formRef = useRef<HTMLFormElement>(null);
+  const resubmitRef = useRef<HTMLButtonElement>(null);
+  const done = status === "sent" || status === "fallback";
+
+  // When the success overlay appears, move focus to its action so keyboard
+  // users aren't stranded behind it (the fields underneath are covered).
+  useEffect(() => {
+    if (done) resubmitRef.current?.focus();
+  }, [done]);
 
   return (
     <section id="contact" className="relative pt-32 lg:pt-40 pb-32 lg:pb-40 overflow-hidden">
@@ -74,110 +83,139 @@ export function Contact() {
             ))}
           </div>
 
-          <form
-            ref={formRef}
-            onSubmit={async (e) => {
-              e.preventDefault();
-              const form = e.currentTarget;
-              const data = new FormData(form);
-              const name = String(data.get("name") ?? "");
-              const email = String(data.get("email") ?? "");
-              const subject = String(data.get("subject") ?? "Website contact");
-              const message = String(data.get("message") ?? "");
-              const company = String(data.get("company") ?? ""); // honeypot
+          <div className="lg:col-span-3 relative">
+            <form
+              ref={formRef}
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const data = new FormData(form);
+                const name = String(data.get("name") ?? "");
+                const email = String(data.get("email") ?? "");
+                const subject = String(data.get("subject") ?? "Website contact");
+                const message = String(data.get("message") ?? "");
+                const company = String(data.get("company") ?? ""); // honeypot
 
-              const openMailto = () => {
-                const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-                const mailto = `mailto:hello@tylergranlund.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                window.open(mailto, "_self");
-              };
+                const openMailto = () => {
+                  const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+                  const mailto = `mailto:hello@tylergranlund.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                  window.open(mailto, "_self");
+                };
 
-              setStatus("sending");
-              try {
-                const res = await fetch("/api/contact", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ name, email, subject, message, company }),
-                });
-                if (res.ok) {
-                  setStatus("sent");
-                  form.reset();
-                  return;
+                setStatus("sending");
+                try {
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, email, subject, message, company }),
+                  });
+                  if (res.ok) {
+                    setStatus("sent");
+                    form.reset();
+                    return;
+                  }
+                  // Backend unavailable or rejected — fall back to the mail client.
+                  openMailto();
+                  setStatus("fallback");
+                } catch {
+                  openMailto();
+                  setStatus("fallback");
                 }
-                // Backend unavailable or rejected — fall back to the mail client.
-                openMailto();
-                setStatus("fallback");
-              } catch {
-                openMailto();
-                setStatus("fallback");
-              }
-            }}
-            className="lg:col-span-3 rounded-3xl border border-border bg-card/80 backdrop-blur p-8 lg:p-10 space-y-5"
-          >
-            {/* Honeypot — off-screen, hidden from humans and AT; bots fill it. */}
-            <input
-              type="text"
-              name="company"
-              tabIndex={-1}
-              autoComplete="off"
-              aria-hidden="true"
-              className="absolute left-[-9999px] h-px w-px overflow-hidden"
-            />
-            <div className="grid sm:grid-cols-2 gap-5">
-              <Field label="Name" name="name" id="contact-name" autoComplete="name" />
-              <Field
-                label="Email"
-                name="email"
-                type="email"
-                id="contact-email"
-                autoComplete="email"
+              }}
+              className="rounded-3xl border border-border bg-card/80 backdrop-blur p-8 lg:p-10 space-y-5"
+            >
+              {/* Honeypot — off-screen, hidden from humans and AT; bots fill it. */}
+              <input
+                type="text"
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute left-[-9999px] h-px w-px overflow-hidden"
               />
-            </div>
-            <Field label="Subject" name="subject" id="contact-subject" autoComplete="off" />
-            <div>
-              <label
-                htmlFor="contact-message"
-                className="block font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-2"
+              <div className="grid sm:grid-cols-2 gap-5">
+                <Field label="Name" name="name" id="contact-name" autoComplete="name" />
+                <Field
+                  label="Email"
+                  name="email"
+                  type="email"
+                  id="contact-email"
+                  autoComplete="email"
+                />
+              </div>
+              <Field label="Subject" name="subject" id="contact-subject" autoComplete="off" />
+              <div>
+                <label
+                  htmlFor="contact-message"
+                  className="block font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-2"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows={5}
+                  required
+                  className={`${FIELD_CLASS} resize-none`}
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full inline-flex items-center justify-center gap-3 rounded-full bg-[image:var(--gradient-cedar)] px-8 py-4 text-primary-foreground font-medium shadow-[var(--shadow-lift)] hover:brightness-110 transition-all duration-300"
+                disabled={status === "sending"}
+                aria-busy={status === "sending"}
               >
-                Message
-              </label>
-              <textarea
-                id="contact-message"
-                name="message"
-                rows={5}
-                required
-                className={`${FIELD_CLASS} resize-none`}
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full inline-flex items-center justify-center gap-3 rounded-full bg-[image:var(--gradient-cedar)] px-8 py-4 text-primary-foreground font-medium shadow-[var(--shadow-lift)] hover:brightness-110 transition-all duration-300"
-              disabled={status === "sending"}
-              aria-busy={status === "sending"}
-            >
-              {status === "sending"
-                ? "Sending…"
-                : status === "sent"
-                  ? "Sent — talk soon."
-                  : status === "fallback"
-                    ? "Opening your email client…"
-                    : "Send message"}
-              {status === "idle" && <span aria-hidden="true">&#8594;</span>}
-            </button>
-            <p
-              role="status"
-              aria-live="polite"
-              className="text-center text-[10px] font-mono text-muted-foreground tracking-wide"
-            >
-              {status === "sending"
-                ? "Sending your message…"
-                : status === "sent"
-                  ? "Thanks — your message is on its way."
-                  : status === "fallback"
-                    ? "Opening your email client to finish sending…"
-                    : "Sent securely. If the backend isn't reachable, this opens your email client instead."}
-            </p>
-          </form>
+                {status === "sending"
+                  ? "Sending…"
+                  : status === "sent"
+                    ? "Sent — talk soon."
+                    : status === "fallback"
+                      ? "Opening your email client…"
+                      : "Send message"}
+                {status === "idle" && <span aria-hidden="true">&#8594;</span>}
+              </button>
+              <p
+                role="status"
+                aria-live="polite"
+                className="text-center text-[10px] font-mono text-muted-foreground tracking-wide"
+              >
+                {status === "sending"
+                  ? "Sending your message…"
+                  : "Sent securely. If the backend isn't reachable, this opens your email client instead."}
+              </p>
+            </form>
+
+            {done && (
+              <div
+                role="status"
+                aria-live="polite"
+                className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 rounded-3xl border border-cedar/40 bg-card/95 backdrop-blur-md p-8 text-center"
+              >
+                <span className="flex h-14 w-14 items-center justify-center rounded-full border border-cedar/40 bg-cedar/10">
+                  <TreeMark className="h-7 w-7 text-cedar" />
+                </span>
+                <h3 className="font-display text-2xl font-light text-foreground">
+                  {status === "sent" ? "Thank you." : "Check your email app."}
+                </h3>
+                <p className="max-w-sm leading-relaxed text-stone/85">
+                  {status === "sent"
+                    ? "Your message is on its way — I read everything, and I respond."
+                    : "I opened your email client to finish sending. If nothing happened, you can send it here instead."}
+                </p>
+                <button
+                  ref={resubmitRef}
+                  type="button"
+                  onClick={() => {
+                    formRef.current?.reset();
+                    setStatus("idle");
+                  }}
+                  className="mt-1 inline-flex items-center gap-2 rounded-full border border-cedar bg-[oklch(0.68_0.12_55/0.1)] px-6 py-3 text-sm text-cedar transition-colors hover:bg-[oklch(0.68_0.12_55/0.18)] focus:outline-none focus:ring-2 focus:ring-cedar/40"
+                >
+                  Send another message
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

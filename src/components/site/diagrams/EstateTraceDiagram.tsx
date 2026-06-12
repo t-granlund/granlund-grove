@@ -309,7 +309,7 @@ export function EstateTraceDiagram() {
         dominantBaseline="middle"
         style={{ fill: C.muted, fontSize: 9, fontFamily: "var(--font-mono)" }}
       >
-        ~$48.5K/yr actioned · ~40% path
+        savings actioned · ~40% optimization path
       </text>
     </svg>
   );

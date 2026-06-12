@@ -6,7 +6,7 @@ import { TreeMark } from "./TreeMark";
 // employment facts; gated portfolio metrics live behind docs/NUMBER_VERIFICATION.md.
 const roles = [
   {
-    company: "HTT Brands",
+    company: "Multi-Brand Franchise Group",
     role: "IT Operations & Systems Engineer",
     dates: "Jan 2026 — Present",
     summary:
@@ -18,7 +18,7 @@ const roles = [
     ],
   },
   {
-    company: "HTT Brands",
+    company: "Multi-Brand Franchise Group",
     role: "IT Director",
     dates: "Oct 2024 — Jan 2026",
     summary:

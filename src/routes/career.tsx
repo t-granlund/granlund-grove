@@ -11,7 +11,7 @@ export const Route = createFileRoute("/career")({
       {
         name: "description",
         content:
-          "Tyler Granlund's career path — roles, scope, and the measurable impact at each turn, from School of Rock to HTT Brands.",
+          "Tyler Granlund's career path — roles, scope, and the measurable impact at each turn, from School of Rock to a multi-brand franchise group.",
       },
       { property: "og:title", content: "Career — Tyler Granlund" },
       {

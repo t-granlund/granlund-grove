@@ -1,5 +1,7 @@
-// Control Tower — multi-tenant governance platform
-// 5 tenants -> central FastAPI+HTMX+PostgreSQL -> Azure SDK + Security/Auth -> Quality gate
+// Group Management Hub — generic governance architecture (code private).
+// Four tenants -> central hub (FastAPI + Microsoft Graph) -> group operations
+// + governance/quality -> a test-gated release. Styled to match the other
+// case-study diagrams; brand identities are anonymized (Brand A-D).
 
 const C = {
   cedar: "var(--cedar)",
@@ -17,7 +19,7 @@ function TenantBox({ x, y, label }: { x: number; y: number; label: string }) {
       <rect
         x={x}
         y={y}
-        width={118}
+        width={130}
         height={42}
         rx={7}
         fill={C.nodeFill}
@@ -25,7 +27,7 @@ function TenantBox({ x, y, label }: { x: number; y: number; label: string }) {
         strokeWidth={1}
       />
       <text
-        x={x + 59}
+        x={x + 65}
         y={y + 21}
         textAnchor="middle"
         dominantBaseline="middle"
@@ -47,7 +49,7 @@ function ArrowDown({ x, y1, y2 }: { x: number; y1: number; y2: number }) {
       stroke={C.cedar}
       strokeWidth={1.2}
       strokeOpacity={0.65}
-      markerEnd="url(#ctarr)"
+      markerEnd="url(#gmarr)"
     />
   );
 }
@@ -70,7 +72,6 @@ function ServiceRow({
   const totalH = headerH + items.length * rowH + 8;
   return (
     <g>
-      {/* Outer box */}
       <rect
         x={x}
         y={y}
@@ -81,7 +82,6 @@ function ServiceRow({
         stroke={C.border}
         strokeWidth={1}
       />
-      {/* Title bar */}
       <rect
         x={x}
         y={y}
@@ -91,7 +91,6 @@ function ServiceRow({
         fill="oklch(0.24 0.016 155)"
         stroke="none"
       />
-      {/* Square bottom of title bar */}
       <rect
         x={x}
         y={y + headerH - 10}
@@ -114,7 +113,6 @@ function ServiceRow({
       >
         {title}
       </text>
-      {/* Item rows */}
       {items.map((item, i) => (
         <g key={item}>
           <rect
@@ -142,48 +140,39 @@ function ServiceRow({
   );
 }
 
-export function ControlTowerDiagram() {
-  const tenants = ["Brand A", "Brand B", "Brand C", "Brand D", "Brand E"];
-  const tW = 118,
-    tGap = 13,
+export function GroupManagementDiagram() {
+  const tenants = ["Brand A", "Brand B", "Brand C", "Brand D"];
+  const tW = 130,
+    tGap = 16,
     tY = 20;
   const totalW = tenants.length * tW + (tenants.length - 1) * tGap;
   const tStartX = (760 - totalW) / 2;
 
-  // Control Tower box
-  const ctX = 230,
-    ctY = 112,
-    ctW = 300,
-    ctH = 68;
-  const ctCX = ctX + ctW / 2; // 380
+  const hubX = 230,
+    hubY = 112,
+    hubW = 300,
+    hubH = 68;
+  const hubCX = hubX + hubW / 2; // 380
 
-  // Bottom panels
   const panelY = 230;
   const leftX = 30,
-    rightX = 418;
-  const panelW = 312;
+    rightX = 418,
+    panelW = 312;
 
-  const azureItems = ["Cost Management", "Resource Manager", "Policy", "Defender"];
-  const secItems = [
-    "OIDC-only auth",
-    "Workload identity fed.",
-    "Docker -> GHCR",
-    "Zero stored secrets",
-  ];
-
-  // Height of service rows
-  const leftH = 36 + azureItems.length * 22 + 8; // 140
-  const gateY = panelY + Math.max(leftH, 36 + secItems.length * 22 + 8) + 20;
+  const opItems = ["Provisioning", "Membership sync", "Access reviews", "Lifecycle (JML)"];
+  const govItems = ["Naming policy", "RBAC model", "Audit trail", "WCAG AA UI"];
+  const panelH = 36 + opItems.length * 22 + 8; // 132
+  const gateY = panelY + panelH + 22;
 
   return (
     <svg
-      viewBox={`0 0 760 ${gateY + 34}`}
+      viewBox={`0 0 760 ${gateY + 50}`}
       role="img"
-      aria-label="Control Tower architecture: five Microsoft tenants (Brand A through Brand E) feed into a central Control Tower platform built on FastAPI, HTMX, and PostgreSQL. The platform queries the Azure SDK across Cost Management, Resource Manager, Policy, and Defender services, with OIDC-only authentication and workload identity federation — zero stored secrets. Every release is gated by 7,386 automated tests and a 48/48 judge score."
+      aria-label="Group Management Hub architecture: four anonymized tenants (Brand A through Brand D) feed a central hub built on FastAPI and Microsoft Graph. The hub splits into group operations (provisioning, membership sync, access reviews, and joiner-mover-leaver lifecycle) and governance and quality (naming policy, RBAC model, audit trail, and a WCAG AA user interface). Every release is gated by 7,984 automated tests with accessibility validated to WCAG AA before promotion."
       className="w-full h-auto"
     >
       <defs>
-        <marker id="ctarr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <marker id="gmarr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
           <path d="M0,0 L0,6 L6,3 Z" fill={C.cedar} fillOpacity={0.65} />
         </marker>
       </defs>
@@ -193,7 +182,7 @@ export function ControlTowerDiagram() {
         <TenantBox key={t} x={tStartX + i * (tW + tGap)} y={tY} label={t} />
       ))}
 
-      {/* Dashed gather lines from each tenant down to horizontal at y=98 */}
+      {/* Gather lines from each tenant down to a horizontal bus */}
       {tenants.map((_, i) => {
         const cx = tStartX + i * (tW + tGap) + tW / 2;
         return (
@@ -220,22 +209,22 @@ export function ControlTowerDiagram() {
         strokeOpacity={0.35}
         strokeDasharray="3 3"
       />
-      <ArrowDown x={ctCX} y1={98} y2={ctY - 2} />
+      <ArrowDown x={hubCX} y1={98} y2={hubY - 2} />
 
-      {/* Control Tower central node */}
+      {/* Central hub node */}
       <rect
-        x={ctX}
-        y={ctY}
-        width={ctW}
-        height={ctH}
+        x={hubX}
+        y={hubY}
+        width={hubW}
+        height={hubH}
         rx={12}
         fill={C.accentFill}
         stroke={C.cedarFaint}
         strokeWidth={1.5}
       />
       <text
-        x={ctCX}
-        y={ctY + 26}
+        x={hubCX}
+        y={hubY + 26}
         textAnchor="middle"
         dominantBaseline="middle"
         style={{
@@ -245,29 +234,28 @@ export function ControlTowerDiagram() {
           letterSpacing: "0.08em",
         }}
       >
-        CONTROL TOWER
+        GROUP MANAGEMENT HUB
       </text>
       <text
-        x={ctCX}
-        y={ctY + 46}
+        x={hubCX}
+        y={hubY + 46}
         textAnchor="middle"
         dominantBaseline="middle"
         style={{ fill: C.muted, fontSize: 10, fontFamily: "var(--font-mono)" }}
       >
-        FastAPI · HTMX · PostgreSQL
+        FastAPI · Microsoft Graph
       </text>
 
-      {/* Split arrow: CT bottom -> horizontal bar -> two panels */}
+      {/* Split: hub -> horizontal bar -> two panels */}
       <line
-        x1={ctCX}
-        y1={ctY + ctH}
-        x2={ctCX}
+        x1={hubCX}
+        y1={hubY + hubH}
+        x2={hubCX}
         y2={panelY - 16}
         stroke={C.cedar}
         strokeWidth={1.2}
         strokeOpacity={0.65}
       />
-      {/* horizontal split bar */}
       <line
         x1={leftX + panelW / 2}
         y1={panelY - 16}
@@ -277,43 +265,40 @@ export function ControlTowerDiagram() {
         strokeWidth={1.2}
         strokeOpacity={0.65}
       />
-      {/* drop down to each panel */}
       <ArrowDown x={leftX + panelW / 2} y1={panelY - 16} y2={panelY - 2} />
       <ArrowDown x={rightX + panelW / 2} y1={panelY - 16} y2={panelY - 2} />
 
-      {/* Azure SDK */}
-      <ServiceRow x={leftX} y={panelY} w={panelW} title="AZURE SDK" items={azureItems} />
+      {/* Service panels */}
+      <ServiceRow x={leftX} y={panelY} w={panelW} title="GROUP OPERATIONS" items={opItems} />
+      <ServiceRow x={rightX} y={panelY} w={panelW} title="GOVERNANCE & QUALITY" items={govItems} />
 
-      {/* Security & Auth */}
-      <ServiceRow x={rightX} y={panelY} w={panelW} title="SECURITY & AUTH" items={secItems} />
+      {/* Arrow to release gate */}
+      <ArrowDown x={hubCX} y1={panelY + panelH} y2={gateY} />
 
-      {/* Arrow to quality gate */}
-      <ArrowDown x={ctCX} y1={panelY + leftH} y2={gateY} />
-
-      {/* Quality gate */}
+      {/* Release / quality gate */}
       <rect
         x={30}
         y={gateY}
         width={700}
-        height={22}
-        rx={6}
-        fill="oklch(0.78 0.12 55 / 0.09)"
+        height={40}
+        rx={10}
+        fill={C.nodeFill}
         stroke={C.cedarFaint}
-        strokeWidth={1}
+        strokeWidth={1.5}
       />
       <text
         x={380}
-        y={gateY + 11}
+        y={gateY + 20}
         textAnchor="middle"
         dominantBaseline="middle"
         style={{
-          fill: C.cedar,
-          fontSize: 10.5,
+          fill: C.stone,
+          fontSize: 11,
           fontFamily: "var(--font-mono)",
-          letterSpacing: "0.07em",
+          letterSpacing: "0.06em",
         }}
       >
-        7,386 AUTOMATED TESTS · JUDGE 48/48 · DR DRILLS COMPLETE
+        RELEASE GATE · 7,984 tests · WCAG AA
       </text>
     </svg>
   );
