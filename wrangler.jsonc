@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "granlund-grove",
+  "compatibility_date": "2025-09-24",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "src/server.ts",
+  // Custom domains -- Cloudflare auto-provisions the proxied DNS + TLS cert.
+  // Apex is canonical (see <link rel=canonical>); www also serves the app.
+  "routes": [
+    { "pattern": "tylergranlund.com", "custom_domain": true },
+    { "pattern": "www.tylergranlund.com", "custom_domain": true },
+  ],
+  // Workers Logs: 200k logs/day, 3-day retention on the free tier. Surfaces the
+  // console.error() calls in server.ts (otherwise they go nowhere useful).
+  "observability": { "enabled": true, "head_sampling_rate": 1 },
+}

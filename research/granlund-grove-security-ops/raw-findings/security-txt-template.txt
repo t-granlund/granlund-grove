@@ -1,0 +1,16 @@
+# RFC 9116 security.txt template
+# Source: https://www.rfc-editor.org/rfc/rfc9116.txt (April 2022, Foudil/Shafranovich)
+# Place at: public/.well-known/security.txt
+# Required fields: Contact, Expires
+# Recommended: Canonical, Preferred-Languages, Policy, Encryption
+# Optional: Acknowledgments, Hiring
+# Expires MUST be < 1 year from publish (RFC 9116 §2.5.5)
+# Recommended: cleartext-sign with OpenPGP (RFC 9116 §2.3)
+
+Contact: mailto:security@granlundgrove.dev
+Expires: 2026-11-15T00:00:00Z
+Preferred-Languages: en
+Canonical: https://granlundgrove.dev/.well-known/security.txt
+Policy: https://granlundgrove.dev/security
+# Encryption: https://granlundgrove.dev/pgp-key.txt
+# Acknowledgments: https://granlundgrove.dev/security/hall-of-fame

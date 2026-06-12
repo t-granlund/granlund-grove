@@ -1,0 +1,44 @@
+{
+  "captured": "2025-11",
+  "registry": "https://registry.npmjs.org",
+  "packages": {
+    "@marsidev/react-turnstile": {
+      "latest": "1.5.2",
+      "license": "MIT",
+      "published": "2025-05-05",
+      "url": "https://github.com/marsidev/react-turnstile",
+      "notes": "Community React wrapper; no official Cloudflare React SDK exists."
+    },
+    "@stoplight/spectral-cli": {
+      "latest": "6.16.0",
+      "license": "Apache-2.0",
+      "note": "User asked about 6.15.0 — 6.16.0 is newer."
+    },
+    "@redocly/cli": {
+      "latest": "2.31.2",
+      "license": "MIT"
+    },
+    "vacuum": {
+      "latest": "v0.26.5",
+      "license": "MIT",
+      "url": "https://github.com/daveshanley/vacuum",
+      "language": "Go",
+      "spectral_ruleset_compatible": true
+    },
+    "web-vitals": {
+      "latest": "5.2.0",
+      "license": "Apache-2.0",
+      "breaking_in_v5": [
+        "onFID() removed (INP supersedes)",
+        "Browser support: Baseline Widely available",
+        "attribution selectors sort classes to reduce cardinality"
+      ]
+    },
+    "@sentry/cloudflare": {
+      "latest": "10.53.1",
+      "license": "MIT",
+      "official_workers_sdk": true,
+      "free_tier": "Sentry Developer: 5,000 errors/mo, 1 user, tracing included"
+    }
+  }
+}

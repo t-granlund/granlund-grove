@@ -1,0 +1,117 @@
+{
+  "_meta": {
+    "queried_at": "2026-05-20T23:10:00Z",
+    "source": "npm registry via `npm view`, GitHub Releases, Cloudflare docs",
+    "note": "User request stated 'Nov 2025'; system clock and npm timestamps confirm actual date is May 2026."
+  },
+  "ci_cd": {
+    "cloudflare/wrangler-action": {
+      "latest_tag": "v4.0.0",
+      "tag_released": "2025-05-12",
+      "default_wrangler": "4.x",
+      "oidc_supported": false,
+      "auth_methods": ["apiToken (Cloudflare API token via GH Secret)"]
+    },
+    "wrangler": {
+      "latest": "4.93.0",
+      "released": "2026-05-19",
+      "dist_tags": { "latest": "4.93.0", "legacy": "3.114.17" }
+    },
+    "workers_preview_urls": {
+      "feature_status": "GA",
+      "versioned_preview_min_wrangler": "3.74.0",
+      "aliased_preview_min_wrangler": "4.21.0",
+      "workers_builds_supports_pr_previews": true,
+      "default_non_prod_deploy_cmd": "npx wrangler versions upload",
+      "doc_last_updated": "2026-04-23"
+    },
+    "@lhci/cli": {
+      "latest": "0.15.1",
+      "released": "2025-06-25"
+    }
+  },
+  "testing": {
+    "@playwright/test": {
+      "latest": "1.60.0",
+      "released": "2026-05-20",
+      "react_19_supported": true,
+      "ct_recommended": false
+    },
+    "vitest": {
+      "latest": "4.1.7",
+      "released": "2026-05-20"
+    },
+    "@testing-library/react": {
+      "latest": "16.3.2",
+      "released": "2026-01-19",
+      "peer_react": "^18.0.0 || ^19.0.0"
+    },
+    "msw": {
+      "latest": "2.14.6",
+      "released": "2026-05-11",
+      "peer_typescript": ">= 4.8.x"
+    },
+    "axe-core": {
+      "latest": "4.11.4",
+      "released": "2026-04-23",
+      "wcag_22_aa_rules": true
+    },
+    "@axe-core/playwright": {
+      "latest": "4.11.3",
+      "released": "2026-04-30"
+    },
+    "visual_regression_options": {
+      "playwright_toHaveScreenshot": { "cost": 0, "maintenance": "low", "recommended_for_solo": true },
+      "lost-pixel": { "latest": "3.22.0", "released": "2024-11-14", "stale_months": 18, "recommended": false },
+      "chromatic": { "free_tier_snapshots_per_month": 5000, "paid_from_usd_per_month": 149, "recommended_for_solo": false }
+    }
+  },
+  "og_images": {
+    "@cf-wasm/og": {
+      "latest": "0.3.8",
+      "released": "2026-05-03",
+      "repo": "github.com/fineshopdesign/cf-wasm",
+      "recommended": true,
+      "ships": ["satori", "resvg-wasm"]
+    },
+    "@cf-wasm/satori": {
+      "latest": "0.3.6",
+      "released": "2026-05-03",
+      "scope": "satori only (SVG out, no PNG)"
+    },
+    "workers-og": {
+      "latest": "0.0.27",
+      "released": "2025-06-12",
+      "stale_months": 11,
+      "recommended": false
+    },
+    "@vercel/og": {
+      "latest": "0.11.1",
+      "released": "2026-05-18",
+      "works_on_cloudflare_workers": false
+    },
+    "satori": {
+      "latest": "0.26.0",
+      "released": "2026-03-20",
+      "supported_font_formats": ["TTF", "OTF"],
+      "unsupported": ["WOFF2"]
+    }
+  },
+  "rss": {
+    "feed": {
+      "latest": "5.2.1",
+      "released": "2026-04-19",
+      "previous_major": { "version": "4.2.2", "released": "2021-01-22" },
+      "revival": { "version": "5.0.0", "released": "2025-05-06" },
+      "outputs": ["RSS 2.0", "Atom 1.0", "JSON Feed 1.1"],
+      "runtime_deps": ["xml-js@^1.6.11"]
+    },
+    "json_feed_1_1": {
+      "spec_version": "1.1",
+      "spec_date": "2020-08-07",
+      "mime_type": "application/feed+json",
+      "status": "frozen, stable",
+      "adoption": "moderate (Daring Fireball, micro.blog, NetNewsWire, Reeder, Inoreader, Feedly)"
+    }
+  }
+}
