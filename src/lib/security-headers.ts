@@ -23,6 +23,10 @@ const CONTENT_SECURITY_POLICY = [
   "img-src 'self' data: blob:",
   "font-src 'self'",
   "connect-src 'self'",
+  // Ventures page embeds privacy-enhanced YouTube only AFTER an explicit click
+  // (facade pattern). Posters are self-hosted, so img-src stays 'self'; only the
+  // nocookie player frame needs allow-listing.
+  "frame-src 'self' https://www.youtube-nocookie.com",
   "form-action 'self' mailto:",
   "frame-ancestors 'none'",
   "base-uri 'none'",

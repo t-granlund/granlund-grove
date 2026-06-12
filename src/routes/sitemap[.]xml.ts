@@ -4,7 +4,7 @@ import type {} from "@tanstack/react-start";
 const BASE_URL = "https://tylergranlund.com";
 // Build-time constant. Using `new Date()` per request makes <lastmod> change on
 // every crawl — a misleading freshness signal. Bump this when content changes.
-const LAST_MODIFIED = "2026-06-01";
+const LAST_MODIFIED = "2026-06-11";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
@@ -15,6 +15,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/about", changefreq: "monthly", priority: "0.8" },
           { path: "/career", changefreq: "monthly", priority: "0.8" },
           { path: "/work", changefreq: "monthly", priority: "0.9" },
+          { path: "/ventures", changefreq: "monthly", priority: "0.8" },
           { path: "/resume", changefreq: "monthly", priority: "0.7" },
           { path: "/contact", changefreq: "yearly", priority: "0.6" },
           { path: "/privacy", changefreq: "yearly", priority: "0.3" },

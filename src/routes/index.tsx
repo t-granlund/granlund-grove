@@ -125,14 +125,20 @@ const destinations = [
     blurb: "Six flagship case studies — problem, architecture, oversight, outcome.",
   },
   {
-    to: "/resume",
+    to: "/ventures",
     index: "04",
+    title: "Ventures",
+    blurb: "Beyond the systems — Spruce Grove Media films and field data capture.",
+  },
+  {
+    to: "/resume",
+    index: "05",
     title: "Resume",
     blurb: "The growth rings — a downloadable record, with tailored variants.",
   },
   {
     to: "/contact",
-    index: "05",
+    index: "06",
     title: "Contact",
     blurb: "Step into the clearing. Send a note — I read everything.",
   },
@@ -259,7 +265,7 @@ function Landing() {
                   The grove · choose a trail
                 </div>
                 <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-light text-balance">
-                  Five trails through the grove.
+                  Six trails through the grove.
                 </h2>
                 <p className="mt-5 text-stone/85 leading-relaxed">
                   The numbers above are the short version. Each trail below is the long one — the
@@ -301,8 +307,8 @@ function Landing() {
                 </li>
               ))}
 
-              {/* closing CTA — fills the grid's sixth cell and gives the hub an endpoint */}
-              <li>
+              {/* closing CTA — full-width band under the six trails, an endpoint for the hub */}
+              <li className="sm:col-span-2 lg:col-span-3">
                 <Link
                   to="/contact"
                   className="group flex h-full flex-col justify-between rounded-3xl border border-cedar/60 bg-[oklch(0.30_0.05_60/0.35)] p-8 lift hover:border-cedar"

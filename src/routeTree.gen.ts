@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkRouteImport } from './routes/work'
+import { Route as VenturesRouteImport } from './routes/ventures'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResumeRouteImport } from './routes/resume'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -23,6 +24,11 @@ import { Route as ApiContactRouteImport } from './routes/api/contact'
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VenturesRoute = VenturesRouteImport.update({
+  id: '/ventures',
+  path: '/ventures',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -80,6 +86,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
   '/api/contact': typeof ApiContactRoute
 }
@@ -92,6 +99,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
   '/api/contact': typeof ApiContactRoute
 }
@@ -105,6 +113,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
   '/api/contact': typeof ApiContactRoute
 }
@@ -119,6 +128,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/resume'
     | '/sitemap.xml'
+    | '/ventures'
     | '/work'
     | '/api/contact'
   fileRoutesByTo: FileRoutesByTo
@@ -131,6 +141,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/resume'
     | '/sitemap.xml'
+    | '/ventures'
     | '/work'
     | '/api/contact'
   id:
@@ -143,6 +154,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/resume'
     | '/sitemap.xml'
+    | '/ventures'
     | '/work'
     | '/api/contact'
   fileRoutesById: FileRoutesById
@@ -156,6 +168,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ResumeRoute: typeof ResumeRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  VenturesRoute: typeof VenturesRoute
   WorkRoute: typeof WorkRoute
   ApiContactRoute: typeof ApiContactRoute
 }
@@ -167,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/work'
       fullPath: '/work'
       preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ventures': {
+      id: '/ventures'
+      path: '/ventures'
+      fullPath: '/ventures'
+      preLoaderRoute: typeof VenturesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -244,6 +264,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ResumeRoute: ResumeRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  VenturesRoute: VenturesRoute,
   WorkRoute: WorkRoute,
   ApiContactRoute: ApiContactRoute,
 }
