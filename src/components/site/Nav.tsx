@@ -119,6 +119,7 @@ export function Nav() {
                 activeProps={{
                   className:
                     "px-3 py-2 text-sm text-cedar rounded-full bg-[oklch(0.68_0.12_55/0.12)]",
+                  "aria-current": "page",
                 }}
               >
                 {i.label}
@@ -172,6 +173,7 @@ export function Nav() {
                 className="block px-4 py-3 rounded-xl text-foreground hover:bg-[oklch(0.30_0.03_158/0.4)]"
                 activeProps={{
                   className: "block px-4 py-3 rounded-xl text-cedar bg-[oklch(0.68_0.12_55/0.12)]",
+                  "aria-current": "page",
                 }}
               >
                 {i.label}
