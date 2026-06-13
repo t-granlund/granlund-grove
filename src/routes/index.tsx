@@ -197,11 +197,9 @@ function Landing() {
                 <p className="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed text-stone/90">
                   I&apos;m <span className="text-foreground">Tyler Granlund</span> — an IT
                   operations &amp; systems engineer in Bella Vista, Arkansas. I run supervised
-                  multi-agent systems that ship production software:{" "}
-                  <span className="text-foreground">
-                    19 live across a 5-brand, 200+ location franchise portfolio
-                  </span>{" "}
-                  — with the security, evals, and CI/CD to prove it.
+                  multi-agent systems that ship production software across{" "}
+                  <span className="text-foreground">200+ locations</span>— with the security, evals,
+                  and CI/CD to prove it.
                 </p>
 
                 <div className="mt-10 flex flex-wrap items-center gap-4">
