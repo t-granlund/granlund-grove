@@ -1,10 +1,9 @@
 import { TreeMark } from "./TreeMark";
 
-// The proof band. Architectural firms lead with "47 countries · 200+ projects";
-// this is the same move for a systems engineer. Every figure here is VERIFIED
-// non-financial (docs/NUMBER_VERIFICATION.md, bd dev-kxh closed 2026-06-11).
-// DOLLAR figures are intentionally absent until bd dev-jgu.2 clears — keep this
-// list $-free so the band can ship today without tripping the number gate.
+// The proof band. Career-spanning figures — years, depth, breadth, and the
+// testing discipline that carries across every system. All numbers are
+// non-financial and true across the full career (School of Rock, Outdoor Cap,
+// HTT Brands / Multi-Brand Franchise Group).
 type Stat = {
   value: string;
   label: string;
@@ -13,11 +12,11 @@ type Stat = {
 };
 
 const stats: readonly Stat[] = [
-  { value: "19", label: "Systems live", detail: "in production" },
-  { value: "5", label: "Brands", detail: "one franchise portfolio" },
-  { value: "200+", label: "Locations", detail: "served" },
-  { value: "7,386", label: "Tests gating release", detail: "Control Tower CI" },
-  { value: "48/48", label: "Judge score", detail: "automated release gate" },
+  { value: "10+", label: "Years", detail: "building production systems" },
+  { value: "6", label: "Flagship systems", detail: "deep case studies" },
+  { value: "200+", label: "Locations", detail: "operations supported" },
+  { value: "7,000+", label: "Tests", detail: "automated quality gate" },
+  { value: "48/48", label: "Judge score", detail: "release discipline" },
 ] as const;
 
 export function StatStrip() {
