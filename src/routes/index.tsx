@@ -3,7 +3,6 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Picture } from "@/components/site/Picture";
 import { TreeMark } from "@/components/site/TreeMark";
-import { StatStrip } from "@/components/site/StatStrip";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -252,7 +251,6 @@ function Landing() {
         </section>
 
         {/* Proof band — verified, $-free numbers (bd dev-45b.1) */}
-        <StatStrip />
 
         {/* Hub — the five destinations */}
         <section className="relative py-24 lg:py-32">
