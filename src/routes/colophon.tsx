@@ -10,6 +10,15 @@ export const Route = createFileRoute("/colophon")({
         content:
           "How tylergranlund.com is built — stack, typography, accessibility, privacy, and hosting.",
       },
+      { property: "og:title", content: "Colophon — Tyler Granlund" },
+      {
+        property: "og:description",
+        content:
+          "How tylergranlund.com is built — stack, typography, accessibility, privacy, and hosting.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://tylergranlund.com/colophon" },
+      { property: "og:image", content: "https://tylergranlund.com/og-cover.jpg" },
       { name: "robots", content: "noindex, follow" },
     ],
     links: [{ rel: "canonical", href: "https://tylergranlund.com/colophon" }],
