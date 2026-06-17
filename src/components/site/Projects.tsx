@@ -10,6 +10,7 @@ import { SectionLabel } from "./SectionLabel";
 import { CaseStudyModal } from "./CaseStudyModal";
 import { EstateTraceSnapshot } from "./EstateTraceSnapshot";
 import { EstateTraceDeepDive } from "./EstateTraceDeepDive";
+import { CodePuppyModal } from "./CodePuppyModal";
 import { EstateTraceDiagram } from "./diagrams/EstateTraceDiagram";
 import { ControlTowerDiagram } from "./diagrams/ControlTowerDiagram";
 import { KnowledgeFabricDiagram } from "./diagrams/KnowledgeFabricDiagram";
@@ -168,29 +169,30 @@ export const caseStudies: CaseStudy[] = [
     link: { href: "https://github.com/t-granlund/mysa-mail", label: "View on GitHub" },
   },
   {
-    name: "Group Management Hub",
-    kicker: "The production quality bar",
-    teaser: "Group governance held to a strict, fully test-gated quality bar.",
+    name: "Identity Governance Ecosystem",
+    kicker: "Master identity database across five brands",
+    teaser:
+      "The final system I built at Head to Toe — a master identity database spanning five brands and Microsoft tenants, with role-based onboarding and offboarding tied to location and brand affiliation.",
     diagram: <GroupManagementDiagram />,
     tag: "Production",
     metrics: [
+      { value: "5", label: "brands unified" },
+      { value: "200+", label: "locations" },
       { value: "7,984", label: "tests gating release" },
-      { value: "334", label: "groups governed" },
-      { value: "4", label: "tenants" },
     ],
     // Spruce branch with cone — a cluster / group of needles = group governance
     heroImage: "branch",
     problem:
-      "Group and access sprawl across four tenants — 334 groups with no consistent governance or quality bar.",
+      "Five brands, 200+ locations, and no unified identity governance. Onboarding and offboarding was manual, error-prone, and inconsistent across Microsoft tenants. Staff in one brand couldn't access resources in another — even when their role required it. The COO needed a clear end-to-end identity lifecycle with the least friction possible.",
     architecture:
-      "The same supervised-agent discipline as Control Tower, held to a strict gate: 7,984 tests and WCAG AA across the UI.",
+      "Built a master identity database that federated across all five brands and their Microsoft tenants. Role-based access control tied to location, brand affiliation, and job function — so a manager in Brand A at Location X gets exactly the resources they need, automatically. Onboarding and offboarding became a single workflow with audit trails, not a ticket queue.",
     oversight:
-      "7,984 automated tests gating every release; accessibility validated to WCAG AA before promotion.",
+      "7,984 automated tests gating every release; WCAG AA across the UI. The same supervised-agent discipline as Control Tower — built with Code Puppy, the open-source agent that was adopted internally at Walmart.",
     outcome:
-      "Production across four tenants managing 334 groups — the exhibit for the quality bar I hold every system to.",
+      "Unified identity governance across five brands and 200+ locations. Onboarding time reduced from days to minutes. Offboarding became immediate and auditable. The COO had a single pane of glass for who has access to what, across the entire estate.",
     reflection:
-      "Boring, exhaustive testing is the unglamorous reason these systems can be agent-built and still trusted in production.",
-    stack: ["Python", "FastAPI", "Azure", "WCAG AA"],
+      "The real win wasn't the technology — it was that people stopped worrying about access. They got what they needed, when they needed it, without friction. That's the mission: remove obstacles so people can do their best work.",
+    stack: ["Python", "FastAPI", "Azure", "Entra ID", "WCAG AA"],
     note: "Code private — architecture summarized.",
   },
 ];
@@ -245,6 +247,10 @@ export function Projects() {
               key={c.name}
               className="group relative rounded-3xl border border-border bg-card/70 overflow-hidden lift"
             >
+              <div
+                aria-hidden
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_top_left,oklch(0.68_0.12_55/0.10),transparent_55%)]"
+              />
               {c.heroImage && (
                 <div className="relative h-44 lg:h-52 overflow-hidden">
                   <Picture
@@ -262,7 +268,7 @@ export function Projects() {
                 </div>
               )}
 
-              <div className="p-8 lg:p-12">
+              <div className="relative p-8 lg:p-12">
                 {/* Kicker + tag */}
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-cedar">
@@ -322,6 +328,45 @@ export function Projects() {
           ))}
         </div>
 
+        {/* Code Puppy highlight */}
+        <div className="mt-16">
+          <div className="group relative rounded-3xl border border-cedar/40 bg-[oklch(0.25_0.05_60/0.35)] overflow-hidden">
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_top_left,oklch(0.68_0.12_55/0.12),transparent_60%)]" />
+            <div className="relative p-8 lg:p-12">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-cedar">
+                  Open Source · Enterprise
+                </span>
+                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-stone/70 px-2.5 py-1 rounded-full border border-cedar/30">
+                  616 stars · 4,000+ Walmart users
+                </span>
+              </div>
+              <h3 className="mt-4 font-display text-3xl lg:text-4xl text-foreground">Code Puppy</h3>
+              <p className="mt-4 text-stone/85 leading-relaxed max-w-2xl">
+                The open-source AI code agent I use to build every production system on this site.
+                Created by Michael Pfaffenberger and John Choi. Adopted internally at Walmart —
+                where they received the{" "}
+                <span className="text-cedar">President's Innovation Award</span> from Walmart
+                President &amp; CEO John Furner. 4,000+ store employees now use Code Puppy daily. I
+                used it at Head to Toe Brands to run a five-brand, 200+ location franchise portfolio
+                with a lean team — building applications, automations, and operational efficiencies
+                that would otherwise require a much larger organization.
+              </p>
+              <div className="mt-5 flex flex-wrap items-center gap-4">
+                <CodePuppyModal />
+                <a
+                  href="https://github.com/mpfaffenberger/code_puppy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-cedar hover:text-mist transition-colors"
+                >
+                  View on GitHub <span aria-hidden="true">&#8599;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* More from the workshop */}
         <div className="mt-16">
           <h3 className="font-display text-2xl text-foreground">More from the workshop.</h3>
@@ -370,9 +415,18 @@ export function Projects() {
         {/* Personal passions */}
         <div className="mt-12 grid sm:grid-cols-3 gap-4">
           {passions.map((c) => (
-            <div key={c.t} className="rounded-2xl border border-border bg-card/60 p-6 lift">
-              <h4 className="font-display text-lg">{c.t}</h4>
-              <p className="mt-2 text-sm text-stone/85">{c.b}</p>
+            <div
+              key={c.t}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card/60 p-6 lift"
+            >
+              <div
+                aria-hidden
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_top_left,oklch(0.68_0.12_55/0.12),transparent_60%)]"
+              />
+              <div className="relative">
+                <h4 className="font-display text-lg">{c.t}</h4>
+                <p className="mt-2 text-sm text-stone/85">{c.b}</p>
+              </div>
             </div>
           ))}
         </div>

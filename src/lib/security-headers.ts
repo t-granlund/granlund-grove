@@ -22,7 +22,7 @@ const CONTENT_SECURITY_POLICY = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
-  "connect-src 'self'",
+  "connect-src 'self' https://cloudflareinsights.com",
   // Ventures page embeds privacy-enhanced YouTube only AFTER an explicit click
   // (facade pattern). Posters are self-hosted, so img-src stays 'self'; only the
   // nocookie player frame needs allow-listing.

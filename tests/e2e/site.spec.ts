@@ -6,10 +6,42 @@ test.describe("landing hub", () => {
 
     await expect(page).toHaveTitle(/Tyler Granlund/i);
     await expect(page.getByRole("main")).toBeVisible();
-    await expect(page.getByRole("heading", { level: 1 })).toContainText(/resilient systems/i);
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(/rooted in training/i);
 
     for (const path of ["/about", "/career", "/work", "/resume", "/contact"]) {
       await expect(page.locator(`main a[href="${path}"]`).first()).toBeVisible();
+    }
+  });
+
+  test("renders the globe network section", async ({ page }) => {
+    await page.goto("/");
+    const globeSection = page.locator("[data-testid='globe-network']");
+    await expect(globeSection).toBeVisible();
+    await expect(globeSection.getByRole("heading", { name: /crossed continents/i })).toBeVisible();
+    await expect(globeSection.getByText(/22 cities/i).first()).toBeVisible();
+    await expect(globeSection.getByText(/5 continents/i).first()).toBeVisible();
+    await expect(globeSection.getByText(/one market to the world/i)).toBeVisible();
+    await expect(globeSection.getByRole("link", { name: /See the journey/i })).toBeVisible();
+  });
+
+  test("globe overlay links to career page", async ({ page }) => {
+    await page.goto("/");
+    const globeSection = page.locator("[data-testid='globe-network']");
+    await globeSection.getByRole("link", { name: /See the journey/i }).click();
+    await expect(page).toHaveURL(/\/career$/);
+  });
+
+  test("renders the globe canvas container", async ({ page }) => {
+    await page.goto("/");
+    const canvas = page.locator("[data-testid='globe-canvas-container']");
+    await expect(canvas).toBeVisible();
+  });
+
+  test("renders the globe network legend", async ({ page }) => {
+    await page.goto("/");
+    const globeSection = page.locator("[data-testid='globe-network']");
+    for (const label of ["Roots", "Hubs", "International"]) {
+      await expect(globeSection.getByText(label).first()).toBeVisible();
     }
   });
 
@@ -37,6 +69,8 @@ test.describe("section routes load", () => {
     ["/work", /Work/i],
     ["/resume", /Resume/i],
     ["/contact", /Contact/i],
+    ["/ventures", /Ventures/i],
+    ["/colophon", /Colophon/i],
   ];
   for (const [path, titleRe] of routes) {
     test(`${path} renders main + correct title`, async ({ page }) => {
@@ -49,6 +83,25 @@ test.describe("section routes load", () => {
   test("career page shows the IT Director role", async ({ page }) => {
     await page.goto("/career");
     await expect(page.getByRole("heading", { name: "IT Director" })).toBeVisible();
+  });
+
+  test("ventures page shows Spruce Grove Media", async ({ page }) => {
+    await page.goto("/ventures");
+    await expect(page.getByText(/Spruce Grove Media/i).first()).toBeVisible();
+  });
+
+  test("colophon page shows build stack details", async ({ page }) => {
+    await page.goto("/colophon");
+    await expect(page.getByText(/TanStack Start/i)).toBeVisible();
+    await expect(page.getByText(/Tailwind CSS v4/i)).toBeVisible();
+  });
+});
+
+test.describe("404 handling", () => {
+  test("unknown routes show a branded 404 page", async ({ page }) => {
+    await page.goto("/this-does-not-exist");
+    await expect(page.getByRole("heading", { name: /404/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /go home/i })).toBeVisible();
   });
 });
 

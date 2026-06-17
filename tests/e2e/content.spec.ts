@@ -13,7 +13,7 @@ test.describe("home content sections", () => {
       "Estate Trace",
       "Zero-secret automation",
       "Mysa Mail",
-      "Group Management Hub",
+      "Identity Governance Ecosystem",
     ]) {
       await expect(projects.getByRole("heading", { name })).toBeVisible();
     }
@@ -81,6 +81,63 @@ test.describe("resume PDFs are actually served", () => {
   }
 });
 
+test.describe("about page content", () => {
+  test("renders about and skills sections", async ({ page }) => {
+    await page.goto("/about");
+    // "About" label is in SectionLabel (span), not a heading — use first() because
+    // "Roots" also appears in "Deepen the roots" philosophy tenet
+    await expect(page.getByText(/Roots/i).first()).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Rooted in systems/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /the grove/i })).toBeVisible();
+    // Philosophy section is rendered via SectionLabel (span, not heading)
+    await expect(page.getByText(/The Compass/i)).toBeVisible();
+  });
+
+  test("shows headshot image with alt text", async ({ page }) => {
+    await page.goto("/about");
+    const img = page.locator("img[alt*='Tyler Granlund']").first();
+    await expect(img).toBeVisible();
+    const alt = await img.getAttribute("alt");
+    expect(alt).toContain("Tyler Granlund");
+  });
+});
+
+test.describe("career page content", () => {
+  test("renders all career roles", async ({ page }) => {
+    await page.goto("/career");
+    const careerSection = page.locator("#career");
+    await expect(careerSection.getByText(/IT Operations & Systems Engineer/i)).toBeVisible();
+    await expect(careerSection.getByRole("heading", { name: /IT Director/i })).toBeVisible();
+    await expect(careerSection.getByText(/Outdoor Cap Company/i)).toBeVisible();
+    await expect(careerSection.getByText(/School of Rock/i)).toBeVisible();
+  });
+
+  test("impact section renders", async ({ page }) => {
+    await page.goto("/career");
+    await expect(page.getByRole("heading", { name: /Where I create impact/i })).toBeVisible();
+  });
+
+  test("career impact timeline renders", async ({ page }) => {
+    await page.goto("/career");
+    await expect(page.getByRole("heading", { name: /A career measured in/i })).toBeVisible();
+    await expect(page.getByText(/from one market to the world/i)).toBeVisible();
+    // Step badges in the timeline cards (not the map legend)
+    const timelineSection = page
+      .locator("section")
+      .filter({ has: page.getByRole("heading", { name: /A career measured in/i }) });
+    await expect(timelineSection.getByText(/^Step 01$/i).first()).toBeVisible();
+    await expect(timelineSection.getByText(/^Step 05$/i).first()).toBeVisible();
+  });
+});
+
+test.describe("ventures page content", () => {
+  test("renders Spruce Grove Media section", async ({ page }) => {
+    await page.goto("/ventures");
+    // Use first() because "Spruce Grove Media" appears in eyebrow + body text
+    await expect(page.getByText(/Spruce Grove Media/i).first()).toBeVisible();
+  });
+});
+
 test.describe("contact form", () => {
   // The form is SSR'd, but onSubmit only prevents a native (page-reloading)
   // submit once React has hydrated. Wait for React to tag the submit button
@@ -146,5 +203,13 @@ test.describe("contact form", () => {
       subject: "FDE conversation",
       message: "Loved the case studies.",
     });
+  });
+
+  test("honeypot field is hidden from accessibility tree", async ({ page }) => {
+    await page.goto("/contact");
+    const honeypot = page.locator('input[name="company"]');
+    await expect(honeypot).toHaveAttribute("aria-hidden", "true");
+    await expect(honeypot).toHaveAttribute("tabindex", "-1");
+    await expect(honeypot).toHaveAttribute("autocomplete", "off");
   });
 });

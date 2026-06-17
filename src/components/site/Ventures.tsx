@@ -113,33 +113,41 @@ export function Ventures() {
       </div>
 
       {/* ---- Field & sensor data capture ------------------------------- */}
-      <div className="mt-24 rounded-3xl border border-border bg-card/50 p-8 sm:p-12">
-        <Eyebrow>Field data capture &middot; Zipline &times; Walmart drone-delivery pilot</Eyebrow>
-        <h2 className="font-display text-2xl font-light text-foreground sm:text-3xl">
-          When the medium changed, the discipline didn&rsquo;t.
-        </h2>
-        <p className="mt-4 max-w-3xl leading-relaxed text-stone/80">
-          Benton Drones and I were brought in &mdash; with specialized equipment contracted through
-          Zipline &mdash; to capture survey data for the Walmart drone-delivery pilot in our city. I
-          worked as a <span className="text-foreground">data-capture analyst</span>, running rigs
-          that recorded LiDAR, infrared, and high-resolution camera data across willing
-          participants, then validating that every dataset was complete and clean enough to help
-          establish Zipline&rsquo;s V2 delivery platform.
-        </p>
-        <p className="mt-4 max-w-3xl leading-relaxed text-stone/70">
-          Different tools, same instinct as everything else I build: meet the technical
-          implementation wherever it is, and get the data right.
-        </p>
-        <ul className="mt-6 flex flex-wrap gap-2.5">
-          {CAPTURE_CHIPS.map((c) => (
-            <li
-              key={c}
-              className="rounded-full border border-cedar/30 bg-cedar/[0.06] px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-stone/80"
-            >
-              {c}
-            </li>
-          ))}
-        </ul>
+      <div className="group relative mt-24 overflow-hidden rounded-3xl border border-border bg-card/50 p-8 sm:p-12">
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_top_left,oklch(0.68_0.12_55/0.10),transparent_55%)]"
+        />
+        <div className="relative">
+          <Eyebrow>
+            Field data capture &middot; Zipline &times; Walmart drone-delivery pilot
+          </Eyebrow>
+          <h2 className="font-display text-2xl font-light text-foreground sm:text-3xl">
+            When the medium changed, the discipline didn&rsquo;t.
+          </h2>
+          <p className="mt-4 max-w-3xl leading-relaxed text-stone/80">
+            Benton Drones and I were brought in &mdash; with specialized equipment contracted
+            through Zipline &mdash; to capture survey data for the Walmart drone-delivery pilot in
+            our city. I worked as a <span className="text-foreground">data-capture analyst</span>,
+            running rigs that recorded LiDAR, infrared, and high-resolution camera data across
+            willing participants, then validating that every dataset was complete and clean enough
+            to help establish Zipline&rsquo;s V2 delivery platform.
+          </p>
+          <p className="mt-4 max-w-3xl leading-relaxed text-stone/70">
+            Different tools, same instinct as everything else I build: meet the technical
+            implementation wherever it is, and get the data right.
+          </p>
+          <ul className="mt-6 flex flex-wrap gap-2.5">
+            {CAPTURE_CHIPS.map((c) => (
+              <li
+                key={c}
+                className="rounded-full border border-cedar/30 bg-cedar/[0.06] px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-stone/80"
+              >
+                {c}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

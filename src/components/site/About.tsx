@@ -19,14 +19,24 @@ export function About() {
 
             <div className="mt-10 space-y-6 text-lg leading-relaxed text-stone/90 max-w-2xl">
               <p>
-                I&apos;m an IT operations &amp; systems engineer and former Director of IT, with
-                experience across franchise technology, e-commerce, agile product management,
-                support operations, Microsoft cloud environments, data and BI modernization, access
-                and security management, and cross-functional transformation.
+                I&apos;m an IT operations &amp; systems engineer and former Director of IT. My
+                career has spanned franchise technology, B2B wholesale e-commerce, B2C
+                brick-and-mortar e-commerce, agile product management, Microsoft cloud environments,
+                data and BI modernization, and cross-functional transformation.
               </p>
               <p>
-                What I love most: using technology to improve real people&apos;s lives, simplify
-                complexity, and help teams operate with clarity.
+                The thread through every role — whether franchising, wholesale, or retail — has been
+                the same: optimize and refine everything based on the needs of the customer. I
+                create clear end-to-end agile software development life cycles that help teams
+                realize their plan, track it through failure, learn, reiterate, and continuously
+                optimize.
+              </p>
+              <p>
+                My mission is simple: support people. Remove technological obstacles so their
+                day-to-day is more fulfilling. That permeates the entire ecosystem — creating brand
+                ambassadors, making people want to work at a place that helps their home lives be
+                better because they are not stressed running their business. Technology should serve
+                people, not the other way around.
               </p>
               <p>
                 Beyond the day job, I build — enterprise dashboards, AI-powered tools, open-source

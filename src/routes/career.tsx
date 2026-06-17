@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Career } from "@/components/site/Career";
+import { CareerImpactTimeline } from "@/components/site/CareerImpactTimeline";
 import { Impact } from "@/components/site/Impact";
 
 export const Route = createFileRoute("/career")({
@@ -36,6 +37,9 @@ function CareerPage() {
         className="relative min-h-screen pt-16 [&>section:first-child]:pt-24"
         tabIndex={-1}
       >
+        {/* Journey + map leads the page — "See the journey" lands here, then the
+            reader follows the trail downward. */}
+        <CareerImpactTimeline />
         <Career />
         <Impact />
       </main>

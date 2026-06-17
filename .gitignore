@@ -33,5 +33,25 @@ test-results/
 *.sln
 *.sw?
 
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Coverage
+.coverage
+
+# Lighthouse
+.lighthouseci/
+
+# Beads
+.beads/
+
+# Lovable
+.lovable/
+
+# Image temp
+.img-tmp/
+
 # Local-only deploy credentials (never commit)
 .cloudflare.env

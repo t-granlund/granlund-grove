@@ -68,10 +68,26 @@ export async function processContact(
       }),
     });
     if (!res.ok) {
-      return { status: 502, body: { ok: false, fallback: true, error: "Delivery failed" } };
+      let detail = "Delivery failed";
+      try {
+        const errBody = (await res.clone().json()) as { message?: string };
+        if (errBody?.message) detail = errBody.message;
+      } catch {
+        /* noop */
+      }
+      return { status: 502, body: { ok: false, fallback: true, error: detail } };
     }
-    return { status: 200, body: { ok: true } };
-  } catch {
-    return { status: 502, body: { ok: false, fallback: true, error: "Delivery error" } };
+    // Parse Resend response to get the email ID for tracking
+    let emailId: string | undefined;
+    try {
+      const okBody = (await res.clone().json()) as { id?: string };
+      emailId = okBody?.id;
+    } catch {
+      /* noop */
+    }
+    return { status: 200, body: { ok: true, id: emailId } };
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : "Delivery error";
+    return { status: 502, body: { ok: false, fallback: true, error: msg } };
   }
 }

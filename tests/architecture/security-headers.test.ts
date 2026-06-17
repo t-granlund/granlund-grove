@@ -16,6 +16,8 @@ describe("security headers", () => {
     expect(csp).toContain("object-src 'none'");
     // Cloudflare Web Analytics beacon must be allow-listed or analytics breaks.
     expect(csp).toContain("https://static.cloudflareinsights.com");
+    // Manual beacon posts to cloudflareinsights.com (distinct from the script host).
+    expect(csp).toContain("https://cloudflareinsights.com");
   });
 
   it("ships preload-eligible HSTS", () => {

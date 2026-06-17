@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { Analytics } from "@/components/site/Analytics";
 
 function NotFoundComponent() {
   return (
@@ -111,6 +112,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
           Skip to content
         </a>
         {children}
+        <Analytics />
         <Scripts />
       </body>
     </html>

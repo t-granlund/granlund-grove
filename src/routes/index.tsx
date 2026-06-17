@@ -1,8 +1,40 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Picture } from "@/components/site/Picture";
 import { TreeMark } from "@/components/site/TreeMark";
+
+// Client-only globe: never loads Three.js on the server
+function ClientGlobe() {
+  const [GlobeComponent, setGlobeComponent] = useState<React.FC | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    import("@/components/site/GlobeNetwork")
+      .then((m) => {
+        if (!cancelled) setGlobeComponent(() => m.GlobeNetwork);
+      })
+      .catch(() => {
+        /* silently fail — globe is decorative */
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  if (!GlobeComponent) {
+    return (
+      <div className="py-24 lg:py-32 flex items-center justify-center">
+        <span className="font-mono text-xs uppercase tracking-widest text-stone/50 animate-pulse">
+          Loading network…
+        </span>
+      </div>
+    );
+  }
+
+  return <GlobeComponent />;
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -11,13 +43,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Tyler Granlund is an IT operations & systems engineer in Bella Vista, Arkansas — building resilient systems for people, brands, and what comes next.",
+          "Tyler Granlund — from Apple's Genius Bar training rooms to IT operations across 14 countries. Building systems, integrations, and teams that scale.",
       },
       { property: "og:title", content: "Tyler Granlund — IT Operations & Systems Engineer" },
       {
         property: "og:description",
         content:
-          "IT operations & systems engineer building resilient systems for people, brands, and what comes next — Bella Vista, Arkansas.",
+          "From Apple's training methodology to global franchise IT operations — building systems that scale across continents.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://tylergranlund.com/" },
@@ -85,6 +117,13 @@ const structuredData = {
       knowsAbout: [
         "IT Operations",
         "Systems Engineering",
+        "Franchise Technology",
+        "E-Commerce",
+        "Adobe Commerce",
+        "B2B Wholesale Platforms",
+        "Identity and Access Management",
+        "Okta",
+        "Google Workspace",
         "Multi-Agent Systems",
         "CI/CD",
         "Cloud Infrastructure",
@@ -95,11 +134,18 @@ const structuredData = {
         "Information Security",
         "Zero Trust Security",
         "Digital Transformation",
+        "Agile Product Management",
       ],
       worksFor: {
         "@type": "Organization",
         name: "Multi-Brand Franchise Group",
       },
+      alumniOf: [
+        { "@type": "Organization", name: "Apple" },
+        { "@type": "Organization", name: "School of Rock" },
+        { "@type": "Organization", name: "Outdoor Cap Company" },
+        { "@type": "Organization", name: "North 40 Outfitters" },
+      ],
     },
   ],
 };
@@ -187,18 +233,33 @@ function Landing() {
                 </div>
 
                 <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl leading-[1.02] font-light text-balance">
-                  A grove of{" "}
-                  <em className="not-italic font-normal text-cedar">resilient systems</em> — grown
-                  for people, brands, and{" "}
-                  <em className="italic font-light text-mist">what comes next.</em>
+                  A grove of <em className="not-italic font-normal text-cedar">systems</em> — rooted
+                  in training, grown across{" "}
+                  <em className="italic font-light text-mist">continents,</em> and built to last.
                 </h1>
 
                 <p className="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed text-stone/90">
                   I&apos;m <span className="text-foreground">Tyler Granlund</span> — an IT
-                  operations &amp; systems engineer in Bella Vista, Arkansas. I run supervised
-                  multi-agent systems that ship production software across{" "}
-                  <span className="text-foreground">200+ locations</span>— with the security, evals,
-                  and CI/CD to prove it.
+                  operations &amp; systems engineer in Bella Vista, Arkansas. I started at Apple,
+                  where I led Mac and Mobile technician training in South Chicago and learned the
+                  1-to-many support philosophy that still drives how I build. That foundation
+                  carried me to <span className="text-foreground">School of Rock</span>, where I was
+                  the primary IT support pillar for master franchise launches across 14 countries —
+                  analyzing requirements, adapting systems, and building merchant processing
+                  integrations that did not previously exist. Then{" "}
+                  <span className="text-foreground">Outdoor Cap</span>, where I built the Compass
+                  B2B wholesale platform and became Adobe Commerce&apos;s first customer advocate.
+                  Then <span className="text-foreground">North 40 Outfitters</span>, migrating
+                  brick-and-mortar stores to Adobe Commerce Cloud. Today I run systems engineering
+                  across <span className="text-foreground">200+ locations</span> for Head to Toe
+                  Brands.
+                </p>
+                <p className="mt-5 max-w-2xl text-base leading-relaxed text-stone/75">
+                  The thread through every role — franchising, wholesale, retail — is the same:
+                  understand what the customer needs, build the systems to support it, and remove
+                  the technological obstacles that make people&apos;s day-to-day harder. My mission
+                  is to create brand ambassadors by making work less stressful and home lives
+                  better. Technology should serve people, not the other way around.
                 </p>
 
                 <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -250,7 +311,8 @@ function Landing() {
           </div>
         </section>
 
-        {/* Proof band — verified, $-free numbers (bd dev-45b.1) */}
+        {/* Global network — 3D globe visualization of career scope (client-only) */}
+        <ClientGlobe />
 
         {/* Hub — the five destinations */}
         <section className="relative py-24 lg:py-32">
@@ -278,15 +340,19 @@ function Landing() {
                 <li key={d.to}>
                   <Link
                     to={d.to}
-                    className="group flex h-full flex-col justify-between rounded-3xl border border-border bg-card/70 backdrop-blur p-8 lift hover:border-cedar transition-colors"
+                    className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card/70 backdrop-blur p-8 lift hover:border-cedar transition-colors"
                   >
-                    <div className="flex items-start justify-between gap-4">
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_top_left,oklch(0.68_0.12_55/0.12),transparent_60%)]"
+                    />
+                    <div className="relative flex items-start justify-between gap-4">
                       <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-cedar">
                         {d.index}
                       </span>
                       <TreeMark className="h-5 w-5 text-cedar/60 transition-transform duration-700 group-hover:rotate-[4deg]" />
                     </div>
-                    <div className="mt-10">
+                    <div className="relative mt-10">
                       <h3 className="font-display text-2xl text-foreground group-hover:text-cedar transition-colors">
                         {d.title}
                       </h3>
@@ -294,7 +360,7 @@ function Landing() {
                     </div>
                     <span
                       aria-hidden
-                      className="mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground group-hover:text-cedar transition-colors"
+                      className="relative mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground group-hover:text-cedar transition-colors"
                     >
                       Enter
                       <span className="transition-transform group-hover:translate-x-1">→</span>

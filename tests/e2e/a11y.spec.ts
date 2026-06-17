@@ -1,7 +1,17 @@
 import { expect, test } from "@playwright/test";
 import { getSeriousAccessibilityViolations } from "./accessibility";
 
-for (const path of ["/", "/about", "/career", "/work", "/resume", "/contact", "/privacy"]) {
+for (const path of [
+  "/",
+  "/about",
+  "/career",
+  "/work",
+  "/resume",
+  "/contact",
+  "/privacy",
+  "/ventures",
+  "/colophon",
+]) {
   test(`${path} has no serious or critical axe violations`, async ({ page }) => {
     await page.goto(path);
 

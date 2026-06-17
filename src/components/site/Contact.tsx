@@ -71,13 +71,27 @@ export function Contact() {
               <a
                 key={c.l}
                 href={c.h}
-                className="block group rounded-2xl border border-border bg-card/70 backdrop-blur p-6 lift"
+                className="group relative block overflow-hidden rounded-2xl border border-border bg-card/70 backdrop-blur p-6 lift"
               >
-                <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-cedar">
-                  {c.l}
-                </div>
-                <div className="mt-2 font-display text-lg text-foreground group-hover:text-cedar transition-colors">
-                  {c.v}
+                <div
+                  aria-hidden
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_top_left,oklch(0.68_0.12_55/0.12),transparent_60%)]"
+                />
+                <div className="relative flex items-start justify-between gap-3">
+                  <div>
+                    <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-cedar">
+                      {c.l}
+                    </div>
+                    <div className="mt-2 font-display text-lg text-foreground group-hover:text-cedar transition-colors">
+                      {c.v}
+                    </div>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    className="mt-1 text-base leading-none text-transparent transition-colors group-hover:text-cedar/70"
+                  >
+                    ↗
+                  </span>
                 </div>
               </a>
             ))}

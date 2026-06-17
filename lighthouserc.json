@@ -1,7 +1,17 @@
 {
   "ci": {
     "collect": {
-      "url": ["http://127.0.0.1:4173/", "http://127.0.0.1:4173/privacy"],
+      "url": [
+        "http://127.0.0.1:4173/",
+        "http://127.0.0.1:4173/about",
+        "http://127.0.0.1:4173/career",
+        "http://127.0.0.1:4173/work",
+        "http://127.0.0.1:4173/ventures",
+        "http://127.0.0.1:4173/resume",
+        "http://127.0.0.1:4173/contact",
+        "http://127.0.0.1:4173/privacy",
+        "http://127.0.0.1:4173/colophon"
+      ],
       "numberOfRuns": 1,
       "settings": {
         "chromeFlags": "--no-sandbox --headless=new"

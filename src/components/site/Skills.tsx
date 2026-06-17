@@ -97,24 +97,33 @@ export function Skills() {
 
         <div className="mt-16 grid lg:grid-cols-3 gap-6">
           {groups.map((g) => (
-            <div key={g.label} className="rounded-2xl border border-border bg-card p-8 lift">
-              <div className="flex items-center justify-between">
-                <h3 className="font-display text-xl text-cedar">{g.label}</h3>
-                <span className="font-mono text-xs text-muted-foreground">
-                  {String(g.items.length).padStart(2, "0")}
-                </span>
+            <div
+              key={g.label}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 lift"
+            >
+              <div
+                aria-hidden
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_top_left,oklch(0.68_0.12_55/0.12),transparent_60%)]"
+              />
+              <div className="relative">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-display text-xl text-cedar">{g.label}</h3>
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {String(g.items.length).padStart(2, "0")}
+                  </span>
+                </div>
+                <div className="mt-6 h-px bg-gradient-to-r from-cedar/40 to-transparent" />
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {g.items.map((i) => (
+                    <li
+                      key={i}
+                      className="text-sm px-3 py-1.5 rounded-full border border-border bg-[oklch(0.30_0.03_158/0.4)] text-stone/90 hover:border-cedar/50 hover:text-foreground transition-colors"
+                    >
+                      {i}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="mt-6 h-px bg-gradient-to-r from-cedar/40 to-transparent" />
-              <ul className="mt-6 flex flex-wrap gap-2">
-                {g.items.map((i) => (
-                  <li
-                    key={i}
-                    className="text-sm px-3 py-1.5 rounded-full border border-border bg-[oklch(0.30_0.03_158/0.4)] text-stone/90 hover:border-cedar/50 hover:text-foreground transition-colors"
-                  >
-                    {i}
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>

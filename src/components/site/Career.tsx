@@ -1,33 +1,34 @@
 import { SectionLabel } from "./SectionLabel";
-import { TreeMark } from "./TreeMark";
 
 // Mirrors Tyler-Granlund-Master-Resume exactly (consistency = ATS/recruiter
 // trust signal). Update both together. Metric claims here are pre-verified
 // employment facts; gated portfolio metrics live behind docs/NUMBER_VERIFICATION.md.
 const roles = [
   {
-    company: "Multi-Brand Franchise Group",
+    company: "Head to Toe Brands (Riverside PE)",
     role: "IT Operations & Systems Engineer",
     dates: "Jan 2026 — Present",
     summary:
-      "Embedded with non-technical operators to run supervised multi-agent systems that ship production software across a five-brand, 200+ location franchise portfolio — discovery to scoping to production rollout, with the security, evals, and CI/CD to back it.",
+      "Embedded with non-technical operators to run supervised multi-agent systems that ship production software across a five-brand, 200+ location franchise portfolio — discovery to scoping to production rollout, with the security, evals, and CI/CD to back it. Using Code Puppy to build Control Tower, Knowledge Fabric, and Estate Trace.",
     outcomes: [
       "Multi-agent systems shipped to production",
       "Human-in-the-loop guardrails & eval harnesses",
       "Zero-secret, OIDC-based automation",
+      "Built with Code Puppy — President's Innovation Award-winning agent",
     ],
   },
   {
-    company: "Multi-Brand Franchise Group",
+    company: "Head to Toe Brands (Riverside PE)",
     role: "IT Director",
     dates: "Oct 2024 — Jan 2026",
     summary:
-      "Led enterprise IT for a multi-brand franchise organization — Microsoft 365, Azure, Power BI/Fabric, support operations, security and access governance, vendor strategy, and cross-functional transformation across 200+ locations.",
+      "Led enterprise IT for a Riverside private equity-backed multi-brand franchise group. Portfolio: The Lash Lounge (~130 units), Bishops Cuts and Color (~40 units), Frenchies Modern Nail Care (24 units), and Delta Crown Hair Extensions — 200+ locations total. Built the identity governance ecosystem: a master database federating across five brands and Microsoft tenants with role-based access tied to location, brand, and job function. Onboarding reduced from days to minutes.",
     outcomes: [
-      "Modernized tech ops across 200+ locations",
+      "200+ locations across 5 brands (Riverside PE portfolio)",
+      "Identity governance ecosystem — master database across all tenants",
       "Built support center — cut resolution time 40%",
-      "Scaled BI and cloud infrastructure org-wide",
       "Zero-trust security & access governance rollout",
+      "Onboarding: days → minutes; offboarding: immediate & auditable",
     ],
   },
   {
@@ -35,22 +36,26 @@ const roles = [
     role: "IT Product Manager I to II — Digital Experience",
     dates: "2022 — 2023",
     summary:
-      "Owned the digital experience portfolio: Adobe Commerce/Magento, B2B commerce, 3D product customization, account dashboards, and custom order forms — agile delivery from backlog to launch, partnering across sales, marketing, and operations.",
+      "Built the Compass B2B wholesale online ordering platform — the company's biggest technical undertaking. Coordinated with global supply chain: factories in Bangladesh, China, Vietnam, and Sri Lanka; warehouses in Bentonville AR, Rancho Cucamonga CA, Dallas TX, and Zanesville OH. Integrated Magento/Adobe Commerce with ERP, 3D product customization, and account dashboards. First-ever Adobe Commerce customer advocate presenting to enterprise customers.",
     outcomes: [
-      "Reduced B2B order friction ~40% with 3D tooling",
+      "Built Compass B2B ordering platform",
+      "Coordinated global supply chain across 4 countries",
+      "Reduced B2B order friction with 3D tooling",
       "Shipped self-service account dashboards",
-      "Stood up agile product practice & SDLC discipline",
+      "First Adobe Commerce customer advocate",
     ],
   },
   {
     company: "School of Rock",
     role: "IT Manager to Senior IT Manager",
-    dates: "2015 — 2021",
+    dates: "Apr 2015 — Jan 2022",
     summary:
-      "Global IT leadership for a franchise music education brand: Google Workspace and Okta integrations, data privacy and compliance, training and enablement, and franchise systems across 300+ schools.",
+      "Joined at ~145 locations in 8 countries. Left at ~300+ locations across 14 countries. I was the primary IT support pillar for every master franchise rollout — analyzing requirements, adapting systems, building merchant processing integrations through NMI gateways connected to Pike 13, and training owners and managers. Built Okta identity federation, Google Workspace governance, and custom local solutions for scheduling, invoicing, and payment identity across every new market.",
     outcomes: [
+      "~145 → ~300+ locations, 8 → 14 countries",
       "Global SSO rollout — 300+ schools via Okta",
-      "Privacy & compliance program (COPPA/FERPA)",
+      "Merchant processing integrations (NMI + Pike 13)",
+      "Privacy & compliance program (COPPA/FERPA/GDPR)",
       "Franchise support model & enablement at scale",
     ],
   },
@@ -58,79 +63,64 @@ const roles = [
 
 export function Career() {
   return (
-    <section id="career" className="relative py-32 lg:py-40 bg-spruce-deep/40">
+    <section id="career" className="relative py-28 lg:py-36 bg-spruce-deep/40">
       <div className="topo-divider absolute top-0 inset-x-0" />
       <div className="topo-divider absolute bottom-0 inset-x-0" />
 
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl">
-          <SectionLabel index="01" chapter="The Path">
+          <SectionLabel index="02" chapter="The Record">
             Career
           </SectionLabel>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] font-light text-balance">
-            The path through <em className="not-italic text-cedar">the grove.</em>
+            The roles, <em className="not-italic text-cedar">in brief.</em>
           </h2>
           <p className="mt-6 text-lg text-stone/90 max-w-2xl">
-            Every role added a layer — like rings of a spruce. Here&apos;s the trail so far, with
-            the outcomes that mark each turn.
+            The journey above is the story forward. This is the résumé view — most recent first, the
+            scope and the outcomes that marked each turn.
+          </p>
+          <p className="mt-4 text-base text-stone/70 max-w-2xl">
+            The thread never changed: understand what the customer needs, build the systems to
+            support it, and remove the obstacles that make people&apos;s day-to-day harder.
           </p>
         </div>
 
-        <ol className="mt-20 relative">
-          {/* central trail line */}
-          <div
-            aria-hidden
-            className="absolute left-4 lg:left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-cedar/60 via-cedar/20 to-transparent"
-          />
-
-          {roles.map((r, i) => {
-            const left = i % 2 === 0;
-            return (
-              <li
-                key={`${r.company}-${r.role}`}
-                className={`relative grid lg:grid-cols-2 gap-8 mb-12 lg:mb-20 ${left ? "" : ""}`}
-              >
-                {/* node */}
-                <div className="absolute left-4 lg:left-1/2 top-7 -translate-x-1/2 z-10">
-                  <div className="h-3 w-3 rounded-full bg-cedar shadow-[0_0_0_4px_oklch(0.18_0.012_150),0_0_0_5px_oklch(0.68_0.12_55/0.4)]" />
+        <ol className="mt-14 space-y-4">
+          {roles.map((r) => (
+            <li key={`${r.company}-${r.role}`}>
+              <article className="group grid gap-4 rounded-2xl border border-border bg-card/70 p-6 lg:grid-cols-[210px_1fr] lg:gap-10 lg:p-8 lift">
+                {/* left rail — when + where */}
+                <div className="lg:border-r lg:border-border/60 lg:pr-6">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-cedar">
+                    {r.dates}
+                  </div>
+                  <div className="mt-2 font-display text-lg text-foreground leading-snug">
+                    {r.company}
+                  </div>
                 </div>
 
-                <div
-                  className={`pl-12 lg:pl-0 ${
-                    left ? "lg:pr-16 lg:text-right" : "lg:col-start-2 lg:pl-16"
-                  }`}
-                >
-                  <article className="group relative rounded-2xl border border-border bg-card p-7 lift">
-                    <div className={`flex items-start gap-3 ${left ? "lg:flex-row-reverse" : ""}`}>
-                      <TreeMark className="h-5 w-5 text-cedar shrink-0 mt-1" />
-                      <div className={left ? "lg:text-right" : ""}>
-                        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-cedar">
-                          {r.dates || "Previous"}
-                        </div>
-                        <h3 className="mt-1 font-display text-xl lg:text-2xl text-foreground">
-                          {r.role}
-                        </h3>
-                        <div className="mt-1 text-sm text-muted-foreground">{r.company}</div>
-                      </div>
-                    </div>
-
-                    <p className="mt-5 text-stone/90 leading-relaxed">{r.summary}</p>
-
-                    <ul className={`mt-5 flex flex-wrap gap-2 ${left ? "lg:justify-end" : ""}`}>
-                      {r.outcomes.map((o) => (
-                        <li
-                          key={o}
-                          className="text-xs px-2.5 py-1 rounded-full border border-border bg-[oklch(0.30_0.03_158/0.4)] text-stone/90"
-                        >
-                          {o}
-                        </li>
-                      ))}
-                    </ul>
-                  </article>
+                {/* right — role, summary, outcomes */}
+                <div>
+                  <h3 className="font-display text-xl lg:text-2xl text-foreground group-hover:text-cedar transition-colors">
+                    {r.role}
+                  </h3>
+                  <p className="mt-3 text-sm lg:text-[15px] text-stone/85 leading-relaxed">
+                    {r.summary}
+                  </p>
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {r.outcomes.map((o) => (
+                      <li
+                        key={o}
+                        className="text-xs px-2.5 py-1 rounded-full border border-border bg-[oklch(0.30_0.03_158/0.4)] text-stone/90"
+                      >
+                        {o}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </li>
-            );
-          })}
+              </article>
+            </li>
+          ))}
         </ol>
       </div>
     </section>

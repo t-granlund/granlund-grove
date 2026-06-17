@@ -159,6 +159,9 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Tint native form controls (checkboxes, radios, range) to the palette. */
+    accent-color: var(--cedar);
     background-image:
       radial-gradient(ellipse 80% 60% at 50% -10%, oklch(0.3 0.04 158 / 0.35), transparent 60%),
       radial-gradient(ellipse 60% 40% at 100% 100%, oklch(0.4 0.06 60 / 0.1), transparent 70%);
@@ -170,9 +173,35 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
+  /* Calmer paragraph rag site-wide (headings use text-wrap: balance). */
+  p {
+    text-wrap: pretty;
+  }
   ::selection {
     background: var(--cedar);
     color: var(--background);
+  }
+
+  /* Forest-tinted scrollbar — quiet, on-theme, replaces the default light bar. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.45 0.04 150 / 0.6) transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: oklch(0.4 0.035 150 / 0.7);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: oklch(0.55 0.06 70 / 0.75);
   }
 
   /* Focus indicators — WCAG 2.2 §2.4.13 (Focus Appearance) */
