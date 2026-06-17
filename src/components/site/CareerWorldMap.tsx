@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface MapCity {
   name: string;
@@ -7,7 +7,9 @@ interface MapCity {
   step: number; // 0-4
 }
 
-// Equirectangular projection: x = lng + 180, y = 90 - lat
+// Equirectangular projection: x = lng + 180, y = 90 - lat. This matches the
+// /img/earth-map-2d.webp basemap (a real equirectangular Earth texture, tinted
+// to the forest palette), so every dot lands on its true geography.
 const CITIES: MapCity[] = [
   // Step 0: Apple
   { name: "Chicago", lat: 41.88, lng: -87.63, step: 0 },
@@ -42,10 +44,8 @@ const CITIES: MapCity[] = [
 // when the arc draws in (once that chapter is active). Kept within-employer so
 // each role reads as its own network rather than one tangled line.
 const JOURNEY_ARCS: { from: string; to: string; step: number }[] = [
-  // Apple → School of Rock + Midwest
   { from: "Chicago", to: "Glen Ellyn", step: 1 },
   { from: "Glen Ellyn", to: "Milwaukee", step: 1 },
-  // School of Rock — master-franchise launches radiating from the corporate hub
   { from: "Glen Ellyn", to: "São Paulo", step: 1 },
   { from: "Glen Ellyn", to: "Santiago", step: 1 },
   { from: "Glen Ellyn", to: "Lima", step: 1 },
@@ -57,11 +57,9 @@ const JOURNEY_ARCS: { from: string; to: string; step: number }[] = [
   { from: "Glen Ellyn", to: "Cape Town", step: 1 },
   { from: "São Paulo", to: "Madrid", step: 1 },
   { from: "São Paulo", to: "Lisbon", step: 1 },
-  // Outdoor Cap — distribution network
   { from: "Bentonville", to: "Dallas", step: 2 },
   { from: "Bentonville", to: "Rancho Cucamonga", step: 2 },
   { from: "Bentonville", to: "Zanesville", step: 2 },
-  // Head to Toe — HQ + training facility
   { from: "Glen Arbor", to: "South Lake", step: 4 },
 ];
 
@@ -75,7 +73,6 @@ const STEP_COLORS = [
 
 const STEP_LABELS = ["Apple", "School of Rock", "Outdoor Cap", "North 40", "Head to Toe"];
 
-// Project lat/lng to SVG coordinates (equirectangular)
 function project(lat: number, lng: number): [number, number] {
   const x = lng + 180;
   const y = 90 - lat;
@@ -98,14 +95,13 @@ function arcPath(from: MapCity, to: MapCity): string {
   if (ny > 0) {
     nx = -nx;
     ny = -ny;
-  } // force the bow to arc north
+  }
   const lift = Math.max(4, Math.min(28, len * 0.2));
   const cx = mx + nx * lift;
   const cy = my + ny * lift;
   return `M ${x1} ${y1} Q ${cx} ${cy} ${x2} ${y2}`;
 }
 
-// Clamp label position to stay inside viewBox
 function clamp(val: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, val));
 }
@@ -138,61 +134,69 @@ const LABEL_SIDE: Record<string, "left" | "right"> = {
   Sydney: "left",
 };
 
+// Label geometry for a city (shared by the collision pass and the renderer).
+function labelGeom(city: MapCity) {
+  const [x, y] = project(city.lat, city.lng);
+  const side = LABEL_SIDE[city.name] || (city.lng > 0 ? "right" : "left");
+  const labelX = clamp(x + (side === "right" ? 5 : -5), 6, 354);
+  const labelY = y - 5 + (LABEL_OFFSETS[city.name] || 0);
+  const anchor: "start" | "end" = side === "right" ? "start" : "end";
+  const w = city.name.length * 2.5; // approx px width at fontSize 4.2
+  const x0 = anchor === "start" ? labelX : labelX - w;
+  const x1 = anchor === "start" ? labelX + w : labelX;
+  return { labelX, labelY, anchor, box: { x0, x1, y0: labelY - 3.5, y1: labelY + 1.5 } };
+}
+
 function MapDot({
   city,
   isActive,
   isCurrent,
+  showLabel,
 }: {
   city: MapCity;
   isActive: boolean;
   isCurrent: boolean;
+  showLabel: boolean;
 }) {
   const [x, y] = project(city.lat, city.lng);
   const color = STEP_COLORS[city.step];
-  const r = isCurrent ? 2.8 : isActive ? 1.7 : 1.2;
-  // Labels only for the chapter currently in view — keeps the map uncluttered
-  // as the cumulative dot set grows. Earlier chapters keep their dots, lose the
-  // text.
-  const showLabel = isCurrent;
-
-  const side = LABEL_SIDE[city.name] || (city.lng > 0 ? "right" : "left");
-  const labelOffset = side === "right" ? 5 : -5;
-  const labelX = clamp(x + labelOffset, 6, 354);
-  const labelAnchor = side === "right" ? "start" : "end";
-  const labelYOffset = LABEL_OFFSETS[city.name] || 0;
+  const r = isCurrent ? 2.6 : isActive ? 1.7 : 1.1;
+  const { labelX, labelY, anchor } = labelGeom(city);
 
   return (
     <g>
       {isCurrent && (
-        <circle cx={x} cy={y} r={6} fill={color} opacity="0.15">
-          <animate attributeName="r" values="6;9;6" dur="2s" repeatCount="indefinite" />
+        <circle cx={x} cy={y} r={6} fill={color} opacity="0.18">
+          <animate attributeName="r" values="5;9;5" dur="2.4s" repeatCount="indefinite" />
           <animate
             attributeName="opacity"
-            values="0.15;0.04;0.15"
-            dur="2s"
+            values="0.18;0.05;0.18"
+            dur="2.4s"
             repeatCount="indefinite"
           />
         </circle>
       )}
+      {/* thin halo keeps the dot legible on busy land texture */}
+      {isActive && <circle cx={x} cy={y} r={r + 0.7} fill="#0b1310" opacity="0.6" />}
       <circle
         cx={x}
         cy={y}
         r={r}
-        fill={isActive ? color : "#5a6a60"}
-        opacity={isActive ? 1 : 0.3}
+        fill={isActive ? color : "#7c8a80"}
+        opacity={isActive ? 1 : 0.35}
         className="transition-all duration-500"
       />
       {showLabel && (
         <text
           x={labelX}
-          y={y - 5 + labelYOffset}
-          textAnchor={labelAnchor}
+          y={labelY}
+          textAnchor={anchor}
           fill={color}
           fontSize="4.2"
           fontFamily="monospace"
           fontWeight="500"
-          opacity="0.9"
-          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}
+          opacity="0.95"
+          style={{ paintOrder: "stroke", stroke: "#0b1310", strokeWidth: 0.9 }}
         >
           {city.name}
         </text>
@@ -203,59 +207,65 @@ function MapDot({
 
 function WorldMap({ activeStep, activeSteps }: { activeStep: number; activeSteps: Set<number> }) {
   const [hoveredCity, setHoveredCity] = useState<string | null>(null);
-
   const hoveredData = hoveredCity ? CITY_BY_NAME[hoveredCity] : null;
+
+  // Greedy collision: among the current chapter's cities, keep only the labels
+  // that don't overlap (in CITIES order). Dense clusters (LATAM, Iberia) used to
+  // pile into a blob; now a clean, readable subset shows and the rest stay dots.
+  const labelSet = useMemo(() => {
+    const placed: { x0: number; x1: number; y0: number; y1: number }[] = [];
+    const set = new Set<string>();
+    const pad = 1.5;
+    for (const c of CITIES) {
+      if (c.step !== activeStep) continue;
+      const { box } = labelGeom(c);
+      const hit = placed.some(
+        (p) =>
+          !(
+            box.x1 + pad < p.x0 ||
+            box.x0 - pad > p.x1 ||
+            box.y1 + pad < p.y0 ||
+            box.y0 - pad > p.y1
+          ),
+      );
+      if (!hit) {
+        placed.push(box);
+        set.add(c.name);
+      }
+    }
+    return set;
+  }, [activeStep]);
 
   return (
     <div className="relative w-full" style={{ paddingBottom: "52%" }}>
       <svg
         viewBox="0 0 360 180"
         className="absolute inset-0 w-full h-full"
-        preserveAspectRatio="xMidYMid meet"
-        style={{ background: "#0f1512" }}
-        overflow="hidden"
+        preserveAspectRatio="xMidYMid slice"
+        style={{ background: "#0b1310" }}
         onMouseLeave={() => setHoveredCity(null)}
       >
-        <rect width="360" height="180" fill="#0f1512" />
+        <defs>
+          <radialGradient id="mapVignette" cx="50%" cy="47%" r="65%">
+            <stop offset="52%" stopColor="#0b1310" stopOpacity="0" />
+            <stop offset="100%" stopColor="#0b1310" stopOpacity="0.6" />
+          </radialGradient>
+        </defs>
 
-        {/* Equator + prime meridian */}
-        <line x1="0" y1="90" x2="360" y2="90" stroke="#2a3530" strokeWidth="0.3" opacity="0.5" />
-        <line x1="180" y1="0" x2="180" y2="180" stroke="#2a3530" strokeWidth="0.3" opacity="0.5" />
+        {/* Realistic equirectangular Earth basemap, tinted to the forest palette */}
+        <image
+          href="/img/earth-map-2d.webp"
+          x="0"
+          y="0"
+          width="360"
+          height="180"
+          preserveAspectRatio="none"
+          opacity="0.92"
+          aria-hidden="true"
+        />
 
-        {/* Simplified continent silhouettes */}
-        <g fill="#243028" stroke="#3a4e42" strokeWidth="0.6">
-          <path d="M55,25 L75,20 L95,18 L115,22 L130,28 L140,38 L155,45 L165,55 L170,65 L165,75 L150,80 L130,82 L110,80 L90,75 L75,70 L60,60 L50,45 L45,35 Z" />
-          <path d="M140,95 L155,92 L165,100 L170,115 L172,135 L170,155 L165,168 L155,175 L145,170 L140,155 L138,135 L135,115 Z" />
-          <path d="M165,30 L175,25 L185,22 L195,25 L200,32 L202,42 L198,50 L190,55 L180,52 L172,48 L168,40 Z" />
-          <path d="M175,58 L185,55 L195,58 L205,68 L210,82 L212,100 L210,120 L205,140 L198,155 L190,160 L182,155 L178,140 L175,120 L172,100 L170,82 L168,68 Z" />
-          <path d="M205,25 L220,18 L240,15 L260,18 L280,25 L300,32 L315,42 L325,55 L328,70 L325,85 L318,95 L308,100 L295,102 L282,100 L270,95 L260,88 L250,80 L242,70 L235,58 L228,48 L220,38 L212,32 Z" />
-          <path d="M285,115 L295,112 L305,115 L312,125 L315,138 L312,150 L305,158 L295,160 L285,158 L278,150 L275,138 L278,125 Z" />
-        </g>
-
-        {/* Region labels */}
-        <g fill="#3a4a42" fontFamily="monospace" fontWeight="500" letterSpacing="1">
-          <text x="100" y="55" textAnchor="middle" fontSize="6">
-            NORTH AMERICA
-          </text>
-          <text x="155" y="130" textAnchor="middle" fontSize="6">
-            SOUTH AMERICA
-          </text>
-          <text x="185" y="38" textAnchor="middle" fontSize="5">
-            EUROPE
-          </text>
-          <text x="195" y="105" textAnchor="middle" fontSize="6">
-            AFRICA
-          </text>
-          <text x="265" y="65" textAnchor="middle" fontSize="6">
-            ASIA
-          </text>
-          <text x="298" y="140" textAnchor="middle" fontSize="5">
-            AUSTRALIA
-          </text>
-        </g>
-
-        {/* Graticule */}
-        <g stroke="#1a221e" strokeWidth="0.2" opacity="0.6">
+        {/* Graticule — faint cartographic grid over the basemap */}
+        <g stroke="#7e9488" strokeWidth="0.2" opacity="0.12">
           {[-120, -60, 0, 60, 120].map((lng) => (
             <line key={`v${lng}`} x1={lng + 180} y1="0" x2={lng + 180} y2="180" />
           ))}
@@ -263,6 +273,10 @@ function WorldMap({ activeStep, activeSteps }: { activeStep: number; activeSteps
             <line key={`h${lat}`} x1="0" y1={90 - lat} x2="360" y2={90 - lat} />
           ))}
         </g>
+        <line x1="0" y1="90" x2="360" y2="90" stroke="#9bb0a4" strokeWidth="0.25" opacity="0.18" />
+
+        {/* Edge vignette blends the rectangular map into the rounded card */}
+        <rect width="360" height="180" fill="url(#mapVignette)" />
 
         {/* Journey arcs — draw in as each chapter activates */}
         <g fill="none" strokeLinecap="round">
@@ -272,26 +286,23 @@ function WorldMap({ activeStep, activeSteps }: { activeStep: number; activeSteps
             if (!from || !to) return null;
             const active = activeSteps.has(arc.step);
             const color = STEP_COLORS[arc.step];
-            const d = arcPath(from, to);
             return (
               <path
                 key={`${arc.from}-${arc.to}`}
-                d={d}
+                d={arcPath(from, to)}
                 stroke={color}
                 strokeWidth="0.5"
                 pathLength={1}
                 strokeDasharray={1}
                 strokeDashoffset={active ? 0 : 1}
-                opacity={active ? 0.55 : 0}
-                style={{
-                  transition: "stroke-dashoffset 1.1s ease, opacity 0.7s ease",
-                }}
+                opacity={active ? 0.6 : 0}
+                style={{ transition: "stroke-dashoffset 1.1s ease, opacity 0.7s ease" }}
               />
             );
           })}
         </g>
 
-        {/* City dots + current-chapter labels */}
+        {/* City dots + collision-deconflicted current-chapter labels */}
         {CITIES.map((city) => (
           <g
             key={city.name}
@@ -302,6 +313,7 @@ function WorldMap({ activeStep, activeSteps }: { activeStep: number; activeSteps
               city={city}
               isActive={activeSteps.has(city.step)}
               isCurrent={city.step === activeStep}
+              showLabel={labelSet.has(city.name)}
             />
           </g>
         ))}
@@ -314,7 +326,7 @@ function WorldMap({ activeStep, activeSteps }: { activeStep: number; activeSteps
             fill="none"
             stroke={STEP_COLORS[hoveredData.step]}
             strokeWidth="0.5"
-            opacity="0.6"
+            opacity="0.7"
           />
         )}
       </svg>

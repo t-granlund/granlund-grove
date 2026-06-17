@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { TreeMark } from "./TreeMark";
 import { CareerWorldMap } from "./CareerWorldMap";
 
@@ -167,46 +167,45 @@ const STEPS: ImpactStep[] = [
   },
 ];
 
-function useInView(threshold = 0.25) {
-  const ref = useRef<HTMLLIElement>(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsInView(true);
-      },
-      { threshold, rootMargin: "-12% 0px -35% 0px" },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [threshold]);
-
-  return { ref, isInView };
-}
-
 function StepCard({
   step,
   index,
-  onActive,
+  isActive,
+  registerNode,
 }: {
   step: ImpactStep;
   index: number;
-  onActive?: () => void;
+  isActive: boolean;
+  registerNode: (index: number, el: HTMLLIElement | null) => void;
 }) {
-  const { ref, isInView } = useInView();
+  const ref = useRef<HTMLLIElement>(null);
+  // One-way entrance reveal — decoupled from active tracking, which the parent
+  // computes from scroll position so the map always matches the centered card.
+  const [revealed, setRevealed] = useState(index === 0);
 
   useEffect(() => {
-    if (isInView && onActive) onActive();
-  }, [isInView, onActive]);
+    const el = ref.current;
+    registerNode(index, el);
+    if (!el || revealed) return;
+    const io = new IntersectionObserver(
+      ([entry], obs) => {
+        if (entry.isIntersecting) {
+          setRevealed(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [index, registerNode, revealed]);
 
   return (
     <li
       ref={ref}
+      data-active={isActive}
       className={`relative transition-all duration-700 ${
-        isInView ? "opacity-100 translate-y-0" : "opacity-45 translate-y-3"
+        revealed ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
       }`}
     >
       {/* connector line into the next chapter */}
@@ -217,7 +216,11 @@ function StepCard({
         />
       )}
 
-      <article className="rounded-2xl border border-border bg-card/70 p-6 lg:p-8 lift">
+      <article
+        className={`rounded-2xl border bg-card/70 p-6 lg:p-8 lift transition-colors duration-500 ${
+          isActive ? "border-cedar/45 shadow-[var(--shadow-grove)]" : "border-border"
+        }`}
+      >
         {/* header row */}
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -314,6 +317,45 @@ function StepCard({
 
 export function CareerImpactTimeline() {
   const [activeStep, setActiveStep] = useState(0);
+  const nodesRef = useRef<(HTMLLIElement | null)[]>([]);
+  const registerNode = useCallback((index: number, el: HTMLLIElement | null) => {
+    nodesRef.current[index] = el;
+  }, []);
+
+  // Active chapter = the step card whose center is nearest the reading line.
+  // Scroll-driven + rAF-throttled so the sticky map always matches what's being
+  // read — not whichever card last tripped an IntersectionObserver threshold.
+  useEffect(() => {
+    let raf = 0;
+    const compute = () => {
+      raf = 0;
+      const focus = window.innerHeight * 0.42;
+      let best = 0;
+      let bestDist = Infinity;
+      nodesRef.current.forEach((el, i) => {
+        if (!el) return;
+        const r = el.getBoundingClientRect();
+        const center = r.top + r.height / 2;
+        const dist = Math.abs(center - focus);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      });
+      setActiveStep((prev) => (prev === best ? prev : best));
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(compute);
+    };
+    compute();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
 
   return (
     <section className="relative py-24 lg:py-32">
@@ -344,7 +386,8 @@ export function CareerImpactTimeline() {
                 key={step.company}
                 step={step}
                 index={i}
-                onActive={() => setActiveStep(i)}
+                isActive={i === activeStep}
+                registerNode={registerNode}
               />
             ))}
           </ol>
