@@ -201,8 +201,7 @@ export function EcosystemPage() {
               Ecosystem
             </SectionLabel>
             <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.05] font-light text-balance">
-              TenantFleet{" "}
-              <em className="not-italic text-cedar">ecosystem.</em>
+              TenantFleet <em className="not-italic text-cedar">ecosystem.</em>
             </h1>
             <p className="mt-6 text-xl text-stone/90 max-w-3xl leading-relaxed">
               Seven open-source repositories for multi-tenant Microsoft Entra ID governance. Built
@@ -257,9 +256,8 @@ export function EcosystemPage() {
               How it fits together
             </SectionLabel>
             <p className="mt-4 text-stone/80 max-w-2xl">
-              Three pillars — Mind (governance), Body (people), Spirit (security) — with seven
-              repos that share a common design system, zero-secret auth, and GitHub Pages
-              deployment.
+              Three pillars — Mind (governance), Body (people), Spirit (security) — with seven repos
+              that share a common design system, zero-secret auth, and GitHub Pages deployment.
             </p>
           </div>
           <div className="mt-10 rounded-3xl border border-border bg-card/40 p-8 lg:p-12 overflow-x-auto">
@@ -341,10 +339,7 @@ export function EcosystemPage() {
                 body: "Every system was built with AI agent supervision — automated testing, judge gates, and security auditing. The same discipline that scales to Walmart's 4,000+ users.",
               },
             ].map((v) => (
-              <div
-                key={v.title}
-                className="rounded-2xl border border-border bg-card/60 p-8 lift"
-              >
+              <div key={v.title} className="rounded-2xl border border-border bg-card/60 p-8 lift">
                 <h3 className="font-display text-xl text-mist">{v.title}</h3>
                 <p className="mt-3 text-sm text-stone/80 leading-relaxed">{v.body}</p>
               </div>
@@ -368,9 +363,9 @@ export function EcosystemPage() {
             Start with one repo. Add the rest when you need them.
           </h2>
           <p className="mt-4 text-stone/80 max-w-2xl mx-auto">
-            The TenantFleet ecosystem is designed as independent polyrepos. Pick the tool that solves
-            your immediate problem. The shared design system and auth patterns make integration
-            natural.
+            The TenantFleet ecosystem is designed as independent polyrepos. Pick the tool that
+            solves your immediate problem. The shared design system and auth patterns make
+            integration natural.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a

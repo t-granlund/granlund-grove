@@ -2,10 +2,7 @@
 
 import type { Repo } from "./EcosystemPage";
 
-const pillarStyles: Record<
-  Repo["pillar"],
-  { gradient: string; badge: string; icon: string }
-> = {
+const pillarStyles: Record<Repo["pillar"], { gradient: string; badge: string; icon: string }> = {
   mind: {
     gradient: "from-indigo-500/20 to-cyan-500/20",
     badge: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30",

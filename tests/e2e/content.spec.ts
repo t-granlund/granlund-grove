@@ -13,7 +13,7 @@ test.describe("home content sections", () => {
       "Estate Trace",
       "Zero-secret automation",
       "Mysa Mail",
-      "Identity Governance Ecosystem",
+      "TenantFleet Ecosystem",
     ]) {
       await expect(projects.getByRole("heading", { name })).toBeVisible();
     }

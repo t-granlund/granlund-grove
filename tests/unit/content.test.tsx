@@ -47,7 +47,7 @@ describe("Projects / case studies", () => {
       "Estate Trace",
       "Zero-secret automation",
       "Mysa Mail",
-      "Identity Governance Ecosystem",
+      "TenantFleet Ecosystem",
     ]) {
       expect(screen.getByRole("heading", { name })).toBeInTheDocument();
     }

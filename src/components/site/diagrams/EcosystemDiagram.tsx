@@ -26,7 +26,16 @@ function RepoNode({
 }) {
   return (
     <g>
-      <rect x={x} y={y} width={140} height={52} rx={8} fill={C.nodeFill} stroke={color} strokeWidth={1.5} />
+      <rect
+        x={x}
+        y={y}
+        width={140}
+        height={52}
+        rx={8}
+        fill={C.nodeFill}
+        stroke={color}
+        strokeWidth={1.5}
+      />
       <text
         x={x + 70}
         y={y + 22}
@@ -41,7 +50,13 @@ function RepoNode({
         y={y + 40}
         textAnchor="middle"
         dominantBaseline="middle"
-        style={{ fill: C.muted, fontSize: 9, fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.12em" }}
+        style={{
+          fill: C.muted,
+          fontSize: 9,
+          fontFamily: "var(--font-mono)",
+          textTransform: "uppercase",
+          letterSpacing: "0.12em",
+        }}
       >
         {sub}
       </text>
@@ -49,16 +64,43 @@ function RepoNode({
   );
 }
 
-function PillarLabel({ x, y, label, color }: { x: number; y: number; label: string; color: string }) {
+function PillarLabel({
+  x,
+  y,
+  label,
+  color,
+}: {
+  x: number;
+  y: number;
+  label: string;
+  color: string;
+}) {
   return (
     <g>
-      <rect x={x} y={y} width={90} height={28} rx={14} fill={color} fillOpacity={0.15} stroke={color} strokeWidth={1} />
+      <rect
+        x={x}
+        y={y}
+        width={90}
+        height={28}
+        rx={14}
+        fill={color}
+        fillOpacity={0.15}
+        stroke={color}
+        strokeWidth={1}
+      />
       <text
         x={x + 45}
         y={y + 17}
         textAnchor="middle"
         dominantBaseline="middle"
-        style={{ fill: color, fontSize: 10, fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.18em", fontWeight: 600 }}
+        style={{
+          fill: color,
+          fontSize: 10,
+          fontFamily: "var(--font-mono)",
+          textTransform: "uppercase",
+          letterSpacing: "0.18em",
+          fontWeight: 600,
+        }}
       >
         {label}
       </text>
@@ -66,15 +108,41 @@ function PillarLabel({ x, y, label, color }: { x: number; y: number; label: stri
   );
 }
 
-function Connector({ x1, y1, x2, y2, color }: { x1: number; y1: number; x2: number; y2: number; color: string }) {
+function Connector({
+  x1,
+  y1,
+  x2,
+  y2,
+  color,
+}: {
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+  color: string;
+}) {
   return (
-    <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeWidth={1.2} strokeOpacity={0.5} strokeDasharray="4 3" />
+    <line
+      x1={x1}
+      y1={y1}
+      x2={x2}
+      y2={y2}
+      stroke={color}
+      strokeWidth={1.2}
+      strokeOpacity={0.5}
+      strokeDasharray="4 3"
+    />
   );
 }
 
 export function EcosystemDiagram() {
   return (
-    <svg viewBox="0 0 900 520" className="w-full h-auto" role="img" aria-label="TenantFleet ecosystem architecture showing three pillars and seven interconnected repositories">
+    <svg
+      viewBox="0 0 900 520"
+      className="w-full h-auto"
+      role="img"
+      aria-label="TenantFleet ecosystem architecture showing three pillars and seven interconnected repositories"
+    >
       <defs>
         <marker id="eco-arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
           <path d="M0,0 L8,4 L0,8 L2,4 Z" fill={C.muted} opacity={0.6} />
@@ -82,9 +150,42 @@ export function EcosystemDiagram() {
       </defs>
 
       {/* Background zones */}
-      <rect x={40} y={80} width={260} height={380} rx={16} fill="none" stroke={C.mind} strokeWidth={0.8} strokeOpacity={0.25} strokeDasharray="6 4" />
-      <rect x={320} y={80} width={260} height={380} rx={16} fill="none" stroke={C.body} strokeWidth={0.8} strokeOpacity={0.25} strokeDasharray="6 4" />
-      <rect x={600} y={80} width={260} height={380} rx={16} fill="none" stroke={C.spirit} strokeWidth={0.8} strokeOpacity={0.25} strokeDasharray="6 4" />
+      <rect
+        x={40}
+        y={80}
+        width={260}
+        height={380}
+        rx={16}
+        fill="none"
+        stroke={C.mind}
+        strokeWidth={0.8}
+        strokeOpacity={0.25}
+        strokeDasharray="6 4"
+      />
+      <rect
+        x={320}
+        y={80}
+        width={260}
+        height={380}
+        rx={16}
+        fill="none"
+        stroke={C.body}
+        strokeWidth={0.8}
+        strokeOpacity={0.25}
+        strokeDasharray="6 4"
+      />
+      <rect
+        x={600}
+        y={80}
+        width={260}
+        height={380}
+        rx={16}
+        fill="none"
+        stroke={C.spirit}
+        strokeWidth={0.8}
+        strokeOpacity={0.25}
+        strokeDasharray="6 4"
+      />
 
       {/* Pillar labels */}
       <PillarLabel x={125} y={95} label="Mind" color={C.mind} />
@@ -115,13 +216,27 @@ export function EcosystemDiagram() {
 
       {/* Shared design system banner */}
       <g>
-        <rect x={200} y={460} width={500} height={40} rx={20} fill={C.nodeFill} stroke={C.border} strokeWidth={1} />
+        <rect
+          x={200}
+          y={460}
+          width={500}
+          height={40}
+          rx={20}
+          fill={C.nodeFill}
+          stroke={C.border}
+          strokeWidth={1}
+        />
         <text
           x={450}
           y={478}
           textAnchor="middle"
           dominantBaseline="middle"
-          style={{ fill: C.muted, fontSize: 11, fontFamily: "var(--font-mono)", letterSpacing: "0.15em" }}
+          style={{
+            fill: C.muted,
+            fontSize: 11,
+            fontFamily: "var(--font-mono)",
+            letterSpacing: "0.15em",
+          }}
         >
           Shared: Inter + JetBrains Mono / Glassmorphism / Aurora Orbs / GitHub Pages / MIT License
         </text>
