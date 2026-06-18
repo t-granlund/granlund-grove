@@ -407,14 +407,14 @@ function fallbackResponse(_query: string): string {
 
 // Pre-built suggested questions
 export const suggestedQuestions = [
-  "What is Tyler currently working on?",
-  "What skills does Tyler have?",
+  "Is Tyler available for hire?",
+  "What is Tyler's background?",
   "Tell me about Control Tower",
-  "What is Code Puppy?",
+  "What skills does Tyler have?",
   "How can I contact Tyler?",
+  "What is Code Puppy?",
+  "Tell me about his last role",
   "What is the TenantFleet ecosystem?",
-  "Tell me about Tyler's career history",
-  "Is Tyler open to new roles?",
 ];
 
 // Simple greeting detection
@@ -436,9 +436,9 @@ export function isGreeting(query: string): boolean {
 
 export function greetingResponse(): string {
   const greetings = [
-    "Hey there! I'm Tyler's portfolio assistant. I know quite a bit about his work, skills, projects, and background. What would you like to know?",
-    "Hi! I'm here to help you learn about Tyler's work and experience. Ask me anything — skills, projects, career history, or how to get in touch.",
-    "Hello! I can answer questions about Tyler's background, current projects, tech stack, and more. What brings you here?",
+    "Hey there! Tyler is currently looking for his next opportunity. I know all about his background, skills, projects, and experience. What would you like to know? If you want to reach him directly, hello@tylergranlund.com is the fastest way.",
+    "Hi! Tyler is available for full-time roles, consulting, and collaborations. Ask me about his work at Apple, School of Rock, Outdoor Cap, North 40, or Head to Toe Brands — or his skills in AI, cloud, identity, and systems engineering. For direct contact: hello@tylergranlund.com.",
+    "Hello! Tyler is actively looking for his next role. I can answer questions about his career history, technical skills, projects, and availability. Reach him directly at hello@tylergranlund.com for opportunities or questions.",
   ];
   return greetings[Math.floor(Math.random() * greetings.length)];
 }

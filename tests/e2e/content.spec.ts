@@ -106,7 +106,7 @@ test.describe("career page content", () => {
   test("renders all career roles", async ({ page }) => {
     await page.goto("/career");
     const careerSection = page.locator("#career");
-    await expect(careerSection.getByText(/IT Operations & Systems Engineer/i)).toBeVisible();
+    await expect(careerSection.getByText(/Open to Opportunities/i)).toBeVisible();
     await expect(careerSection.getByRole("heading", { name: /IT Director/i })).toBeVisible();
     await expect(careerSection.getByText(/Outdoor Cap Company/i)).toBeVisible();
     await expect(careerSection.getByText(/School of Rock/i)).toBeVisible();

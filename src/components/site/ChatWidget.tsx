@@ -17,7 +17,7 @@ function loadMessages(): ChatMessage[] {
   return [
     {
       role: "assistant",
-      text: "Hey there! I'm Tyler's portfolio assistant. Ask me about his work, skills, projects, or how to get in touch.",
+      text: "Hey there! Tyler is currently looking for his next opportunity. Ask me about his background, skills, projects, or how to reach him directly.",
     },
   ];
 }
@@ -125,7 +125,7 @@ export function ChatWidget() {
     const reset: ChatMessage[] = [
       {
         role: "assistant",
-        text: "Chat cleared. Ask me anything about Tyler's work, skills, or background.",
+        text: "Chat cleared. Tyler is looking for his next opportunity. Ask about his background, skills, or how to get in touch.",
       },
     ];
     setMessages(reset);
@@ -178,9 +178,9 @@ export function ChatWidget() {
             <div>
               <div className="font-display text-sm text-foreground">Ask about Tyler</div>
               <div className="flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-stone/60">
-                  Portfolio assistant
+                <span className="h-1.5 w-1.5 rounded-full bg-cedar animate-pulse" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-cedar/80">
+                  Open to opportunities
                 </span>
               </div>
             </div>
@@ -281,6 +281,20 @@ export function ChatWidget() {
           </div>
         )}
 
+        {/* Email CTA */}
+        <div className="border-t border-border/40 px-6 py-3">
+          <a
+            href="mailto:hello@tylergranlund.com?subject=Opportunity%20for%20Tyler%20Granlund"
+            className="flex items-center justify-center gap-2 rounded-xl border border-cedar/30 bg-cedar/[0.08] px-4 py-2.5 text-sm text-cedar hover:bg-cedar/[0.15] hover:border-cedar/50 transition-colors"
+          >
+            <MailIcon />
+            <span>Email Tyler directly</span>
+          </a>
+          <p className="mt-2 text-center font-mono text-[9px] text-stone/40">
+            hello@tylergranlund.com — for roles, questions, or just to say hi
+          </p>
+        </div>
+
         {/* Input */}
         <form onSubmit={handleSubmit} className="border-t border-border/60 px-6 py-4">
           <div className="flex items-center gap-3 rounded-full border border-border bg-white/5 px-4 py-2 focus-within:border-cedar/40 transition-colors">
@@ -288,7 +302,7 @@ export function ChatWidget() {
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about Tyler's work..."
+              placeholder="Ask about Tyler's background..."
               className="flex-1 bg-transparent text-sm text-foreground placeholder:text-stone/40 outline-none"
               disabled={typing}
               aria-label="Type your question"
@@ -398,6 +412,24 @@ function ResetIcon() {
     >
       <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
       <path d="M3 3v5h5" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m22 7-8.991 5.714a2 2 0 0 1-2.009 0L2 7" />
+      <rect x="2" y="4" width="20" height="16" rx="2" />
     </svg>
   );
 }
