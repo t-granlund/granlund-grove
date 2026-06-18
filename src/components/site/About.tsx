@@ -17,32 +17,63 @@ export function About() {
               Driven by <em className="not-italic text-cedar">people.</em>
             </h2>
 
-            <div className="mt-10 space-y-6 text-lg leading-relaxed text-stone/90 max-w-2xl">
-              <p>
-                I&apos;m an IT operations &amp; systems engineer and former Director of IT. My
-                career has spanned franchise technology, B2B wholesale e-commerce, B2C
-                brick-and-mortar e-commerce, agile product management, Microsoft cloud environments,
-                data and BI modernization, and cross-functional transformation.
-              </p>
-              <p>
-                The thread through every role — whether franchising, wholesale, or retail — has been
-                the same: optimize and refine everything based on the needs of the customer. I
-                create clear end-to-end agile software development life cycles that help teams
-                realize their plan, track it through failure, learn, reiterate, and continuously
-                optimize.
-              </p>
-              <p>
-                My mission is simple: support people. Remove technological obstacles so their
-                day-to-day is more fulfilling. That permeates the entire ecosystem — creating brand
-                ambassadors, making people want to work at a place that helps their home lives be
-                better because they are not stressed running their business. Technology should serve
-                people, not the other way around.
-              </p>
-              <p>
-                Beyond the day job, I build — enterprise dashboards, AI-powered tools, open-source
-                agents, desktop applications, and accessible websites for local businesses. The
-                grove doesn&apos;t just tend itself; it grows new trails.
-              </p>
+            <div className="mt-10 space-y-8 text-lg leading-relaxed text-stone/90 max-w-2xl">
+              <div>
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.25em] text-cedar/80">
+                  The span
+                </h3>
+                <p className="mt-3">
+                  IT operations &amp; systems engineer and former Director of IT. Franchise
+                  technology, B2B wholesale e-commerce, B2C brick-and-mortar e-commerce, agile
+                  product management, Microsoft cloud environments, data and BI modernization, and
+                  cross-functional transformation.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.25em] text-cedar/80">
+                  How I work
+                </h3>
+                <ul className="mt-3 space-y-2">
+                  <li className="flex items-start gap-3">
+                    <span className="mt-2.5 h-1 w-1 rounded-full bg-cedar shrink-0" />
+                    <span>Optimize and refine everything based on the needs of the customer.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-2.5 h-1 w-1 rounded-full bg-cedar shrink-0" />
+                    <span>Create clear end-to-end agile software development life cycles.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-2.5 h-1 w-1 rounded-full bg-cedar shrink-0" />
+                    <span>
+                      Help teams realize their plan, track it through failure, learn, reiterate, and
+                      continuously optimize.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.25em] text-cedar/80">
+                  Why it matters
+                </h3>
+                <p className="mt-3">
+                  Support people. Remove technological obstacles so their day-to-day is more
+                  fulfilling. Create brand ambassadors by making work less stressful and home lives
+                  better. Technology should serve people, not the other way around.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.25em] text-cedar/80">
+                  Beyond the day job
+                </h3>
+                <p className="mt-3">
+                  Enterprise dashboards, AI-powered tools, open-source agents, desktop applications,
+                  and accessible websites for local businesses. The grove doesn&apos;t just tend
+                  itself. It grows new trails.
+                </p>
+              </div>
             </div>
 
             <dl className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-8 max-w-lg">

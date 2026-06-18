@@ -10,13 +10,13 @@ export const Route = createFileRoute("/ventures")({
       {
         name: "description",
         content:
-          "Creative ventures beyond the systems work — Spruce Grove Media (FPV one-shot films, motion, color grading, sound design) and aerial LiDAR / sensor data capture for the Zipline × Walmart drone-delivery pilot.",
+          "Creative ventures beyond the systems work. Spruce Grove Media (FPV one-shot films, motion, color grading, sound design) and aerial LiDAR / sensor data capture for the Zipline × Walmart drone-delivery pilot.",
       },
       { property: "og:title", content: "Ventures — Tyler Granlund" },
       {
         property: "og:description",
         content:
-          "Spruce Grove Media and field data capture — helping a vision take root, on screen and in the field.",
+          "Spruce Grove Media and field data capture. Helping a vision take root, on screen and in the field.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://tylergranlund.com/ventures" },

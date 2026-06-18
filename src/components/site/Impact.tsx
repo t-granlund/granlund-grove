@@ -3,7 +3,7 @@ import { SectionLabel } from "./SectionLabel";
 const cards = [
   {
     title: "Digital Transformation",
-    body: "Reimagining legacy operations into modern, integrated, agile-driven ecosystems that scale with the business — across 200+ franchise locations.",
+    body: "Reimagining legacy operations into modern, integrated, agile-driven ecosystems that scale with the business. Across 200+ franchise locations.",
     icon: (
       <svg
         viewBox="0 0 32 32"
@@ -19,7 +19,7 @@ const cards = [
   },
   {
     title: "Franchise Technology Operations",
-    body: "Building global IT systems that empower franchise networks — consistent, supportable, and built to scale across hundreds of locations.",
+    body: "Building global IT systems that empower franchise networks. Consistent, supportable, and built to scale across hundreds of locations.",
     icon: (
       <svg
         viewBox="0 0 32 32"
@@ -39,7 +39,7 @@ const cards = [
   },
   {
     title: "E-Commerce & Product Strategy",
-    body: "Adobe Commerce, Magento, B2B platforms, 3D customization, and frictionless customer journeys — shipped across 500+ B2B accounts.",
+    body: "Adobe Commerce, Magento, B2B platforms, 3D customization, and frictionless customer journeys. Shipped across 500+ B2B accounts.",
     icon: (
       <svg
         viewBox="0 0 32 32"

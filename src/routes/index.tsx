@@ -161,31 +161,31 @@ const destinations = [
     to: "/career",
     index: "02",
     title: "Career",
-    blurb: "The path through the grove — roles, scope, and the outcomes that mark each turn.",
+    blurb: "The path through the grove. Roles, scope, and the outcomes that mark each turn.",
   },
   {
     to: "/work",
     index: "03",
     title: "Work",
-    blurb: "Six flagship case studies — problem, architecture, oversight, outcome.",
+    blurb: "Six flagship case studies. Problem, architecture, oversight, outcome.",
   },
   {
     to: "/ventures",
     index: "04",
     title: "Ventures",
-    blurb: "Beyond the systems — Spruce Grove Media films and field data capture.",
+    blurb: "Beyond the systems. Spruce Grove Media films and field data capture.",
   },
   {
     to: "/resume",
     index: "05",
     title: "Resume",
-    blurb: "The growth rings — a downloadable record, with tailored variants.",
+    blurb: "The growth rings. A downloadable record, with tailored variants.",
   },
   {
     to: "/contact",
     index: "06",
     title: "Contact",
-    blurb: "Step into the clearing. Send a note — I read everything.",
+    blurb: "Step into the clearing. Send a note. I read everything.",
   },
 ] as const;
 
@@ -233,34 +233,85 @@ function Landing() {
                 </div>
 
                 <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl leading-[1.02] font-light text-balance">
-                  A grove of <em className="not-italic font-normal text-cedar">systems</em> — rooted
+                  A grove of <em className="not-italic font-normal text-cedar">systems</em>. Rooted
                   in training, grown across{" "}
                   <em className="italic font-light text-mist">continents,</em> and built to last.
                 </h1>
 
                 <p className="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed text-stone/90">
-                  I&apos;m <span className="text-foreground">Tyler Granlund</span> — an IT
-                  operations &amp; systems engineer in Bella Vista, Arkansas. I started at Apple,
-                  where I led Mac and Mobile technician training in South Chicago and learned the
-                  1-to-many support philosophy that still drives how I build. That foundation
-                  carried me to <span className="text-foreground">School of Rock</span>, where I was
-                  the primary IT support pillar for master franchise launches across 14 countries —
-                  analyzing requirements, adapting systems, and building merchant processing
-                  integrations that did not previously exist. Then{" "}
-                  <span className="text-foreground">Outdoor Cap</span>, where I built the Compass
-                  B2B wholesale platform and became Adobe Commerce&apos;s first customer advocate.
-                  Then <span className="text-foreground">North 40 Outfitters</span>, migrating
-                  brick-and-mortar stores to Adobe Commerce Cloud. Today I run systems engineering
-                  across <span className="text-foreground">200+ locations</span> for Head to Toe
-                  Brands.
+                  I&apos;m <span className="text-foreground">Tyler Granlund</span>, an IT operations
+                  &amp; systems engineer in Bella Vista, Arkansas. I build the systems and teams
+                  that make work less stressful and home lives better.
                 </p>
-                <p className="mt-5 max-w-2xl text-base leading-relaxed text-stone/75">
-                  The thread through every role — franchising, wholesale, retail — is the same:
-                  understand what the customer needs, build the systems to support it, and remove
-                  the technological obstacles that make people&apos;s day-to-day harder. My mission
-                  is to create brand ambassadors by making work less stressful and home lives
-                  better. Technology should serve people, not the other way around.
-                </p>
+
+                <div className="mt-8 max-w-2xl">
+                  <h2 className="font-mono text-[11px] uppercase tracking-[0.25em] text-cedar/80">
+                    Career arc
+                  </h2>
+                  <ul className="mt-4 space-y-3 text-base leading-relaxed text-stone/85">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-2 h-1 w-1 rounded-full bg-cedar shrink-0" />
+                      <span>
+                        <strong className="text-foreground">Apple.</strong> Led Mac and Mobile
+                        technician training in South Chicago. Learned the 1-to-many support
+                        philosophy that still drives how I build.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-2 h-1 w-1 rounded-full bg-cedar shrink-0" />
+                      <span>
+                        <strong className="text-foreground">School of Rock.</strong> Primary IT
+                        support pillar for master franchise launches across 14 countries. Built
+                        merchant processing integrations that did not previously exist.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-2 h-1 w-1 rounded-full bg-cedar shrink-0" />
+                      <span>
+                        <strong className="text-foreground">Outdoor Cap.</strong> Built the Compass
+                        B2B wholesale platform. Became Adobe Commerce&apos;s first customer
+                        advocate.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-2 h-1 w-1 rounded-full bg-cedar shrink-0" />
+                      <span>
+                        <strong className="text-foreground">North 40 Outfitters.</strong> Migrated
+                        14 brick-and-mortar stores to Adobe Commerce Cloud.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-2 h-1 w-1 rounded-full bg-cedar shrink-0" />
+                      <span>
+                        <strong className="text-foreground">Head to Toe Brands.</strong> Systems
+                        engineering across 200+ locations for a five-brand franchise portfolio.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="mt-8 max-w-2xl">
+                  <h2 className="font-mono text-[11px] uppercase tracking-[0.25em] text-cedar/80">
+                    The through-line
+                  </h2>
+                  <p className="mt-4 text-base leading-relaxed text-stone/75">
+                    Franchising, wholesale, or retail. The thread never changes.
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base leading-relaxed text-stone/75">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-2 h-1 w-1 rounded-full bg-cedar shrink-0" />
+                      <span>Understand what the customer needs.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-2 h-1 w-1 rounded-full bg-cedar shrink-0" />
+                      <span>Build the systems to support it.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-2 h-1 w-1 rounded-full bg-cedar shrink-0" />
+                      <span>Remove the obstacles that make work harder.</span>
+                    </li>
+                  </ul>
+                </div>
 
                 <div className="mt-10 flex flex-wrap items-center gap-4">
                   <Link
@@ -326,7 +377,7 @@ function Landing() {
                   Six trails through the grove.
                 </h2>
                 <p className="mt-5 text-stone/85 leading-relaxed">
-                  The numbers above are the short version. Each trail below is the long one — the
+                  The numbers above are the short version. Each trail below is the long one. The
                   roles, the systems, and how they were built, supervised, and proven in production.
                 </p>
               </div>
@@ -386,7 +437,7 @@ function Landing() {
                       Rather just talk?
                     </h3>
                     <p className="mt-3 leading-relaxed text-stone/85">
-                      Skip the wander — tell me what you&apos;re building and where I fit.
+                      Skip the wander. Tell me what you&apos;re building and where I fit.
                     </p>
                   </div>
                   <span

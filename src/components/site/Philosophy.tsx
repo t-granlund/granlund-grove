@@ -4,7 +4,7 @@ const tenets = [
   {
     n: "I",
     t: "Clear the undergrowth",
-    b: "Remove what blocks people from doing their best work — noise, friction, dead processes.",
+    b: "Remove what blocks people from doing their best work. Noise, friction, dead processes.",
   },
   {
     n: "II",
@@ -14,12 +14,12 @@ const tenets = [
   {
     n: "III",
     t: "Blaze the trail",
-    b: "Document, train, and make the way forward visible — so others can walk it without a guide.",
+    b: "Document, train, and make the way forward visible. So others can walk it without a guide.",
   },
   {
     n: "IV",
     t: "Deepen the roots",
-    b: "Design for resilience — every system supports the next, and the grove holds through every storm.",
+    b: "Design for resilience. Every system supports the next, and the grove holds through every storm.",
   },
 ];
 

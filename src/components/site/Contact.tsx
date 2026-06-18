@@ -48,7 +48,7 @@ export function Contact() {
             Step into <em className="not-italic text-cedar">the clearing.</em>
           </h2>
           <p className="mt-6 text-lg text-stone/90 max-w-xl mx-auto">
-            A quiet place in the grove. Send a note — I read everything, and I respond.
+            A quiet place in the grove. Send a note. I read everything, and I respond.
           </p>
         </div>
 
@@ -213,7 +213,7 @@ export function Contact() {
                 </h3>
                 <p className="max-w-sm leading-relaxed text-stone/85">
                   {status === "sent"
-                    ? "Your message is on its way — I read everything, and I respond."
+                    ? "Your message is on its way. I read everything, and I respond."
                     : "I opened your email client to finish sending. If nothing happened, you can send it here instead."}
                 </p>
                 <button

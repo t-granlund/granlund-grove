@@ -29,7 +29,7 @@ export function CodePuppyModal() {
           <DialogDescription asChild>
             <div className="text-left">
               <span className="text-sm text-stone/70">
-                The open-source AI agent behind every system I build — recognized by Walmart's CEO
+                The open-source AI agent behind every system I build. Recognized by Walmart's CEO
                 with the President's Innovation Award.
               </span>
             </div>

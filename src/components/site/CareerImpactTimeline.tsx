@@ -37,15 +37,14 @@ const STEPS: ImpactStep[] = [
     stat: "1",
     statLabel: "market — the root",
     story:
-      "Where it started. I led Mac and Mobile technician training for the South Chicago market and " +
-      "ran the Genius Bar operations playbook day to day.",
+      "Where it started. I led Mac and Mobile technician training for the South Chicago market and ran the Genius Bar operations playbook day to day.",
     achievements: [
-      "Built and taught the one-week promoted-staff course — troubleshooting theory, Apple facilitation practices, and Genius Bar operations.",
+      "Built and taught the one-week promoted-staff course. Troubleshooting theory, Apple facilitation practices, and Genius Bar operations.",
       "Trained Mac and Mobile technicians across the South Chicago market.",
-      "Mentored the next wave of technicians — internal promotions and external hires alike.",
+      "Mentored the next wave of technicians. Internal promotions and external hires alike.",
     ],
     value:
-      "Learned the 1-to-many support philosophy that still drives how I build: teach the room, not just the person.",
+      "Learned the 1-to-many support philosophy that still drives how I build. Teach the room, not just the person.",
     sources: [{ label: "Apple Retail", url: "https://www.apple.com/retail/" }],
   },
   {
@@ -73,17 +72,15 @@ const STEPS: ImpactStep[] = [
     stat: "150+",
     statLabel: "locations helped open",
     story:
-      "The primary IT support pillar for every master-franchise launch across LATAM, Europe, APAC, " +
-      "and Africa. For each new market I analyzed the requirements, adapted the systems, built what " +
-      "didn't exist yet, and trained the owners and managers who'd run it.",
+      "The primary IT support pillar for every master-franchise launch across LATAM, Europe, APAC, and Africa. For each new market I analyzed requirements, adapted systems, built what did not exist yet, and trained the owners and managers who would run it.",
     achievements: [
-      "Built merchant-processing integrations that did not previously exist — local banks → NMI transnational gateways → Pike 13, with revenue tracking leadership could trust.",
+      "Built merchant-processing integrations that did not previously exist. Local banks to NMI transnational gateways to Pike 13, with revenue tracking leadership could trust.",
       "Rolled out global SSO and Google Workspace governance across 300+ schools via Okta.",
-      "Stood up privacy & compliance for new markets — GDPR for the Ireland and Iberia launches, plus COPPA/FERPA posture.",
-      "Built the Summerfest All-Stars video pipeline — nine regional GoPro kits, capture-to-judging FTP workflow.",
+      "Stood up privacy and compliance for new markets. GDPR for the Ireland and Iberia launches, plus COPPA/FERPA posture.",
+      "Built the Summerfest All-Stars video pipeline. Nine regional GoPro kits, capture-to-judging FTP workflow.",
     ],
     value:
-      "Grew the footprint from ~145 locations in 8 countries to 300+ across 14 — every market opening on time because the technical obstacles were already cleared.",
+      "Grew the footprint from ~145 locations in 8 countries to 300+ across 14. Every market opened on time because the technical obstacles were already cleared.",
     sources: [{ label: "School of Rock", url: "https://www.schoolofrock.com" }],
   },
   {
@@ -96,11 +93,10 @@ const STEPS: ImpactStep[] = [
     stat: "4",
     statLabel: "countries in the supply chain",
     story:
-      "Built Compass — the B2B wholesale online ordering platform, and the company's largest " +
-      "technical undertaking. I owned it from requirements through rollout.",
+      "Built Compass, the B2B wholesale online ordering platform. The company's largest technical undertaking. I owned it from requirements through rollout.",
     achievements: [
       "Integrated Magento / Adobe Commerce with ERP and 3D product customization, and shipped self-service account dashboards.",
-      "Coordinated a global supply chain — factories in Bangladesh, China, Vietnam, and Sri Lanka feeding four U.S. distribution centers.",
+      "Coordinated a global supply chain. Factories in Bangladesh, China, Vietnam, and Sri Lanka feeding four U.S. distribution centers.",
       "Became Adobe Commerce's first-ever customer advocate, presenting the build to enterprise customers.",
       "Replaced a manual, rep-mediated ordering process with guided self-service built around how dealers actually order.",
     ],
@@ -124,15 +120,14 @@ const STEPS: ImpactStep[] = [
     stat: "14",
     statLabel: "stores across MT, ID, WA",
     story:
-      "Owned e-commerce operations for North 40, Smith & Rogue, and sibling brands — and brought the " +
-      "storefront in-house.",
+      "Owned e-commerce operations for North 40, Smith & Rogue, and sibling brands. Brought the storefront in-house.",
     achievements: [
       "Migrated 14 brick-and-mortar stores from a legacy managed backend to Adobe Commerce Cloud.",
       "Broke the agency dependency so the team could move at its own pace, not a vendor's.",
       "Managed hundreds of thousands of SKUs with weapons and state-specific compliance nuance.",
     ],
     value:
-      "Gave a regional retailer direct control of its own storefront — and the agile SDLC to keep improving it.",
+      "Gave a regional retailer direct control of its own storefront, and the agile SDLC to keep improving it.",
     sources: [
       { label: "North 40 Outfitters", url: "https://www.north40.com" },
       {
@@ -151,18 +146,16 @@ const STEPS: ImpactStep[] = [
     stat: "200+",
     statLabel: "locations · 5 brands · Riverside PE",
     story:
-      "Enterprise IT for a Riverside private-equity-backed franchise group — The Lash Lounge (~130 " +
-      "units), Bishops (~40), Frenchies (24), and Delta Crown. Today I ship supervised multi-agent " +
-      "systems to production alongside non-technical operators.",
+      "Enterprise IT for a Riverside private-equity-backed franchise group. Portfolio: The Lash Lounge (~130 units), Bishops (~40), Frenchies (24), and Delta Crown. Today I ship supervised multi-agent systems to production alongside non-technical operators.",
     achievements: [
-      "Built the identity-governance ecosystem — a master database federating identities across 5 brands and 5 Microsoft tenants; access by location, brand, and role.",
+      "Built the identity-governance ecosystem. A master database federating identities across 5 brands and 5 Microsoft tenants. Access by location, brand, and role.",
       "Cut onboarding from days to minutes; offboarding is immediate and auditable.",
-      "Stood up the support center — ~40% faster resolutions.",
-      "Shipped Control Tower, Knowledge Fabric, and Estate Trace to production — built with Code Puppy, with eval harnesses gating every release.",
+      "Stood up the support center. ~40% faster resolutions.",
+      "Shipped Control Tower, Knowledge Fabric, and Estate Trace to production. Built with Code Puppy, with eval harnesses gating every release.",
       "Zero-secret, OIDC-based automation across all five tenants.",
     ],
     value:
-      "200+ locations running on systems that make the work less stressful — the whole point: create brand ambassadors by serving the people behind the counter.",
+      "200+ locations running on systems that make the work less stressful. The whole point: create brand ambassadors by serving the people behind the counter.",
     sources: [{ label: "Head to Toe Brands", url: "https://www.headtotoebrands.com" }],
   },
 ];
@@ -368,7 +361,7 @@ export function CareerImpactTimeline() {
             A career measured in <em className="not-italic text-cedar">impact,</em> not titles.
           </h2>
           <p className="mt-5 text-stone/85 leading-relaxed">
-            Every role expanded the footprint — from training Mac and Mobile technicians in South
+            Every role expanded the footprint. From training Mac and Mobile technicians in South
             Chicago to building systems that touch 22 cities across 5 continents. Follow the map as
             each chapter lights up, and read what shipped at every turn.
           </p>

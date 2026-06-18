@@ -29,8 +29,8 @@ export const LOCATIONS: LocationData[] = [
     contribution:
       "Led the South Chicago market for Mac and Mobile technician trainings. Built the one-week " +
       "promoted-staff course: troubleshooting theory, Apple facilitation practices, and Genius Bar " +
-      "operations. Supported and mentored the next generation of employees — internal promotions " +
-      "and external hires — until recruited by School of Rock.",
+      "operations. Supported and mentored the next generation of employees. Internal promotions " +
+      "and external hires. Recruited by School of Rock.",
     sources: [
       {
         label: "Apple Retail",
@@ -50,8 +50,8 @@ export const LOCATIONS: LocationData[] = [
       "Corporate IT hub and the primary IT support pillar for all international markets. " +
       "Analyzed, understood, adapted, modified, implemented, and built anything the systems needed " +
       "to run our standard ways of working across 300+ locations in 14 countries. " +
-      "This included integrating custom local solutions for scheduling, invoicing, and payment processing — " +
-      "championing everything possible while navigating merchant processing limitations, data privacy laws, " +
+      "This included integrating custom local solutions for scheduling, invoicing, and payment processing. " +
+      "Championed everything possible while navigating merchant processing limitations, data privacy laws, " +
       "and regional banking requirements. Built the bridge between Pike 13 (business management), Okta " +
       "(identity), Google Workspace, and NMI transnational merchant gateways.",
     sources: [
@@ -94,10 +94,10 @@ export const LOCATIONS: LocationData[] = [
     role: "B2B E-Commerce Product Manager",
     years: "2021–2023",
     contribution:
-      "Built the Compass B2B wholesale online ordering platform — the company's biggest technical undertaking. " +
-      "Coordinated with global supply chain: factories in Bangladesh, China, Vietnam, and Sri Lanka; " +
-      "warehouses in Bentonville AR, Rancho Cucamonga CA, Dallas TX, and Zanesville OH. Integrated " +
-      "Magento/Adobe Commerce with ERP and 3D product customization. First-ever Adobe Commerce customer advocate.",
+      "Built the Compass B2B wholesale online ordering platform. The company's biggest technical undertaking. " +
+      "Coordinated with global supply chain: factories in Bangladesh, China, Vietnam, and Sri Lanka. " +
+      "Warehouses in Bentonville AR, Rancho Cucamonga CA, Dallas TX, and Zanesville OH. Integrated " +
+      "Magento / Adobe Commerce with ERP and 3D product customization. First-ever Adobe Commerce customer advocate.",
     sources: [
       {
         label: "Outdoor Cap Company",
@@ -453,10 +453,10 @@ export const LOCATIONS: LocationData[] = [
     years: "2024–Present",
     contribution:
       "Headquarters in Glen Arbor, Michigan. The final mark I implemented was the identity " +
-      "governance ecosystem — a master database for user identities across five brands and Microsoft " +
+      "governance ecosystem. A master database for user identities across five brands and Microsoft " +
       "tenants. Clear end-to-end onboarding and offboarding lifecycle with the least friction: " +
       "access resources based on location, brand affiliation, and role. Also built the Control Tower, " +
-      "Knowledge Fabric, and Estate Trace systems using Code Puppy — the open-source agent created by " +
+      "Knowledge Fabric, and Estate Trace systems using Code Puppy. The open-source agent created by " +
       "Michael Pfaffenberger and John Choi, adopted internally at Walmart, where they received the " +
       "President's Innovation Award from CEO John Furner. 4,000+ Walmart employees now use it daily.",
     sources: [

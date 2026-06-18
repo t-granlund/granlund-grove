@@ -90,7 +90,7 @@ export function Skills() {
             What I bring to <em className="not-italic text-cedar">the grove.</em>
           </h2>
           <p className="mt-6 text-lg text-stone/90 max-w-2xl">
-            Not a tool dump — grouped the way the systems are actually built. Every skill here has
+            Not a tool dump. Grouped the way the systems are actually built. Every skill here has
             shipped real work, from multi-tenant platforms to open-source releases.
           </p>
         </div>

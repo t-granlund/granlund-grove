@@ -55,7 +55,7 @@ export function CodePuppyDeepDive() {
           <code className="text-xs bg-white/5 px-1.5 py-0.5 rounded">pip install code-puppy</code>.
         </p>
         <p className="mt-3 text-sm text-stone/90 leading-relaxed">
-          I use Code Puppy as my primary development agent — it is the tool behind Control Tower,
+          I use Code Puppy as my primary development agent. It is the tool behind Control Tower,
           Knowledge Fabric, Estate Trace, and this website. The supervised-agent discipline I apply
           to every production system is built on the foundation Code Puppy provides.
         </p>
@@ -138,7 +138,7 @@ export function CodePuppyDeepDive() {
           At Head to Toe Brands, I used Code Puppy to run a five-brand, 200+ location franchise
           portfolio with a lean team of two people plus external contractors. The agent built
           applications, automations, and operational efficiencies that would otherwise require a
-          much larger organization — including the Control Tower multi-tenant governance platform,
+          much larger organization. Including the Control Tower multi-tenant governance platform,
           the Knowledge Fabric identity-aware RAG system, and the Estate Trace cost governance
           pipeline. Every system ships with 7,000+ tests, WCAG AA accessibility, and a 48/48
           automated judge score.

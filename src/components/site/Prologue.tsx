@@ -8,7 +8,7 @@ const tracks = [
     id: "fde",
     label: "Field Deployment Engineers",
     headline: "Embedded with operators,\nshipping to production.",
-    body: "I don't hand off to an ops team — I am the ops team. Discovery with non-technical operators, scoping against real constraints, rollout at franchise scale, and the CI/CD + security posture to keep it stable. Every system I build has been used by real people in real locations.",
+    body: "I do not hand off to an ops team. I am the ops team. Discovery with non-technical operators, scoping against real constraints, rollout at franchise scale, and the CI/CD + security posture to keep it stable. Every system I build has been used by real people in real locations.",
     proof: [
       "Discovery through production rollout",
       "Non-technical operator context",
@@ -20,7 +20,7 @@ const tracks = [
     id: "ai-pm",
     label: "AI Product Managers",
     headline: "Orchestrating agents,\nnot just prompting them.",
-    body: "The interesting problem isn't the model — it's the system around it. Planner agents, specialist sub-agents, human-in-the-loop approval gates, evaluation harnesses, cost-per-outcome decisions. I build the oversight layer, not just the feature.",
+    body: "The interesting problem is not the model. It is the system around it. Planner agents, specialist sub-agents, human-in-the-loop approval gates, evaluation harnesses, cost-per-outcome decisions. I build the oversight layer, not just the feature.",
     proof: [
       "Multi-agent orchestration patterns",
       "HITL guardrails before destructive writes",
@@ -85,12 +85,12 @@ export function Prologue() {
         </div>
 
         <p className="mt-8 text-stone/60 text-sm">
-          Either way, the proof is the same —{" "}
+          Either way, the proof is the same.{" "}
           <Link
             to="/work"
             className="text-cedar hover:text-mist transition-colors underline underline-offset-2"
           >
-            see the case studies
+            See the case studies
           </Link>
           .
         </p>

@@ -60,7 +60,7 @@ export const caseStudies: CaseStudy[] = [
     problem:
       "Five Microsoft tenants, 200+ locations, and no unified view of cost, identity, compliance, or lifecycle evidence. Leadership couldn't answer basic governance questions across the estate.",
     architecture:
-      "Python/FastAPI + HTMX + PostgreSQL on the Azure SDK (Cost Management, Resource Manager, Policy, Defender). Containerized to GHCR with OIDC-only auth — no stored secrets. I chose server-rendered HTMX over a SPA to keep the attack surface small and the system auditable.",
+      "Python/FastAPI + HTMX + PostgreSQL on the Azure SDK (Cost Management, Resource Manager, Policy, Defender). Containerized to GHCR with OIDC-only auth. No stored secrets. I chose server-rendered HTMX over a SPA to keep the attack surface small and the system auditable.",
     oversight:
       "Built by a supervised agent fleet. Every release gated by 7,386 automated tests and a 48/48 automated judge score, with DR drills completed before promotion.",
     outcome: "v2.5.0 in production June 2026, all five tenants syncing live.",
@@ -71,7 +71,7 @@ export const caseStudies: CaseStudy[] = [
   {
     name: "Knowledge Fabric",
     kicker: "Identity-aware RAG",
-    teaser: "Identity-aware answers from 100K+ support tickets — scoped to who's asking.",
+    teaser: "Identity-aware answers from 100K+ support tickets. Scoped to who's asking.",
     tag: "Phase 2 · In build",
     metrics: [
       { value: "52/52", label: "Phase 1 QA checks" },
@@ -82,15 +82,15 @@ export const caseStudies: CaseStudy[] = [
     // Misty spruce forest fading into fog — discovering knowledge through the haze
     heroImage: "mist",
     problem:
-      "Support knowledge scattered across POS configs, SharePoint, and 100K+ helpdesk tickets. Answers had to respect brand and role boundaries — staff in one brand shouldn't surface another brand's playbook.",
+      "Support knowledge scattered across POS configs, SharePoint, and 100K+ helpdesk tickets. Answers had to respect brand and role boundaries. Staff in one brand should not surface another brand's playbook.",
     architecture:
-      "A multi-agent ingestion pipeline with SQLite + FTS5 memory and Entra identity as the grounding layer — 1,523 verified humans across a 15-slot attribute schema. Identity is the filter, not an afterthought bolted on later.",
+      "A multi-agent ingestion pipeline with SQLite + FTS5 memory and Entra identity as the grounding layer. 1,523 verified humans across a 15-slot attribute schema. Identity is the filter, not an afterthought bolted on later.",
     oversight:
-      "A planner agent orchestrating specialists — crawler, programmer, code-reviewer, security-auditor. Phase 1 closed at 52/52 QA checks.",
+      "A planner agent orchestrating specialists. Crawler, programmer, code-reviewer, security-auditor. Phase 1 closed at 52/52 QA checks.",
     outcome:
       "Phase 1 shipped; Phase 2 in build, with consumers planned for Teams, Outlook, and the helpdesk platform.",
     reflection:
-      "Grounding on identity from day one paid off — retrofitting role boundaries into a RAG system after the fact is painful.",
+      "Grounding on identity from day one paid off. Retrofitting role boundaries into a RAG system after the fact is painful.",
     stack: ["Multi-agent", "RAG", "SQLite", "FTS5", "Entra ID", "Python"],
   },
   {
@@ -111,11 +111,11 @@ export const caseStudies: CaseStudy[] = [
     problem:
       "Nobody could answer 'what do we run and what does it cost' across 41 repos, 11 subscriptions, ~196 Azure resources, plus reseller-billed licensing.",
     architecture:
-      "Live read-only pulls against version control, identity, cloud cost management, invoices, and licensing APIs feed a DuckDB warehouse and a single canonical workbook — with 12/12 verification checks gating every refresh.",
+      "Live read-only pulls against version control, identity, cloud cost management, invoices, and licensing APIs feed a DuckDB warehouse and a single canonical workbook. 12/12 verification checks gate every refresh.",
     oversight:
       "Each pull is verified against the prior canonical snapshot; all 12/12 checks must pass before the workbook is published as source of truth.",
     outcome:
-      "The full IT run-rate quantified — with a ~40% optimization path (a single over-provisioned capacity is ~54% of it) and 25 prioritized remediation actions. It drives executive financial decisions.",
+      "The full IT run-rate quantified. A ~40% optimization path (a single over-provisioned capacity is ~54% of it) and 25 prioritized remediation actions. It drives executive financial decisions.",
     reflection:
       "The real value was the verification checks. Once people trusted the numbers, the workbook became the thing every cost conversation started from.",
     stack: ["Python", "DuckDB", "GitHub API", "MS Graph", "Azure Cost Mgmt"],
@@ -123,7 +123,7 @@ export const caseStudies: CaseStudy[] = [
   {
     name: "Zero-secret automation",
     kicker: "OIDC lifecycle across 5 tenants",
-    teaser: "Full lifecycle automation across five tenants — without storing one credential.",
+    teaser: "Full lifecycle automation across five tenants. Without storing one credential.",
     tag: "Production",
     metrics: [
       { value: "5", label: "tenants federated" },
@@ -133,11 +133,11 @@ export const caseStudies: CaseStudy[] = [
     // Clear alpine lake — transparent, nothing hidden (federated, zero-secret)
     heroImage: "lake",
     problem:
-      "Lifecycle automation — onboarding, offboarding, leave-of-absence — across five tenants, without storing a single credential anywhere.",
+      "Lifecycle automation. Onboarding, offboarding, leave-of-absence. Across five tenants, without storing a single credential anywhere.",
     architecture:
       "GitHub Actions with workload identity federation per tenant, driven from project management and CSV inputs. Least privilege and federated trust by construction, zero long-lived secrets.",
     oversight:
-      "Every run leaves an audit trail; permissions are scoped per-tenant and least-privilege — the security story FDE interviewers ask about.",
+      "Every run leaves an audit trail. Permissions are scoped per-tenant and least-privilege. The security story FDE interviewers ask about.",
     outcome:
       "Lifecycle automation running across all five tenants with no stored secrets and full audit trails.",
     reflection:
@@ -157,11 +157,11 @@ export const caseStudies: CaseStudy[] = [
     // Private cabin at dusk, warm interior light — a personal, local-first project
     heroImage: "house",
     problem:
-      "Email overwhelm — but running cloud AI over a personal inbox is a privacy non-starter. I wanted the same production discipline off the clock.",
+      "Email overwhelm. Running cloud AI over a personal inbox is a privacy non-starter. I wanted the same production discipline off the clock.",
     architecture:
       "FastAPI + SvelteKit, 5,700+ LOC backend, with 5 classifiers and approval workflows before any destructive write. Local Ollama by default, cloud opt-in. WCAG 2.2 AA throughout.",
     oversight:
-      "Audit-trailed inference with explicit approval gates before destructive actions — the agent proposes, the human disposes.",
+      "Audit-trailed inference with explicit approval gates before destructive actions. The agent proposes, the human disposes.",
     outcome: "Shipped and in daily use, with local-first inference and an accessible UI.",
     reflection:
       "The approval-before-write pattern is the thing I now reach for in every agent I build.",
@@ -172,7 +172,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Identity Governance Ecosystem",
     kicker: "Master identity database across five brands",
     teaser:
-      "The final system I built at Head to Toe — a master identity database spanning five brands and Microsoft tenants, with role-based onboarding and offboarding tied to location and brand affiliation.",
+      "The final system I built at Head to Toe. A master identity database spanning five brands and Microsoft tenants, with role-based onboarding and offboarding tied to location and brand affiliation.",
     diagram: <GroupManagementDiagram />,
     tag: "Production",
     metrics: [
@@ -183,15 +183,15 @@ export const caseStudies: CaseStudy[] = [
     // Spruce branch with cone — a cluster / group of needles = group governance
     heroImage: "branch",
     problem:
-      "Five brands, 200+ locations, and no unified identity governance. Onboarding and offboarding was manual, error-prone, and inconsistent across Microsoft tenants. Staff in one brand couldn't access resources in another — even when their role required it. The COO needed a clear end-to-end identity lifecycle with the least friction possible.",
+      "Five brands, 200+ locations, and no unified identity governance. Onboarding and offboarding was manual, error-prone, and inconsistent across Microsoft tenants. Staff in one brand could not access resources in another, even when their role required it. The COO needed a clear end-to-end identity lifecycle with the least friction possible.",
     architecture:
-      "Built a master identity database that federated across all five brands and their Microsoft tenants. Role-based access control tied to location, brand affiliation, and job function — so a manager in Brand A at Location X gets exactly the resources they need, automatically. Onboarding and offboarding became a single workflow with audit trails, not a ticket queue.",
+      "Built a master identity database that federated across all five brands and their Microsoft tenants. Role-based access control tied to location, brand affiliation, and job function. A manager in Brand A at Location X gets exactly the resources they need, automatically. Onboarding and offboarding became a single workflow with audit trails, not a ticket queue.",
     oversight:
-      "7,984 automated tests gating every release; WCAG AA across the UI. The same supervised-agent discipline as Control Tower — built with Code Puppy, the open-source agent that was adopted internally at Walmart.",
+      "7,984 automated tests gating every release. WCAG AA across the UI. The same supervised-agent discipline as Control Tower. Built with Code Puppy, the open-source agent that was adopted internally at Walmart.",
     outcome:
       "Unified identity governance across five brands and 200+ locations. Onboarding time reduced from days to minutes. Offboarding became immediate and auditable. The COO had a single pane of glass for who has access to what, across the entire estate.",
     reflection:
-      "The real win wasn't the technology — it was that people stopped worrying about access. They got what they needed, when they needed it, without friction. That's the mission: remove obstacles so people can do their best work.",
+      "The real win was not the technology. It was that people stopped worrying about access. They got what they needed, when they needed it, without friction. That is the mission: remove obstacles so people can do their best work.",
     stack: ["Python", "FastAPI", "Azure", "Entra ID", "WCAG AA"],
     note: "Code private — architecture summarized.",
   },
@@ -201,14 +201,14 @@ const moreBuilds = [
   {
     title: "360 Communicator",
     tag: "Shipped",
-    body: "Cross-platform desktop app for franchise communication — Tauri + React + Vite. Unifies fragmented tooling for multi-unit operators.",
+    body: "Cross-platform desktop app for franchise communication. Tauri + React + Vite. Unifies fragmented tooling for multi-unit operators.",
     tech: ["Tauri", "React", "Vite", "TypeScript"],
     href: "https://github.com/t-granlund/360-communicator",
   },
   {
     title: "Passkey Enable Azure",
     tag: "Enterprise",
-    body: "Modernizing identity from passwords to FIDO2/passkeys across enterprise environments — security engineering meets user experience.",
+    body: "Modernizing identity from passwords to FIDO2/passkeys across enterprise environments. Security engineering meets user experience.",
     tech: ["Azure", "FIDO2", "Identity", "Security"],
     href: "",
   },
@@ -234,7 +234,7 @@ export function Projects() {
             What I&apos;ve <em className="not-italic text-cedar">built.</em>
           </h2>
           <p className="mt-6 text-lg text-stone/90 max-w-2xl">
-            Not a wall of logos — a few systems told in depth. Each one: the problem, the
+            Not a wall of logos. A few systems told in depth. Each one: the problem, the
             architecture and why, how agents were supervised and evaluated, and what I&apos;d do
             differently.
           </p>
@@ -344,13 +344,12 @@ export function Projects() {
               <h3 className="mt-4 font-display text-3xl lg:text-4xl text-foreground">Code Puppy</h3>
               <p className="mt-4 text-stone/85 leading-relaxed max-w-2xl">
                 The open-source AI code agent I use to build every production system on this site.
-                Created by Michael Pfaffenberger and John Choi. Adopted internally at Walmart —
-                where they received the{" "}
-                <span className="text-cedar">President's Innovation Award</span> from Walmart
-                President &amp; CEO John Furner. 4,000+ store employees now use Code Puppy daily. I
-                used it at Head to Toe Brands to run a five-brand, 200+ location franchise portfolio
-                with a lean team — building applications, automations, and operational efficiencies
-                that would otherwise require a much larger organization.
+                Created by Michael Pfaffenberger and John Choi. Adopted internally at Walmart. where
+                they received the <span className="text-cedar">President's Innovation Award</span>{" "}
+                from Walmart President &amp; CEO John Furner. 4,000+ store employees now use Code
+                Puppy daily. I used it at Head to Toe Brands to run a five-brand, 200+ location
+                franchise portfolio with a lean team. Building applications, automations, and
+                operational efficiencies that would otherwise require a much larger organization.
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-4">
                 <CodePuppyModal />
@@ -371,7 +370,7 @@ export function Projects() {
         <div className="mt-16">
           <h3 className="font-display text-2xl text-foreground">More from the workshop.</h3>
           <p className="mt-2 text-stone/80 max-w-2xl">
-            Smaller trails — open-source tools and personal builds that carry the same discipline.
+            Smaller trails. Open-source tools and personal builds that carry the same discipline.
           </p>
           <div className="mt-8 grid sm:grid-cols-2 gap-5">
             {moreBuilds.map((p) => (

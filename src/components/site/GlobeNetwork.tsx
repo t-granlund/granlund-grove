@@ -80,7 +80,7 @@ export function GlobeNetwork() {
                 <em className="not-italic text-mist">the world.</em>
               </h3>
               <p className="mt-3 max-w-md text-sm leading-relaxed text-stone/80">
-                Each role lit up the map — from Chicago to São Paulo, Great Falls to Cape Town.
+                Each role lit up the map. From Chicago to São Paulo, Great Falls to Cape Town.
                 Follow the journey, role by role.
               </p>
               <div className="pointer-events-auto mt-6">
