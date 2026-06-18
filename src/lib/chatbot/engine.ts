@@ -15,12 +15,16 @@ export interface RetrievalResult {
 }
 
 // Tokenize a query into normalized keywords
+// Short but meaningful domain acronyms that should survive the length filter
+// (otherwise "AI", "ML", "BI", "QA", "CI/CD" queries lose their core keyword).
+const KEEP_SHORT = new Set(["ai", "ml", "bi", "qa", "ux", "ci", "cd", "pe", "llm", "rag"]);
+
 function tokenize(text: string): string[] {
   return text
     .toLowerCase()
     .replace(/[^a-z0-9\s]/g, " ")
     .split(/\s+/)
-    .filter((t) => t.length > 2 && !STOPWORDS.has(t));
+    .filter((t) => (t.length > 2 || KEEP_SHORT.has(t)) && !STOPWORDS.has(t));
 }
 
 const STOPWORDS = new Set([
@@ -300,16 +304,13 @@ const STOPWORDS = new Set([
 function scoreChunk(queryTokens: string[], chunk: KnowledgeChunk): number {
   let score = 0;
 
-  // Direct keyword matches in chunk text
+  // Direct keyword matches in chunk text — word-boundary only, so short tokens
+  // like "ai"/"ml" don't false-match inside "email"/"available"/"fabric".
   const chunkText = chunk.text.toLowerCase();
   for (const token of queryTokens) {
-    if (chunkText.includes(token)) {
-      score += 2;
-      // Bonus for exact phrase matches
-      const regex = new RegExp(`\\b${token}\\b`, "g");
-      const matches = chunkText.match(regex);
-      if (matches) score += matches.length * 1.5;
-    }
+    const regex = new RegExp(`\\b${token}\\b`, "g");
+    const matches = chunkText.match(regex);
+    if (matches) score += 2 + matches.length * 1.5;
   }
 
   // Topic / synonym matches

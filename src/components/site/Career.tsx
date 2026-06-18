@@ -7,7 +7,7 @@ const roles = [
   {
     company: "Open to Opportunities",
     role: "IT Operations & Systems Engineer",
-    dates: "Jan 2026 — Present",
+    dates: "June 2026 — Present",
     summary:
       "Available for full-time roles, consulting engagements, and collaborations. Looking for positions in IT leadership, systems engineering, AI/ML engineering, forward-deployed engineering, and digital transformation. Based in Bella Vista, Arkansas. Remote or on-site as needed.",
     outcomes: [
@@ -20,7 +20,7 @@ const roles = [
   {
     company: "Head to Toe Brands (Riverside PE)",
     role: "IT Operations & Systems Engineer",
-    dates: "Jan 2026 — Jan 2026",
+    dates: "Jan 2026 — June 2026",
     summary:
       "Embedded with non-technical operators to run supervised multi-agent systems. Shipped production software across a five-brand, 200+ location franchise portfolio. Discovery to scoping to production rollout, with the security, evals, and CI/CD to back it. Used Code Puppy to build Control Tower, Knowledge Fabric, and Estate Trace.",
     outcomes: [

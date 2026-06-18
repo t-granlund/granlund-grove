@@ -10,7 +10,7 @@ export const bioContactChunks: KnowledgeChunk[] = [
   },
   {
     id: "bio-availability",
-    text: "Tyler is currently looking for his next opportunity. He is available for full-time roles, consulting engagements, and collaborations. His last role was at Head to Toe Brands (Oct 2024 — Jan 2026). He is open to IT leadership, systems engineering, AI/ML engineering, forward-deployed engineering, and digital transformation roles. Based in Bella Vista, Arkansas. Remote-first, on-site travel as needed.",
+    text: "Tyler is currently looking for his next opportunity. He is available for full-time roles, consulting engagements, and collaborations. His last role was at Head to Toe Brands (Oct 2024 — June 2026). He is open to IT leadership, systems engineering, AI/ML engineering, forward-deployed engineering, and digital transformation roles. Based in Bella Vista, Arkansas. Remote-first, on-site travel as needed.",
     topics: [
       "hiring",
       "job",
@@ -91,7 +91,7 @@ export const bioContactChunks: KnowledgeChunk[] = [
   },
   {
     id: "greeting-role",
-    text: "Tyler is currently looking for his next opportunity. His last role was at Head to Toe Brands (Oct 2024 — Jan 2026). He is open to full-time roles, consulting, and collaborations in IT leadership, systems engineering, AI/ML engineering, or forward-deployed engineering. Contact: hello@tylergranlund.com.",
+    text: "Tyler is currently looking for his next opportunity. His last role was at Head to Toe Brands (Oct 2024 — June 2026). He is open to full-time roles, consulting, and collaborations in IT leadership, systems engineering, AI/ML engineering, or forward-deployed engineering. Contact: hello@tylergranlund.com.",
     topics: [
       "job",
       "hiring",
