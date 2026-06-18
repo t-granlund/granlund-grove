@@ -169,31 +169,31 @@ export const caseStudies: CaseStudy[] = [
     link: { href: "https://github.com/t-granlund/mysa-mail", label: "View on GitHub" },
   },
   {
-    name: "Identity Governance Ecosystem",
-    kicker: "Master identity database across five brands",
+    name: "TenantFleet Ecosystem",
+    kicker: "Multi-tenant identity governance — now open source",
     teaser:
-      "The final system I built at Head to Toe. A master identity database spanning five brands and Microsoft tenants, with role-based onboarding and offboarding tied to location and brand affiliation.",
+      "Seven repositories for MSPs, PE firms, and multi-brand portfolios. From tenant provisioning to user offboarding, domain security to finance compliance — all MIT-licensed and deployable to GitHub Pages.",
     diagram: <GroupManagementDiagram />,
-    tag: "Production",
+    tag: "Open Source · 7 Repos",
     metrics: [
-      { value: "5", label: "brands unified" },
-      { value: "200+", label: "locations" },
-      { value: "7,984", label: "tests gating release" },
+      { value: "7", label: "repos live" },
+      { value: "104", label: "source files" },
+      { value: "0", label: "secrets required" },
     ],
     // Spruce branch with cone — a cluster / group of needles = group governance
     heroImage: "branch",
     problem:
-      "Five brands, 200+ locations, and no unified identity governance. Onboarding and offboarding was manual, error-prone, and inconsistent across Microsoft tenants. Staff in one brand could not access resources in another, even when their role required it. The COO needed a clear end-to-end identity lifecycle with the least friction possible.",
+      "Multi-tenant Microsoft identity governance is hard. MSPs manage dozens of client tenants. PE firms acquire companies with their own Entra ID estates. Multi-brand franchisors need unified governance without losing brand autonomy. Every organization rebuilds the same tooling: user lifecycle, group management, domain security, dashboard provisioning.",
     architecture:
-      "Built a master identity database that federated across all five brands and their Microsoft tenants. Role-based access control tied to location, brand affiliation, and job function. A manager in Brand A at Location X gets exactly the resources they need, automatically. Onboarding and offboarding became a single workflow with audit trails, not a ticket queue.",
+      "Seven independent polyrepos sharing a common design system. Three pillars: Mind (governance infrastructure), Body (people and access), Spirit (domain security). Each repo is self-contained with its own landing page, MIT license, and zero-secret OIDC auth. Built with Inter + JetBrains Mono, glassmorphism, and aurora gradients — deployed to GitHub Pages.",
     oversight:
-      "7,984 automated tests gating every release. WCAG AA across the UI. The same supervised-agent discipline as Control Tower. Built with Code Puppy, the open-source agent that was adopted internally at Walmart.",
+      "Every repo passed six judge gates before release: deliverable, quality, security, sanity, accessibility, and design-system compliance. All brand names scrubbed. All tenant IDs tokenized. Pre-commit hooks block UUIDs, emails, and tenant references. The same discipline that gated 7,984 tests at Head to Toe.",
     outcome:
-      "Unified identity governance across five brands and 200+ locations. Onboarding time reduced from days to minutes. Offboarding became immediate and auditable. The COO had a single pane of glass for who has access to what, across the entire estate.",
+      "Seven live repositories on GitHub with GitHub Pages deployment. TenantFleet (root framework), HubForge (SWA templates), EntraGroups (group lifecycle), TenantForge (Terraform provisioning), DNSGuard (domain security), RampGuard (finance compliance), SharePointAgent (document indexing). All open source. All ready to fork.",
     reflection:
-      "The real win was not the technology. It was that people stopped worrying about access. They got what they needed, when they needed it, without friction. That is the mission: remove obstacles so people can do their best work.",
-    stack: ["Python", "FastAPI", "Azure", "Entra ID", "WCAG AA"],
-    note: "Code private — architecture summarized.",
+      "Building in the open forces clarity. Every decision must be explainable to someone who was not in the room. The architecture docs, the diagrams, the judge criteria — they are not overhead. They are the product.",
+    stack: ["TypeScript", "React", "Terraform", "Python", "Graph API", "OIDC"],
+    link: { href: "/ecosystem", label: "Explore the ecosystem" },
   },
 ];
 
