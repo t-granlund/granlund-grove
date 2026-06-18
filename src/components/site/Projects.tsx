@@ -10,7 +10,6 @@ import { SectionLabel } from "./SectionLabel";
 import { CaseStudyModal } from "./CaseStudyModal";
 import { EstateTraceSnapshot } from "./EstateTraceSnapshot";
 import { EstateTraceDeepDive } from "./EstateTraceDeepDive";
-import { CodePuppyModal } from "./CodePuppyModal";
 import { EstateTraceDiagram } from "./diagrams/EstateTraceDiagram";
 import { ControlTowerDiagram } from "./diagrams/ControlTowerDiagram";
 import { KnowledgeFabricDiagram } from "./diagrams/KnowledgeFabricDiagram";
@@ -193,7 +192,7 @@ export const caseStudies: CaseStudy[] = [
     reflection:
       "Building in the open forces clarity. Every decision must be explainable to someone who was not in the room. The architecture docs, the diagrams, the judge criteria — they are not overhead. They are the product.",
     stack: ["TypeScript", "React", "Terraform", "Python", "Graph API", "OIDC"],
-    link: { href: "/ecosystem", label: "Explore the ecosystem" },
+    link: { href: "#ecosystem", label: "Explore the ecosystem" },
   },
 ];
 
@@ -214,12 +213,6 @@ const moreBuilds = [
   },
 ];
 
-const passions = [
-  { t: "Process Innovation", b: "Reframing how teams move from idea to ship." },
-  { t: "Trails & Mountain Biking", b: "Northwest Arkansas singletrack as creative fuel." },
-  { t: "Family, Community, Nature", b: "The grove that grounds everything else." },
-];
-
 export function Projects() {
   return (
     <section id="projects" className="relative py-32 lg:py-40 bg-spruce-deep/40">
@@ -230,13 +223,13 @@ export function Projects() {
           <SectionLabel index="01" chapter="The Work">
             Case Studies
           </SectionLabel>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] font-light text-balance">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] font-light text-balance">
             What I&apos;ve <em className="not-italic text-cedar">built.</em>
-          </h2>
+          </h1>
           <p className="mt-6 text-lg text-stone/90 max-w-2xl">
-            Not a wall of logos. A few systems told in depth. Each one: the problem, the
-            architecture and why, how agents were supervised and evaluated, and what I&apos;d do
-            differently.
+            Not a wall of logos. A few systems told in depth, then the open-source ecosystem they
+            grew into. Each one: the problem, the architecture and why, how agents were supervised
+            and evaluated, and what I&apos;d do differently.
           </p>
         </div>
 
@@ -280,7 +273,7 @@ export function Projects() {
                 </div>
 
                 {/* Name */}
-                <h3 className="mt-4 font-display text-3xl lg:text-4xl text-foreground">{c.name}</h3>
+                <h2 className="mt-4 font-display text-3xl lg:text-4xl text-foreground">{c.name}</h2>
 
                 {/* Metrics */}
                 <div
@@ -312,63 +305,33 @@ export function Projects() {
                 {/* Expand button — opens full modal */}
                 <div className="mt-5 flex flex-wrap items-center gap-4">
                   <CaseStudyModal study={c} extraContent={c.modalExtras} />
-                  {c.link && (
-                    <a
-                      href={c.link.href}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="inline-flex items-center gap-2 text-sm text-cedar hover:text-mist transition-colors"
-                    >
-                      {c.link.label} <span aria-hidden="true">&#8599;</span>
-                    </a>
-                  )}
+                  {c.link &&
+                    (c.link.href.startsWith("http") ? (
+                      <a
+                        href={c.link.href}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="inline-flex items-center gap-2 text-sm text-cedar hover:text-mist transition-colors"
+                      >
+                        {c.link.label} <span aria-hidden="true">&#8599;</span>
+                      </a>
+                    ) : (
+                      <a
+                        href={c.link.href}
+                        className="inline-flex items-center gap-2 text-sm text-cedar hover:text-mist transition-colors"
+                      >
+                        {c.link.label} <span aria-hidden="true">&#8594;</span>
+                      </a>
+                    ))}
                 </div>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Code Puppy highlight */}
-        <div className="mt-16">
-          <div className="group relative rounded-3xl border border-cedar/40 bg-[oklch(0.25_0.05_60/0.35)] overflow-hidden">
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_top_left,oklch(0.68_0.12_55/0.12),transparent_60%)]" />
-            <div className="relative p-8 lg:p-12">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-cedar">
-                  Open Source · Enterprise
-                </span>
-                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-stone/70 px-2.5 py-1 rounded-full border border-cedar/30">
-                  616 stars · 4,000+ Walmart users
-                </span>
-              </div>
-              <h3 className="mt-4 font-display text-3xl lg:text-4xl text-foreground">Code Puppy</h3>
-              <p className="mt-4 text-stone/85 leading-relaxed max-w-2xl">
-                The open-source AI code agent I use to build every production system on this site.
-                Created by Michael Pfaffenberger and John Choi. Adopted internally at Walmart. where
-                they received the <span className="text-cedar">President's Innovation Award</span>{" "}
-                from Walmart President &amp; CEO John Furner. 4,000+ store employees now use Code
-                Puppy daily. I used it at Head to Toe Brands to run a five-brand, 200+ location
-                franchise portfolio with a lean team. Building applications, automations, and
-                operational efficiencies that would otherwise require a much larger organization.
-              </p>
-              <div className="mt-5 flex flex-wrap items-center gap-4">
-                <CodePuppyModal />
-                <a
-                  href="https://github.com/mpfaffenberger/code_puppy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-cedar hover:text-mist transition-colors"
-                >
-                  View on GitHub <span aria-hidden="true">&#8599;</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* More from the workshop */}
         <div className="mt-16">
-          <h3 className="font-display text-2xl text-foreground">More from the workshop.</h3>
+          <h2 className="font-display text-2xl text-foreground">More from the workshop.</h2>
           <p className="mt-2 text-stone/80 max-w-2xl">
             Smaller trails. Open-source tools and personal builds that carry the same discipline.
           </p>
@@ -383,7 +346,7 @@ export function Projects() {
                   <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cedar">
                     {p.tag}
                   </span>
-                  <h4 className="mt-4 font-display text-xl text-foreground">{p.title}</h4>
+                  <h3 className="mt-4 font-display text-xl text-foreground">{p.title}</h3>
                   <p className="mt-3 text-sm text-stone/85 leading-relaxed">{p.body}</p>
                   <div className="mt-4 flex flex-wrap gap-1.5">
                     {p.tech.map((t) => (
@@ -409,25 +372,6 @@ export function Projects() {
               </article>
             ))}
           </div>
-        </div>
-
-        {/* Personal passions */}
-        <div className="mt-12 grid sm:grid-cols-3 gap-4">
-          {passions.map((c) => (
-            <div
-              key={c.t}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card/60 p-6 lift"
-            >
-              <div
-                aria-hidden
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_top_left,oklch(0.68_0.12_55/0.12),transparent_60%)]"
-              />
-              <div className="relative">
-                <h4 className="font-display text-lg">{c.t}</h4>
-                <p className="mt-2 text-sm text-stone/85">{c.b}</p>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>

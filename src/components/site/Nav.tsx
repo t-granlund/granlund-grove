@@ -6,7 +6,6 @@ const items = [
   { to: "/about", label: "About" },
   { to: "/career", label: "Career" },
   { to: "/work", label: "Work" },
-  { to: "/ecosystem", label: "Ecosystem" },
   { to: "/ventures", label: "Ventures" },
   { to: "/resume", label: "Resume" },
   { to: "/contact", label: "Contact" },

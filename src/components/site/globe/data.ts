@@ -450,15 +450,9 @@ export const LOCATIONS: LocationData[] = [
     type: "hub",
     brand: "Head to Toe Brands",
     role: "Product & E-Commerce Director",
-    years: "2024–Present",
+    years: "2024–2026",
     contribution:
-      "Headquarters in Glen Arbor, Michigan. The final mark I implemented was the identity " +
-      "governance ecosystem. A master database for user identities across five brands and Microsoft " +
-      "tenants. Clear end-to-end onboarding and offboarding lifecycle with the least friction: " +
-      "access resources based on location, brand affiliation, and role. Also built the Control Tower, " +
-      "Knowledge Fabric, and Estate Trace systems using Code Puppy. The open-source agent created by " +
-      "Michael Pfaffenberger and John Choi, adopted internally at Walmart, where they received the " +
-      "President's Innovation Award from CEO John Furner. 4,000+ Walmart employees now use it daily.",
+      "Headquarters in Glen Arbor, Michigan. Built the identity governance ecosystem. A master database for user identities across five brands and Microsoft tenants. Clear end-to-end onboarding and offboarding lifecycle with the least friction: access resources based on location, brand affiliation, and role. Also built Control Tower, Knowledge Fabric, and Estate Trace systems using Code Puppy. Won the President's Innovation Award.",
     sources: [
       {
         label: "Head to Toe Brands",
@@ -473,11 +467,9 @@ export const LOCATIONS: LocationData[] = [
     type: "hub",
     brand: "Head to Toe Brands",
     role: "Training & Operations Facility",
-    years: "2024–Present",
+    years: "2024–2026",
     contribution:
-      "Main training facility for Head to Toe Brands in South Lake, Texas. All field operations, " +
-      "franchisee onboarding, and systems training run through this facility. Connected to Dallas-based " +
-      "private equity leadership and Glen Arbor headquarters.",
+      "Main training facility for Head to Toe Brands in South Lake, Texas. All field operations, franchisee onboarding, and systems training ran through this facility. Connected to Dallas-based private equity leadership and Glen Arbor headquarters.",
     sources: [
       {
         label: "Head to Toe Brands",

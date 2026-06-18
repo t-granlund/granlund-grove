@@ -139,14 +139,14 @@ const STEPS: ImpactStep[] = [
   {
     company: "Head to Toe Brands",
     role: "IT Director → IT Ops & Systems Engineer",
-    dates: "2024 — Present",
+    dates: "2024 — 2026",
     start: "Glen Arbor HQ",
     end: "200+ locations · 5 brands",
     locations: ["Glen Arbor", "South Lake"],
     stat: "200+",
     statLabel: "locations · 5 brands · Riverside PE",
     story:
-      "Enterprise IT for a Riverside private-equity-backed franchise group. Portfolio: The Lash Lounge (~130 units), Bishops (~40), Frenchies (24), and Delta Crown. Today I ship supervised multi-agent systems to production alongside non-technical operators.",
+      "Enterprise IT for a Riverside private-equity-backed franchise group. Portfolio: The Lash Lounge (~130 units), Bishops (~40), Frenchies (24), and Delta Crown. Shipped supervised multi-agent systems to production alongside non-technical operators.",
     achievements: [
       "Built the identity-governance ecosystem. A master database federating identities across 5 brands and 5 Microsoft tenants. Access by location, brand, and role.",
       "Cut onboarding from days to minutes; offboarding is immediate and auditable.",
@@ -155,7 +155,7 @@ const STEPS: ImpactStep[] = [
       "Zero-secret, OIDC-based automation across all five tenants.",
     ],
     value:
-      "200+ locations running on systems that make the work less stressful. The whole point: create brand ambassadors by serving the people behind the counter.",
+      "200+ locations running on systems that made the work less stressful. The whole point: create brand ambassadors by serving the people behind the counter.",
     sources: [{ label: "Head to Toe Brands", url: "https://www.headtotoebrands.com" }],
   },
 ];
@@ -404,7 +404,7 @@ export function CareerImpactTimeline() {
             <div>
               <div className="font-display text-4xl lg:text-5xl font-light text-mist">200+</div>
               <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cedar">
-                current locations managed
+                locations supported
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
-// TenantFleet Ecosystem — comprehensive landing page
-// Seven open-source repos for multi-tenant Microsoft Entra ID governance
+// TenantFleet ecosystem — showcase section, lives inside the /work page.
+// Seven open-source repos for multi-tenant Microsoft Entra ID governance.
+/* eslint-disable react-refresh/only-export-components */
 
 import { SectionLabel } from "./SectionLabel";
 import { EcosystemDiagram } from "./diagrams/EcosystemDiagram";
@@ -182,197 +183,158 @@ export const repos: Repo[] = [
   },
 ];
 
-export function EcosystemPage() {
+const valueProps = [
+  {
+    title: "For MSPs",
+    body: "Manage multiple client tenants from a single control plane. Onboard new clients with Terraform modules, not manual clicks. Govern identity, cost, and compliance without building from scratch.",
+  },
+  {
+    title: "For PE Firms",
+    body: "Portfolio companies each get their own tenant, but you maintain oversight. Dashboards show cost, security posture, and identity health across the entire portfolio.",
+  },
+  {
+    title: "For Multi-Brand Orgs",
+    body: "Each brand operates independently but shares governance standards. Staff move between brands with automatic access provisioning. Offboarding is immediate and auditable.",
+  },
+  {
+    title: "Zero Secrets",
+    body: "Every repo uses OIDC federated credentials. No client secrets, no API keys in repos, no credential rotation nightmares. GitHub Actions authenticates directly to Azure.",
+  },
+  {
+    title: "Open Source",
+    body: "MIT license. Fork what you need, ignore what you don't. No vendor lock-in. No per-seat pricing. The codebase is yours to adapt, extend, and commercialize.",
+  },
+  {
+    title: "Agent-Built",
+    body: "Every system was built with AI agent supervision — automated testing, judge gates, and security auditing. The same discipline that scales to Walmart's 4,000+ users.",
+  },
+];
+
+export function EcosystemShowcase() {
   return (
-    <>
-      {/* ── Hero ── */}
-      <section className="relative pt-24 pb-20 overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-40"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.32 0.045 158 / 0.35), transparent), radial-gradient(ellipse 60% 40% at 80% 60%, oklch(0.78 0.12 55 / 0.12), transparent)",
-          }}
-        />
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="max-w-4xl">
-            <SectionLabel index="TF" chapter="Open Source">
-              Ecosystem
-            </SectionLabel>
-            <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.05] font-light text-balance">
-              TenantFleet <em className="not-italic text-cedar">ecosystem.</em>
-            </h1>
-            <p className="mt-6 text-xl text-stone/90 max-w-3xl leading-relaxed">
-              Seven open-source repositories for multi-tenant Microsoft Entra ID governance. Built
-              for MSPs, PE firms, and multi-brand portfolios that need identity lifecycle,
-              infrastructure automation, domain security, and compliance — without vendor lock-in.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href="https://github.com/t-granlund"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-cedar/90 px-6 py-3 text-sm font-medium text-spruce-deep hover:bg-cedar transition-colors"
-              >
-                View on GitHub <span aria-hidden="true">&#8599;</span>
-              </a>
-              <a
-                href="/work"
-                className="inline-flex items-center gap-2 text-sm text-cedar hover:text-mist transition-colors"
-              >
-                Back to case studies <span aria-hidden="true">&#8592;</span>
-              </a>
-            </div>
-          </div>
+    <section id="ecosystem" className="relative py-28 lg:py-36 bg-spruce-deep/40">
+      <div className="topo-divider absolute top-0 inset-x-0" />
 
-          {/* Ecosystem metrics */}
-          <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {[
-              { value: "7", label: "Open-source repos" },
-              { value: "104", label: "Source files" },
-              { value: "0", label: "Secrets required" },
-              { value: "MIT", label: "License" },
-            ].map((m) => (
-              <div
-                key={m.label}
-                className="rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm"
-              >
-                <div className="font-display text-4xl font-light text-mist">{m.value}</div>
-                <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-cedar/90">
-                  {m.label}
-                </div>
-              </div>
-            ))}
-          </div>
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Intro */}
+        <div className="max-w-3xl">
+          <SectionLabel index="TF" chapter="Open Source">
+            The Ecosystem
+          </SectionLabel>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] font-light text-balance">
+            The TenantFleet <em className="not-italic text-cedar">ecosystem.</em>
+          </h2>
+          <p className="mt-6 text-lg text-stone/90 max-w-2xl leading-relaxed">
+            The governance work above, generalized and opened up: seven repositories for
+            multi-tenant Microsoft Entra ID governance. Built for MSPs, PE firms, and multi-brand
+            portfolios that need identity lifecycle, infrastructure automation, domain security, and
+            compliance — without vendor lock-in.
+          </p>
         </div>
-      </section>
 
-      {/* ── Architecture Diagram ── */}
-      <section className="relative py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-3xl">
-            <SectionLabel index="02" chapter="Architecture">
-              How it fits together
-            </SectionLabel>
-            <p className="mt-4 text-stone/80 max-w-2xl">
-              Three pillars — Mind (governance), Body (people), Spirit (security) — with seven repos
-              that share a common design system, zero-secret auth, and GitHub Pages deployment.
-            </p>
+        {/* Metrics */}
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {[
+            { value: "7", label: "Open-source repos" },
+            { value: "104", label: "Source files" },
+            { value: "0", label: "Secrets required" },
+            { value: "MIT", label: "License" },
+          ].map((m) => (
+            <div
+              key={m.label}
+              className="rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm"
+            >
+              <div className="font-display text-4xl font-light text-mist">{m.value}</div>
+              <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-cedar/90">
+                {m.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Architecture diagram */}
+        <div className="mt-16">
+          <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-cedar/80">
+            Architecture · how it fits together
           </div>
-          <div className="mt-10 rounded-3xl border border-border bg-card/40 p-8 lg:p-12 overflow-x-auto">
+          <p className="mt-3 text-stone/80 max-w-2xl">
+            Three pillars — Mind (governance), Body (people), Spirit (security) — across seven repos
+            that share a common design system, zero-secret auth, and GitHub Pages deployment.
+          </p>
+          <div className="mt-8 rounded-3xl border border-border bg-card/40 p-8 lg:p-12 overflow-x-auto">
             <EcosystemDiagram />
           </div>
         </div>
-      </section>
 
-      {/* ── Repo Grid ── */}
-      <section className="relative py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-3xl">
-            <SectionLabel index="03" chapter="The Repos">
-              Each system, explained
-            </SectionLabel>
-            <p className="mt-4 text-stone/80 max-w-2xl">
-              Every repository is self-contained, MIT-licensed, and deployable to GitHub Pages in
-              under a minute. Click any card to visit its live site.
-            </p>
+        {/* Repo grid */}
+        <div className="mt-16">
+          <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-cedar/80">
+            The repos · each system, explained
           </div>
-          <div className="mt-10 grid lg:grid-cols-2 gap-6">
+          <p className="mt-3 text-stone/80 max-w-2xl">
+            Every repository is self-contained, MIT-licensed, and deployable to GitHub Pages in
+            under a minute. Open any live site to explore it.
+          </p>
+          <div className="mt-8 grid lg:grid-cols-2 gap-6">
             {repos.map((repo) => (
               <RepoCard key={repo.name} repo={repo} />
             ))}
           </div>
         </div>
-      </section>
 
-      {/* ── Workflow ── */}
-      <section className="relative py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-3xl">
-            <SectionLabel index="04" chapter="Workflow">
-              How it works in practice
-            </SectionLabel>
-            <p className="mt-4 text-stone/80 max-w-2xl">
-              From tenant provisioning to user offboarding, the ecosystem covers the full identity
-              lifecycle across a multi-brand portfolio.
-            </p>
+        {/* Workflow */}
+        <div className="mt-16">
+          <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-cedar/80">
+            Workflow · how it works in practice
           </div>
-          <div className="mt-10 rounded-3xl border border-border bg-card/40 p-8 lg:p-12 overflow-x-auto">
+          <p className="mt-3 text-stone/80 max-w-2xl">
+            From tenant provisioning to user offboarding, the ecosystem covers the full identity
+            lifecycle across a multi-brand portfolio.
+          </p>
+          <div className="mt-8 rounded-3xl border border-border bg-card/40 p-8 lg:p-12 overflow-x-auto">
             <WorkflowDiagram />
           </div>
         </div>
-      </section>
 
-      {/* ── Value Prop ── */}
-      <section className="relative py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-3xl">
-            <SectionLabel index="05" chapter="Why This Matters">
-              Value to organizations
-            </SectionLabel>
+        {/* Value prop */}
+        <div className="mt-16">
+          <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-cedar/80">
+            Why it matters · value to organizations
           </div>
-          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "For MSPs",
-                body: "Manage multiple client tenants from a single control plane. Onboard new clients with Terraform modules, not manual clicks. Govern identity, cost, and compliance without building from scratch.",
-              },
-              {
-                title: "For PE Firms",
-                body: "Portfolio companies each get their own tenant, but you maintain oversight. Dashboards show cost, security posture, and identity health across the entire portfolio.",
-              },
-              {
-                title: "For Multi-Brand Orgs",
-                body: "Each brand operates independently but shares governance standards. Staff move between brands with automatic access provisioning. Offboarding is immediate and auditable.",
-              },
-              {
-                title: "Zero Secrets",
-                body: "Every repo uses OIDC federated credentials. No client secrets, no API keys in repos, no credential rotation nightmares. GitHub Actions authenticates directly to Azure.",
-              },
-              {
-                title: "Open Source",
-                body: "MIT license. Fork what you need, ignore what you don't. No vendor lock-in. No per-seat pricing. The codebase is yours to adapt, extend, and commercialize.",
-              },
-              {
-                title: "Agent-Built",
-                body: "Every system was built with AI agent supervision — automated testing, judge gates, and security auditing. The same discipline that scales to Walmart's 4,000+ users.",
-              },
-            ].map((v) => (
-              <div key={v.title} className="rounded-2xl border border-border bg-card/60 p-8 lift">
-                <h3 className="font-display text-xl text-mist">{v.title}</h3>
-                <p className="mt-3 text-sm text-stone/80 leading-relaxed">{v.body}</p>
+          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {valueProps.map((v) => (
+              <div
+                key={v.title}
+                className="group relative overflow-hidden rounded-2xl border border-border bg-card/60 p-8 lift"
+              >
+                <div
+                  aria-hidden
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_top_left,oklch(0.68_0.12_55/0.12),transparent_60%)]"
+                />
+                <div className="relative">
+                  <h3 className="font-display text-xl text-mist">{v.title}</h3>
+                  <p className="mt-3 text-sm text-stone/80 leading-relaxed">{v.body}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* ── CTA ── */}
-      <section className="relative py-20">
-        <div
-          aria-hidden
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 50% 40% at 50% 50%, oklch(0.78 0.12 55 / 0.10), transparent)",
-          }}
-        />
-        <div className="relative mx-auto max-w-4xl px-6 text-center">
-          <h2 className="font-display text-4xl sm:text-5xl text-mist">
+        {/* CTA */}
+        <div className="mt-16 rounded-3xl border border-cedar/30 bg-cedar/[0.06] p-8 lg:p-12 text-center">
+          <h3 className="font-display text-3xl sm:text-4xl text-mist text-balance">
             Start with one repo. Add the rest when you need them.
-          </h2>
+          </h3>
           <p className="mt-4 text-stone/80 max-w-2xl mx-auto">
-            The TenantFleet ecosystem is designed as independent polyrepos. Pick the tool that
-            solves your immediate problem. The shared design system and auth patterns make
-            integration natural.
+            Designed as independent polyrepos. Pick the tool that solves your immediate problem —
+            the shared design system and auth patterns make integration natural.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
               href="https://github.com/t-granlund/tenantfleet"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-cedar/90 px-6 py-3 text-sm font-medium text-spruce-deep hover:bg-cedar transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-[image:var(--gradient-cedar)] px-6 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-lift)] hover:brightness-110 transition-all"
             >
               Start with TenantFleet <span aria-hidden="true">&#8599;</span>
             </a>
@@ -386,7 +348,7 @@ export function EcosystemPage() {
             </a>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

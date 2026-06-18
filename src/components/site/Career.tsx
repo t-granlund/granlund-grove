@@ -5,11 +5,24 @@ import { SectionLabel } from "./SectionLabel";
 // employment facts; gated portfolio metrics live behind docs/NUMBER_VERIFICATION.md.
 const roles = [
   {
-    company: "Head to Toe Brands (Riverside PE)",
+    company: "Open to Opportunities",
     role: "IT Operations & Systems Engineer",
     dates: "Jan 2026 — Present",
     summary:
-      "Embedded with non-technical operators to run supervised multi-agent systems. Ships production software across a five-brand, 200+ location franchise portfolio. Discovery to scoping to production rollout, with the security, evals, and CI/CD to back it. Using Code Puppy to build Control Tower, Knowledge Fabric, and Estate Trace.",
+      "Available for full-time roles, consulting engagements, and collaborations. Looking for positions in IT leadership, systems engineering, AI/ML engineering, forward-deployed engineering, and digital transformation. Based in Bella Vista, Arkansas. Remote or on-site as needed.",
+    outcomes: [
+      "Tailored resume variants: AI PM, FDE, Master Resume",
+      "Open to IT leadership, systems engineering, AI/ML roles",
+      "Available for consulting and fractional engagements",
+      "Remote-first, on-site travel as needed",
+    ],
+  },
+  {
+    company: "Head to Toe Brands (Riverside PE)",
+    role: "IT Operations & Systems Engineer",
+    dates: "Jan 2026 — Jan 2026",
+    summary:
+      "Embedded with non-technical operators to run supervised multi-agent systems. Shipped production software across a five-brand, 200+ location franchise portfolio. Discovery to scoping to production rollout, with the security, evals, and CI/CD to back it. Used Code Puppy to build Control Tower, Knowledge Fabric, and Estate Trace.",
     outcomes: [
       "Multi-agent systems shipped to production",
       "Human-in-the-loop guardrails & eval harnesses",

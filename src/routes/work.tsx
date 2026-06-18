@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Projects, caseStudies } from "@/components/site/Projects";
+import { EcosystemShowcase } from "@/components/site/EcosystemShowcase";
+import { CodePuppy, Passions } from "@/components/site/WorkExtras";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
@@ -10,12 +12,13 @@ export const Route = createFileRoute("/work")({
       {
         name: "description",
         content:
-          "Six flagship case studies from Tyler Granlund — problem, architecture, oversight & evals, outcome, and what he'd do differently.",
+          "Tyler Granlund's work — flagship case studies plus the open-source TenantFleet ecosystem (7 repos for multi-tenant Entra ID governance), all built with supervised AI agents.",
       },
       { property: "og:title", content: "Work — Tyler Granlund" },
       {
         property: "og:description",
-        content: "Six flagship case studies — problem, architecture, oversight, outcome.",
+        content:
+          "Flagship case studies and the open-source TenantFleet ecosystem — problem, architecture, oversight, outcome.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://tylergranlund.com/work" },
@@ -73,6 +76,9 @@ function WorkPage() {
         tabIndex={-1}
       >
         <Projects />
+        <EcosystemShowcase />
+        <CodePuppy />
+        <Passions />
       </main>
       <Footer />
     </>

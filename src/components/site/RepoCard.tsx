@@ -1,22 +1,24 @@
 // Individual repo card for the ecosystem grid
 
-import type { Repo } from "./EcosystemPage";
+import type { Repo } from "./EcosystemShowcase";
 
-const pillarStyles: Record<Repo["pillar"], { gradient: string; badge: string; icon: string }> = {
+// Forest-palette pillar accents (was off-system indigo/orange/emerald). Three
+// distinguishable hues from the site's own gold→green family, with text
+// lightness kept readable on the dark card.
+const pillarStyles: Record<Repo["pillar"], { gradient: string; badge: string }> = {
   mind: {
-    gradient: "from-indigo-500/20 to-cyan-500/20",
-    badge: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30",
-    icon: "",
+    gradient: "from-[oklch(0.78_0.12_55/0.25)] to-[oklch(0.32_0.025_60/0.10)]",
+    badge: "bg-[oklch(0.78_0.12_55/0.15)] text-cedar border-[oklch(0.78_0.12_55/0.35)]",
   },
   body: {
-    gradient: "from-orange-500/20 to-amber-500/20",
-    badge: "bg-orange-500/20 text-orange-300 border-orange-500/30",
-    icon: "",
+    gradient: "from-[oklch(0.55_0.07_150/0.25)] to-[oklch(0.32_0.045_158/0.10)]",
+    badge:
+      "bg-[oklch(0.55_0.07_150/0.15)] text-[oklch(0.74_0.07_150)] border-[oklch(0.6_0.07_150/0.4)]",
   },
   spirit: {
-    gradient: "from-emerald-500/20 to-teal-500/20",
-    badge: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-    icon: "",
+    gradient: "from-[oklch(0.5_0.06_175/0.25)] to-[oklch(0.32_0.045_158/0.10)]",
+    badge:
+      "bg-[oklch(0.5_0.06_175/0.15)] text-[oklch(0.72_0.06_175)] border-[oklch(0.55_0.06_175/0.4)]",
   },
 };
 
@@ -36,9 +38,6 @@ export function RepoCard({ repo }: { repo: Repo }) {
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-lg" role="img" aria-label={`${repo.pillar} pillar`}>
-                {style.icon}
-              </span>
               <span
                 className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-[0.2em] border ${style.badge}`}
               >
