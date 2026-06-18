@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { Analytics } from "@/components/site/Analytics";
+import { ChatWidget } from "@/components/site/ChatWidget";
 
 function NotFoundComponent() {
   return (
@@ -113,6 +114,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         </a>
         {children}
         <Analytics />
+        <ChatWidget />
         <Scripts />
       </body>
     </html>
