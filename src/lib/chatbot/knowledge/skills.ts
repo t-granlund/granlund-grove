@@ -4,7 +4,7 @@ export const skillsChunks: KnowledgeChunk[] = [
   // AI & Agents
   {
     id: "skills-ai-orchestration",
-    text: "Multi-agent orchestration: Tyler builds systems with planner, programmer, code-reviewer, and security-auditor agents. Uses human-in-the-loop approvals before any destructive write. Every release is gated by automated tests and judge scores. The Code Puppy system he built won the President's Innovation Award at Head to Toe Brands.",
+    text: "Multi-agent orchestration: Tyler builds systems with planner, programmer, code-reviewer, and security-auditor agents. Uses human-in-the-loop approvals before any destructive write. Every release is gated by automated tests and judge scores. He uses Code Puppy, an open-source multi-agent system, as his build environment.",
     topics: ["ai", "agents", "orchestration", "multi-agent", "code puppy", "how he builds"],
     source: "Skills",
     priority: 10,

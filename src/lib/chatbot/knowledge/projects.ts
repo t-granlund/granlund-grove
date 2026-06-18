@@ -169,7 +169,7 @@ export const projectChunks: KnowledgeChunk[] = [
   },
   {
     id: "code-puppy",
-    text: "Code Puppy is the supervised multi-agent system Tyler uses to build production software. It won the President's Innovation Award at Head to Toe Brands. The system uses planner, programmer, code-reviewer, and security-auditor agents with human-in-the-loop approvals before any destructive write. Every release is gated by automated tests and judge scores.",
+    text: "Code Puppy is the supervised multi-agent system Tyler uses to build production software. It uses planner, programmer, code-reviewer, and security-auditor agents with human-in-the-loop approvals before any destructive write. Every release is gated by automated tests and judge scores. Tyler is a contributor to the open-source project.",
     topics: ["code puppy", "agent", "ai", "multi-agent", "award", "innovation", "how he builds"],
     source: "Work",
     priority: 9,

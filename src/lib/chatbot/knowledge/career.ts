@@ -102,7 +102,7 @@ export const careerChunks: KnowledgeChunk[] = [
   },
   {
     id: "career-htt-ops",
-    text: "At Head to Toe Brands, Tyler also served as IT Operations & Systems Engineer (Jan 2026 — June 2026). He shipped production software across a five-brand, 200+ location franchise portfolio. He built Control Tower, Knowledge Fabric, and Estate Trace using Code Puppy (a supervised multi-agent system). He used human-in-the-loop guardrails, evaluation harnesses, and zero-secret OIDC-based automation. He built these with Code Puppy — the open-source agent that won Walmart's President's Innovation Award (from CEO John Furner) and is used by 4,000+ Walmart employees daily.",
+    text: "At Head to Toe Brands, Tyler also served as IT Operations & Systems Engineer (Jan 2026 — June 2026). He shipped production software across a five-brand, 200+ location franchise portfolio. He built Control Tower, Knowledge Fabric, and Estate Trace using Code Puppy (a supervised multi-agent system). He used human-in-the-loop guardrails, evaluation harnesses, and zero-secret OIDC-based automation. Code Puppy is an open-source agent system created by Michael Pfaffenberger and John Choi; it won Walmart's President's Innovation Award and is used by 4,000+ Walmart employees daily.",
     topics: [
       "head to toe",
       "control tower",

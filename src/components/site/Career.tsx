@@ -27,7 +27,7 @@ const roles = [
       "Multi-agent systems shipped to production",
       "Human-in-the-loop guardrails & eval harnesses",
       "Zero-secret, OIDC-based automation",
-      "Built with Code Puppy. President's Innovation Award-winning agent",
+      "Built with Code Puppy multi-agent system",
     ],
   },
   {
