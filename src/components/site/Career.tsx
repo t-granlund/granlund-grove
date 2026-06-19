@@ -22,9 +22,9 @@ const roles = [
     role: "IT Operations & Systems Engineer",
     dates: "Jan 2026 — June 2026",
     summary:
-      "Embedded with non-technical operators to run supervised multi-agent systems. Shipped production software across a five-brand, 200+ location franchise portfolio. Discovery to scoping to production rollout, with the security, evals, and CI/CD to back it. Used Code Puppy to build Control Tower, Knowledge Fabric, and Estate Trace.",
+      "Embedded with non-technical operators to build supervised multi-agent systems. Developed production software across a five-brand, 200+ location franchise portfolio. Discovery to scoping to architecture, with the security, evals, and CI/CD to back it. Used Code Puppy to build Control Tower, Knowledge Fabric, and Estate Trace.",
     outcomes: [
-      "Multi-agent systems shipped to production",
+      "Multi-agent systems developed for production",
       "Human-in-the-loop guardrails & eval harnesses",
       "Zero-secret, OIDC-based automation",
       "Built with Code Puppy multi-agent system",
@@ -41,7 +41,7 @@ const roles = [
       "Identity governance ecosystem. Master database across all tenants",
       "Built support center. Cut resolution time 40%",
       "Zero-trust security & access governance rollout",
-      "Onboarding: days → minutes; offboarding: immediate & auditable",
+      "Developed onboarding framework: days → minutes. Left before full rollout; open-sourcing for community benefit",
     ],
   },
   {
@@ -49,13 +49,13 @@ const roles = [
     role: "IT Product Manager I to II — Digital Experience",
     dates: "2022 — 2023",
     summary:
-      "Built the Compass B2B wholesale online ordering platform. The company's biggest technical undertaking. Coordinated with global supply chain: factories in Bangladesh, China, Vietnam, and Sri Lanka. Warehouses in Bentonville AR, Rancho Cucamonga CA, Dallas TX, and Zanesville OH. Integrated Magento / Adobe Commerce with ERP, 3D product customization, and account dashboards. First-ever Adobe Commerce customer advocate presenting to enterprise customers.",
+      "Built the Compass B2B wholesale online ordering platform. The company's biggest technical undertaking. I was the designated project lead that orchestrated the agile SDLC lifecycle. I left right as the final high-fidelity mockup was approved and it went into development. It launched that same year exactly as our team spec'd it. Coordinated with global supply chain: factories in Bangladesh, China, Vietnam, and Sri Lanka. Warehouses in Bentonville AR, Rancho Cucamonga CA, Dallas TX, and Zanesville OH. Integrated Magento / Adobe Commerce with ERP, 3D product customization, and account dashboards. First-ever Adobe Commerce customer advocate, sharing the framework and full agile SDLC lifecycle best practices with a global audience.",
     outcomes: [
       "Built Compass B2B ordering platform",
       "Coordinated global supply chain across 4 countries",
       "Reduced B2B order friction with 3D tooling",
       "Shipped self-service account dashboards",
-      "First Adobe Commerce customer advocate",
+      "First Adobe Commerce customer advocate, sharing agile SDLC best practices globally",
     ],
   },
   {

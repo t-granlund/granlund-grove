@@ -63,14 +63,14 @@ export const careerChunks: KnowledgeChunk[] = [
   },
   {
     id: "career-outdoor-adobe",
-    text: "At Outdoor Cap, Tyler integrated Magento/Adobe Commerce with ERP, 3D product customization, and account dashboards. He was Adobe Commerce's first-ever customer advocate, presenting the build to enterprise customers. He replaced a manual, rep-mediated ordering process with guided self-service built around how dealers actually order.",
+    text: "At Outdoor Cap, Tyler integrated Magento/Adobe Commerce with ERP, 3D product customization, and account dashboards. He was Adobe Commerce's first-ever customer advocate, sharing the framework and full agile SDLC lifecycle best practices with a global audience. The presentation lives in Adobe's Experience Center as a reference recording. He replaced a manual, rep-mediated ordering process with guided self-service built around how dealers actually order.",
     topics: ["outdoor cap", "adobe commerce", "magento", "erp", "3d", "customer advocate", "b2b"],
     source: "Career",
     priority: 7,
   },
   {
     id: "career-north40",
-    text: "At North 40 Outfitters / Smith & Rogue (2023 — 2024), Tyler was E-Commerce Operations Lead. He owned e-commerce operations for North 40, Smith & Rogue, and sibling brands. He brought the storefront in-house by migrating 14 brick-and-mortar stores from a legacy managed backend to Adobe Commerce Cloud. He broke the agency dependency so the team could move at its own pace. Managed hundreds of thousands of SKUs with weapons and state-specific compliance nuance.",
+    text: "At North 40 Outfitters / Smith & Rogue (2023 — 2024), Tyler was E-Commerce Operations Lead. He owned e-commerce operations for North 40, Smith & Rogue, and sibling brands. He brought the storefront in-house by migrating 14 brick-and-mortar stores from a legacy managed backend to Adobe Commerce Cloud. He unraveled the gatekeeping mess of their existing web development contractor and helped the team own their own business decisions, architecture, and integrations. He moved them from Nexcess/Liquid Web hosting to a multi-year six-figure Adobe Commerce Cloud contract — they owned the backend and architecture, and managed hosting became cheaper and easier to run. He managed hundreds of thousands of SKUs with weapons and state-specific compliance nuance.",
     topics: [
       "north 40",
       "smith rogue",
@@ -85,7 +85,7 @@ export const careerChunks: KnowledgeChunk[] = [
   },
   {
     id: "career-htt-director",
-    text: "At Head to Toe Brands (Riverside PE), Tyler was IT Director from Oct 2024 to Jan 2026. He led enterprise IT for a Riverside private equity-backed multi-brand franchise group. The portfolio included The Lash Lounge (~130 units), Bishops Cuts and Color (~40 units), Frenchies Modern Nail Care (24 units), and Delta Crown Hair Extensions — 200+ locations total. He built the identity governance ecosystem: a master database federating across five brands and Microsoft tenants with role-based access tied to location, brand, and job function. Onboarding was reduced from days to minutes. Offboarding was immediate and auditable.",
+    text: "At Head to Toe Brands (Riverside PE), Tyler was IT Director from Oct 2024 to Jan 2026. He led enterprise IT for a Riverside private equity-backed multi-brand franchise group. The portfolio included The Lash Lounge (~130 units), Bishops Cuts and Color (~40 units), Frenchies Modern Nail Care (24 units), and Delta Crown Hair Extensions — 200+ locations total. He built the identity governance ecosystem: a master database federating across five brands and Microsoft tenants with role-based access tied to location, brand, and job function. He developed the onboarding framework that cut provisioning from days to minutes, with immediate and auditable offboarding. He left before full portfolio-wide rollout and is open-sourcing the framework so other franchise operators can benefit.",
     topics: [
       "head to toe",
       "riverside",
@@ -102,7 +102,7 @@ export const careerChunks: KnowledgeChunk[] = [
   },
   {
     id: "career-htt-ops",
-    text: "At Head to Toe Brands, Tyler also served as IT Operations & Systems Engineer (Jan 2026 — June 2026). He shipped production software across a five-brand, 200+ location franchise portfolio. He built Control Tower, Knowledge Fabric, and Estate Trace using Code Puppy (a supervised multi-agent system). He used human-in-the-loop guardrails, evaluation harnesses, and zero-secret OIDC-based automation. Code Puppy is an open-source agent system created by Michael Pfaffenberger and John Choi; it won Walmart's President's Innovation Award and is used by 4,000+ Walmart employees daily.",
+    text: "At Head to Toe Brands, Tyler also served as IT Operations & Systems Engineer (Jan 2026 — June 2026). He developed production software across a five-brand, 200+ location franchise portfolio. He built Control Tower, Knowledge Fabric, and Estate Trace using Code Puppy (a supervised multi-agent system). He used human-in-the-loop guardrails, evaluation harnesses, and zero-secret OIDC-based automation. He left before full portfolio-wide deployment; the architecture and guardrails are being open-sourced for the community. Code Puppy is an open-source agent system created by Michael Pfaffenberger and John Choi; it won Walmart's President's Innovation Award and is used by 4,000+ Walmart employees daily.",
     topics: [
       "head to toe",
       "control tower",
@@ -117,7 +117,7 @@ export const careerChunks: KnowledgeChunk[] = [
   },
   {
     id: "career-htt-identity",
-    text: "At Head to Toe Brands, Tyler built the identity governance ecosystem — a master database federating identities across five brands and five Microsoft Entra ID tenants. Access was governed by location, brand, and job function with role-based permissions. Onboarding went from days to minutes. Offboarding was immediate and fully auditable. This was a zero-trust security and access governance rollout.",
+    text: "At Head to Toe Brands, Tyler built the identity governance ecosystem — a master database federating identities across five brands and five Microsoft Entra ID tenants. Access was governed by location, brand, and job function with role-based permissions. He developed the onboarding framework that went from days to minutes, with immediate and fully auditable offboarding. He left before full portfolio-wide rollout and is open-sourcing the framework so other franchise operators can benefit. This was a zero-trust security and access governance rollout.",
     topics: [
       "head to toe",
       "identity",

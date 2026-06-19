@@ -97,7 +97,7 @@ export const LOCATIONS: LocationData[] = [
       "Built the Compass B2B wholesale online ordering platform. The company's biggest technical undertaking. " +
       "Coordinated with global supply chain: factories in Bangladesh, China, Vietnam, and Sri Lanka. " +
       "Warehouses in Bentonville AR, Rancho Cucamonga CA, Dallas TX, and Zanesville OH. Integrated " +
-      "Magento / Adobe Commerce with ERP and 3D product customization. First-ever Adobe Commerce customer advocate.",
+      "Magento / Adobe Commerce with ERP and 3D product customization. First-ever Adobe Commerce customer advocate, sharing agile SDLC best practices globally.",
     sources: [
       {
         label: "Outdoor Cap Company",
@@ -452,7 +452,7 @@ export const LOCATIONS: LocationData[] = [
     role: "Product & E-Commerce Director",
     years: "2024–2026",
     contribution:
-      "Headquarters in Glen Arbor, Michigan. Built the identity governance ecosystem. A master database for user identities across five brands and Microsoft tenants. Clear end-to-end onboarding and offboarding lifecycle with the least friction: access resources based on location, brand affiliation, and role. Also built Control Tower, Knowledge Fabric, and Estate Trace systems using Code Puppy. Won the President's Innovation Award.",
+      "Headquarters in Glen Arbor, Michigan. Built the identity governance ecosystem. A master database for user identities across five brands and Microsoft tenants. Clear end-to-end onboarding and offboarding lifecycle with the least friction: access resources based on location, brand affiliation, and role. Also built Control Tower, Knowledge Fabric, and Estate Trace systems using Code Puppy. Code Puppy won Walmart's President's Innovation Award.",
     sources: [
       {
         label: "Head to Toe Brands",

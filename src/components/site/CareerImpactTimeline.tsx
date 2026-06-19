@@ -93,11 +93,11 @@ const STEPS: ImpactStep[] = [
     stat: "4",
     statLabel: "countries in the supply chain",
     story:
-      "Built Compass, the B2B wholesale online ordering platform. The company's largest technical undertaking. I owned it from requirements through rollout.",
+      "Built Compass, the B2B wholesale online ordering platform. The company's largest technical undertaking. I was the designated project lead that orchestrated the agile SDLC lifecycle. I left right as the final high-fidelity mockup was approved and it went into development. It launched that same year exactly as our team spec'd it.",
     achievements: [
       "Integrated Magento / Adobe Commerce with ERP and 3D product customization, and shipped self-service account dashboards.",
       "Coordinated a global supply chain. Factories in Bangladesh, China, Vietnam, and Sri Lanka feeding four U.S. distribution centers.",
-      "Became Adobe Commerce's first-ever customer advocate, presenting the build to enterprise customers.",
+      "Became Adobe Commerce's first-ever customer advocate, sharing the framework and full agile SDLC lifecycle best practices with a global audience. The presentation lives in Adobe's Experience Center as a reference recording.",
       "Replaced a manual, rep-mediated ordering process with guided self-service built around how dealers actually order.",
     ],
     value:
@@ -107,6 +107,10 @@ const STEPS: ImpactStep[] = [
       {
         label: "Compass launch",
         url: "https://www.outdoorcap.com/blog/new-online-ordering-experience-compass-revolutionizes-ordering/?page=home",
+      },
+      {
+        label: "Adobe Experience League",
+        url: "https://experienceleague.adobe.com/en/docs/events/learn-from-your-peers-recordings/commerce/2024/agile-sdlc",
       },
     ],
   },
@@ -122,7 +126,7 @@ const STEPS: ImpactStep[] = [
     story:
       "Owned e-commerce operations for North 40, Smith & Rogue, and sibling brands. Brought the storefront in-house.",
     achievements: [
-      "Migrated 14 brick-and-mortar stores from a legacy managed backend to Adobe Commerce Cloud.",
+      "Migrated 14 brick-and-mortar stores from a legacy managed backend to Adobe Commerce Cloud. Unraveled the gatekeeping mess of their existing web development contractor and helped the team own their own business decisions, architecture, and integrations. Moved them from Nexcess/Liquid Web hosting to a multi-year six-figure Adobe Commerce Cloud contract — they owned the backend and architecture, and managed hosting became cheaper and easier to run.",
       "Broke the agency dependency so the team could move at its own pace, not a vendor's.",
       "Managed hundreds of thousands of SKUs with weapons and state-specific compliance nuance.",
     ],
@@ -146,12 +150,12 @@ const STEPS: ImpactStep[] = [
     stat: "200+",
     statLabel: "locations · 5 brands · Riverside PE",
     story:
-      "Enterprise IT for a Riverside private-equity-backed franchise group. Portfolio: The Lash Lounge (~130 units), Bishops (~40), Frenchies (24), and Delta Crown. Shipped supervised multi-agent systems to production alongside non-technical operators.",
+      "Enterprise IT for a Riverside private-equity-backed franchise group. Portfolio: The Lash Lounge (~130 units), Bishops (~40), Frenchies (24), and Delta Crown. Built and shipped supervised multi-agent systems to production alongside non-technical operators.",
     achievements: [
       "Built the identity-governance ecosystem. A master database federating identities across 5 brands and 5 Microsoft tenants. Access by location, brand, and role.",
-      "Cut onboarding from days to minutes; offboarding is immediate and auditable.",
+      "Developed the identity onboarding framework that cut provisioning from days to minutes, with immediate and auditable offboarding. Left before full portfolio-wide rollout; open-sourcing the framework so other franchise operators can benefit.",
       "Stood up the support center. ~40% faster resolutions.",
-      "Shipped Control Tower, Knowledge Fabric, and Estate Trace to production. Built with Code Puppy, with eval harnesses gating every release.",
+      "Built Control Tower, Knowledge Fabric, and Estate Trace using Code Puppy. Developed the production pipeline with eval harnesses gating every release. Left before full portfolio-wide deployment; the architecture and guardrails are being open-sourced for the community.",
       "Zero-secret, OIDC-based automation across all five tenants.",
     ],
     value:
