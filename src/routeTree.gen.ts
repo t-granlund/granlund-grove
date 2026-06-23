@@ -22,6 +22,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WritingIndexRouteImport } from './routes/writing.index'
 import { Route as WritingRunningItFor200LocationsWithAiAgentsRouteImport } from './routes/writing.running-it-for-200-locations-with-ai-agents'
+import { Route as WritingBuildingIdentityAwareRagRouteImport } from './routes/writing.building-identity-aware-rag'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 
 const WorkRoute = WorkRouteImport.update({
@@ -90,6 +91,12 @@ const WritingRunningItFor200LocationsWithAiAgentsRoute =
     path: '/writing/running-it-for-200-locations-with-ai-agents',
     getParentRoute: () => rootRouteImport,
   } as any)
+const WritingBuildingIdentityAwareRagRoute =
+  WritingBuildingIdentityAwareRagRouteImport.update({
+    id: '/writing/building-identity-aware-rag',
+    path: '/writing/building-identity-aware-rag',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiContactRoute = ApiContactRouteImport.update({
   id: '/api/contact',
   path: '/api/contact',
@@ -109,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
   '/api/contact': typeof ApiContactRoute
+  '/writing/building-identity-aware-rag': typeof WritingBuildingIdentityAwareRagRoute
   '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingRunningItFor200LocationsWithAiAgentsRoute
   '/writing/': typeof WritingIndexRoute
 }
@@ -125,6 +133,7 @@ export interface FileRoutesByTo {
   '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
   '/api/contact': typeof ApiContactRoute
+  '/writing/building-identity-aware-rag': typeof WritingBuildingIdentityAwareRagRoute
   '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingRunningItFor200LocationsWithAiAgentsRoute
   '/writing': typeof WritingIndexRoute
 }
@@ -142,6 +151,7 @@ export interface FileRoutesById {
   '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
   '/api/contact': typeof ApiContactRoute
+  '/writing/building-identity-aware-rag': typeof WritingBuildingIdentityAwareRagRoute
   '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingRunningItFor200LocationsWithAiAgentsRoute
   '/writing/': typeof WritingIndexRoute
 }
@@ -160,6 +170,7 @@ export interface FileRouteTypes {
     | '/ventures'
     | '/work'
     | '/api/contact'
+    | '/writing/building-identity-aware-rag'
     | '/writing/running-it-for-200-locations-with-ai-agents'
     | '/writing/'
   fileRoutesByTo: FileRoutesByTo
@@ -176,6 +187,7 @@ export interface FileRouteTypes {
     | '/ventures'
     | '/work'
     | '/api/contact'
+    | '/writing/building-identity-aware-rag'
     | '/writing/running-it-for-200-locations-with-ai-agents'
     | '/writing'
   id:
@@ -192,6 +204,7 @@ export interface FileRouteTypes {
     | '/ventures'
     | '/work'
     | '/api/contact'
+    | '/writing/building-identity-aware-rag'
     | '/writing/running-it-for-200-locations-with-ai-agents'
     | '/writing/'
   fileRoutesById: FileRoutesById
@@ -209,6 +222,7 @@ export interface RootRouteChildren {
   VenturesRoute: typeof VenturesRoute
   WorkRoute: typeof WorkRoute
   ApiContactRoute: typeof ApiContactRoute
+  WritingBuildingIdentityAwareRagRoute: typeof WritingBuildingIdentityAwareRagRoute
   WritingRunningItFor200LocationsWithAiAgentsRoute: typeof WritingRunningItFor200LocationsWithAiAgentsRoute
   WritingIndexRoute: typeof WritingIndexRoute
 }
@@ -306,6 +320,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WritingRunningItFor200LocationsWithAiAgentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/writing/building-identity-aware-rag': {
+      id: '/writing/building-identity-aware-rag'
+      path: '/writing/building-identity-aware-rag'
+      fullPath: '/writing/building-identity-aware-rag'
+      preLoaderRoute: typeof WritingBuildingIdentityAwareRagRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/contact': {
       id: '/api/contact'
       path: '/api/contact'
@@ -329,6 +350,7 @@ const rootRouteChildren: RootRouteChildren = {
   VenturesRoute: VenturesRoute,
   WorkRoute: WorkRoute,
   ApiContactRoute: ApiContactRoute,
+  WritingBuildingIdentityAwareRagRoute: WritingBuildingIdentityAwareRagRoute,
   WritingRunningItFor200LocationsWithAiAgentsRoute:
     WritingRunningItFor200LocationsWithAiAgentsRoute,
   WritingIndexRoute: WritingIndexRoute,

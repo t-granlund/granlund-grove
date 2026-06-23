@@ -16,6 +16,16 @@ export interface PostMeta {
 
 export const posts: PostMeta[] = [
   {
+    slug: "building-identity-aware-rag",
+    title: "Identity is the filter: building identity-aware RAG",
+    description:
+      "Building a support assistant over 100,000+ tickets across five brands meant the hard problem was never search — it was making sure each answer respected who was asking. Here is how identity-aware retrieval works and why it came first.",
+    date: "June 2026",
+    dateISO: "2026-06-23",
+    readingMinutes: 6,
+    tags: ["RAG", "Identity Governance", "Entra ID", "AI Agents"],
+  },
+  {
     slug: "running-it-for-200-locations-with-ai-agents",
     title: "Running IT for 200+ locations with supervised AI agents",
     description:
