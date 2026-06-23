@@ -65,6 +65,7 @@ class Check:
     severity: str = "P1"
     live: bool = False
     result: bool = False
+    skipped: bool = False
     detail: str = ""
     elapsed_ms: float = 0.0
 
@@ -415,7 +416,7 @@ def run(skip_live: bool) -> "list[Pillar]":
     pillars: "dict[str, Pillar]" = {}
     for c in checks:
         if skip_live and c.live:
-            c.result, c.detail = False, "skipped (--skip-live)"
+            c.result, c.skipped, c.detail = False, True, "skipped (--skip-live)"
         else:
             start = time.perf_counter()
             try:
@@ -426,7 +427,7 @@ def run(skip_live: bool) -> "list[Pillar]":
         p = pillars.setdefault(c.pillar, Pillar(c.pillar))
         p.checks.append(c)
         p.passed += int(c.result)
-        p.failed += int(not c.result)
+        p.failed += int(not c.result and not c.skipped)
     return list(pillars.values())
 
 
@@ -453,8 +454,13 @@ def print_report(pillars: "list[Pillar]", skip_live: bool) -> int:
     print("-" * 70)
     print(f"  TOTAL: {total_pass}/{total} passed ({pct:.0f}%)")
 
-    p0_fail = [c for p in pillars for c in p.checks if c.severity == "P0" and not c.result]
-    p1_fail = [c for p in pillars for c in p.checks if c.severity == "P1" and not c.result]
+    # A skipped check (e.g. live probes under --skip-live) is not a failure.
+    p0_fail = [
+        c for p in pillars for c in p.checks if c.severity == "P0" and not c.result and not c.skipped
+    ]
+    p1_fail = [
+        c for p in pillars for c in p.checks if c.severity == "P1" and not c.result and not c.skipped
+    ]
 
     if p0_fail:
         print(f"   LAUNCH BLOCKED: {len(p0_fail)} P0 criterion(s) failed")
@@ -464,7 +470,10 @@ def print_report(pillars: "list[Pillar]", skip_live: bool) -> int:
     if len(p1_fail) > 2:
         print(f"   CONDITIONAL: {len(p1_fail)} P1 criteria failed (max 2)")
         return 2
-    print("   READY -- launch gate clear")
+    if skip_live:
+        print("   READY -- repo-local gates clear (live checks skipped)")
+    else:
+        print("   READY -- launch gate clear")
     return 0
 
 
@@ -502,6 +511,7 @@ def main() -> int:
                             "severity": c.severity,
                             "live": c.live,
                             "result": c.result,
+                            "skipped": c.skipped,
                             "detail": c.detail,
                         }
                         for c in p.checks
@@ -511,7 +521,15 @@ def main() -> int:
             ],
         }
         print(json.dumps(out, indent=2))
-        return 1 if any(c.severity == "P0" and not c.result for p in pillars for c in p.checks) else 0
+        return (
+            1
+            if any(
+                c.severity == "P0" and not c.result and not c.skipped
+                for p in pillars
+                for c in p.checks
+            )
+            else 0
+        )
 
     return print_report(pillars, args.skip_live)
 
