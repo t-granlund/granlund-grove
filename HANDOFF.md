@@ -1,3 +1,11 @@
+# SUPERSEDED — See README.md and CODE-PUPPY-BRIEF.md for current state
+
+> This file is from 2025-06-15 and describes a pre-launch state. The site is
+> now live at tylergranlund.com (deployed 2026-06-18, version 3ff4a4f2).
+> Do not use this file for current work.
+
+---
+
 # Granlund Grove — Full Project Handoff
 
 **For:** Opus 4.8 Max effort model  

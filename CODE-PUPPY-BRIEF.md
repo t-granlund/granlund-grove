@@ -1,15 +1,15 @@
 # Brief for Code Puppy — granlund-grove (tylergranlund.com)
 
 Paste this into a Code Puppy session working in `03-personal/granlund-grove/`.
-Written 2026-06-12 by Tyler's Cowork session after a full repo review. Treat as
-authoritative for this folder.
+Written 2026-06-12; last updated 2026-06-18 by Richard (code-puppy-dc6e04).
+Treat as authoritative for this folder.
 
 ---
 
 ## What this repo is
 
-Tyler's personal site, **deploy-ready**, mid-launch. TanStack Start + Vite +
-React, shadcn/Radix UI, SSR on **Cloudflare Workers** (worker: `granlund-grove`,
+Tyler's personal site, **live at tylergranlund.com**. TanStack Start + Vite +
+React 19, shadcn/ui, SSR on **Cloudflare Workers** (worker: `granlund-grove`,
 config `wrangler.jsonc`, deploy via `npm run deploy`). Domain: apex
 `tylergranlund.com` is canonical, `www` → apex 301. Positioning truth everywhere
 (title/meta/OG/JSON-LD/copy): **"IT Operations & Systems Engineer" / "HTT
@@ -18,17 +18,13 @@ Brands"** — never reintroduce older titles.
 ## Current state (verify with `git status` before starting)
 
 - Punchlist P0/P1 `[code]` items: **done** (see `LAUNCH_PUNCHLIST.md`).
-- **Uncommitted work in flight:** visual polish pass touching
-  `src/components/site/Nav.tsx`, `Projects.tsx`, `src/routes/index.tsx`,
-  `src/styles.css`, `tests/unit/content.test.tsx`, plus new untracked assets
-  `public/img/lake-1280.{avif,jpg,webp}` and `public/img/CREDITS.md`, and edits
-  to `docs/NUMBER_VERIFICATION.md`. **First job of any session: get this to a
-  green, committed state** — don't start new work on top of a dirty tree.
+- Site is **live and deployed** — version `3ff4a4f2` as of 2026-06-18.
+- No uncommitted work in flight. Tree is clean on main (`e3c3a80`).
 
 ## Quality gates — every change ends with these passing
 
 ```bash
-npm run test:all          # typecheck + vitest (23) + Playwright e2e/a11y (13)
+npm run test:all          # typecheck + vitest (42) + Playwright e2e/a11y (75)
 npm run format:check && npm run lint
 python3 scripts/judge.py --skip-live   # repo-only readiness, baseline 20/26
 ```
@@ -60,14 +56,18 @@ attribution in `public/img/CREDITS.md`.
 
 ## Backlog, in priority order
 
-1. **Land the in-flight polish pass** (commit, gates green).
-2. P2 `[code]` items: print stylesheet (`@media print` — clean resume output),
-   `/.well-known/security.txt`, sitemap `lastmod` as build-time constant
-   (currently `new Date()` per request).
-3. **Draft the 1200×630 branded OG share card** (current `og-cover.jpg` is the
+1. P2 `[code]` items: print stylesheet (`@media print` — clean resume output),
+   sitemap `lastmod` as build-time constant (currently `new Date()` per request).
+2. **Draft the 1200×630 branded OG share card** (current `og-cover.jpg` is the
    1920×1080 hero — wrong dims). Produce the asset + wire `og:image`; Tyler
    approves before it ships.
+3. **Cloudflare dashboard items** (need Tyler's account):
+   - Native rate-limit binding on `/api/contact`
+   - `www→apex` Redirect Rule, Polish=Lossy+WebP, Cache Rules `/assets/*` `/img/*` `/resume/*`
+   - DMARC record `p=none`, Min TLS 1.2, Auto HTTPS Rewrites
 4. Keep `judge.py --skip-live` ≥ 20/26; raise it where cheap.
+5. **Analytics:** Cloudflare Web Analytics token (`VITE_CF_BEACON_TOKEN`) not
+   yet set — beacon renders null until Tyler enables it in the dashboard.
 
 ## Reference docs in-repo
 

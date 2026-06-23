@@ -1,8 +1,8 @@
 # Launch Runbook -- tylergranlund.com
 
-The repo is **deploy-ready** (`npm run deploy:dry` packages cleanly). Every
-launch-blocking step below needs Tyler's Cloudflare account, so they can't be
-automated. Worker name: **`granlund-grove`** (config: `wrangler.jsonc`).
+The site is **live** at tylergranlund.com. This runbook documents the one-time
+setup steps that were needed. Worker name: **`granlund-grove`** (config:
+`wrangler.jsonc`).
 
 > See **`LAUNCH_PUNCHLIST.md`** for the full architect-reviewed (Solutions +
 > Experience) punch-list. The code-side P0/P1 items there are DONE; the
@@ -30,23 +30,21 @@ npx wrangler whoami       # should now show your account/email
 ## 1. Final local gate
 
 ```bash
-npm run test:all          # typecheck + vitest (23) + e2e/a11y (13)
+npm run test:all          # typecheck + vitest (42) + e2e/a11y (75)
 npm run format:check && npm run lint
 ```
 
-## 2. Contact email delivery (optional but recommended -- judge G6.1 already green)
+## 2. Contact email delivery (DONE -- live since 2026-06-18)
 
-The form falls back to mailto until this is set. To enable real delivery:
+Resend is configured and live. The contact form POSTs to `/api/contact` and
+emails deliver via Resend. If reconfiguring:
 
-1. Create a [Resend](https://resend.com) account and **verify the
-   `tylergranlund.com` sending domain** (DKIM/SPF records in Cloudflare DNS).
-2. Confirm `FROM` in `src/lib/contact.ts` matches a verified sender
-   (`noreply@tylergranlund.com`).
-3. Store the key as a Worker secret:
+1. Resend account with `tylergranlund.com` domain verified (DKIM/SPF).
+2. `FROM` in `src/lib/contact.ts` matches a verified sender.
+3. Worker secret: `npx wrangler secret put RESEND_API_KEY --name granlund-grove`
 
-```bash
-npx wrangler secret put RESEND_API_KEY --name granlund-grove
-```
+Cloudflare Email Routing is also enabled: `hello@tylergranlund.com` and all
+`@tylergranlund.com` addresses forward to `tygranlund@icloud.com`.
 
 ## 3. Number gate (judge G3.2 -- do this BEFORE going public)
 

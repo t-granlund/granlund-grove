@@ -10,10 +10,10 @@ Planning artifacts only. These files describe future implementation work for the
 
 Current known baseline:
 
-- Routes: `/`, `/privacy`, `/sitemap.xml`
-- No automated tests yet
-- Build currently passes
-- `public/_headers` CSP currently allows `script-src 'unsafe-inline'`
+- Routes: `/`, `/about`, `/career`, `/work`, `/resume`, `/contact`, `/ventures`, `/colophon`, `/privacy`, `/sitemap.xml`
+- 75 e2e tests (Playwright), 42 unit tests (Vitest), architecture fitness tests
+- Build passes clean; deployed to Cloudflare Workers
+- CSP in `src/lib/security-headers.ts` (single source of truth, not `public/_headers`)
 - Research sources of truth:
   - `docs/research/experience-architect-findings.md`
   - `docs/research/solutions-architect-findings.md`

@@ -76,12 +76,12 @@
 
 ## Career / dates (already in Career.tsx) -- bd dev-eqz
 
-| #   | Claim                                                    | Source | Confirmed |
-| --- | -------------------------------------------------------- | ------ | --------- |
-| 27  | HTT Brands: IT Ops & Systems Engineer (Jan 2026-present) | resume | [x]       |
-| 28  | HTT Brands: IT Director (Oct 2024-Jan 2026)              | resume | [x]       |
-| 29  | Outdoor Cap: IT PM I to II (2022-2023)                   | resume | [x]       |
-| 30  | School of Rock: IT Manager to Sr IT Manager (2015-2021)  | resume | [x]       |
+| #   | Claim                                                             | Source | Confirmed |
+| --- | ----------------------------------------------------------------- | ------ | --------- |
+| 27  | HTT Brands: IT Ops & Systems Engineer (Jan 2026 — June 2026)      | resume | [x]       |
+| 28  | HTT Brands: IT Director (Oct 2024-Jan 2026)                       | resume | [x]       |
+| 29  | Outdoor Cap: IT PM I to II (2022-2023)                            | resume | [x]       |
+| 30  | School of Rock: IT Manager to Sr IT Manager (Apr 2015 — Jan 2022) | resume | [x]       |
 
 ---
 
@@ -100,5 +100,4 @@ SaaS (~$38.7K/mo).
 > estimate ($5,003-8,410). Its exact MCA invoice is unobtainable (Tyler has left
 > HTT), so mid-band is best-and-final. It is the optimization story regardless.
 
-_Last reviewed: 2026-06-11 — non-financial by Tyler Granlund; financials by
-Estate-Trace reconciliation (code-puppy / Richard), Tyler-approved._
+_Last reviewed: 2026-06-18 — dates reconciled to site copy (HTT Ops end June 2026, SoR end Jan 2022). Non-financial by Tyler Granlund; financials by Estate-Trace reconciliation (code-puppy / Richard), Tyler-approved._

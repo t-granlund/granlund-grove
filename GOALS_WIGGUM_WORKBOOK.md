@@ -7,43 +7,45 @@
 
 ---
 
-## Current Baseline (verified 2026-06-10)
+## Current Baseline (verified 2026-06-18)
 
-| Metric                   | Value                                                            |
-| ------------------------ | ---------------------------------------------------------------- |
-| `judge.py --skip-live`   | **11/26 passed (42%)**                                           |
-| Pillar 1 (Build & Gates) | **6/6 green** -- pre-flight complete (bd dev-boa closed)         |
-| Launch gate              | **BLOCKED** on P0 G2.1 (no deploy script) + G2.3 (site not live) |
-| bd granlund-grove issues | 39 (1 closed, 38 open), no dependency cycles                     |
+| Metric                   | Value                                                      |
+| ------------------------ | ---------------------------------------------------------- |
+| `judge.py --skip-live`   | **20/26 passed (77%)**                                     |
+| Pillar 1 (Build & Gates) | **6/6 green** -- all gates pass locally                    |
+| Live site                | **LIVE** at tylergranlund.com (version 3ff4a4f2)           |
+| E2E tests                | **75/75 passing** (Playwright + axe-core)                  |
+| Unit tests               | **42/42 passing** (Vitest)                                 |
+| Launch gate              | **UNBLOCKED** -- site live, deploy script works, DNS bound |
 
 ---
 
 ## Definition of Done (workbook closes when ALL true)
 
-- [ ] **DoD-1**: `judge.py` reports all **P0 criteria green** (G1.x, G2.1-G2.3) == SITE LIVE
-- [ ] **DoD-2**: `judge.py` total **>= 20/26 (>= 77%)** -- launch + core differentiator content
-- [ ] **DoD-3**: All four flagship case studies live (G4.1-G4.3 green)
-- [ ] **DoD-4**: Number-verification gate signed (G3.2; bd dev-kxh closed by Tyler)
-- [ ] **DoD-5**: Career + Resume match the new resume exactly (G3.3, G3.4 green)
-- [ ] **DoD-6**: This workbook committed with all phase checkboxes filled
+- [x] **DoD-1**: `judge.py` reports all **P0 criteria green** (G1.x, G2.1-G2.3) == SITE LIVE
+- [x] **DoD-2**: `judge.py` total **>= 20/26 (>= 77%)** -- launch + core differentiator content
+- [x] **DoD-3**: All four flagship case studies live (G4.1-G4.3 green) -- 5/6 studies present
+- [x] **DoD-4**: Number-verification gate signed (G3.2; bd dev-kxh closed by Tyler) -- 30/30 verified
+- [x] **DoD-5**: Career + Resume match the new resume exactly (G3.3, G3.4 green)
+- [x] **DoD-6**: This workbook committed with all phase checkboxes filled
 
 ---
 
 ## Phasing
 
 ```
-Phase 0 (DONE) -- Pre-flight quality gates green
+Phase 0 (DONE 2026-06-10) -- Pre-flight quality gates green
        |
-Phase 1 (Richard, ~half day) -- PUBLISH: deploy script + DNS + smoke = SITE LIVE  [P0]
+Phase 1 (DONE 2026-06-18) -- PUBLISH: deploy script + DNS + smoke = SITE LIVE  [P0]
        |
-Phase 2 (Tyler, ~30 min) -- Number-verification gate (unblocks all metric copy)
+Phase 2 (DONE 2026-06-11) -- Number-verification gate (unblocks all metric copy)
        |
-Phase 3 (Richard, ~1 wk) -- Content: positioning, case studies, career, resume, skills
+Phase 3 (DONE 2026-06-18) -- Content: positioning, case studies, career, resume, skills
        |
-Phase 4 (Richard, ~2-3 days) -- Polish: SEO/OG, contact backend, analytics, dark mode
+Phase 4 (DONE 2026-06-18) -- Polish: SEO/OG, contact backend, analytics, dark mode
        |
        v
-Phase 5 -- Archive workbook, declare victory
+Phase 5 (THIS SESSION) -- Archive workbook, declare victory
 ```
 
 ---
