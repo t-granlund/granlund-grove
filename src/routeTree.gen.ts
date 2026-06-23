@@ -10,8 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkRouteImport } from './routes/work'
-import { Route as WritingIndexRouteImport } from './routes/writing.index'
-import { Route as WritingPostRouteImport } from './routes/writing.running-it-for-200-locations-with-ai-agents'
 import { Route as VenturesRouteImport } from './routes/ventures'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResumeRouteImport } from './routes/resume'
@@ -22,21 +20,13 @@ import { Route as ColophonRouteImport } from './routes/colophon'
 import { Route as CareerRouteImport } from './routes/career'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WritingIndexRouteImport } from './routes/writing.index'
+import { Route as WritingRunningItFor200LocationsWithAiAgentsRouteImport } from './routes/writing.running-it-for-200-locations-with-ai-agents'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WritingIndexRoute = WritingIndexRouteImport.update({
-  id: '/writing/',
-  path: '/writing/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WritingPostRoute = WritingPostRouteImport.update({
-  id: '/writing/running-it-for-200-locations-with-ai-agents',
-  path: '/writing/running-it-for-200-locations-with-ai-agents',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VenturesRoute = VenturesRouteImport.update({
@@ -89,6 +79,17 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WritingIndexRoute = WritingIndexRouteImport.update({
+  id: '/writing/',
+  path: '/writing/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WritingRunningItFor200LocationsWithAiAgentsRoute =
+  WritingRunningItFor200LocationsWithAiAgentsRouteImport.update({
+    id: '/writing/running-it-for-200-locations-with-ai-agents',
+    path: '/writing/running-it-for-200-locations-with-ai-agents',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiContactRoute = ApiContactRouteImport.update({
   id: '/api/contact',
   path: '/api/contact',
@@ -107,9 +108,9 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
-  '/writing': typeof WritingIndexRoute
-  '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingPostRoute
   '/api/contact': typeof ApiContactRoute
+  '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingRunningItFor200LocationsWithAiAgentsRoute
+  '/writing/': typeof WritingIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -123,9 +124,9 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
-  '/writing': typeof WritingIndexRoute
-  '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingPostRoute
   '/api/contact': typeof ApiContactRoute
+  '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingRunningItFor200LocationsWithAiAgentsRoute
+  '/writing': typeof WritingIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -140,9 +141,9 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
-  '/writing/': typeof WritingIndexRoute
-  '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingPostRoute
   '/api/contact': typeof ApiContactRoute
+  '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingRunningItFor200LocationsWithAiAgentsRoute
+  '/writing/': typeof WritingIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -158,9 +159,9 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ventures'
     | '/work'
-    | '/writing'
-    | '/writing/running-it-for-200-locations-with-ai-agents'
     | '/api/contact'
+    | '/writing/running-it-for-200-locations-with-ai-agents'
+    | '/writing/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -174,9 +175,9 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ventures'
     | '/work'
-    | '/writing'
-    | '/writing/running-it-for-200-locations-with-ai-agents'
     | '/api/contact'
+    | '/writing/running-it-for-200-locations-with-ai-agents'
+    | '/writing'
   id:
     | '__root__'
     | '/'
@@ -190,9 +191,9 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ventures'
     | '/work'
-    | '/writing/'
-    | '/writing/running-it-for-200-locations-with-ai-agents'
     | '/api/contact'
+    | '/writing/running-it-for-200-locations-with-ai-agents'
+    | '/writing/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -207,9 +208,9 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   VenturesRoute: typeof VenturesRoute
   WorkRoute: typeof WorkRoute
-  WritingIndexRoute: typeof WritingIndexRoute
-  WritingPostRoute: typeof WritingPostRoute
   ApiContactRoute: typeof ApiContactRoute
+  WritingRunningItFor200LocationsWithAiAgentsRoute: typeof WritingRunningItFor200LocationsWithAiAgentsRoute
+  WritingIndexRoute: typeof WritingIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -219,20 +220,6 @@ declare module '@tanstack/react-router' {
       path: '/work'
       fullPath: '/work'
       preLoaderRoute: typeof WorkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/writing/': {
-      id: '/writing/'
-      path: '/writing/'
-      fullPath: '/writing'
-      preLoaderRoute: typeof WritingIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/writing/running-it-for-200-locations-with-ai-agents': {
-      id: '/writing/running-it-for-200-locations-with-ai-agents'
-      path: '/writing/running-it-for-200-locations-with-ai-agents'
-      fullPath: '/writing/running-it-for-200-locations-with-ai-agents'
-      preLoaderRoute: typeof WritingPostRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ventures': {
@@ -305,6 +292,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/writing/': {
+      id: '/writing/'
+      path: '/writing'
+      fullPath: '/writing/'
+      preLoaderRoute: typeof WritingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/writing/running-it-for-200-locations-with-ai-agents': {
+      id: '/writing/running-it-for-200-locations-with-ai-agents'
+      path: '/writing/running-it-for-200-locations-with-ai-agents'
+      fullPath: '/writing/running-it-for-200-locations-with-ai-agents'
+      preLoaderRoute: typeof WritingRunningItFor200LocationsWithAiAgentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/contact': {
       id: '/api/contact'
       path: '/api/contact'
@@ -327,9 +328,10 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   VenturesRoute: VenturesRoute,
   WorkRoute: WorkRoute,
-  WritingIndexRoute: WritingIndexRoute,
-  WritingPostRoute: WritingPostRoute,
   ApiContactRoute: ApiContactRoute,
+  WritingRunningItFor200LocationsWithAiAgentsRoute:
+    WritingRunningItFor200LocationsWithAiAgentsRoute,
+  WritingIndexRoute: WritingIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
