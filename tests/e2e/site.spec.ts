@@ -71,6 +71,9 @@ test.describe("section routes load", () => {
     ["/contact", /Contact/i],
     ["/ventures", /Ventures/i],
     ["/colophon", /Colophon/i],
+    ["/writing", /Writing/i],
+    ["/writing/running-it-for-200-locations-with-ai-agents", /Running IT/i],
+    ["/writing/building-identity-aware-rag", /identity-aware RAG/i],
   ];
   for (const [path, titleRe] of routes) {
     test(`${path} renders main + correct title`, async ({ page }) => {

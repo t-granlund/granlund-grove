@@ -11,6 +11,9 @@ for (const path of [
   "/privacy",
   "/ventures",
   "/colophon",
+  "/writing",
+  "/writing/running-it-for-200-locations-with-ai-agents",
+  "/writing/building-identity-aware-rag",
 ]) {
   test(`${path} has no serious or critical axe violations`, async ({ page }) => {
     await page.goto(path);
