@@ -251,7 +251,9 @@ def check_number_gate_signed() -> "tuple[bool, str]":
 
 
 def check_career_matches_resume() -> "tuple[bool, str]":
-    txt = _read(SITE / "Career.tsx")
+    # Roles live in the single source of truth (career-data.ts), consumed by
+    # Career.tsx, CareerImpactTimeline.tsx, and the chatbot career knowledge.
+    txt = _read(SRC / "lib" / "career-data.ts")
     missing = [r for r in CAREER_ROWS if r not in txt]
     return len(missing) == 0, "all 4 roles present" if not missing else f"missing: {missing}"
 

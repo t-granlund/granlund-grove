@@ -1,78 +1,5 @@
 import { SectionLabel } from "./SectionLabel";
-
-// Mirrors Tyler-Granlund-Master-Resume exactly (consistency = ATS/recruiter
-// trust signal). Update both together. Metric claims here are pre-verified
-// employment facts; gated portfolio metrics live behind docs/NUMBER_VERIFICATION.md.
-const roles = [
-  {
-    company: "Open to Opportunities",
-    role: "IT Operations & Systems Engineer",
-    dates: "June 2026 — Present",
-    summary:
-      "Available for full-time roles, consulting engagements, and collaborations. Looking for positions in IT leadership, systems engineering, AI/ML engineering, forward-deployed engineering, and digital transformation. Based in Bella Vista, Arkansas. Remote or on-site as needed.",
-    outcomes: [
-      "Tailored resume variants: AI PM, FDE, Master Resume",
-      "Open to IT leadership, systems engineering, AI/ML roles",
-      "Available for consulting and fractional engagements",
-      "Remote-first, on-site travel as needed",
-    ],
-  },
-  {
-    company: "Head to Toe Brands (Riverside PE)",
-    role: "IT Operations & Systems Engineer",
-    dates: "Jan 2026 — June 2026",
-    summary:
-      "Embedded with non-technical operators to build supervised multi-agent systems. Developed production software across a five-brand, 200+ location franchise portfolio. Discovery to scoping to architecture, with the security, evals, and CI/CD to back it. Used Code Puppy to build Control Tower, Knowledge Fabric, and Estate Trace.",
-    outcomes: [
-      "Multi-agent systems developed for production",
-      "Human-in-the-loop guardrails & eval harnesses",
-      "Zero-secret, OIDC-based automation",
-      "Built with Code Puppy multi-agent system",
-    ],
-  },
-  {
-    company: "Head to Toe Brands (Riverside PE)",
-    role: "IT Director",
-    dates: "Oct 2024 — Jan 2026",
-    summary:
-      "Led enterprise IT for a Riverside private equity-backed multi-brand franchise group. Portfolio: The Lash Lounge (~130 units), Bishops Cuts and Color (~40 units), Frenchies Modern Nail Care (24 units), and Delta Crown Hair Extensions. 200+ locations total. Built the identity governance ecosystem. A master database federating across five brands and Microsoft tenants with role-based access tied to location, brand, and job function. Onboarding reduced from days to minutes.",
-    outcomes: [
-      "200+ locations across 5 brands (Riverside PE portfolio)",
-      "Identity governance ecosystem. Master database across all tenants",
-      "Built support center. Cut resolution time 40%",
-      "Zero-trust security & access governance rollout",
-      "Developed onboarding framework: days → minutes. Left before full rollout; open-sourcing for community benefit",
-    ],
-  },
-  {
-    company: "Outdoor Cap Company",
-    role: "IT Product Manager I to II — Digital Experience",
-    dates: "2022 — 2023",
-    summary:
-      "Built the Compass B2B wholesale online ordering platform. The company's biggest technical undertaking. I was the designated project lead that orchestrated the agile SDLC lifecycle. I left right as the final high-fidelity mockup was approved and it went into development. It launched that same year exactly as our team spec'd it. Coordinated with global supply chain: factories in Bangladesh, China, Vietnam, and Sri Lanka. Warehouses in Bentonville AR, Rancho Cucamonga CA, Dallas TX, and Zanesville OH. Integrated Magento / Adobe Commerce with ERP, 3D product customization, and account dashboards. First-ever Adobe Commerce customer advocate, sharing the framework and full agile SDLC lifecycle best practices with a global audience.",
-    outcomes: [
-      "Built Compass B2B ordering platform",
-      "Coordinated global supply chain across 4 countries",
-      "Reduced B2B order friction with 3D tooling",
-      "Shipped self-service account dashboards",
-      "First Adobe Commerce customer advocate, sharing agile SDLC best practices globally",
-    ],
-  },
-  {
-    company: "School of Rock",
-    role: "IT Manager to Senior IT Manager",
-    dates: "Apr 2015 — Jan 2022",
-    summary:
-      "Joined at ~145 locations in 8 countries. Left at ~300+ locations across 14 countries. I was the primary IT support pillar for every master franchise rollout. Analyzed requirements, adapted systems, built merchant processing integrations through NMI gateways connected to Pike 13, and trained owners and managers. Built Okta identity federation, Google Workspace governance, and custom local solutions for scheduling, invoicing, and payment identity across every new market.",
-    outcomes: [
-      "~145 → ~300+ locations, 8 → 14 countries",
-      "Global SSO rollout. 300+ schools via Okta",
-      "Merchant processing integrations (NMI + Pike 13)",
-      "Privacy & compliance program (COPPA/FERPA/GDPR)",
-      "Franchise support model & enablement at scale",
-    ],
-  },
-];
+import { careerRoles } from "@/lib/career-data";
 
 export function Career() {
   return (
@@ -99,7 +26,7 @@ export function Career() {
         </div>
 
         <ol className="mt-14 space-y-4">
-          {roles.map((r) => (
+          {careerRoles.map((r) => (
             <li key={`${r.company}-${r.role}`}>
               <article className="group grid gap-4 rounded-2xl border border-border bg-card/70 p-6 lg:grid-cols-[210px_1fr] lg:gap-10 lg:p-8 lift">
                 {/* left rail — when + where */}
