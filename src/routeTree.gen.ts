@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkRouteImport } from './routes/work'
+import { Route as WritingIndexRouteImport } from './routes/writing.index'
+import { Route as WritingPostRouteImport } from './routes/writing.running-it-for-200-locations-with-ai-agents'
 import { Route as VenturesRouteImport } from './routes/ventures'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResumeRouteImport } from './routes/resume'
@@ -25,6 +27,16 @@ import { Route as ApiContactRouteImport } from './routes/api/contact'
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WritingIndexRoute = WritingIndexRouteImport.update({
+  id: '/writing/',
+  path: '/writing/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WritingPostRoute = WritingPostRouteImport.update({
+  id: '/writing/running-it-for-200-locations-with-ai-agents',
+  path: '/writing/running-it-for-200-locations-with-ai-agents',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VenturesRoute = VenturesRouteImport.update({
@@ -95,6 +107,8 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
+  '/writing': typeof WritingIndexRoute
+  '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingPostRoute
   '/api/contact': typeof ApiContactRoute
 }
 export interface FileRoutesByTo {
@@ -109,6 +123,8 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
+  '/writing': typeof WritingIndexRoute
+  '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingPostRoute
   '/api/contact': typeof ApiContactRoute
 }
 export interface FileRoutesById {
@@ -124,6 +140,8 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
+  '/writing/': typeof WritingIndexRoute
+  '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingPostRoute
   '/api/contact': typeof ApiContactRoute
 }
 export interface FileRouteTypes {
@@ -140,6 +158,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ventures'
     | '/work'
+    | '/writing'
+    | '/writing/running-it-for-200-locations-with-ai-agents'
     | '/api/contact'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -154,6 +174,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ventures'
     | '/work'
+    | '/writing'
+    | '/writing/running-it-for-200-locations-with-ai-agents'
     | '/api/contact'
   id:
     | '__root__'
@@ -168,6 +190,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ventures'
     | '/work'
+    | '/writing/'
+    | '/writing/running-it-for-200-locations-with-ai-agents'
     | '/api/contact'
   fileRoutesById: FileRoutesById
 }
@@ -183,6 +207,8 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   VenturesRoute: typeof VenturesRoute
   WorkRoute: typeof WorkRoute
+  WritingIndexRoute: typeof WritingIndexRoute
+  WritingPostRoute: typeof WritingPostRoute
   ApiContactRoute: typeof ApiContactRoute
 }
 
@@ -193,6 +219,20 @@ declare module '@tanstack/react-router' {
       path: '/work'
       fullPath: '/work'
       preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/writing/': {
+      id: '/writing/'
+      path: '/writing/'
+      fullPath: '/writing'
+      preLoaderRoute: typeof WritingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/writing/running-it-for-200-locations-with-ai-agents': {
+      id: '/writing/running-it-for-200-locations-with-ai-agents'
+      path: '/writing/running-it-for-200-locations-with-ai-agents'
+      fullPath: '/writing/running-it-for-200-locations-with-ai-agents'
+      preLoaderRoute: typeof WritingPostRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ventures': {
@@ -287,6 +327,8 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   VenturesRoute: VenturesRoute,
   WorkRoute: WorkRoute,
+  WritingIndexRoute: WritingIndexRoute,
+  WritingPostRoute: WritingPostRoute,
   ApiContactRoute: ApiContactRoute,
 }
 export const routeTree = rootRouteImport
