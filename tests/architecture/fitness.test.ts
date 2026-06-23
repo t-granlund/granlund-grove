@@ -4,7 +4,9 @@ import { join } from "node:path";
 
 const root = process.cwd();
 const maxSourceFileLines = 600;
-const allowedOversizedFiles = new Set(["src/components/ui/sidebar.tsx"]);
+// Previously allowed src/components/ui/sidebar.tsx (744 lines) — that file and
+// 43 other unused shadcn components were pruned, so nothing is oversized now.
+const allowedOversizedFiles = new Set<string>([]);
 
 function walk(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {

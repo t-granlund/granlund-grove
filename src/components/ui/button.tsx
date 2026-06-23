@@ -1,3 +1,6 @@
+/* eslint-disable react-refresh/only-export-components */
+// Exports both <Button> and the `buttonVariants` cva helper — the standard
+// shadcn pattern. The react-refresh rule only affects dev HMR, not prod.
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
