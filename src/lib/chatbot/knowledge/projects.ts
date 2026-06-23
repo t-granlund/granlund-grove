@@ -3,7 +3,7 @@ import type { KnowledgeChunk } from "../knowledge";
 export const projectChunks: KnowledgeChunk[] = [
   {
     id: "project-ct",
-    text: "Control Tower is a multi-tenant governance platform for cost, identity, and compliance across the whole estate. Built with Python/FastAPI + HTMX + PostgreSQL on the Azure SDK. Every release is gated by 7,386 automated tests and a 48/48 automated judge score. v2.5.0 is in production. All five tenants syncing live. Tyler chose server-rendered HTMX over a SPA to keep the attack surface small and auditable.",
+    text: "Control Tower is a multi-tenant governance platform for cost, identity, and compliance across the whole estate. Built with Python/FastAPI + HTMX + PostgreSQL on the Azure SDK. Every release is gated by 7,386 automated tests and a 48/48 automated judge score. v2.5.0 is in production. All five tenants syncing live. Tyler chose server-rendered HTMX over a SPA to keep the attack surface small and auditable. It shipped to production; Tyler left before portfolio-wide rollout, and the architecture and guardrails are being open-sourced.",
     topics: [
       "control tower",
       "governance",
@@ -35,7 +35,7 @@ export const projectChunks: KnowledgeChunk[] = [
   },
   {
     id: "project-kf",
-    text: "Knowledge Fabric is an identity-aware RAG system that provides answers from 100K+ support tickets, scoped to who's asking. Built with a multi-agent ingestion pipeline using SQLite + FTS5 memory and Entra identity as the grounding layer. 1,523 verified humans across a 15-slot attribute schema. Phase 1 closed at 52/52 QA checks. Phase 2 is in build.",
+    text: "Knowledge Fabric is an identity-aware RAG system that provides answers from 100K+ support tickets, scoped to who's asking. Built with a multi-agent ingestion pipeline using SQLite + FTS5 memory and Entra identity as the grounding layer. 1,523 verified humans across a 15-slot attribute schema. Phase 1 closed at 52/52 QA checks. Tyler left before portfolio-wide rollout; the identity-aware patterns are being open-sourced as part of TenantFleet.",
     topics: [
       "knowledge fabric",
       "rag",
@@ -51,14 +51,14 @@ export const projectChunks: KnowledgeChunk[] = [
   },
   {
     id: "project-kf-architecture",
-    text: "Knowledge Fabric architecture: Multi-agent ingestion pipeline (extractor, transformer, embedder, indexer). SQLite with FTS5 for full-text search. Entra ID for identity grounding and access control. 15-slot attribute schema for user profiles. 100K+ support tickets indexed. Phase 1: 52/52 QA checks passed. Phase 2: enhanced retrieval with knowledge graph integration.",
+    text: "Knowledge Fabric architecture: Multi-agent ingestion pipeline (extractor, transformer, embedder, indexer). SQLite with FTS5 for full-text search. Entra ID for identity grounding and access control. 15-slot attribute schema for user profiles. 100K+ support tickets indexed. Phase 1: 52/52 QA checks passed. Phase 2 (planned): enhanced retrieval with knowledge graph integration — left before portfolio-wide rollout.",
     topics: ["knowledge fabric", "architecture", "sqlite", "fts5", "entra", "pipeline", "indexer"],
     source: "Work",
     priority: 8,
   },
   {
     id: "project-et",
-    text: "Estate Trace answers 'what do we run and what does it cost' across 41 repos, 11 subscriptions, and ~196 Azure resources. It uses live read-only pulls against version control, identity, cloud cost management, invoices, and licensing APIs feeding a DuckDB warehouse. 12/12 verification checks gate every refresh. It drives executive financial decisions.",
+    text: "Estate Trace answers 'what do we run and what does it cost' across 41 repos, 11 subscriptions, and ~196 Azure resources. It uses live read-only pulls against version control, identity, cloud cost management, invoices, and licensing APIs feeding a DuckDB warehouse. 12/12 verification checks gate every refresh. It shipped to production to inform executive cost decisions; Tyler left before portfolio-wide rollout.",
     topics: [
       "estate trace",
       "cost",

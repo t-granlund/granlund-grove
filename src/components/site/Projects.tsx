@@ -62,7 +62,8 @@ export const caseStudies: CaseStudy[] = [
       "Python/FastAPI + HTMX + PostgreSQL on the Azure SDK (Cost Management, Resource Manager, Policy, Defender). Containerized to GHCR with OIDC-only auth. No stored secrets. I chose server-rendered HTMX over a SPA to keep the attack surface small and the system auditable.",
     oversight:
       "Built by a supervised agent fleet. Every release gated by 7,386 automated tests and a 48/48 automated judge score, with DR drills completed before promotion.",
-    outcome: "v2.5.0 in production June 2026, all five tenants syncing live.",
+    outcome:
+      "v2.5.0 in production June 2026, all five tenants syncing live. Shipped to production; I left before portfolio-wide rollout, and the architecture and guardrails are being open-sourced.",
     reflection:
       "I'd stand up the evaluation harness earlier. The judge caught regressions the test suite missed and quietly became the real release gate.",
     stack: ["Python", "FastAPI", "HTMX", "PostgreSQL", "Azure SDK", "Docker", "OIDC"],
@@ -71,7 +72,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Knowledge Fabric",
     kicker: "Identity-aware RAG",
     teaser: "Identity-aware answers from 100K+ support tickets. Scoped to who's asking.",
-    tag: "Phase 2 · In build",
+    tag: "Production · Phase 1 shipped",
     metrics: [
       { value: "52/52", label: "Phase 1 QA checks" },
       { value: "1,523", label: "identities grounded" },
@@ -87,7 +88,7 @@ export const caseStudies: CaseStudy[] = [
     oversight:
       "A planner agent orchestrating specialists. Crawler, programmer, code-reviewer, security-auditor. Phase 1 closed at 52/52 QA checks.",
     outcome:
-      "Phase 1 shipped; Phase 2 in build, with consumers planned for Teams, Outlook, and the helpdesk platform.",
+      "Phase 1 shipped at 52/52 QA checks. I left before portfolio-wide rollout; the identity-aware patterns are being open-sourced as part of TenantFleet.",
     reflection:
       "Grounding on identity from day one paid off. Retrofitting role boundaries into a RAG system after the fact is painful.",
     stack: ["Multi-agent", "RAG", "SQLite", "FTS5", "Entra ID", "Python"],
@@ -96,7 +97,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Estate Trace",
     kicker: "Cost governance the COO actually uses",
     teaser: "What do we run, and what does it cost? Answered across every cloud and repo.",
-    tag: "Live · Drives exec decisions",
+    tag: "Production · Exec cost governance",
     metrics: [
       { value: "12/12", label: "verification checks" },
       { value: "196", label: "Azure resources" },
@@ -114,7 +115,7 @@ export const caseStudies: CaseStudy[] = [
     oversight:
       "Each pull is verified against the prior canonical snapshot; all 12/12 checks must pass before the workbook is published as source of truth.",
     outcome:
-      "The full IT run-rate quantified. A ~40% optimization path (a single over-provisioned capacity is ~54% of it) and 25 prioritized remediation actions. It drives executive financial decisions.",
+      "The full IT run-rate quantified. A ~40% optimization path (a single over-provisioned capacity is ~54% of it) and 25 prioritized remediation actions. Shipped to production to inform executive cost decisions; I left before portfolio-wide rollout.",
     reflection:
       "The real value was the verification checks. Once people trusted the numbers, the workbook became the thing every cost conversation started from.",
     stack: ["Python", "DuckDB", "GitHub API", "MS Graph", "Azure Cost Mgmt"],
