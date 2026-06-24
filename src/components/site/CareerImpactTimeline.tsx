@@ -200,9 +200,9 @@ export function CareerImpactTimeline() {
           <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-cedar/80">
             The journey · from one market to the world
           </div>
-          <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-light text-balance">
+          <h1 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-light text-balance">
             A career measured in <em className="not-italic text-cedar">impact,</em> not titles.
-          </h2>
+          </h1>
           <p className="mt-5 text-stone/85 leading-relaxed">
             Every role expanded the footprint. From training Mac and Mobile technicians in South
             Chicago to building systems that touch 22 cities across 5 continents. Follow the map as

@@ -11,11 +11,11 @@ export function About() {
               About
             </SectionLabel>
 
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] font-light text-balance">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] font-light text-balance">
               Rooted in <em className="not-italic text-cedar">systems.</em>
               <br />
               Driven by <em className="not-italic text-cedar">people.</em>
-            </h2>
+            </h1>
 
             <div className="mt-10 space-y-8 text-lg leading-relaxed text-stone/90 max-w-2xl">
               <div>

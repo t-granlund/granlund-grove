@@ -22,9 +22,9 @@ export function Resume() {
             <SectionLabel index="01" chapter="The Record">
               Resume
             </SectionLabel>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] font-light text-balance max-w-2xl">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] font-light text-balance max-w-2xl">
               The <em className="not-italic text-cedar">growth rings.</em>
-            </h2>
+            </h1>
             <p className="mt-6 text-lg text-stone/90 max-w-xl leading-relaxed">
               Every ring tells a year. Download the resume, or explore the living version of my work
               throughout this site.

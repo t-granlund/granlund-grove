@@ -44,9 +44,9 @@ export function Contact() {
           <SectionLabel index="01" chapter="The Grove Opens">
             Contact
           </SectionLabel>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-7xl leading-[1.04] font-light text-balance">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl leading-[1.04] font-light text-balance">
             Step into <em className="not-italic text-cedar">the clearing.</em>
-          </h2>
+          </h1>
           <p className="mt-6 text-lg text-stone/90 max-w-xl mx-auto">
             A quiet place in the grove. Send a note. I read everything, and I respond.
           </p>
