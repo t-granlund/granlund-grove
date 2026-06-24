@@ -55,3 +55,6 @@ __pycache__/
 
 # Local-only deploy credentials (never commit)
 .cloudflare.env
+
+# Private launch / job-search strategy (never commit to public repo)
+docs/launch/
