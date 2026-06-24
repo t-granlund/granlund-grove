@@ -2,6 +2,7 @@ import { useCallback, Suspense } from "react";
 import { Link } from "@tanstack/react-router";
 import { Canvas } from "@react-three/fiber";
 import { GlobeScene } from "./globe/GlobeScene";
+import { ErrorBoundary } from "./ErrorBoundary";
 
 function GlobeFallback() {
   return (
@@ -9,6 +10,20 @@ function GlobeFallback() {
       <span className="font-mono text-xs uppercase tracking-widest text-stone/50 animate-pulse">
         Loading network…
       </span>
+    </div>
+  );
+}
+
+// Shown if WebGL is unavailable or a globe texture fails to load. Keeps the
+// section intentional and the overlay headline/CTA legible instead of letting a
+// decorative 3D dependency crash the whole page (see ErrorBoundary).
+function GlobeStaticFallback() {
+  return (
+    <div
+      aria-hidden
+      className="absolute inset-0 bg-[#141916] bg-[radial-gradient(circle_at_50%_42%,oklch(0.35_0.05_150/0.55),transparent_62%)]"
+    >
+      <div className="absolute left-1/2 top-[42%] h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cedar/25 bg-[radial-gradient(circle_at_38%_32%,oklch(0.45_0.06_150/0.6),oklch(0.14_0.012_150)_70%)] shadow-[0_0_80px_oklch(0.4_0.06_150/0.35)]" />
     </div>
   );
 }
@@ -46,16 +61,21 @@ export function GlobeNetwork() {
           data-testid="globe-canvas-container"
           className="relative rounded-3xl border border-cedar/15 overflow-hidden h-[58vh] sm:h-[68vh] lg:h-[78vh] shadow-[var(--shadow-grove)] ring-1 ring-inset ring-[oklch(0.85_0.02_90/0.04)]"
         >
-          {/* 3D Globe — auto-rotating, decorative */}
-          <Suspense fallback={<GlobeFallback />}>
-            <Canvas
-              camera={{ position: [0, 0.4, 2.8], fov: 45 }}
-              gl={{ antialias: true, alpha: false }}
-              style={{ background: "#141916" }}
-            >
-              <GlobeScene onSelectLocation={handleSelect} selectedIndex={null} />
-            </Canvas>
-          </Suspense>
+          {/* 3D Globe — auto-rotating, decorative. Wrapped in an ErrorBoundary
+              so a transient texture/WebGL failure degrades to a static globe
+              instead of crashing the home route (Suspense only handles loading,
+              not thrown errors). */}
+          <ErrorBoundary fallback={<GlobeStaticFallback />}>
+            <Suspense fallback={<GlobeFallback />}>
+              <Canvas
+                camera={{ position: [0, 0.4, 2.8], fov: 45 }}
+                gl={{ antialias: true, alpha: false }}
+                style={{ background: "#141916" }}
+              >
+                <GlobeScene onSelectLocation={handleSelect} selectedIndex={null} />
+              </Canvas>
+            </Suspense>
+          </ErrorBoundary>
 
           {/* Top vignette — anchors the orbit hint without washing out the globe */}
           <div
