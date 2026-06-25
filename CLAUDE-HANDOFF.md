@@ -3,9 +3,9 @@
 **For:** Claude Code (Opus 4.8, max effort)  
 **Repo:** `granlund-grove` — Tyler Granlund's personal portfolio  
 **Live:** https://tylergranlund.com  
-**Git HEAD:** `95d7d62` on `main`  
-**Deployed version:** `3ff4a4f2` (Cloudflare Workers)  
-**Prepared by:** Richard (code-puppy-dc6e04) on 2026-06-18  
+**Git HEAD:** `b9e040d` on `main` (live: `70265d7`; 2 commits staged, pending deploy)  
+**Deployed version:** `fafce2cf` (Cloudflare Workers)  
+**Prepared by:** Richard (code-puppy-dc6e04) on 2026-06-18 · **Refreshed by:** Richard (code-puppy-a87523) on 2026-06-25  
 **Session context:** Full documentation dial-in + content accuracy fixes just completed. Repo is clean, green, deployed. Tyler wants a comprehensive review, analysis, recommendations, and next steps.
 
 ---
@@ -19,8 +19,60 @@ The site is **live, green, and deployed**. No fires. Tyler wants a strategic rev
 3. Prioritized next steps with effort estimates
 4. Anything I (Richard) might have missed
 
-**Quality baseline:** 75/75 e2e, 42/42 unit, 0 axe violations, 0 lint errors, TypeScript clean.
-**Judge score:** 20/26 (77%). P0 all green. Remaining 6 are P1/P2 (live-site probes, process criteria).
+**Quality baseline:** 81/81 e2e, 42/42 unit, 0 axe violations, 0 lint errors, TypeScript clean.
+**Judge score:** READY — 21/26. P0 all green. Remaining 5 are 3 skipped live-checks + 2 external process gates.
+
+---
+
+## 0. Latest Session Updates
+
+### 2026-06-25 — Wave 1 Career enrichment (Richard, code-puppy-a87523)
+
+**Bottom line: Wave 1 (career) is complete and gate-green. The two new commits are on `main` but NOT yet pushed or deployed — production is still at `70265d7` / `fafce2cf`. Deploy when ready.**
+
+- **What shipped (staged):**
+  - `a522c8d` `feat(career)` — School of Rock ops enrichment across `careerRoles` + `careerTimeline` (help desk for 50+ corporate-owned locations / 25+ inherited in a year, security cameras, Wi-Fi, iPad fleets, COVID in-person→remote pivot, on-demand video modules + quizzes, online make-up booking; corporate + franchise, domestic + international). Mirrored into the chatbot KB (`career-sor-operations` chunk). Career intro + `careerRoles[0]` broadened to the orchestrator / cross-stakeholder / iterative-delivery / security & data-privacy / IT-debt framing.
+  - `b9e040d` `fix(career)` — pinned `IT Operations & Systems Engineer` into `/career` `<title>` + og:title so the jobTitle is byte-identical across the home `<title>`, JSON-LD `jobTitle`, and chatbot KB (clears the cross-surface-consistency judge).
+- **Numbers:** `NUMBER_VERIFICATION.md` row #31 checked (50+ corporate-owned, 25+ inherited/yr; Tyler-confirmed), count 30→31, status VERIFIED. iPad count + remote-conversion day count deliberately omitted (unconfirmed).
+- **Gates (with the staged commits):** build emits `dist/server/wrangler.json`; format/lint/typecheck clean; 42 unit + 81 e2e + 12 axe pass; `judge.py --skip-live` READY 21/26. `release-log.html` test 28/28.
+- **Still scoped for later (Wave 2B, do not touch yet):** displayed `∞` in `EcosystemShowcase.tsx`, hardcoded `616` in `WorkExtras`/`CodePuppyDeepDive`/`CodePuppyModal`.
+
+### 2026-06-24 — Documentation dial-in + a11y/DRY (Richard, code-puppy-a87523)
+
+**Bottom line: production is current and healthy. The last ship batch is fully deployed and verified. Safe to start the audit pass — nothing left to ship.**
+
+### Git state
+
+- **HEAD = `70265d7`**, local and `origin/main` in sync (`0 ahead / 0 behind`), working tree clean.
+- The 3-commit batch (`/writing` blog, the 44-component shadcn prune, handoff doc) is now on origin. History continued past it with a11y/DRY/judge fixes through `70265d7`.
+- **Deployed to Cloudflare** — live version `fafce2cf`.
+
+### Production smoke test (verified live this session)
+
+| Route                                                                   | Status                                    |
+| ----------------------------------------------------------------------- | ----------------------------------------- |
+| `/`, `/writing`, `/writing/running-it-for-200-locations-with-ai-agents` | ✅ 200                                    |
+| `/work`, `/career`, `/about`, `/resume`, `/contact`                     | ✅ 200                                    |
+| `/ecosystem`                                                            | ↪ 307 (intentional — folded into `/work`) |
+
+### Quality gates
+
+- **Build clean** — `routeTree.gen.ts` regenerated _after_ the 44-file shadcn prune; `/writing` routes intact. The prune broke nothing.
+- Tests: 42 unit / 81 e2e / 12 axe — **0 axe serious/critical**.
+- `judge.py` repo-local checks green; live checks no longer false-fail as P0 (`1edc661`).
+- a11y: hero `<h1>` promoted across about/resume/contact/career (`bf1f362`).
+- DRY: career content unified in `career-data.ts` (`bf0c461`).
+
+### Private strategy assets (NOT in public repo)
+
+- **`docs/launch/` is gitignored** (`00f7c00`) — job-search/outreach material stays local. Do **not** commit it.
+- Inside it: rebuilt `release-log.html` (local release-notes app, reconciled against all 37 real commits) + `release-log.test.mjs` suite — **28/28 passing** (design tokens, look & feel, commit-hash data integrity, axe a11y). Run with `node docs/launch/release-log.test.mjs`.
+
+### Open threads
+
+1. Cloudflare Web Analytics token — enable or skip?
+2. Known SEO gap: no OG tags / canonical / favicon on some surfaces.
+3. The full audit prompt below (§ rest of this doc) is the suggested next deep-dive.
 
 ---
 
@@ -249,13 +301,13 @@ Location: `src/routes/api/contact.ts`
 ```bash
 # Verify state
 git status                    # should be clean (docs/launch/ untracked is OK)
-git log --oneline -5          # confirm 95d7d62 is HEAD
+git log --oneline -5          # confirm 70265d7 is HEAD
 
 # Run gates
-npm run test:all              # ~90s: typecheck + 42 unit + 75 e2e
+npm run test:all              # ~90s: typecheck + 42 unit + 81 e2e
 npm run lint                  # 0 errors expected
 npm run typecheck             # clean expected
-python3 scripts/judge.py --skip-live   # 20/26 expected
+python3 scripts/judge.py --skip-live   # READY, 21/26 expected
 
 # Build
 npm run build                 # should complete clean
@@ -270,11 +322,11 @@ source .cloudflare.env && npm run deploy
 
 | Metric               | Value                                                                   |
 | -------------------- | ----------------------------------------------------------------------- |
-| Deployed version     | `3ff4a4f2`                                                              |
-| Git HEAD             | `95d7d62`                                                               |
-| Judge score          | 20/26 (77%)                                                             |
+| Deployed version     | `fafce2cf`                                                              |
+| Git HEAD             | `70265d7`                                                               |
+| Judge score          | READY — 21/26 (5 remaining: 3 skipped live-checks + 2 process gates)    |
 | Unit tests           | 42/42                                                                   |
-| E2E tests            | 75/75                                                                   |
+| E2E tests            | 81/81                                                                   |
 | A11y violations      | 0                                                                       |
 | Lint errors          | 0                                                                       |
 | TypeScript           | Clean                                                                   |
@@ -285,4 +337,4 @@ source .cloudflare.env && npm run deploy
 
 ---
 
-_End of handoff. Everything above was verified on 2026-06-18 by Richard (code-puppy-dc6e04)._
+_End of handoff. Baseline verified 2026-06-18 by Richard (code-puppy-dc6e04); metrics refreshed 2026-06-24 by Richard (code-puppy-a87523)._

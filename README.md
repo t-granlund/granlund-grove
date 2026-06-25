@@ -2,15 +2,15 @@
 
 Tyler Granlund's personal portfolio — "a grove carved in code." Dark-mode-only, Nordic forest aesthetic (charcoal + deep spruce + warm cedar accents). Deployed at [tylergranlund.com](https://tylergranlund.com).
 
-## Current State (2026-06-18)
+## Current State (2026-06-25)
 
-|             |                                                                               |
-| ----------- | ----------------------------------------------------------------------------- |
-| **Stack**   | TanStack Start, React 19, Vite 7, Tailwind CSS 4, shadcn/ui, Three.js (globe) |
-| **Hosting** | Cloudflare Workers + Pages (custom domain: `tylergranlund.com`)               |
-| **Tests**   | 75/75 e2e (Playwright), 42/42 unit (Vitest), 0 axe violations                 |
-| **Build**   | Clean — TypeScript, lint, format all green                                    |
-| **Version** | `e3c3a80` on `main` → deployed `3ff4a4f2`                                     |
+|             |                                                                                              |
+| ----------- | -------------------------------------------------------------------------------------------- |
+| **Stack**   | TanStack Start, React 19, Vite 7, Tailwind CSS 4, shadcn/ui, Three.js (globe)                |
+| **Hosting** | Cloudflare Workers + Pages (custom domain: `tylergranlund.com`)                              |
+| **Tests**   | 81/81 e2e (Playwright), 42/42 unit (Vitest), 12/12 axe (0 violations)                        |
+| **Build**   | Clean — TypeScript, lint, format all green                                                   |
+| **Version** | live `70265d7` → deployed `fafce2cf`; `main` at `b9e040d` (2 commits staged, pending deploy) |
 
 ## Quick Commands
 
@@ -33,9 +33,9 @@ npm run deploy        # build + wrangler deploy (needs .cloudflare.env)
 | `src/components/site/**`      | Page components (Hero, Career, Work, Contact, etc.) |
 | `src/lib/chatbot/**`          | Chatbot engine + knowledge base                     |
 | `src/lib/security-headers.ts` | CSP, HSTS, XFO — single source of truth             |
-| `docs/NUMBER_VERIFICATION.md` | Metric verification gate (30/30 verified)           |
+| `docs/NUMBER_VERIFICATION.md` | Metric verification gate (31/31 verified)           |
 | `docs/planning/**`            | Backlog Decision Store (BDS)                        |
-| `scripts/judge.py`            | Launch-readiness scoring (20/26, site live)         |
+| `scripts/judge.py`            | Launch-readiness scoring (21/26 — READY, site live) |
 
 ## Design System
 
