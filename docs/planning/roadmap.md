@@ -1,11 +1,11 @@
 # Roadmap
 
 > **Status (2026-06-25):** Phases 1–6 below are essentially delivered — the site is live on
-> `tylergranlund.com` (production at `70265d7` / Cloudflare `fafce2cf`; `main` at `b9e040d` with 2
-> Career commits staged, pending deploy). Active, post-launch work is now tracked as the **WORK
-> waves** (Career → Work IA → Writing/ecosystem) in `docs/launch/WORK_WIGGUM_WORKBOOK.md`, with the
-> shipped history in `docs/launch/release-log.html`. This document remains the record of the
-> original build phases.
+> `tylergranlund.com`, with Wave 1 (Career enrichment) now deployed. Active, post-launch work is
+> tracked as the **WORK waves** (Career → Work IA → Writing/ecosystem) in
+> `docs/launch/WORK_WIGGUM_WORKBOOK.md`; the exact live commit + Cloudflare version and full shipped
+> history live in `docs/launch/release-log.html`. This document remains the record of the original
+> build phases.
 
 This roadmap sequences the BDS backlog into dependency-aware phases. It is intentionally realistic: quality gates first, then route/content expansion, then polish, then data/observability.
 

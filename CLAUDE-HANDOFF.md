@@ -3,7 +3,7 @@
 **For:** Claude Code (Opus 4.8, max effort)  
 **Repo:** `granlund-grove` — Tyler Granlund's personal portfolio  
 **Live:** https://tylergranlund.com  
-**Git HEAD:** `b9e040d` on `main` (live: `70265d7`; 2 commits staged, pending deploy)  
+**Git HEAD:** `560953f`+ on `main` — Wave 1 (Career) deployed and live on tylergranlund.com  
 **Deployed version:** `fafce2cf` (Cloudflare Workers)  
 **Prepared by:** Richard (code-puppy-dc6e04) on 2026-06-18 · **Refreshed by:** Richard (code-puppy-a87523) on 2026-06-25  
 **Session context:** Full documentation dial-in + content accuracy fixes just completed. Repo is clean, green, deployed. Tyler wants a comprehensive review, analysis, recommendations, and next steps.
@@ -28,13 +28,14 @@ The site is **live, green, and deployed**. No fires. Tyler wants a strategic rev
 
 ### 2026-06-25 — Wave 1 Career enrichment (Richard, code-puppy-a87523)
 
-**Bottom line: Wave 1 (career) is complete and gate-green. The two new commits are on `main` but NOT yet pushed or deployed — production is still at `70265d7` / `fafce2cf`. Deploy when ready.**
+**Bottom line: Wave 1 (career) is complete, gate-green, pushed, and DEPLOYED — live on tylergranlund.com. Verified: the `/career` `<title>` now carries the pinned jobTitle in production. Exact live commit + Cloudflare version are tracked in `docs/launch/release-log.html`.**
 
 - **What shipped (staged):**
   - `a522c8d` `feat(career)` — School of Rock ops enrichment across `careerRoles` + `careerTimeline` (help desk for 50+ corporate-owned locations / 25+ inherited in a year, security cameras, Wi-Fi, iPad fleets, COVID in-person→remote pivot, on-demand video modules + quizzes, online make-up booking; corporate + franchise, domestic + international). Mirrored into the chatbot KB (`career-sor-operations` chunk). Career intro + `careerRoles[0]` broadened to the orchestrator / cross-stakeholder / iterative-delivery / security & data-privacy / IT-debt framing.
   - `b9e040d` `fix(career)` — pinned `IT Operations & Systems Engineer` into `/career` `<title>` + og:title so the jobTitle is byte-identical across the home `<title>`, JSON-LD `jobTitle`, and chatbot KB (clears the cross-surface-consistency judge).
 - **Numbers:** `NUMBER_VERIFICATION.md` row #31 checked (50+ corporate-owned, 25+ inherited/yr; Tyler-confirmed), count 30→31, status VERIFIED. iPad count + remote-conversion day count deliberately omitted (unconfirmed).
-- **Gates (with the staged commits):** build emits `dist/server/wrangler.json`; format/lint/typecheck clean; 42 unit + 81 e2e + 12 axe pass; `judge.py --skip-live` READY 21/26. `release-log.html` test 28/28.
+- **Gates (pre-ship):** build emits `dist/server/wrangler.json`; format/lint/typecheck clean; 42 unit + 81 e2e + 12 axe pass; `judge.py --skip-live` READY 21/26. `release-log.html` test 28/28.
+- **Shipped:** pushed to `origin/main` and deployed to Cloudflare Workers; live curl sweep = all routes 200, `/ecosystem` 307, `/career` `<title>` byte-identical jobTitle confirmed live.
 - **Still scoped for later (Wave 2B, do not touch yet):** displayed `∞` in `EcosystemShowcase.tsx`, hardcoded `616` in `WorkExtras`/`CodePuppyDeepDive`/`CodePuppyModal`.
 
 ### 2026-06-24 — Documentation dial-in + a11y/DRY (Richard, code-puppy-a87523)
@@ -66,7 +67,7 @@ The site is **live, green, and deployed**. No fires. Tyler wants a strategic rev
 ### Private strategy assets (NOT in public repo)
 
 - **`docs/launch/` is gitignored** (`00f7c00`) — job-search/outreach material stays local. Do **not** commit it.
-- Inside it: rebuilt `release-log.html` (local release-notes app, reconciled against all 37 real commits) + `release-log.test.mjs` suite — **28/28 passing** (design tokens, look & feel, commit-hash data integrity, axe a11y). Run with `node docs/launch/release-log.test.mjs`.
+- Inside it: rebuilt `release-log.html` (local release-notes app, reconciled against every real commit on `main`) + `release-log.test.mjs` suite — **28/28 passing** (design tokens, look & feel, commit-hash data integrity, axe a11y). Run with `node docs/launch/release-log.test.mjs`.
 
 ### Open threads
 

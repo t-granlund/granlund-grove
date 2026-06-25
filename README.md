@@ -4,13 +4,13 @@ Tyler Granlund's personal portfolio — "a grove carved in code." Dark-mode-only
 
 ## Current State (2026-06-25)
 
-|             |                                                                                              |
-| ----------- | -------------------------------------------------------------------------------------------- |
-| **Stack**   | TanStack Start, React 19, Vite 7, Tailwind CSS 4, shadcn/ui, Three.js (globe)                |
-| **Hosting** | Cloudflare Workers + Pages (custom domain: `tylergranlund.com`)                              |
-| **Tests**   | 81/81 e2e (Playwright), 42/42 unit (Vitest), 12/12 axe (0 violations)                        |
-| **Build**   | Clean — TypeScript, lint, format all green                                                   |
-| **Version** | live `70265d7` → deployed `fafce2cf`; `main` at `b9e040d` (2 commits staged, pending deploy) |
+|             |                                                                               |
+| ----------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Stack**   | TanStack Start, React 19, Vite 7, Tailwind CSS 4, shadcn/ui, Three.js (globe) |
+| **Hosting** | Cloudflare Workers + Pages (custom domain: `tylergranlund.com`)               |
+| **Tests**   | 81/81 e2e (Playwright), 42/42 unit (Vitest), 12/12 axe (0 violations)         |
+| **Build**   | Clean — TypeScript, lint, format all green                                    |
+| \*\*        | **Version**                                                                   | Live on Cloudflare Workers (`tylergranlund.com` + `www`). Wave 1 (Career) deployed. Exact live commit + Cloudflare version: see `docs/launch/release-log.html`. |
 
 ## Quick Commands
 
