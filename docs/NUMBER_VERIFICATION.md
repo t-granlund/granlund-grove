@@ -76,18 +76,19 @@
 
 ## Career / dates (already in Career.tsx) -- bd dev-eqz
 
-| #   | Claim                                                             | Source | Confirmed |
-| --- | ----------------------------------------------------------------- | ------ | --------- |
-| 27  | HTT Brands: IT Ops & Systems Engineer (Jan 2026 — June 2026)      | resume | [x]       |
-| 28  | HTT Brands: IT Director (Oct 2024-Jan 2026)                       | resume | [x]       |
-| 29  | Outdoor Cap: IT PM I to II (2022-2023)                            | resume | [x]       |
-| 30  | School of Rock: IT Manager to Sr IT Manager (Apr 2015 — Jan 2022) | resume | [x]       |
+| #   | Claim                                                                         | Source             | Confirmed |
+| --- | ----------------------------------------------------------------------------- | ------------------ | --------- |
+| 27  | HTT Brands: IT Ops & Systems Engineer (Jan 2026 — June 2026)                  | resume             | [x]       |
+| 28  | HTT Brands: IT Director (Oct 2024-Jan 2026)                                   | resume             | [x]       |
+| 29  | Outdoor Cap: IT PM I to II (2022-2023)                                        | resume             | [x]       |
+| 30  | School of Rock: IT Manager to Sr IT Manager (Apr 2015 — Jan 2022)             | resume             | [x]       |
+| 31  | School of Rock: **50+ corporate-owned locations** (25+ inherited in one year) | Tyler (2026-06-25) | [x]       |
 
 ---
 
 ## Status
 
-**VERIFIED** -- 30/30 confirmed. Non-financial (28/30) confirmed by Tyler
+**VERIFIED** -- 31/31 confirmed. Non-financial (28/30) confirmed by Tyler
 2026-06-11 (bd dev-kxh closed). Financials #16/#17 resolved 2026-06-11 by the
 Estate-Trace data reconciliation (bd dev-jgu.2): the "~$12K/mo" figure traced to
 the canonical 6/8 workbook (Technology dept = $12,167/mo, read via DuckDB; passed
@@ -100,4 +101,4 @@ SaaS (~$38.7K/mo).
 > estimate ($5,003-8,410). Its exact MCA invoice is unobtainable (Tyler has left
 > HTT), so mid-band is best-and-final. It is the optimization story regardless.
 
-_Last reviewed: 2026-06-18 — dates reconciled to site copy (HTT Ops end June 2026, SoR end Jan 2022). Non-financial by Tyler Granlund; financials by Estate-Trace reconciliation (code-puppy / Richard), Tyler-approved._
+_Last reviewed: 2026-06-25 — added #31 (School of Rock 50+ corporate-owned locations, 25+ inherited in one year; confirmed by Tyler). 2026-06-18 — dates reconciled to site copy (HTT Ops end June 2026, SoR end Jan 2022). Non-financial by Tyler Granlund; financials by Estate-Trace reconciliation (code-puppy / Richard), Tyler-approved._

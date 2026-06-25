@@ -37,11 +37,12 @@ export const careerRoles: CareerRole[] = [
     role: "IT Operations & Systems Engineer",
     dates: CAREER_DATES.openToOpportunities,
     summary:
-      "Available for full-time roles, consulting engagements, and collaborations. Looking for positions in IT leadership, systems engineering, AI/ML engineering, forward-deployed engineering, and digital transformation. Based in Bella Vista, Arkansas. Remote or on-site as needed.",
+      "Open to the role where I can orchestrate complex, cross-functional problems into momentum: align the stakeholders on a clear direction, then ship fast, iterative systems that serve real customer needs and the business's budget and operating realities. That means owning security, data privacy, and integration health, surfacing IT debt and shadow IT before it bites, and building streamlined, transparent ways of working that keep everyone accountable without finger-pointing. Title-agnostic by design: operations, systems engineering, solutions or forward-deployed engineering, AI/ML, or digital transformation. Based in Bella Vista, Arkansas. Remote or on-site as needed.",
     outcomes: [
       "Tailored resume variants: AI PM, FDE, Master Resume",
-      "Open to IT leadership, systems engineering, AI/ML roles",
-      "Available for consulting and fractional engagements",
+      "Title-agnostic: operations, systems, solutions/FDE, AI/ML",
+      "Orchestrates stakeholders into fast, iterative delivery",
+      "Owns security, data privacy & IT-debt/shadow-IT cleanup",
       "Remote-first, on-site travel as needed",
     ],
   },
@@ -91,13 +92,17 @@ export const careerRoles: CareerRole[] = [
     role: "IT Manager to Senior IT Manager",
     dates: CAREER_DATES.schoolOfRock,
     summary:
-      "Joined at ~145 locations in 8 countries. Left at ~300+ locations across 14 countries. I was the primary IT support pillar for every master franchise rollout. Analyzed requirements, adapted systems, built merchant processing integrations through NMI gateways connected to Pike 13, and trained owners and managers. Built Okta identity federation, Google Workspace governance, and custom local solutions for scheduling, invoicing, and payment identity across every new market.",
+      "Joined at ~145 locations in 8 countries. Left at ~300+ locations across 14 countries. I was the primary IT support pillar for every master franchise rollout. Analyzed requirements, adapted systems, built merchant processing integrations through NMI gateways connected to Pike 13, and trained owners and managers. Built Okta identity federation, Google Workspace governance, and custom local solutions for scheduling, invoicing, and payment identity across every new market. Beyond the launches, I owned IT for both corporate-owned and franchised schools, domestic and international: running the help desk for 50+ corporate-owned locations (25+ inherited in a single year), supporting corporate offices, and standing up physical infrastructure from security-camera systems to Wi-Fi upgrades and iPad fleets. When COVID closed the doors, I led the rapid conversion of in-person lessons to fully remote instruction, built an online make-up-lesson booking system for students and parents, and turned monthly in-person owner and manager training into on-demand video modules with quizzes.",
     outcomes: [
       "~145 → ~300+ locations, 8 → 14 countries",
       "Global SSO rollout. 300+ schools via Okta",
       "Merchant processing integrations (NMI + Pike 13)",
       "Privacy & compliance program (COPPA/FERPA/GDPR)",
-      "Franchise support model & enablement at scale",
+      "Corporate + franchise help desk: 50+ corporate-owned (25+ inherited in a year)",
+      "Security-camera, Wi-Fi & iPad-fleet rollouts",
+      "COVID pivot: in-person lessons → fully remote instruction",
+      "Owner/manager training → on-demand video modules + quizzes",
+      "Online make-up-lesson booking for students & parents",
     ],
   },
 ];
@@ -174,11 +179,15 @@ export const careerTimeline: ImpactStep[] = [
     stat: "150+",
     statLabel: "locations helped open",
     story:
-      "The primary IT support pillar for every master-franchise launch across LATAM, Europe, APAC, and Africa. For each new market I analyzed requirements, adapted systems, built what did not exist yet, and trained the owners and managers who would run it.",
+      "The primary IT support pillar for every master-franchise launch across LATAM, Europe, APAC, and Africa. For each new market I analyzed requirements, adapted systems, built what did not exist yet, and trained the owners and managers who would run it. I carried the same load for the corporate-owned schools, domestic and international, running their help desk and physical infrastructure too. Then COVID hit, and the whole business had to move online almost overnight.",
     achievements: [
       "Built merchant-processing integrations that did not previously exist. Local banks to NMI transnational gateways to Pike 13, with revenue tracking leadership could trust.",
       "Rolled out global SSO and Google Workspace governance across 300+ schools via Okta.",
       "Stood up privacy and compliance for new markets. GDPR for the Ireland and Iberia launches, plus COPPA/FERPA posture.",
+      "Ran the help desk for 50+ corporate-owned schools, 25+ of them inherited in a single year, alongside the franchise network and corporate offices.",
+      "Stood up physical infrastructure across the schools. Security-camera systems, Wi-Fi upgrades, iPad fleets for corporate schools, and corporate-office hardware and printer support.",
+      "Led the rapid pivot when COVID closed the doors. Converted in-person lessons to fully remote instruction, then built an online make-up-lesson booking system so students and parents could reschedule themselves.",
+      "Turned the monthly in-person owner, manager, and admin training into on-demand video modules with quizzes, so every market could onboard staff without waiting for a visit.",
       "Built the Summerfest All-Stars video pipeline. Nine regional GoPro kits, capture-to-judging FTP workflow.",
     ],
     value:

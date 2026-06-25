@@ -20,8 +20,10 @@ export function Career() {
             scope and the outcomes that marked each turn.
           </p>
           <p className="mt-4 text-base text-stone/70 max-w-2xl">
-            The thread never changed: understand what the customer needs, build the systems to
-            support it, and remove the obstacles that make people&apos;s day-to-day harder.
+            The thread never changed: orchestrate the messy, cross-functional problems into a clear
+            direction, align the people who have to live with the outcome, then ship fast and
+            iterate &mdash; owning security, data privacy, and the IT debt and shadow IT most teams
+            would rather ignore, so the day-to-day actually gets easier.
           </p>
         </div>
 
