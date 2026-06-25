@@ -8,13 +8,16 @@ import { Impact } from "@/components/site/Impact";
 export const Route = createFileRoute("/career")({
   head: () => ({
     meta: [
-      { title: "Career — Tyler Granlund" },
+      { title: "Career — Tyler Granlund, IT Operations & Systems Engineer" },
       {
         name: "description",
         content:
           "Tyler Granlund's career path. Roles, scope, and the measurable impact at each turn, from School of Rock to a multi-brand franchise group.",
       },
-      { property: "og:title", content: "Career — Tyler Granlund" },
+      {
+        property: "og:title",
+        content: "Career — Tyler Granlund, IT Operations & Systems Engineer",
+      },
       {
         property: "og:description",
         content: "The path through the grove. Roles, scope, and impact.",
