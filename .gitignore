@@ -58,3 +58,9 @@ __pycache__/
 
 # Private launch / job-search strategy (never commit to public repo)
 docs/launch/
+
+# Dolt task ledger (local-only binary store)
+.dolt-tasks/
+
+# Card render outputs (regenerable via npm run card:render)
+dist/card/

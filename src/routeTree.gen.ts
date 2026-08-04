@@ -23,6 +23,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as WritingIndexRouteImport } from './routes/writing.index'
 import { Route as WritingRunningItFor200LocationsWithAiAgentsRouteImport } from './routes/writing.running-it-for-200-locations-with-ai-agents'
 import { Route as WritingBuildingIdentityAwareRagRouteImport } from './routes/writing.building-identity-aware-rag'
+import { Route as BrandCardRouteImport } from './routes/brand/card'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 
 const WorkRoute = WorkRouteImport.update({
@@ -97,6 +98,11 @@ const WritingBuildingIdentityAwareRagRoute =
     path: '/writing/building-identity-aware-rag',
     getParentRoute: () => rootRouteImport,
   } as any)
+const BrandCardRoute = BrandCardRouteImport.update({
+  id: '/brand/card',
+  path: '/brand/card',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiContactRoute = ApiContactRouteImport.update({
   id: '/api/contact',
   path: '/api/contact',
@@ -116,6 +122,7 @@ export interface FileRoutesByFullPath {
   '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
   '/api/contact': typeof ApiContactRoute
+  '/brand/card': typeof BrandCardRoute
   '/writing/building-identity-aware-rag': typeof WritingBuildingIdentityAwareRagRoute
   '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingRunningItFor200LocationsWithAiAgentsRoute
   '/writing/': typeof WritingIndexRoute
@@ -133,6 +140,7 @@ export interface FileRoutesByTo {
   '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
   '/api/contact': typeof ApiContactRoute
+  '/brand/card': typeof BrandCardRoute
   '/writing/building-identity-aware-rag': typeof WritingBuildingIdentityAwareRagRoute
   '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingRunningItFor200LocationsWithAiAgentsRoute
   '/writing': typeof WritingIndexRoute
@@ -151,6 +159,7 @@ export interface FileRoutesById {
   '/ventures': typeof VenturesRoute
   '/work': typeof WorkRoute
   '/api/contact': typeof ApiContactRoute
+  '/brand/card': typeof BrandCardRoute
   '/writing/building-identity-aware-rag': typeof WritingBuildingIdentityAwareRagRoute
   '/writing/running-it-for-200-locations-with-ai-agents': typeof WritingRunningItFor200LocationsWithAiAgentsRoute
   '/writing/': typeof WritingIndexRoute
@@ -170,6 +179,7 @@ export interface FileRouteTypes {
     | '/ventures'
     | '/work'
     | '/api/contact'
+    | '/brand/card'
     | '/writing/building-identity-aware-rag'
     | '/writing/running-it-for-200-locations-with-ai-agents'
     | '/writing/'
@@ -187,6 +197,7 @@ export interface FileRouteTypes {
     | '/ventures'
     | '/work'
     | '/api/contact'
+    | '/brand/card'
     | '/writing/building-identity-aware-rag'
     | '/writing/running-it-for-200-locations-with-ai-agents'
     | '/writing'
@@ -204,6 +215,7 @@ export interface FileRouteTypes {
     | '/ventures'
     | '/work'
     | '/api/contact'
+    | '/brand/card'
     | '/writing/building-identity-aware-rag'
     | '/writing/running-it-for-200-locations-with-ai-agents'
     | '/writing/'
@@ -222,6 +234,7 @@ export interface RootRouteChildren {
   VenturesRoute: typeof VenturesRoute
   WorkRoute: typeof WorkRoute
   ApiContactRoute: typeof ApiContactRoute
+  BrandCardRoute: typeof BrandCardRoute
   WritingBuildingIdentityAwareRagRoute: typeof WritingBuildingIdentityAwareRagRoute
   WritingRunningItFor200LocationsWithAiAgentsRoute: typeof WritingRunningItFor200LocationsWithAiAgentsRoute
   WritingIndexRoute: typeof WritingIndexRoute
@@ -327,6 +340,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WritingBuildingIdentityAwareRagRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brand/card': {
+      id: '/brand/card'
+      path: '/brand/card'
+      fullPath: '/brand/card'
+      preLoaderRoute: typeof BrandCardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/contact': {
       id: '/api/contact'
       path: '/api/contact'
@@ -350,6 +370,7 @@ const rootRouteChildren: RootRouteChildren = {
   VenturesRoute: VenturesRoute,
   WorkRoute: WorkRoute,
   ApiContactRoute: ApiContactRoute,
+  BrandCardRoute: BrandCardRoute,
   WritingBuildingIdentityAwareRagRoute: WritingBuildingIdentityAwareRagRoute,
   WritingRunningItFor200LocationsWithAiAgentsRoute:
     WritingRunningItFor200LocationsWithAiAgentsRoute,
