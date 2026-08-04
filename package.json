@@ -21,6 +21,7 @@
     "card:colors": "node scripts/card-colors.mjs",
     "card:qr": "node scripts/card-qr.mjs",
     "card:render": "node scripts/render-card.mjs",
+    "card:proof": "node scripts/render-proof-sheet.mjs",
     "test:e2e": "playwright test",
     "test:a11y": "playwright test tests/e2e/a11y.spec.ts",
     "test:all": "npm run typecheck && npm run test && npm run test:e2e",
