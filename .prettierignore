@@ -15,3 +15,10 @@ routeTree.gen.ts
 # Agent/web research artifacts are evidence, not code style exercises.
 research
 docs/research
+
+# Generated QR asset: deterministic byte-output is a fitness gate (bc-09);
+# prettier reformatting would break the determinism check.
+src/components/brand/card-qr.svg
+
+# Work-history source doc: content record, not a style exercise.
+docs/EXPERIENCE-AND-WORK-HISTORY.md

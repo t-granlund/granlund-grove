@@ -19,8 +19,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
-export const QR_PAYLOAD =
-  "https://tylergranlund.com/?utm_source=business_card&utm_medium=qr";
+export const QR_PAYLOAD = "https://tylergranlund.com/?utm_source=business_card&utm_medium=qr";
 
 const OUT_PATH = resolve(ROOT, "src/components/brand/card-qr.svg");
 
