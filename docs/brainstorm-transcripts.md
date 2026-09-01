@@ -1,0 +1,164 @@
+# Brainstorm Audio Transcripts — tylergranlund.com Experience Rework
+
+> Transcribed locally with Mockingbird's `verbatim_dump` (whisper.cpp, whisper-large-v3-turbo-q5_0,
+> Metal backend) — no cloud, verbatim, minor ASR errors expected. Source files: `Audio-Recordings/Brainstorm-{1,2}.qta`.
+> Transcribed by code-puppy-a07765.
+
+## Brainstorm-1.qta (6.8 min)
+
+- **[00:00]** One of the things that always annoyed me when checking out at a Walmart is no matter where I am, whether I'm a neighborhood market or I'm in a store 100 or I'm in a Walmart gas station, a Murphy's, etc.
+- **[00:12]** They're all using point of sale systems that require some sort of, you know, agreement with a merchant processor where they're negotiating their fees when it comes to the monthly revenue.
+- **[00:21]** And then they pay their merchant processing fees every month. And then obviously there's all the PCII compliance, which at their scale, PCI compliance is basically measured by the number of transactions you do annually.
+- **[00:38]** And so School of Rock was always minor because we didn't really do a ton because it was monthly.
+- **[00:42]** And so anyways, I was like, OK, I learned that we were a level four low risk instance. And so this helped me when negotiating overseas in Brazil.
+- **[00:51]** Like I was able to get solutions in place, like preparing them, giving them the information and knowledge that they needed.
+- **[00:56]** So that Pedro and Paulo, they put together a presentation that they showed me.
+- **[01:02]** And I said, this is insane. And then they literally went to this.
+- **[01:05]** I forgot the name of the bank, but it's like Brazil something in the name.
+- **[01:08]** And they were able to get the negotiations so that the NMI, which is like a very reputable gateway in the U.S.,
+- **[01:16]** to be eligible to allow for the U.S.-based SaaS platform that just recently incorporated taxes to their monthly fees based on the state.
+- **[01:30]** We had all of the GDPR, the stuff that came with the CCPA.
+- **[01:34]** Virginia has something.
+- **[01:35]** Then you had, I think it literally went like Brazil, South Africa, Taiwan.
+- **[01:39]** Like I'll need to know the timelines of like which countries went and where.
+- **[01:43]** But like as this happened in real time, we had to go and look and understand where did I get to live?
+- **[01:48]** What was going on with our users?
+- **[01:50]** What was the lifecycle of the deprovisioning and provisioning workflows?
+- **[01:53]** We had this corporate entity that was located in each one of our countries that were considered a master franchisee.
+- **[02:00]** There's no difference than how you guys are having to manage with the different markets within Brazil because we did let them kind of own their data.
+- **[02:06]** But we had to have governance and oversight on the legality of how they use the brand.
+- **[02:11]** They were notorious for putting the likeness of different artists inside of the buildings.
+- **[02:15]** And so when I went down there with the chief, you know, at the time Sam was the VP of all of IT.
+- **[02:22]** And he ended up becoming the chief kind of innovation officer around all like the music curriculum and programming because he was a musician, a jazz musician with the DeVry, like their jazz program.
+- **[02:35]** And then he fell in love with they created a proprietary patented method, school of rock method, which allowed you to hook up your child to a curriculum or program that the teacher worked with him on.
+- **[02:48]** And this allowed you to work with the child, assign them stuff.
+- **[02:52]** And it used the microphone.
+- **[02:53]** And we basically got all this like patented technology that allowed us to do this.
+- **[02:56]** And when COVID hit and like we figured out that, oh, God, we had to convert our business to an online only business in basically two weeks.
+- **[03:04]** There's a whole process of how we did that because we had legality around, you know, doing video calls with minors.
+- **[03:10]** And instructors went from being in the actual schools to then having to do them at their house.
+- **[03:15]** And then, you know, there's a lot of risk there when you have a 25-year-old musician with tattoos all over them and they're teaching a five-year-old or, you know, sorry, you know, basically online was 13 and up.
+- **[03:26]** And the parent had to be like in the proximity of the room.
+- **[03:28]** They couldn't be, you know, by themselves.
+- **[03:30]** Like all of the laws that come with that.
+- **[03:31]** And so my diligence and regulation was there.
+- **[03:34]** And so when I found out that, hey, overseas, they're not able to use our software in a way that's helpful.
+- **[03:41]** Merchant processing wasn't connected.
+- **[03:42]** So they had to enter in transactions twice.
+- **[03:44]** And so our reporting for royalty captures is already difficult enough with it being an eight-to-three split.
+- **[03:49]** You know, it would increase, decrease.
+- **[03:51]** We would offer program initiatives if someone signed on for multi-unit.
+- **[03:55]** If they were, you know, sometimes we did six months free royalties.
+- **[03:58]** Like then I had to track and manage all of the locations based on who they were to make sure all the records match.
+- **[04:03]** But nothing synced.
+- **[04:04]** It was all separate.
+- **[04:05]** And we had different like location IDs.
+- **[04:07]** We had different IDs associated to the Pike 13 accounts.
+- **[04:11]** And so I helped solve for the localization of software because I used this functionality in Zendesk called dynamic fields.
+- **[04:19]** Dynamic fields allowed you to put this kind of bracket parameter inside of a thing that basically correlated to a master database of translations.
+- **[04:27]** That obviously is probably simple on how it worked.
+- **[04:30]** But then when that user that was provisioned to that account with that permissions and all that, you can manipulate every single field and every single thing that you see to be the language that they wanted.
+- **[04:39]** With Pike 13, it was even more interesting because we actually had this platform that was all about going into every single component and piece of the software.
+- **[04:50]** And like everything that relates to text, it was there.
+- **[04:52]** And so we have like a guy that I had to work with Pike 13 on to help them be like, okay, so here's our Taiwan or here's our, you know, now Pike 13 Brazil locations.
+- **[05:01]** And we had, you know, Chile.
+- **[05:03]** Then I had, you know, so I had three versions of Spanish.
+- **[05:05]** I had Spain.
+- **[05:06]** I had Mexico.
+- **[05:07]** I had Latin America.
+- **[05:08]** Then I had traditional Chinese in Taiwan.
+- **[05:11]** Plus they had the receipt system, which, you know, we had to capture.
+- **[05:14]** And I have a whole slew of things that we navigated and figured out with that.
+- **[05:19]** When it comes to the rules and regulations, I then learned about this whole receipt system because all the black market stuff that was going on in the 60s.
+- **[05:26]** And then as soon as that happened, it like transitioned the amount of money that was pumping into the economy, a crazy amount.
+- **[05:31]** And so like people that take and buy stuff, they have to be given these receipts.
+- **[05:35]** And then every month on a certain day, every other month, every other month on a particular day, they do this like nationwide auction on the news broadcast.
+- **[05:42]** And people have won like, you know, anywhere from like 20 to hundreds of thousands of dollars, all with the understanding that, hey,
+- **[05:49]** like it's better to funnel the money into the economy so we can properly tax the cities, the blah, blah, blah, blah, blah, blah, blah.
+- **[05:54]** So that funnels into the economies that you live and breathe in.
+- **[05:58]** And I do actually think that there's something to be said about that.
+- **[06:01]** And so Taiwan itself is a pretty regimented and oriented area.
+- **[06:06]** And so I'd really like to talk to John Moore who lived in Taipei because their economy mechanisms are really interesting because they are literally housing one of the only facilities in the entire world that can make computer chips the way that they need to be made.
+- **[06:19]** If you look up the history and how they figure that out, that's when you start to think the Avengers are real.
+- **[06:23]** And so I'm at a point in my career where I understand that China wants Taiwan.
+- **[06:28]** They've already had covert people come in and then leave.
+- **[06:30]** And literally the leaked stuff they brought and went into Hawaii or Huawei.
+- **[06:37]** And so Huawei, Huawei literally used to be a internet company that existed in the, hold on one second, Mayas.
+- **[06:45]** I'm having a...
+
+## Brainstorm-2.qta (5.3 min)
+
+- **[00:00]** But basically, the Huawei internet phase, you know, back in the day, you had all these different like, oh, what's an approachable, easy internet solution?
+- **[00:07]** And this DSL Huawei.net or Huawei.whatever it was, was something that a lot of old senior citizens did because it was like an easy hookup, all that.
+- **[00:15]** But it turns out like all the equipment and everything they were doing with that was actually Huawei, which is H-U-A-W-A-I.
+- **[00:23]** And they were doing it in the U.S. with H-U-A-W-A-I and then it was Huawei, like W-O-W.
+- **[00:30]** Like it was almost a meaning.
+- **[00:32]** And so if you look at that book that was written by a guy between Apple and China, like there was a lot of stuff there that built the economy into what it is.
+- **[00:38]** Then you have the Zuckerbergs and all that.
+- **[00:40]** And so what I'm saying is that we're at a point in time where, you know, when I was at School of Rock, I met and worked with the people to solve the solutions.
+- **[00:49]** You know, you had all these owners from different backgrounds.
+- **[00:51]** You know, whether, you know, I went to lunch at this really amazing sushi, all-you-can-eat sushi place in Brazil.
+- **[00:57]** You know, everywhere I went was the fanciest restaurants, the fanciest things.
+- **[01:00]** I was driving around in bulletproof cars.
+- **[01:01]** I went to the guy's multimillion-dollar house with a waterfall in his room and a crazy wine cellar that me and him went in.
+- **[01:07]** And he's showing me all these Argentinian and Chilean like rare wines.
+- **[01:10]** And I'm like sitting on his back patio having dinner.
+- **[01:13]** And it like felt like a dream.
+- **[01:14]** You know, I literally, his dog Ozzy is cute as heck.
+- **[01:17]** He's got two daughters that are, you know, teenagers.
+- **[01:20]** And so I looked at them, you know, considering I was about to have a daughter.
+- **[01:23]** I was like, wow.
+- **[01:24]** Like I can only hope that my kids are as put together and respectable and hardworking as his kids.
+- **[01:29]** Because he was literally in weeks they were about to go leave.
+- **[01:31]** Basically, it was one daughter and boyfriend were going to live in Lisbon, Portugal for a little bit to get acclimated to the culture.
+- **[01:39]** And then they were going to inject themselves into the Spain instance of the master franchisee program, which then allowed them to leverage and do Paraguay.
+- **[01:49]** And so, I'm sorry, not Paraguay.
+- **[01:51]** You have Lisbon, Portugal, and they did Spain, like Madrid area, Spain.
+- **[01:57]** And so, you know, those ones have grown.
+- **[02:00]** And then you have Brazil, which grew exponentially from the time that I started in 2015 to when I left in 2021.
+- **[02:07]** So, we can look at the statistics on that to actually get the hard numbers and understand the growth of School of Rock between the years of April 2015 and the growth between April 10, 2015, the day the Apple Watch came out.
+- **[02:23]** I went in and got the reservation to get half off, so like $200 instead of $500.
+- **[02:28]** And I was able to pick it up that day and leave Apple after seven years of it giving me some of the most fulfilling and amazing relationships I could ever have.
+- **[02:41]** And I walked into the corporate world, and it was like drinking from a fire hose, but it was exciting.
+- **[02:45]** It was raw.
+- **[02:45]** And any time that I could give myself to the experience, I mean, I was living with music and rock and roll.
+- **[02:51]** And Ashley and I got to go to Lollapalooza and have artists pass.
+- **[02:53]** And, you know, I went all over this country to do things with School of Rock and all over the world.
+- **[02:58]** And I met people and still know people all over the world because of it.
+- **[03:01]** So, when I moved to here, you know, I took all that knowledge and I put it into Outdoor Cap.
+- **[03:06]** And I didn't know Dick about managing Magento.
+- **[03:08]** I never used Magento.
+- **[03:09]** But we built a full custom instance of a website with the School of Rock with MetaJive.
+- **[03:15]** And so, I've been through two major redesigns where we went from Drupal to a platform website that was built off of Yex using their pages functionality.
+- **[03:24]** Then I learned about that sort of localization with the importance of Google My Business listings.
+- **[03:30]** And, you know, they couldn't get verified until there was signage on the front that said their exact name.
+- **[03:34]** And so, we were called School of Rock.
+- **[03:36]** But people like to say School of Rock, you know, West Chicago, whatever.
+- **[03:39]** But they're like, no, it's Subway.
+- **[03:40]** You don't hear anything else.
+- **[03:41]** I'm like, no, we're not a franchise like Subway.
+- **[03:43]** The communities that breathe these, you know, ecosystems, they're all unique in their own way.
+- **[03:49]** And they carry the same ethos and mission.
+- **[03:50]** And so, what I did is I had a bunch of owners send me, like, pictures of their actual window displays that have a name in it.
+- **[03:57]** They got, like, 25.
+- **[03:58]** And then after two and a half years of fighting with Google, I finally got them to be bulk verified.
+- **[04:03]** Which means that during construction, you don't receive mail.
+- **[04:06]** You can't receive mail, you don't receive the code that allows you to be a verified business.
+- **[04:09]** For a verified business, it allows for higher presence online to help drive traction for trials.
+- **[04:14]** And some people did pop-up stuff at events and marketing.
+- **[04:16]** And we had no way of tracking the ROI on the different types of people that we were interacting with.
+- **[04:22]** And then, you know, the COVID stuff.
+- **[04:24]** And then, you know, I did all the online booking makeup stuff with Johanna Kahegius.
+- **[04:28]** And Kristen Kidd is the whole thing.
+- **[04:30]** You know, she hired me at Head to Toe.
+- **[04:31]** There was just so much that I did at School of Rock that I now have kind of re-remembered.
+- **[04:36]** And I remember who I am and how I work and what I do and how I have been able to change the way that I interact with people.
+- **[04:44]** To feel their energy and to be able to connect with them in a way that helps them feel heard.
+- **[04:48]** And that's something that my wife is also incredible on.
+- **[04:50]** Because this entire time we have been together, we've both been doing it.
+- **[04:54]** And I lost that part of me when I moved here after I, you know, School of Rock.
+- **[04:59]** I was miserable and I started the Spruce Grove Media.
+- **[05:01]** There's a lot of complications there because I wasn't spending my time in the right places.
+- **[05:05]** But I just needed that outlet.
+- **[05:06]** I needed to be able to create and explore and do these things.
+- **[05:10]** And so I feel unstoppable and this is my thoughts.

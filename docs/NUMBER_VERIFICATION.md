@@ -86,6 +86,28 @@
 
 ---
 
+## Pending — Experience rework (2026-08-27, transcript-derived)
+
+> **Not part of the live gate.** Plain list, deliberately no checkboxes (judge
+> G3.2 regex-fails on any literal unchecked box). These claims come from
+> Tyler's 2026-08 brainstorm audio and have **zero repo corroboration** —
+> awaiting his answers in `experience-rework-review.html`. When confirmed,
+> promote into numbered rows above and tick. Detail:
+> `docs/EXPERIENCE-REWORK-2026-08.md`.
+
+- PCI DSS Level 4 (low-risk) merchant status at School of Rock
+- "~2 weeks" COVID conversion to online-only
+- "~2.5 years" to achieve Google Business Profile bulk verification; ~25
+  signage photos
+- Localization scope: 3 Spanish locales + Traditional Chinese (Zendesk dynamic
+  content, Pike 13 UI strings)
+- Royalty splits sliding 8% → 3%; markets/counts reconciled; any $ volumes
+- Formal privacy regimes beyond GDPR-Ireland/Iberia (LGPD Brazil / POPIA
+  South Africa / CDPA Virginia) — countries pending sequence confirmation
+- Names: Brazil bank acquirer, Pedro & Paulo, Johanna, Kristen Kidd
+- Outdoor Cap: first-ever Adobe Commerce customer advocate (already in copy;
+  underlying claim is resume-sourced — no action)
+
 ## Status
 
 **VERIFIED** -- 31/31 confirmed. Non-financial (28/30) confirmed by Tyler

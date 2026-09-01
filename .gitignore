@@ -64,3 +64,6 @@ docs/launch/
 
 # Card render outputs (regenerable via npm run card:render)
 dist/card/
+
+# Brainstorm source audio (51MB binaries; transcripts in docs/brainstorm-transcripts.md)
+Audio-Recordings/

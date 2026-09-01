@@ -95,6 +95,12 @@ Two check classes: **repo-local** (always runnable, offline) and **live-site**
 
 Run `python3 scripts/judge.py` (or `--skip-live` for offline) for live evaluation.
 
+**Re-run 2026-08-27 (code-puppy-a07765):** 21/26 (81%) READY -- unchanged from
+pre-rework baseline; full gate suite (typecheck/unit/e2e/a11y/build/lint)
+green alongside it. Experience-rework activity is tracked in
+`docs/EXPERIENCE-REWORK-2026-08.md`; no site-content changes yet, so scores
+above still reflect the 2026-06-10 state.
+
 **Loop progress 2026-06-10 (Richard, code-puppy-078b36):**
 
 - Judge: **20/26 passed (77%)** (up from 11/26 baseline). Workbook DoD-2 met.

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grove Experience Rework — Review & Feedback</title>
+<style>
+  :root { --bg:#101713; --panel:#18231c; --panel2:#1e2c23; --line:#2c3d33; --ink:#e8efe9;
+    --dim:#9db3a4; --cedar:#c98f4e; --mist:#cfe3d4; --warn:#d98b5f; --need:#e0b45c; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+    font:15px/1.65 ui-sans-serif,system-ui,-apple-system,sans-serif; }
+  .wrap { max-width:960px; margin:0 auto; padding:48px 24px 160px; }
+  h1,h2,h3 { font-family:Georgia,'Times New Roman',serif; font-weight:300; letter-spacing:.01em; }
+  h1 { font-size:2.4rem; margin:.2em 0 .3em; } h2 { font-size:1.7rem; margin:0 0 .4em; }
+  h3 { font-size:1.15rem; color:var(--mist); margin:0 0 .35em; }
+  code,kbd { background:#000a; padding:.1em .4em; border-radius:6px; font-size:.86em; }
+  .kicker { font:600 11px ui-monospace,monospace; letter-spacing:.28em; text-transform:uppercase; color:var(--cedar); }
+  .lede { color:var(--dim); max-width:62ch; }
+  section { margin-top:64px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:28px 30px; margin-top:20px; }
+  .card.q { background:var(--panel2); }
+  .srcs { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+  .srcs div { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:.86rem; color:var(--dim); }
+  .srcs b { color:var(--mist); display:block; margin-bottom:2px; font-size:.92rem; }
+  .beat { margin:14px 0 0; padding-left:16px; border-left:2px solid var(--line); }
+  .beat b { color:var(--cedar); font:600 11px ui-monospace,monospace; letter-spacing:.18em; text-transform:uppercase; }
+  .beat p { margin:.2em 0 0; color:var(--dim); }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; }
+  .chip { font:600 10px ui-monospace,monospace; letter-spacing:.1em; text-transform:uppercase;
+    padding:3px 10px; border-radius:99px; border:1px solid var(--line); color:var(--dim); }
+  .chip.need { color:var(--need); border-color:color-mix(in srgb,var(--need) 45%,transparent); background:#e0b45c14; }
+  .chip.tech { color:var(--mist); background:#cfe3d410; }
+  .fb { margin-top:18px; padding-top:16px; border-top:1px dashed var(--line); }
+  .fb label { font:600 10px ui-monospace,monospace; letter-spacing:.2em; text-transform:uppercase; color:var(--cedar); display:block; margin-bottom:8px; }
+  .fb textarea { width:100%; min-height:64px; resize:vertical; background:#0c120e; color:var(--ink);
+    border:1px solid var(--line); border-radius:10px; padding:10px 12px; font:inherit; font-size:.9rem; }
+  .fb textarea:focus { outline:1px solid var(--cedar); }
+  .verdict { display:flex; gap:8px; margin-bottom:8px; }
+  .verdict button { font:600 10px ui-monospace,monospace; letter-spacing:.12em; text-transform:uppercase; cursor:pointer;
+    color:var(--dim); background:none; border:1px solid var(--line); border-radius:99px; padding:5px 14px; }
+  .verdict button.on { color:#111; background:var(--cedar); border-color:var(--cedar); }
+  .bar { position:fixed; left:0; right:0; bottom:0; background:#0c120ef2; border-top:1px solid var(--line);
+    padding:14px 24px; display:flex; gap:12px; align-items:center; justify-content:center; backdrop-filter:blur(8px); z-index:9; }
+  .bar button { cursor:pointer; font:inherit; border-radius:10px; padding:10px 22px; border:1px solid var(--line); background:var(--panel); color:var(--ink); }
+  .bar .primary { background:var(--cedar); border-color:var(--cedar); color:#14100a; font-weight:700; }
+  #saved { font:600 11px ui-monospace,monospace; color:var(--dim); }
+  .hl { background:var(--panel); border-left:3px solid var(--cedar); padding:10px 16px; margin:8px 0; color:var(--dim); font-size:.9rem; border-radius:0 10px 10px 0; }
+  .hl b { color:var(--cedar); font-family:ui-monospace,monospace; font-size:.78rem; }
+  table { width:100%; border-collapse:collapse; font-size:.88rem; } th { text-align:left; color:var(--cedar);
+    font:600 10px ui-monospace,monospace; letter-spacing:.15em; text-transform:uppercase; padding:8px 4px; border-bottom:1px solid var(--line); }
+  td { padding:8px 4px; border-bottom:1px solid #2c3d3344; color:var(--dim); vertical-align:top; }
+  td:first-child { color:var(--mist); white-space:nowrap; }
+  .num { display:inline-grid; place-items:center; min-width:26px; height:26px; border-radius:99px; background:var(--cedar); color:#14100a; font:700 12px ui-monospace,monospace; margin-right:10px; }
+  .vchip { font:600 9px ui-monospace,monospace; padding:2px 10px; border-radius:99px; letter-spacing:.14em; text-transform:uppercase; border:1px solid; white-space:nowrap; }
+  .vchip.ok { background:#16301f; color:#8fd6a8; border-color:#3a6b4d; }
+  .vchip.warn { background:#3d3018; color:#e0b45c; border-color:#6b5830; }
+  .vchip.mod { background:#232f3d; color:#8fb4d6; border-color:#3d5470; }
+  .vchip.cut { background:#3d2323; color:#d68f8f; border-color:#6b3a3a; }
+  .v2row { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-top:8px; }
+  .v2row span.txt { color:var(--dim); font-size:.82rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="kicker">tylergranlund.com · experience rework review</span>
+    <h1>What the brainstorms add<br>to the Grove.</h1>
+    <p class="lede">Generated by <b>code-puppy-a07765</b>. Both audio recordings transcribed locally via
+      Mockingbird's vendored whisper.cpp (<code>verbatim_dump</code>, large-v3-turbo, Metal) — nothing left the machine.
+      Everything below cross-references the transcripts against <code>granlund-grove</code>, <code>job-scout/resume-kit</code>,
+      and <code>Job-Interview-Insight</code>. <b>Your job:</b> mark each item Ship / Edit / Cut, drop comments or missing
+      facts into the feedback boxes (they autosave), then hit <b>Download Markdown</b> and hand me the file.<br><br>
+      <b>ROUND 2 (2026-08-27):</b> full end-to-end validation run — every site gate re-executed, every claim in this
+      page re-checked against all repos. Items now carry <span class="vchip ok">VALIDATED</span>
+      <span class="vchip warn">UNVERIFIED</span> <span class="vchip mod">MODIFIED</span>
+      <span class="vchip cut">REMOVED</span> badges, and the changelog is in section R2 below.</p>
+  </header>
+
+  <section id="sources">
+    <span class="kicker">01 · Sources analyzed</span>
+    <h2>Cross-referenced</h2>
+    <div class="srcs">
+      <div><b>2 brainstorm recordings</b>12 min total · 153 segments · ~2,500 words. School of Rock deep-dive: payments, privacy, localization, COVID, websites, local SEO. Saved to <code>docs/brainstorm-transcripts.md</code>.</div>
+      <div><b>granlund-grove</b>All 6 case studies are HTT-era or personal projects. School of Rock (7 yrs!) exists only as resume bullets. Judge: <b>21/26 READY</b> (offline pass).</div>
+      <div><b>job-scout / resume-kit</b>00–05 docs: master profile, experience, projects, skills, 31/31 verified metrics. Number discipline: nothing ships without verification.</div>
+      <div><b>Job-Interview-Insight</b>Walmart TPM prep: 4 canonical stories (platform, standardization, School of Rock cross-functional, AI/automation) + "pause before answering" discipline.</div>
+      <div><b>grove EXPERIENCE-AND-WORK-HISTORY.md</b>Found in Round 2: the consolidated "one doc to rule them all" dossier (360 lines). Corroborated the market footprint, merchant integrations, and COVID pivot. This is where validated new facts must be merged (alongside career-data.ts + chatbot knowledge) to stay DRY.</div>
+    </div>
+  </section>
+
+  <section id="round2">
+    <span class="kicker">R2 · End-to-end validation (2026-08-27)</span>
+    <h2>What this round verified &amp; changed</h2>
+    <div class="card">
+      <table>
+        <tr><th>Gate</th><th>Result</th><th>Detail</th></tr>
+        <tr><td>TypeScript</td><td>PASS</td><td>tsc --noEmit, 0 errors</td></tr>
+        <tr><td>Unit tests</td><td>PASS</td><td>56/56 (vitest, 9 files)</td></tr>
+        <tr><td>Build</td><td>PASS</td><td>vite build, Workers output emitted</td></tr>
+        <tr><td>Lint</td><td>PASS</td><td>eslint, 0 errors</td></tr>
+        <tr><td>E2E</td><td>PASS</td><td>81/81 Playwright (chromium)</td></tr>
+        <tr><td>A11y</td><td>PASS</td><td>12/12 axe, no serious/critical</td></tr>
+        <tr><td>Judge</td><td>READY</td><td>21/26 (81%). Remaining: live-site probes (deploy-gated), bd tracking (db not resolved here), G3.2 number-gate = your sign-off</td></tr>
+        <tr><td>This page</td><td>PASS</td><td>inline JS passes node --check; fixed a Round-1 init bug that could clobber saved comments</td></tr>
+      </table>
+    </div>
+    <div id="changeList"></div>
+  </section>
+
+  <section id="gap">
+    <span class="kicker">02 · The gap</span>
+    <h2>One era is invisible</h2>
+    <p class="lede">The site tells the HTT story beautifully — and skips the decade where you ran IT for a global
+      franchise growing from ~145 to 300+ locations across 14 countries. The recordings are full of exactly the
+      "detailed implementations" (website, integration, localization, merchant processing, data privacy) that
+      recruiters and TPM interviewers ask for. Below: 7 proposed case studies rebuilt from the audio + verified
+      resume-kit facts, with <span class="chip need">needs you</span> chips where only you have the answer.</p>
+  </section>
+
+  <section id="cases"><span class="kicker">03 · Proposed case studies</span><h2>New 5-beat narratives</h2><div id="caseList"></div></section>
+
+  <section id="skills">
+    <span class="kicker">04 · Skills additions</span>
+    <h2>Clusters missing from the site</h2>
+    <div id="skillList"></div>
+  </section>
+
+  <section id="career">
+    <span class="kicker">05 · Career data deltas</span>
+    <h2>career-data.ts changes</h2>
+    <div id="careerList"></div>
+  </section>
+
+  <section id="questions">
+    <span class="kicker">06 · What I still need from you</span>
+    <h2>Open questions</h2>
+    <div id="qList"></div>
+  </section>
+
+  <section id="audio">
+    <span class="kicker">07 · Transcript highlights</span>
+    <h2>Straight from the tapes</h2>
+    <div id="audioList"></div>
+  </section>
+</div>
+
+<div class="bar">
+  <span id="saved">autosaves to this browser </span>
+  <button id="dl" class="primary">⬇ Download Markdown (give it to code-puppy)</button>
+  <button id="clear">Reset all comments</button>
+</div>
+
+<script>
+const CASES=[
+{id:"cs-payments",title:"Global Merchant Processing & Payments",org:"School of Rock · 2015–2022",tag:"Integration · Merchant Processing",
+ beats:{Problem:"Overseas master franchisees couldn't process payments in the U.S. SaaS platform (Pike 13 + NMI gateway). Transactions were entered twice, royalty reporting (8%-to-3% splits, multi-unit incentives, up to 6 months free royalties) couldn't reconcile, and PCI scope differed by market.",
+ Architecture:"Used knowledge of PCI DSS Level 4 low-risk merchant status to scope a compliant path; coached the Brazilian master franchisees to build the business case and negotiate directly with a Brazilian bank acquirer; secured NMI gateway eligibility so the U.S. SaaS (with its then-new state-based tax engine) could process natively in-market.",
+ Execution:"[NEEDS YOU] Which markets actually went live on this? Names/roles of the Brazil team if you're comfortable (audio: 'Pedro and Paulo'), bank name, and any volume/uptime metrics.",
+ Outcome:"[NEEDS YOU] Confirm: double-entry eliminated? Royalty capture reconciled in one system? Timeline?",
+ Reflection:"The unlock wasn't code — it was arming non-technical franchisees with the compliance language to negotiate with their own banks."},
+ needs:["Bank name in Brazil (audio: 'Brazil something')","Markets that went live + dates","Outcome metrics","Pedro & Paulo — real names OK or anonymize?"],
+ tech:["NMI Gateway","Pike 13","PCI DSS","Bank acquirer integrations"]},
+{id:"cs-l10n",title:"Software Localization Across 14 Countries",org:"School of Rock · 2015–2022",tag:"Localization · i18n",
+ beats:{Problem:"A U.S.-built scheduling/billing platform and support content were English-only while the network expanded into LATAM, Iberia, and APAC — each with language variants and local commerce law.",
+ Architecture:"Zendesk dynamic content (bracket-token fields resolved per user against a master translation database) for support at scale; a full UI-string localization program with Pike 13's own team for the core platform. Three distinct Spanish locales (Spain, Mexico, LatAm) plus Traditional Chinese for Taiwan — variant, not just language.",
+ Execution:"Navigated Taiwan's uniform-invoice receipt-lottery regime (a national anti-black-market system) so in-app receipts complied. [NEEDS YOU] How deep did that go — did you ship Taiwan receipt logic or partner with a local provider?",
+ Outcome:"[NEEDS YOU] Final locale count, launch dates per market, any adoption/retention numbers.",
+ Reflection:"Localization is a product feature, not a translation task — Taiwan's receipt law alone defined the checkout flow."},
+ needs:["Total locales shipped & per-market dates","Taiwan receipt: custom or partner?","Metrics you can stand behind"],
+ tech:["Zendesk Dynamic Content","Pike 13 localization","3× Spanish locales","Traditional Chinese","Taiwan uniform-invoice compliance"]},
+{id:"cs-privacy",title:"Global Data Privacy & Compliance Program",org:"School of Rock · 2015–2022",tag:"Data Privacy",
+ beats:{Problem:"Privacy regimes rolled out market-by-market in real time — GDPR, CCPA, Virginia (CDPA), then (per audio) Brazil, South Africa, Taiwan — while each country's corporate entity ('master franchisee') owned its own data with corporate retaining governance and brand oversight.",
+ Architecture:"Market-by-market compliance program: user lifecycle audits (provisioning/deprovisioning data flows), data-ownership boundaries per master franchisee, brand-governance rules (including artist-likeness usage in school interiors), COPPA/FERPA posture for a business teaching minors.",
+ Execution:"[NEEDS YOU] The order/timeline of country rollouts (audio: 'it literally went like Brazil, South Africa, Taiwan') and which regimes you formally shipped (resume currently claims GDPR for Ireland/Iberia + COPPA/FERPA — extendable?).",
+ Outcome:"[NEEDS YOU] Any audits passed, incidents avoided, or frameworks reused later (HTT zero-trust?).",
+ Reflection:"Governance worked because franchisees owned their data — the job was guardrails, not gatekeeping."},
+ needs:["Country rollout timeline","Formal regimes shipped per market","Any reusable framework"],
+ tech:["GDPR","CCPA/VCDPA","Brazil LGPD?","South Africa POPIA?","COPPA","FERPA"]},
+{id:"cs-covid",title:"COVID Pivot: In-Person to Online-Only in ~2 Weeks",org:"School of Rock · 2020",tag:"Crisis · Platform Conversion",
+ beats:{Problem:"When COVID hit, a business built on in-person music lessons had to convert to online-only in roughly two weeks — with legal exposure around adults video-calling minors.",
+ Architecture:"Compliance-first conversion: online lessons restricted to 13+, parent required in proximity, instructor-at-home policies. Operationally: remote-instruction platform, an online make-up-lesson booking system for students/parents (audio credits work with Johanna + Kristen Kidd), and monthly in-person owner/manager training converted to on-demand video modules with quizzes.",
+ Execution:"[NEEDS YOU] What the booking system was built on (Pike 13? custom?), 'two weeks' accuracy, and correct name spellings (audio ASR: 'Johanna Kahegius'?). Also: did Kristen Kidd later hire you at Head to Toe? That connective-tissue story is recruiter gold.",
+ Outcome:"Business continuity through lockdowns; training became scalable to any market without a site visit.",
+ Reflection:"Speed came from deciding the legal boundary first — everything else was execution."},
+ needs:["Confirm ~2 week timeline","Booking system tech","Name spellings (Johanna? Kristen Kidd?)","Kristen→Head to Toe connection story"],
+ tech:["Pike 13?","Video instruction","On-demand LMS","Compliance rules engine"]},
+{id:"cs-royalty",title:"Royalty & Revenue Reporting Integrity",org:"School of Rock · 2015–2022",tag:"Finance Systems",
+ beats:{Problem:"Royalty capture across a franchise network with sliding 8%-to-3% splits, multi-unit incentive programs, and up to 6 months of free royalties — with every location's records in disconnected systems and mismatched location/Pike 13 account IDs.",
+ Architecture:"Reconciliation discipline: tracked and managed per-location incentive states, unified record matching across location IDs and Pike 13 accounts, and (via payments case study) eliminated double-entry by connecting merchant processing in-market.",
+ Execution:"[NEEDS YOU] Scale: how many locations' royalties were you reconciling? Any $ volume you can safely state?",
+ Outcome:"[NEEDS YOU] Was leadership's royalty reporting trusted at the end? Any audit stories?",
+ Reflection:"Data integrity problems that look like software bugs are usually identity-and-mapping bugs underneath."},
+ needs:["Locations reconciled","Safe dollar volumes","System outcomes"],
+ tech:["Pike 13","NMI","ID mapping","Reconciliation workflows"]},
+{id:"cs-web",title:"Website Rebuilds & Local Search Domination",org:"School of Rock · 2015–2022",tag:"Websites · Local SEO",
+ beats:{Problem:"A franchise network whose communities resist cookie-cutter branding ('we're not Subway') needed a web platform and local-presence strategy that worked per-location — and Google wouldn't verify listings without matching physical signage, which stalled trial-lead generation.",
+ Architecture:"Three website eras: Drupal → fully custom rebuild with agency MetaJive → Yext Pages platform. For local search: a grassroots verification campaign — collected ~25 owner-submitted storefront signage photos — plus relentless escalation with Google.",
+ Execution:"After ~2.5 years of fighting, achieved Google bulk verification, which also unlocked listings for under-construction locations (can't receive mail = can't get a verification postcard). Verified listings drive higher presence → more trial bookings. [NEEDS YOU] How many listings verified, which years, any lift metrics (clicks/calls/trials)?",
+ Outcome:"[NEEDS YOU] Numbers. Also: the pre-COVID gap you flagged — no ROI tracking on pop-up/event marketing leads — worth one line as honest 'what we'd fix'.",
+ Reflection:"Bulk verification wasn't a settings page — it was two and a half years of evidence, escalation, and photos of storefronts."},
+ needs:["# listings bulk-verified","Years/era boundaries (Drupal vs custom vs Yext)","Lift metrics","MetaJive details"],
+ tech:["Drupal","Custom build (MetaJive)","Yext Pages","Google Business Profile bulk verification","Local SEO"]},
+];
+
+// Round-2 per-item validation badge: [cssClass, LABEL, explanation]
+const V2={
+ "cs-payments":["ok","VALIDATED (partial)","Merchant integrations corroborated in EXPERIENCE-AND-WORK-HISTORY.md (local banks -> NMI gateways -> Pike 13). PCI Level 4 status and the bank-negotiation coaching are transcript-only — your confirmation required."],
+ "cs-l10n":["warn","UNVERIFIED","Zendesk dynamic fields, Pike 13 UI localization, and locale variants appear in ZERO repo docs — audio only. Market footprint (Taichung, Madrid, Lisbon...) corroborates plausibility. Ship-gated on your answers."],
+ "cs-privacy":["ok","VALIDATED (partial)","GDPR (Ireland/Iberia) + COPPA/FERPA corroborated in the history doc. LGPD (Brazil), POPIA (South Africa), CDPA (Virginia) appear NOWHERE in any repo — keep gated behind Q3."],
+ "cs-covid":["ok","VALIDATED (partial)","History doc says the business moved online 'almost overnight' + confirms the make-up-lesson booking system. '~2 weeks' figure and colleague names are transcript-only."],
+ "cs-royalty":["warn","UNVERIFIED","Royalty splits / reconciliation workflow: audio only, zero repo hits. Needs your facts or it stays interview-material."],
+ "cs-web":["warn","UNVERIFIED","MetaJive, Yext, Drupal, and the Google bulk-verification campaign: searched all repos, zero corroboration. The story is strong — the facts are yours to supply."],
+ "cd-sor":["ok","VALIDATED (partial)","Dates and location/country counts match 31/31 verified metrics. The four new outcome lines depend on the UNVERIFIED case studies above."],
+ "cd-apple":["ok","VALIDATED","Apple 2009-2015 and SoR start Apr 2015 corroborate. The Apr 10 Apple Watch detail is yours; harmless and humanizing."],
+ "cd-httkt":["warn","UNVERIFIED","Kristen Kidd exists only in the audio. If the hiring connection is real, it's gold — confirm before shipping."],
+ "cd-spruce":["mod","REPURPOSED","REMOVED as a case study in Round 2: the Ventures page already covers Spruce Grove Media in depth (founded/ran/wound down, Benton Drones FPV films, Space Goose cartoon, Zipline x Walmart LiDAR pilot). Kept only its emotional core as a Prologue/About candidate."],
+};
+
+const SKILLS=[
+{id:"sk-l10n",title:"Localization & i18n (NEW CLUSTER)",body:"Multi-locale content systems (Zendesk dynamic content, tokenized translations), vendor-driven platform localization (Pike 13), locale variants (3× Spanish, Traditional Chinese), local commerce-law compliance (Taiwan uniform-invoice).",note:"Not currently anywhere in 03-SKILLS.md or site Skills.tsx."},
+{id:"sk-pay",title:"Payments & Merchant Processing (EXPAND)",body:"NMI gateway, bank acquirer negotiation coaching, PCI DSS tiering (Level 4), royalty/revenue reconciliation. Site lists NMI + Pike 13 under integrations only — elevate to a cluster.",note:""},
+{id:"sk-privacy",title:"Data Privacy (EXPAND)",body:"Add LGPD (Brazil) / POPIA (South Africa) / CDPA (Virginia) to existing GDPR/CDPA + COPPA/FERPA posture — pending your confirmation on which regimes you formally shipped.",note:"Gated on Q5 in open questions."},
+{id:"sk-seo",title:"Local Search / Franchise SEO (NEW)",body:"Google Business Profile bulk verification at franchise scale, Yext Pages, under-construction listing strategy, signage-verification campaigns.",note:""}];
+
+const CHANGES=[
+ ["ok","VALIDATED","Full gate suite re-run on the grove: typecheck 0 errors, 56/56 unit, 81/81 E2E, 12/12 a11y, build + lint clean, judge 21/26 READY. The rework starts from a green base."],
+ ["mod","MODIFIED","Discovered docs/EXPERIENCE-AND-WORK-HISTORY.md — the consolidated career dossier Round 1 missed. All validated new facts will merge THERE plus career-data.ts and chatbot knowledge (single source of truth, DRY)."],
+ ["cut","REMOVED","Spruce Grove Media case study proposal. The Ventures page already tells this story (studio founded, ran, and wound down; Benton Drones FPV films; Space Goose; Zipline x Walmart LiDAR/thermal data-capture pilot). Proposing it as a new case study was redundant."],
+ ["mod","CORRECTED","Audio's Paraguay confusion resolved: Asuncion IS a supported market (history doc + CareerWorldMap). The recording's 'not Paraguay' was about a franchise owner's daughter's path (Lisbon then Madrid), not the market list."],
+ ["ok","VALIDATED","Global market footprint: Sao Paulo, Rio, Cape Town, Taichung, Madrid, Lisbon, Blackrock appear in the history doc + world map — directly corroborating the privacy/localization rollout markets from the audio."],
+ ["warn","STILL UNVERIFIED","Zero hits across granlund-grove, job-scout, and Job-Interview-Insight for: Yext, MetaJive, Drupal, Zendesk, PCI Level 4, LGPD/POPIA, the 2.5-year Google verification battle, and the names Pedro/Paulo/Johanna/Kristen Kidd. They stay yours to confirm — nothing ships unverified (G3.2 discipline)."],
+];
+
+const CAREER=[
+{id:"cd-sor",title:"School of Rock — summary/outcomes upgrade",body:"Add to outcomes: 'Coached international franchisees through bank negotiations to enable in-market merchant processing (NMI + Pike 13)'; 'Localization program: 3 Spanish locales + Traditional Chinese via Zendesk dynamic content & Pike 13'; 'Privacy program across GDPR/CCPA + LATAM/APAC rollouts'; 'Google Business Profile bulk verification after 2.5-yr escalation'.",note:"All new outcome lines gated on your verification per GOALS G3.2 / NUMBER_VERIFICATION.md discipline."},
+{id:"cd-apple",title:"Apple exit detail",body:"Audio: you left Apple on April 10, 2015 — the day the Apple Watch launched — after 7 years. Nice human detail for About/Prologue if you want it.",note:""},
+{id:"cd-httkt",title:"Kristen Kidd connective tissue",body:"Audio implies a School of Rock colleague (Kristen Kidd) 'hired me at Head to Toe.' If true, one line in the HTT summary ('brought in by former School of Rock colleague') is a powerful network story.",note:"Confirm before use."},
+{id:"cd-spruce",title:"Spruce Grove Media — soul line only (Round 2: case study cut)",body:"Prologue/About candidate from the audio's closer: 'I lost that part of me when I moved here after School of Rock... I just needed that outlet. I needed to be able to create and explore... I feel unstoppable.' The Ventures page already covers the studio itself — this is a one-line emotional through-line, not a new section.",note:"Round 2: REMOVED as standalone case study (Ventures covers it). Keep / adapt / cut as you like."}];
+
+const QS=[
+{id:"q1",q:"Brazil payments: which bank was it? (Audio: 'Brazil something in the name.') Banco do Brasil? BTG? PagSeguro? Stone? And did Pedro & Paulo's presentation land the NMI eligibility, or was that separate?"},
+{id:"q2",q:"Markets live on native merchant processing: which countries, which years, and did double-entry truly end? Any volume metrics safe to publish?"},
+{id:"q3",q:"Privacy rollout order: the audio says 'Brazil, South Africa, Taiwan.' Confirm the real sequence + which regimes you formally shipped (LGPD? POPIA?) vs. just monitored."},
+{id:"q4",q:"Localization: how many total locales shipped? Was Taiwan Traditional Chinese delivered in Pike 13, Zendesk, or both? Taiwan receipts: custom logic or local partner integration?"},
+{id:"q5",q:"COVID pivot: is '~2 weeks to online-only' a number you'll sign in NUMBER_VERIFICATION.md? What powered the make-up-lesson booking system?"},
+{id:"q6",q:"Name spellings: 'Johanna Kahegius' is a whisper guess — how is it spelled? And confirm Kristen Kidd's role at SoR → did she hire you at Head to Toe?"},
+{id:"q7",q:"Google bulk verification: how many listings, which years, and can you quantify lift (trials, calls, direction requests)?"},
+{id:"q8",q:"Website eras: confirm the sequence Drupal → MetaJive custom build → Yext Pages, with rough years per era."},
+{id:"q9",q:"Royalty ops: how many locations' royalty records were you reconciling, and is there a safe aggregate $ figure?"},
+{id:"q10",q:"Spruce Grove Media: years, scope, services, client highlights — and should it live on the Ventures page?"},
+{id:"q11",q:"The audio's Huawei/TSMC/geopolitics riff and Brazil travel anecdotes (bulletproof cars, wine cellars): my read is these are personal reflections, NOT site content — but the 'I met and worked with owners from different backgrounds, all over the world' line IS usable for About. OK to adapt it that way?"},
+{id:"q12",q:"Outdoor Cap: you walked into Magento cold ('didn't know dick') and became Adobe Commerce's first customer advocate. Want a short 'learned it cold in 90 days' line for the career section, or keep it interview-only?"}];
+
+const AUDIO=[
+{t:"0:48",s:"PCI compliance at franchise scale — 'we were a level four low-risk instance... this helped me when negotiating overseas in Brazil.'",src:"B1"},
+{t:"1:57",s:"The puzzle kernel: merchant processing wasn't connected overseas, so franchisees entered every transaction twice and royalty reporting couldn't reconcile.",src:"B1"},
+{t:"4:16",s:"Zendesk dynamic fields + Pike 13 full-UI localization: three versions of Spanish, Traditional Chinese for Taiwan.",src:"B1"},
+{t:"5:19",s:"Taiwan's receipt-lottery economy lesson — local law shapes software, not the other way around.",src:"B1"},
+{t:"1:46",s:"COVID: 'we had to convert our business to an online only business in basically two weeks' — with the full legal apparatus of minors on video.",src:"B1"},
+{t:"3:30",s:"Google bulk verification: 2.5 years of fighting, 25 owner-submitted storefront photos, finally won.",src:"B2"},
+{t:"2:00",s:"Brazil grew exponentially from 2015 to 2021 — 'we can look at the statistics on that.' (Let's actually pull those numbers.)",src:"B2"},
+{t:"5:12",s:"The closer: 'I remember who I am and how I work... I feel unstoppable.' This is your About-page soul.",src:"B2"}];
+
+// ---- render ----
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+function feedback(id){return `<div class="fb"><div class="verdict" data-v="${id}">
+ <button data-k="Ship"> Ship it</button><button data-k="Edit"> Edits below</button><button data-k="Cut"> Cut</button></div>
+ <label for="t-${id}">Your comments / missing facts</label><textarea id="t-${id}" placeholder="Add facts, corrections, numbers, or veto…"></textarea></div>`;}
+
+document.getElementById("caseList").innerHTML=CASES.map(c=>`
+ <div class="card"><span class="kicker">${esc(c.tag)}</span><h3>${esc(c.title)}</h3>
+ <div style="color:var(--dim);font-size:.82rem;font-family:ui-monospace,monospace">${esc(c.org)}</div>
+ ${V2[c.id]?`<div class="v2row"><span class="vchip ${V2[c.id][0]}">${V2[c.id][1]}</span><span class="txt">${esc(V2[c.id][2])}</span></div>`:""}
+ ${Object.entries(c.beats).map(([k,v])=>`<div class="beat"><b>${k}</b><p>${esc(v)}</p></div>`).join("")}
+ <div class="chips">${c.needs.map(n=>`<span class="chip need">needs you · ${esc(n)}</span>`).join("")}${c.tech.map(t=>`<span class="chip tech">${esc(t)}</span>`).join("")}</div>
+ ${feedback(c.id)}</div>`).join("");
+
+document.getElementById("skillList").innerHTML=SKILLS.map(s=>`
+ <div class="card"><h3>${esc(s.title)}</h3><p class="lede">${esc(s.body)}</p>${s.note?`<div class="hl">${esc(s.note)}</div>`:""}${feedback(s.id)}</div>`).join("");
+
+document.getElementById("careerList").innerHTML=CAREER.map(c=>`
+ <div class="card"><h3>${esc(c.title)}</h3>
+ ${V2[c.id]?`<div class="v2row"><span class="vchip ${V2[c.id][0]}">${V2[c.id][1]}</span><span class="txt">${esc(V2[c.id][2])}</span></div>`:""}
+ <p class="lede">${esc(c.body)}</p>${c.note?`<div class="hl">${esc(c.note)}</div>`:""}${feedback(c.id)}</div>`).join("");
+
+document.getElementById("changeList").innerHTML=CHANGES.map(c=>`
+ <div class="hl" style="border-left-color:var(--cedar)"><span class="vchip ${c[0]}">${c[1]}</span>
+ <span style="display:block;margin-top:6px">${esc(c[2])}</span></div>`).join("");
+
+document.getElementById("qList").innerHTML=QS.map((q,i)=>`
+ <div class="card q"><h3><span class="num">${i+1}</span>${esc(q.q)}</h3>
+ ${feedback(q.id).replace('Your comments / missing facts','Your answer')}</div>`).join("");
+
+document.getElementById("audioList").innerHTML=AUDIO.map(a=>`
+ <div class="hl"><b>[${a.t} · ${a.src==="B1"?"Brainstorm 1":"Brainstorm 2"}]</b> ${esc(a.s)}</div>`).join("");
+
+// ---- state: localStorage + verdict toggle ----
+const KEY="grove-rework-review-v1";
+let state=JSON.parse(localStorage.getItem(KEY)||"{}");
+function save(){localStorage.setItem(KEY,JSON.stringify(state));
+  document.getElementById("saved").textContent="autosaved  "+new Date().toLocaleTimeString();}
+document.querySelectorAll("textarea").forEach(t=>{t.value=state[t.id]||"";
+ t.addEventListener("input",()=>{state[t.id]=t.value;save();});});
+document.querySelectorAll(".verdict").forEach(v=>{const id=v.dataset.v;
+ v.querySelectorAll("button").forEach(b=>{if(state["v-"+id]===b.dataset.k)b.classList.add("on");
+  b.addEventListener("click",()=>{state["v-"+id]=state["v-"+id]===b.dataset.k?undefined:b.dataset.k;
+   v.querySelectorAll("button").forEach(x=>x.classList.toggle("on",state["v-"+id]===x.dataset.k));save();});});});
+
+// ---- markdown export ----
+function line(titleMd,id,body){const v=state["v-"+id]||"(no verdict)";const c=(state["t-"+id]||"").trim();
+ return `${titleMd}\n\n**Verdict:** ${v}\n**Tyler's comment:** ${c||"_"}\n\n${body}\n\n---\n`;}
+document.getElementById("dl").addEventListener("click",()=>{
+ const d=new Date().toISOString().slice(0,10);
+ let md=`# Grove Experience Rework — Tyler's Review (${d})\n\n> Reviewed via experience-rework-review.html. Verdicts: Ship = build it, Edit = apply comment, Cut = discard.\n\n## 0. Round 2 validation changelog (2026-08-27)\n\n`;
+ for(const c of CHANGES)md+=`- **${c[1]}** — ${c[2]}\n`;
+ md+=`\n## 1. Case studies\n\n`;
+ for(const c of CASES){md+=line(`### ${c.title} (${c.org})`,c.id,(V2[c.id]?`Validation: ${V2[c.id][1]} — ${V2[c.id][2]}\n\n`:"")+Object.entries(c.beats).map(([k,v])=>`**${k}:** ${v}`).join("\n\n")+"\n\n**Needs:** "+c.needs.join("; ")+"\n\n**Tech:** "+c.tech.join(", "));}
+ md+=`\n## 2. Skills additions\n\n`;for(const s of SKILLS)md+=line(`### ${s.title}`,s.id,s.body+(s.note?`\n\nNote: ${s.note}`:""));
+ md+=`\n## 3. Career data deltas\n\n`;for(const c of CAREER)md+=line(`### ${c.title}`,c.id,c.body+(c.note?`\n\nNote: ${c.note}`:""));
+ md+=`\n## 4. Open questions\n\n`;for(const q of QS)md+=line(`### ${q.q}`,q.id,"");
+ const blob=new Blob([md],{type:"text/markdown"});const a=document.createElement("a");
+ a.href=URL.createObjectURL(blob);a.download=`grove-rework-review-${d}.md`;a.click();});
+document.getElementById("clear").addEventListener("click",()=>{if(confirm("Wipe all comments & verdicts?")){localStorage.removeItem(KEY);location.reload();}});
+</script>
+</body>
+</html>

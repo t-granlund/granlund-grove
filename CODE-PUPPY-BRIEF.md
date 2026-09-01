@@ -1,8 +1,13 @@
 # Brief for Code Puppy — granlund-grove (tylergranlund.com)
 
 Paste this into a Code Puppy session working in `03-personal/granlund-grove/`.
-Written 2026-06-12; last updated 2026-06-18 by Richard (code-puppy-dc6e04).
+Written 2026-06-12; last updated 2026-08-27 by code-puppy-a07765.
 Treat as authoritative for this folder.
+
+> **ACTIVE EFFORT (2026-08-27):** Experience rework from brainstorming audio
+> (School of Rock era case studies). Round 1+2 done; waiting on Tyler's answers
+> via `experience-rework-review.html`. **Resume via
+> [`docs/EXPERIENCE-REWORK-2026-08.md`](docs/EXPERIENCE-REWORK-2026-08.md).**
 
 ---
 
@@ -19,7 +24,9 @@ Brands"** — never reintroduce older titles.
 
 - Punchlist P0/P1 `[code]` items: **done** (see `LAUNCH_PUNCHLIST.md`).
 - Site is **live and deployed** — version `3ff4a4f2` as of 2026-06-18.
-- No uncommitted work in flight. Tree is clean on main (`e3c3a80`).
+- 2026-08-27 (a07765): gates re-validated — typecheck / 56 unit / 81 e2e /
+  12 a11y / build / lint all green; judge 21/26 READY (offline). Content
+  unchanged; experience-rework docs committed (see ACTIVE EFFORT above).
 
 ## Quality gates — every change ends with these passing
 
