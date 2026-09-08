@@ -9,6 +9,8 @@
   "routes": [
     { "pattern": "tylergranlund.com", "custom_domain": true },
     { "pattern": "www.tylergranlund.com", "custom_domain": true },
+    // Daily progress readout — same Worker, internal root rewrite in server.ts.
+    { "pattern": "progress.tylergranlund.com", "custom_domain": true },
   ],
   // Workers Logs: 200k logs/day, 3-day retention on the free tier. Surfaces the
   // console.error() calls in server.ts (otherwise they go nowhere useful).

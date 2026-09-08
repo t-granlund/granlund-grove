@@ -119,6 +119,14 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
+    // progress.tylergranlund.com -> /progress. A redirect (not an internal
+    // rewrite) so the client-side router hydrates the same route the server
+    // rendered — a rewrite desyncs SSR from hydration and shows the homepage.
+    if (url.hostname === "progress.tylergranlund.com" && url.pathname === "/") {
+      url.pathname = "/progress";
+      return Response.redirect(url.toString(), 301);
+    }
+
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
