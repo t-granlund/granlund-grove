@@ -1,0 +1,176 @@
+/* =====================================================================
+ * Granlund Grove — Nordic forest dark, buyer-facing resale pages
+ * Same tokens as the internal tracker (../styles.css), distilled for
+ * public product detail pages. No JS. No trackers. Just the stuff.
+ * ===================================================================== */
+
+@font-face {
+  font-family: "Fraunces";
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("../fonts/fraunces-latin-variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/inter-latin-variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("../fonts/jetbrains-mono-latin-variable.woff2") format("woff2");
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.18 0.012 150);
+  --foreground: oklch(0.94 0.012 90);
+  --card: oklch(0.22 0.014 155);
+  --cedar: oklch(0.78 0.12 55);
+  --primary-foreground: oklch(0.16 0.012 150);
+  --muted: oklch(0.24 0.014 150);
+  --muted-foreground: oklch(0.72 0.018 110);
+  --moss: oklch(0.45 0.06 155);
+  --stone: oklch(0.85 0.012 90);
+  --spruce-deep: oklch(0.22 0.03 158);
+  --border: oklch(0.3 0.018 150 / 0.6);
+  --shadow-grove: 0 30px 80px -20px oklch(0 0 0 / 0.55), 0 4px 16px -4px oklch(0 0 0 / 0.4);
+  --shadow-lift: 0 12px 40px -16px oklch(0 0 0 / 0.5);
+  --gradient-cedar: linear-gradient(135deg, oklch(0.78 0.1 65), oklch(0.62 0.13 50));
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, oklch(0.3 0.04 158 / 0.35), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, oklch(0.4 0.06 60 / 0.1), transparent 70%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: "Fraunces", Georgia, serif;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+a { color: var(--cedar); text-decoration: none; }
+a:hover { text-decoration: underline; }
+::selection { background: var(--cedar); color: var(--background); }
+
+.wrap { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+
+/* ---------- nav ---------- */
+.nav {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 1.25rem 0; border-bottom: 1px solid var(--border);
+  font-family: "JetBrains Mono", monospace; font-size: 0.78rem;
+}
+.nav .brand { letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-foreground); }
+.nav a { letter-spacing: 0.06em; }
+
+/* ---------- hero ---------- */
+.hero { padding: 3rem 0 1.5rem; }
+.eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--cedar); margin-bottom: 0.75rem;
+}
+.hero h1 { font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.08; }
+.hero h1 em { font-style: italic; color: var(--cedar); }
+.hero .sub { color: var(--muted-foreground); max-width: 44rem; margin-top: 0.9rem; }
+
+/* ---------- index cards ---------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 8px); overflow: hidden;
+  box-shadow: var(--shadow-lift);
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+.card:hover { transform: translateY(-3px); border-color: var(--cedar); text-decoration: none; }
+a.card { display: block; color: inherit; }
+.card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.card .card-body { padding: 1rem 1.15rem 1.25rem; }
+.card .card-body h3 { font-size: 1.15rem; line-height: 1.25; }
+.card .blurb { color: var(--muted-foreground); font-size: 0.85rem; margin-top: 0.4rem; }
+.card .price { font-family: "Fraunces", serif; font-size: 1.3rem; color: var(--cedar); margin-top: 0.6rem; }
+
+/* ---------- product pages ---------- */
+.product-head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 1rem; flex-wrap: wrap; padding: 2.5rem 0 1.25rem;
+}
+.price-tag {
+  font-family: "Fraunces", serif; font-size: 2rem; color: var(--cedar);
+  white-space: nowrap;
+}
+.price-tag small {
+  display: block; font-family: "JetBrains Mono", monospace; font-size: 0.68rem;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-foreground);
+}
+
+.story { color: var(--stone); font-size: 1.02rem; max-width: 44rem; margin-bottom: 2rem; }
+.story p + p { margin-top: 0.8rem; }
+
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; margin-bottom: 2.5rem; }
+@media (max-width: 640px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+.gallery a { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); display: block; }
+.gallery img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform 200ms ease; }
+.gallery a:hover img { transform: scale(1.03); }
+
+.specs { margin-bottom: 2.5rem; }
+.specs h2 {
+  font-family: "JetBrains Mono", monospace; font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--cedar);
+  margin-bottom: 0.9rem;
+}
+.spec-row {
+  display: grid; grid-template-columns: 11rem 1fr; gap: 0.75rem;
+  padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.94rem;
+  align-items: baseline;
+}
+@media (max-width: 640px) { .spec-row { grid-template-columns: 1fr; gap: 0.15rem; } }
+.spec-row .k { color: var(--muted-foreground); font-size: 0.82rem; }
+
+.note {
+  font-size: 0.9rem; color: var(--stone);
+  background: var(--muted); border-left: 3px solid var(--moss);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: 0.85rem 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.cta {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 8px); padding: 1.6rem 1.8rem;
+  box-shadow: var(--shadow-grove);
+}
+.cta h2 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+.cta p { color: var(--muted-foreground); font-size: 0.92rem; margin-bottom: 1.1rem; }
+.btn {
+  display: inline-block; font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem; letter-spacing: 0.06em;
+  padding: 0.65rem 1.2rem; border-radius: var(--radius);
+  background: var(--gradient-cedar); color: var(--primary-foreground);
+  font-weight: 600; border: none;
+}
+.btn:hover { text-decoration: none; box-shadow: var(--shadow-lift); }
+.btn.ghost {
+  background: transparent; color: var(--foreground);
+  border: 1px solid var(--border); margin-left: 0.6rem;
+}
+
+footer {
+  margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+  color: var(--muted-foreground); font-size: 0.78rem;
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
