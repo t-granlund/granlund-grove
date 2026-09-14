@@ -5,7 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Craftsman Platinum 21&Prime; Self-Propelled Mower — $99 · Granlund Grove</title>
   <meta name="description" content="Craftsman Platinum 21-inch self-propelled mower, Briggs & Stratton 190cc. Runs great, fresh oil, blade needs a file. Bella Vista, NWA." />
+  <link rel="canonical" href="https://tylergranlund.com/resale/site/craftsman-mower" />
+  <meta property="og:type" content="product" />
+  <meta property="og:site_name" content="Granlund Grove" />
+  <meta property="og:url" content="https://tylergranlund.com/resale/site/craftsman-mower" />
+  <meta property="og:title" content="Craftsman Platinum 21&Prime; Self-Propelled Mower — $99" />
+  <meta property="og:description" content="Runs great, fresh oil, Briggs & Stratton 190cc Platinum engine. Blade needs a file — priced accordingly. Bella Vista, NWA." />
+  <meta property="og:image" content="https://tylergranlund.com/resale/photos/Craftsman-Gas-Mower/IMG_0161.jpg" />
+  <meta property="og:image:alt" content="Craftsman Platinum 7.25 190cc self-propelled mower" />
+  <meta property="product:price:amount" content="99" />
+  <meta property="product:price:currency" content="USD" />
+  <meta property="product:availability" content="in stock" />
+  <meta property="product:condition" content="used" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Craftsman Platinum 21&Prime; Self-Propelled — $99" />
+  <meta name="twitter:description" content="B&S 190cc, runs great, fresh oil, blade needs a file. Bella Vista, NWA." />
+  <meta name="twitter:image" content="https://tylergranlund.com/resale/photos/Craftsman-Gas-Mower/IMG_0161.jpg" />
   <link rel="stylesheet" href="granlund-grove.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Craftsman Platinum 21-inch Self-Propelled Mower (Briggs & Stratton 190cc)",
+    "brand": { "@type": "Brand", "name": "Craftsman" },
+    "category": "Lawn Mowers",
+    "image": [
+      "https://tylergranlund.com/resale/photos/Craftsman-Gas-Mower/IMG_0161.jpg",
+      "https://tylergranlund.com/resale/photos/Craftsman-Gas-Mower/IMG_0162.jpg"
+    ],
+    "description": "Craftsman Platinum 21-inch FWD self-propelled mower (EZ Walk variable speed) with the USA-built Briggs & Stratton 190cc Platinum engine, 7.25 ft-lbs. Runs good, oil recently changed. Honest flaw: blade edge chewed from a rock — file it or replace for ~$15-25; priced accordingly. 21-inch steel deck, 3-in-1 (bag/mulch/side discharge). Also a fine engine donor for a go-kart project. Cash or Venmo, pickup in Bella Vista, NWA.",
+    "itemCondition": "https://schema.org/UsedCondition",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://tylergranlund.com/resale/site/craftsman-mower",
+      "priceCurrency": "USD",
+      "price": "99",
+      "priceValidUntil": "2026-10-13",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@type": "Person", "name": "Tyler Granlund" },
+      "availableAtOrFrom": { "@type": "Place", "name": "Bella Vista, Arkansas" },
+      "areaServed": "Northwest Arkansas"
+    }
+  }
+  </script>
 </head>
 <body>
   <div class="wrap">
@@ -65,5 +107,23 @@
       <span>Granlund Grove design system — Nordic forest dark.</span>
     </footer>
   </div>
+  <script>
+    // First-party tracking — no cookies, no third parties. View + contact-click.
+    (function () {
+      var ref = new URLSearchParams(location.search).get("ref") || "";
+      function track(kind) {
+        try {
+          navigator.sendBeacon("/track", new Blob(
+            [JSON.stringify({ kind: kind, path: location.pathname, ref: ref })],
+            { type: "application/json" }
+          ));
+        } catch (e) { /* best-effort; never break the page */ }
+      }
+      track("view");
+      document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
+        a.addEventListener("click", function () { track("contact"); });
+      });
+    })();
+  </script>
 </body>
 </html>

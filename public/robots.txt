@@ -1,3 +1,40 @@
 User-agent: *
 Allow: /
+Disallow: /resale/ops
+Disallow: /track
+
+# ---- AI / answer-engine crawlers: explicitly welcome -------------------
+# The resale catalog is meant to be found by agents and AI search.
+# Machine-readable catalog: https://tylergranlund.com/resale/llms.txt
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: meta-externalagent/1.1
+Allow: /
+
 Sitemap: https://tylergranlund.com/sitemap.xml

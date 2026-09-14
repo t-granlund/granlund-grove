@@ -5,7 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Granlund Grove — Things Looking for Good Homes</title>
   <meta name="description" content="A few well-kept things for sale in Bella Vista, NWA — priced fairly, described honestly, looking for good homes." />
+  <link rel="canonical" href="https://tylergranlund.com/resale/site/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Granlund Grove" />
+  <meta property="og:url" content="https://tylergranlund.com/resale/site/" />
+  <meta property="og:title" content="Granlund Grove — Things Looking for Good Homes" />
+  <meta property="og:description" content="Peloton Bike+ bundle, Alienware QD-OLED ultrawide, Weber natural-gas grill, Craftsman mower, ergonomic chair — well-kept, honest, priced to move. Bella Vista, NWA." />
+  <meta property="og:image" content="https://tylergranlund.com/resale/photos/peloton/IMG_0152.jpg" />
+  <meta property="og:image:alt" content="Peloton Bike+ with shoes, heart-rate band, dumbbells, and mat" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Granlund Grove — Things Looking for Good Homes" />
+  <meta name="twitter:description" content="Well-kept things for sale in Bella Vista, NWA — priced fairly, described honestly." />
+  <meta name="twitter:image" content="https://tylergranlund.com/resale/photos/peloton/IMG_0152.jpg" />
   <link rel="stylesheet" href="granlund-grove.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Granlund Grove — Things Looking for Good Homes",
+    "description": "Well-kept personal items for sale, pickup in Bella Vista, Arkansas (Northwest Arkansas). Cash or Venmo, police-station safe exchange available.",
+    "numberOfItems": 5,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Peloton Bike+ — Full Bundle", "url": "https://tylergranlund.com/resale/site/peloton-bike-plus" },
+      { "@type": "ListItem", "position": 2, "name": "Alienware AW3423DWF 34-inch QD-OLED Ultrawide Monitor", "url": "https://tylergranlund.com/resale/site/alienware-aw3423dwf" },
+      { "@type": "ListItem", "position": 3, "name": "Weber Spirit 3-Burner Natural Gas Grill (2020)", "url": "https://tylergranlund.com/resale/site/weber-spirit-ng" },
+      { "@type": "ListItem", "position": 4, "name": "Craftsman Platinum 21-inch Self-Propelled Mower", "url": "https://tylergranlund.com/resale/site/craftsman-mower" },
+      { "@type": "ListItem", "position": 5, "name": "Colamy Ergonomic Mesh Office Chair", "url": "https://tylergranlund.com/resale/site/colamy-chair" }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="wrap">
@@ -78,5 +106,23 @@
       <span>Granlund Grove design system — Nordic forest dark.</span>
     </footer>
   </div>
+  <script>
+    // First-party tracking — no cookies, no third parties. View + contact-click.
+    (function () {
+      var ref = new URLSearchParams(location.search).get("ref") || "";
+      function track(kind) {
+        try {
+          navigator.sendBeacon("/track", new Blob(
+            [JSON.stringify({ kind: kind, path: location.pathname, ref: ref })],
+            { type: "application/json" }
+          ));
+        } catch (e) { /* best-effort; never break the page */ }
+      }
+      track("view");
+      document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
+        a.addEventListener("click", function () { track("contact"); });
+      });
+    })();
+  </script>
 </body>
 </html>

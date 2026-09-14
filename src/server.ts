@@ -3,6 +3,11 @@ import "./lib/error-capture";
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 import { applySecurityHeaders } from "./lib/security-headers";
+import { handleResaleOps, handleResaleTrack } from "./lib/resale-analytics";
+
+// The Durable Object class MUST be an export of the worker entry so the
+// runtime can resolve the RESALE_ANALYTICS binding's class_name.
+export { ResaleAnalytics } from "./lib/resale-analytics";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -119,12 +124,15 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
-    // progress.tylergranlund.com -> /progress. A redirect (not an internal
-    // rewrite) so the client-side router hydrates the same route the server
-    // rendered — a rewrite desyncs SSR from hydration and shows the homepage.
-    if (url.hostname === "progress.tylergranlund.com" && url.pathname === "/") {
-      url.pathname = "/progress";
-      return Response.redirect(url.toString(), 301);
+    // Resale storefront tracking + ops dashboard (Durable Object backed).
+    // These paths are not static assets, so they always reach the Worker.
+    if (url.pathname === "/track") {
+      const response = await handleResaleTrack(request, env);
+      return applyHeaders(response, request);
+    }
+    if (url.pathname === "/resale/ops") {
+      const response = await handleResaleOps(request, env);
+      return applyHeaders(response, request);
     }
 
     try {

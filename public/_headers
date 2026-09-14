@@ -27,3 +27,8 @@
 
 /resale/photos/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=3600
+
+# Storefront HTML — short cache so price/status edits propagate fast,
+# but listing pages stay snappy for repeat visitors.
+/resale/site/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=600

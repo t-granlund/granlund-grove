@@ -1,0 +1,33 @@
+# Granlund Grove — For-Sale Listings (Bella Vista, Arkansas)
+
+> Tyler Granlund is selling five well-kept personal items from his home in
+> Bella Vista, Arkansas (Northwest Arkansas). Cash or Venmo at pickup, or
+> meet at the Rogers/Bentonville police-station safe-exchange zone. Every
+> item is honestly described, including flaws. Photos taken by the owner.
+> Updated 2026-09-14. Contact per item below, or hello@tylergranlund.com.
+
+## Items
+
+- [Peloton Bike+ — Full Bundle](https://tylergranlund.com/resale/site/peloton-bike-plus): $549. Newer-generation Bike+ with 24" rotating touchscreen, factory reset ("Activate your Bike+" screen, no account attached). Includes 2 pairs of cycling shoes (women's 36 + larger), Heart Rate Band (in box), dumbbells, bike mat. Excellent condition. Note: Peloton membership + ~$95 one-time used-bike activation (Peloton policy). Contact: peloton@tylergranlund.com
+- [Alienware AW3423DWF 34" QD-OLED Ultrawide Monitor](https://tylergranlund.com/resale/site/alienware-aw3423dwf): $325. 3440x1440, 165Hz, 0.1ms GtG, FreeSync Premium Pro, HDR True Black 400, 99.3% DCI-P3. Manufactured Nov 2024 (service tag 8FJH2S3, warranty checkable at dell.com/support). No burn-in, no dead pixels — verified. Contact: alienware@tylergranlund.com
+- [Weber Spirit 3-Burner Natural Gas Grill (2020)](https://tylergranlund.com/resale/site/weber-spirit-ng): $275. The NG model for houses with a patio gas stub. Stainless lid, push-button ignition. Heavy-duty Weber cover + LP adapter included (LP LOW runs hot — disclosed). Contact: hello@tylergranlund.com
+- [Craftsman Platinum 21" Self-Propelled Mower](https://tylergranlund.com/resale/site/craftsman-mower): $99. Briggs & Stratton 190cc Platinum (USA-built), EZ Walk variable-speed drive, 3-in-1 deck. Runs good, fresh oil; blade chewed by a rock (file or ~$20 replace — priced accordingly). Contact: hello@tylergranlund.com
+- [Colamy Ergonomic Mesh Office Chair](https://tylergranlund.com/resale/site/colamy-chair): $75. Mesh back, adjustable headrest, padded arms, chrome five-star base. ~$250-300 new from Amazon; clean and fully functional. Contact: hello@tylergranlund.com
+
+## How to buy
+
+- Email the per-item address above (arrives in Tyler's inbox) with your
+  name and a pickup time.
+- Payment: cash or Venmo at handover. No shipping, no checks, no couriers.
+- Pickup: Bella Vista, NWA — or the Rogers PD / Bentonville PD
+  safe-exchange zones. Heavy items: bring a friend and a truck/SUV;
+  Tyler helps load.
+- All listings removed promptly once sold. This file and the sitemap are
+  kept current; a sold item will not appear here.
+
+## For agents
+
+- Structured data: each item page carries schema.org Product + Offer
+  JSON-LD (price, condition, availability, pickup area).
+- Catalog sitemap: https://tylergranlund.com/sitemap.xml
+- This storefront is maintained by Tyler Granlund (tylergranlund.com).

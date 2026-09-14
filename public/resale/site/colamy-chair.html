@@ -5,7 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Colamy Ergonomic Mesh Office Chair — $75 · Granlund Grove</title>
   <meta name="description" content="Colamy ergonomic mesh office chair with headrest and chrome base, bought from Amazon for ~$280. Bella Vista, NWA." />
+  <link rel="canonical" href="https://tylergranlund.com/resale/site/colamy-chair" />
+  <meta property="og:type" content="product" />
+  <meta property="og:site_name" content="Granlund Grove" />
+  <meta property="og:url" content="https://tylergranlund.com/resale/site/colamy-chair" />
+  <meta property="og:title" content="Colamy Ergonomic Mesh Office Chair — $75" />
+  <meta property="og:description" content="Mesh back, adjustable headrest, chrome five-star base. A ~$280 chair new, asking $75. Clean, everything adjusts. Bella Vista, NWA." />
+  <meta property="og:image" content="https://tylergranlund.com/resale/photos/Colamy-Ergo-Chair/IMG_0163.jpg" />
+  <meta property="og:image:alt" content="Colamy ergonomic mesh office chair, three-quarter view" />
+  <meta property="product:price:amount" content="75" />
+  <meta property="product:price:currency" content="USD" />
+  <meta property="product:availability" content="in stock" />
+  <meta property="product:condition" content="used" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Colamy Ergonomic Mesh Office Chair — $75" />
+  <meta name="twitter:description" content="Mesh back, headrest, chrome base. ~$280 new. Bella Vista, NWA." />
+  <meta name="twitter:image" content="https://tylergranlund.com/resale/photos/Colamy-Ergo-Chair/IMG_0163.jpg" />
   <link rel="stylesheet" href="granlund-grove.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Colamy Ergonomic Mesh Office Chair",
+    "brand": { "@type": "Brand", "name": "Colamy" },
+    "category": "Office Chairs",
+    "image": [
+      "https://tylergranlund.com/resale/photos/Colamy-Ergo-Chair/IMG_0163.jpg",
+      "https://tylergranlund.com/resale/photos/Colamy-Ergo-Chair/IMG_0171.jpg"
+    ],
+    "description": "Colamy ergonomic mesh office chair, ~$250-300 new from Amazon. Breathable mesh back with adjustable headrest, cushioned fabric seat, padded adjustable arms, chrome five-star base with smooth casters. Clean mesh, everything adjusts, rolls true — normal daily-use wear from one owner's full-time remote work. A third of retail for a home office on a budget. Cash or Venmo, pickup in Bella Vista, NWA.",
+    "itemCondition": "https://schema.org/UsedCondition",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://tylergranlund.com/resale/site/colamy-chair",
+      "priceCurrency": "USD",
+      "price": "75",
+      "priceValidUntil": "2026-10-13",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@type": "Person", "name": "Tyler Granlund" },
+      "availableAtOrFrom": { "@type": "Place", "name": "Bella Vista, Arkansas" },
+      "areaServed": "Northwest Arkansas"
+    }
+  }
+  </script>
 </head>
 <body>
   <div class="wrap">
@@ -71,5 +113,23 @@
       <span>Granlund Grove design system — Nordic forest dark.</span>
     </footer>
   </div>
+  <script>
+    // First-party tracking — no cookies, no third parties. View + contact-click.
+    (function () {
+      var ref = new URLSearchParams(location.search).get("ref") || "";
+      function track(kind) {
+        try {
+          navigator.sendBeacon("/track", new Blob(
+            [JSON.stringify({ kind: kind, path: location.pathname, ref: ref })],
+            { type: "application/json" }
+          ));
+        } catch (e) { /* best-effort; never break the page */ }
+      }
+      track("view");
+      document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
+        a.addEventListener("click", function () { track("contact"); });
+      });
+    })();
+  </script>
 </body>
 </html>
