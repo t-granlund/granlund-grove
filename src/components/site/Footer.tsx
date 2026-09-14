@@ -44,6 +44,12 @@ export function Footer() {
             <Link to="/colophon" className="hover:text-foreground transition-colors">
               Colophon
             </Link>
+            <a
+              href="https://tylergranlund.com/resale/site/?ref=main-site"
+              className="hover:text-foreground transition-colors"
+            >
+              Things for sale ↗
+            </a>
           </div>
           <span className="font-mono tracking-[0.15em]">
             © {new Date().getFullYear()} · tylergranlund.com

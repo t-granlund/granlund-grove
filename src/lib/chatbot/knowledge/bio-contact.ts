@@ -122,7 +122,7 @@ export const bioContactChunks: KnowledgeChunk[] = [
   },
   {
     id: "greeting-what-can-you-do",
-    text: "I can answer questions about Tyler's career history, technical skills, projects (Control Tower, Knowledge Fabric, Estate Trace, Mysa Mail, TenantFleet), work experience at Apple, School of Rock, Outdoor Cap, North 40, and Head to Toe Brands, his availability for roles, and how to contact him. If I don't have an answer, I'll direct you to hello@tylergranlund.com.",
+    text: "I can answer questions about Tyler's career history, technical skills, projects (Control Tower, Knowledge Fabric, Estate Trace, Mysa Mail, TenantFleet), work experience at Apple, School of Rock, Outdoor Cap, North 40, and Head to Toe Brands, his availability for roles, the well-kept items currently for sale on his storefront (tylergranlund.com/resale/site), and how to contact him. If I don't have an answer, I'll direct you to hello@tylergranlund.com.",
     topics: ["what can you do", "capabilities", "help", "functions", "questions"],
     source: "Meta",
     priority: 10,

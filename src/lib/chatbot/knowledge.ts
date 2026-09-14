@@ -5,6 +5,7 @@ import { bioContactChunks } from "./knowledge/bio-contact";
 import { careerChunks } from "./knowledge/career";
 import { skillsChunks } from "./knowledge/skills";
 import { projectChunks } from "./knowledge/projects";
+import { resaleChunks } from "./knowledge/resale";
 
 export interface KnowledgeChunk {
   id: string;
@@ -19,6 +20,7 @@ export const knowledgeBase: KnowledgeChunk[] = [
   ...careerChunks,
   ...skillsChunks,
   ...projectChunks,
+  ...resaleChunks,
 ];
 
 // Topic synonyms for better matching
@@ -148,4 +150,22 @@ export const topicSynonyms: Record<string, string[]> = {
   data: ["data", "bi", "analytics", "etl", "warehouse", "reporting", "power bi"],
   cost: ["cost", "finops", "budget", "spend", "optimization", "governance"],
   automation: ["automation", "automate", "workflow", "script", "batch", "cron"],
+  "for sale": [
+    "for sale",
+    "selling",
+    "sell",
+    "garage sale",
+    "storefront",
+    "resale",
+    "marketplace",
+    "buy",
+    "purchase",
+    "listings",
+    "deal",
+  ],
+  peloton: ["peloton", "bike+", "exercise bike", "spin bike"],
+  alienware: ["alienware", "monitor", "ultrawide", "qd-oled", "oled", "34 inch", "dell"],
+  weber: ["weber", "grill", "natural gas", "bbq", "barbecue"],
+  mower: ["mower", "lawn", "craftsman", "briggs"],
+  "office chair": ["chair", "office chair", "ergonomic", "mesh", "colamy"],
 };
