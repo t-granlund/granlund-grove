@@ -10,6 +10,10 @@
     { "pattern": "tylergranlund.com", "custom_domain": true },
     { "pattern": "www.tylergranlund.com", "custom_domain": true },
   ],
+  // Custom-domain-only deployment. Without this, wrangler requires a
+  // workers.dev subdomain (and an API token permission we don't grant),
+  // which aborts the script upload mid-deploy.
+  "preview_urls": false,
   // Workers Logs: 200k logs/day, 3-day retention on the free tier. Surfaces the
   // console.error() calls in server.ts (otherwise they go nowhere useful).
   "observability": { "enabled": true, "head_sampling_rate": 1 },
