@@ -111,7 +111,7 @@ The site is **live, green, and deployed**. No fires. Tyler wants a strategic rev
 
 | Route          | Purpose                                                                                          |
 | -------------- | ------------------------------------------------------------------------------------------------ |
-| `/`            | Hero with 3D globe (22 cities, 5 continents), front-face-culled labels, bottom scrim CTA         |
+| `/`            | Hero with 3D globe (22 mapped cities; copy reads "hundreds of cities, 6 continents"), front-face-culled labels, bottom scrim CTA |
 | `/about`       | Bio, skills grid (6 groups), philosophy, headshot                                                |
 | `/career`      | Journey timeline (5 steps, resume-style) + role cards + impact section + scroll-linked world map |
 | `/work`        | 6 flagship case studies + TenantFleet ecosystem                                                  |

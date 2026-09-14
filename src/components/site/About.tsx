@@ -23,7 +23,7 @@ export function About() {
                   The span
                 </h3>
                 <p className="mt-3">
-                  IT operations &amp; systems engineer and former Director of IT. Franchise
+                  Product manager and former Director of Product &amp; Operations. Franchise
                   technology, B2B wholesale e-commerce, B2C brick-and-mortar e-commerce, agile
                   product management, Microsoft cloud environments, data and BI modernization, and
                   cross-functional transformation.
@@ -87,7 +87,7 @@ export function About() {
                 <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                   Role
                 </dt>
-                <dd className="mt-2 text-foreground">IT Ops &amp; Systems Engineer</dd>
+                <dd className="mt-2 text-foreground">Product Manager</dd>
               </div>
               <div>
                 <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
@@ -106,7 +106,7 @@ export function About() {
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 width={1122}
                 height={1402}
-                alt="Tyler Granlund — IT operations and systems engineer, Bella Vista, Arkansas"
+                alt="Tyler Granlund — product manager, Bella Vista, Arkansas"
                 className="block h-full w-full"
                 imgClassName="h-full w-full object-cover object-top"
               />

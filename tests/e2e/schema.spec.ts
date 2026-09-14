@@ -17,7 +17,7 @@ test.describe("structured data", () => {
           foundPerson = true;
           expect(item.name).toBe("Tyler Granlund");
           expect(item.jobTitle).toBeTruthy();
-          expect(item.knowsAbout).toContain("IT Operations");
+          expect(item.knowsAbout).toContain("Product Management");
         }
       }
     }

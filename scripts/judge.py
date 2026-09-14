@@ -46,8 +46,8 @@ UA = {"User-Agent": "granlund-grove-judge/1.0"}
 
 # The four employment rows the Career section must mirror (from the resume).
 CAREER_ROWS = [
-    "Systems Engineer",
-    "IT Director",
+    "Product Manager",
+    "Director of Product & Operations",
     "Outdoor Cap",
     "School of Rock",
 ]

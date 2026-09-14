@@ -91,7 +91,7 @@ export function Sidebar({
           <div className="flex items-center justify-between p-4 border-b border-border">
             <div>
               <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-cedar/80">
-                22 cities · 5 continents
+                Hundreds of cities · 6 continents
               </div>
               <h3 className="font-display text-lg mt-0.5">Explore the network</h3>
             </div>

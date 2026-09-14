@@ -44,10 +44,10 @@ export const LOCATIONS: LocationData[] = [
     lng: -88.067,
     type: "hub",
     brand: "School of Rock",
-    role: "IT Operations & Systems Architect",
+    role: "Product & Operations Lead",
     years: "2015–2021",
     contribution:
-      "Corporate IT hub and the primary IT support pillar for all international markets. " +
+      "Corporate hub and the primary operations support pillar for all international markets. " +
       "Analyzed, understood, adapted, modified, implemented, and built anything the systems needed " +
       "to run our standard ways of working across 300+ locations in 14 countries. " +
       "This included integrating custom local solutions for scheduling, invoicing, and payment processing. " +
@@ -176,7 +176,7 @@ export const LOCATIONS: LocationData[] = [
     role: "LATAM Systems & Payment Integration Lead",
     years: "2017–2021",
     contribution:
-      "Primary IT support pillar for the largest LATAM market. Worked directly with local teams to " +
+      "Primary operations support pillar for the largest LATAM market. Worked directly with local teams to " +
       "analyze requirements and build what the systems needed to operate: identity, scheduling, " +
       "invoicing, and payment processing. " +
       "Championed merchant processing integration that did not previously exist — connected local " +
@@ -199,7 +199,7 @@ export const LOCATIONS: LocationData[] = [
     role: "LATAM Systems & Payment Integration Support",
     years: "2017–2021",
     contribution:
-      "Primary IT support for the Rio market. Analyzed local operational requirements, adapted " +
+      "Primary operations support for the Rio market. Analyzed local operational requirements, adapted " +
       "systems for Brazilian payment regulations, and built custom integrations for scheduling and " +
       "invoicing. Navigated data privacy constraints while connecting local merchant processing " +
       "to NMI gateways and Pike 13 for unified revenue reporting.",
@@ -219,7 +219,7 @@ export const LOCATIONS: LocationData[] = [
     role: "LATAM Systems & Payment Integration Lead",
     years: "2018–2021",
     contribution:
-      "Primary IT support pillar for Chile. Analyzed local banking and regulatory requirements, " +
+      "Primary operations support pillar for Chile. Analyzed local banking and regulatory requirements, " +
       "then built the custom integrations needed: merchant processing through NMI transnational " +
       "gateways connected to Pike 13, localized scheduling, and invoicing tools. Championed " +
       "solutions within local data privacy constraints while ensuring master franchise leadership " +
@@ -240,7 +240,7 @@ export const LOCATIONS: LocationData[] = [
     role: "LATAM Systems & Payment Integration Lead",
     years: "2018–2021",
     contribution:
-      "Primary IT support pillar for Peru. Analyzed what the market needed to operate our standard " +
+      "Primary operations support pillar for Peru. Analyzed what the market needed to operate our standard " +
       "ways of working, then adapted and built the systems: Pike 13 integration, Okta identity " +
       "federation, Google Workspace governance, and NMI merchant gateway connections. Worked with " +
       "local banks to establish payment processing that did not previously exist, enabling revenue " +
@@ -261,7 +261,7 @@ export const LOCATIONS: LocationData[] = [
     role: "LATAM Systems & Payment Integration Lead",
     years: "2019–2021",
     contribution:
-      "Primary IT support pillar for Paraguay. Built the full technology stack from requirements " +
+      "Primary operations support pillar for Paraguay. Built the full technology stack from requirements " +
       "analysis through implementation: merchant processing via NMI gateways connected to Pike 13, " +
       "identity and access management, custom scheduling and invoicing integrations. Navigated local " +
       "banking and data privacy constraints to create payment tracking that gave master franchise " +
@@ -282,7 +282,7 @@ export const LOCATIONS: LocationData[] = [
     role: "Europe Systems & Data Compliance Lead",
     years: "2019–2021",
     contribution:
-      "Primary IT support pillar for the Spanish market expansion. Analyzed GDPR and local data " +
+      "Primary operations support pillar for the Spanish market expansion. Analyzed GDPR and local data " +
       "privacy requirements, then built compliant identity systems, data residency controls, and " +
       "cross-border data handling. Integrated Pike 13 with European payment rails through NMI gateways, " +
       "created localized scheduling and invoicing solutions, and ensured revenue tracking met " +
@@ -303,7 +303,7 @@ export const LOCATIONS: LocationData[] = [
     role: "Europe Systems & Data Compliance Lead",
     years: "2019–2021",
     contribution:
-      "Primary IT support pillar for Portugal. Analyzed local operational and regulatory requirements, " +
+      "Primary operations support pillar for Portugal. Analyzed local operational and regulatory requirements, " +
       "then built compliant systems: GDPR-aligned identity and data handling, merchant processing " +
       "through NMI gateways integrated with Pike 13, custom scheduling, and invoicing tools. " +
       "Enabled payment tracking and revenue reporting that gave master franchise leadership full visibility.",
@@ -323,7 +323,7 @@ export const LOCATIONS: LocationData[] = [
     role: "Europe GDPR & Systems Lead",
     years: "2020–2021",
     contribution:
-      "Ireland launch — our first GDPR-zone entry. As the primary IT support pillar, architected " +
+      "Ireland launch — our first GDPR-zone entry. As the primary operations support pillar, architected " +
       "data compliance and security from the ground up: GDPR-compliant identity systems, data residency, " +
       "and cross-border data handling. Built merchant processing integrations connecting local banks " +
       "to NMI gateways and Pike 13, with full revenue tracking and reporting for master franchise " +
@@ -344,7 +344,7 @@ export const LOCATIONS: LocationData[] = [
     role: "APAC Systems & Payment Integration Lead",
     years: "2019–2021",
     contribution:
-      "Primary IT support pillar for the APAC master franchise. Analyzed what Taiwan needed to run " +
+      "Primary operations support pillar for the APAC master franchise. Analyzed what Taiwan needed to run " +
       "our standard operations, then built the entire technology foundation: identity federation, " +
       "merchant processing through NMI gateways connected to Pike 13, custom scheduling and invoicing, " +
       "and training programs. Navigated local banking and data privacy constraints to create payment " +
@@ -365,7 +365,7 @@ export const LOCATIONS: LocationData[] = [
     role: "APAC Systems & Payment Integration Lead",
     years: "2020–2021",
     contribution:
-      "Primary IT support pillar for New South Wales. Worked directly with Australian franchisees to " +
+      "Primary operations support pillar for New South Wales. Worked directly with Australian franchisees to " +
       "analyze local requirements and build what the systems needed: Pike 13 integration, merchant " +
       "processing through NMI gateways, localized scheduling and invoicing, and identity management. " +
       "Adapted solutions for Australian banking regulations and data privacy requirements while " +
@@ -386,7 +386,7 @@ export const LOCATIONS: LocationData[] = [
     role: "APAC Systems & Payment Integration Lead",
     years: "2020–2021",
     contribution:
-      "Primary IT support pillar for Western Australia. Analyzed local operational requirements and " +
+      "Primary operations support pillar for Western Australia. Analyzed local operational requirements and " +
       "built the full systems stack: Pike 13 integration, NMI merchant gateway connections, custom " +
       "scheduling and invoicing tools, and identity management. Extended the APAC support network " +
       "to the Australian west coast with payment tracking and revenue reporting that met master " +
@@ -407,7 +407,7 @@ export const LOCATIONS: LocationData[] = [
     role: "Africa Systems & Payment Integration Lead",
     years: "2020–2021",
     contribution:
-      "Primary IT support pillar for the South African market. Analyzed local banking and regulatory " +
+      "Primary operations support pillar for the South African market. Analyzed local banking and regulatory " +
       "requirements, then built the systems from the ground up: merchant processing through NMI " +
       "gateways connected to Pike 13, international invoicing, identity and access management, " +
       "and custom scheduling tools. Created the master franchisee packet and trained the local team " +

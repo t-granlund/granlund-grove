@@ -34,13 +34,13 @@ export interface CareerRole {
 export const careerRoles: CareerRole[] = [
   {
     company: "Open to Opportunities",
-    role: "IT Operations & Systems Engineer",
+    role: "Product Manager",
     dates: CAREER_DATES.openToOpportunities,
     summary:
-      "Open to the role where I can orchestrate complex, cross-functional problems into momentum: align the stakeholders on a clear direction, then ship fast, iterative systems that serve real customer needs and the business's budget and operating realities. That means owning security, data privacy, and integration health, surfacing IT debt and shadow IT before it bites, and building streamlined, transparent ways of working that keep everyone accountable without finger-pointing. Title-agnostic by design: operations, systems engineering, solutions or forward-deployed engineering, AI/ML, or digital transformation. Based in Bella Vista, Arkansas. Remote or on-site as needed.",
+      "Open to the role where I can orchestrate complex, cross-functional problems into momentum: align the stakeholders on a clear direction, then ship fast, iterative systems that serve real customer needs and the business's budget and operating realities. That means owning security, data privacy, and integration health, surfacing IT debt and shadow IT before it bites, and building streamlined, transparent ways of working that keep everyone accountable without finger-pointing. Title-agnostic by design: product management, product operations, AI/ML product, or digital transformation. Based in Bella Vista, Arkansas. Remote or on-site as needed.",
     outcomes: [
       "Tailored resume variants: AI PM, FDE, Master Resume",
-      "Title-agnostic: operations, systems, solutions/FDE, AI/ML",
+      "Title-agnostic: product management, product operations, AI/ML",
       "Orchestrates stakeholders into fast, iterative delivery",
       "Owns security, data privacy & IT-debt/shadow-IT cleanup",
       "Remote-first, on-site travel as needed",
@@ -48,7 +48,7 @@ export const careerRoles: CareerRole[] = [
   },
   {
     company: "Head to Toe Brands (Riverside PE)",
-    role: "IT Operations & Systems Engineer",
+    role: "Product Manager",
     dates: CAREER_DATES.httOps,
     summary:
       "Embedded with non-technical operators to build supervised multi-agent systems. Developed production software across a five-brand, 200+ location franchise portfolio. Discovery to scoping to architecture, with the security, evals, and CI/CD to back it. Used Code Puppy to build Control Tower, Knowledge Fabric, and Estate Trace.",
@@ -61,7 +61,7 @@ export const careerRoles: CareerRole[] = [
   },
   {
     company: "Head to Toe Brands (Riverside PE)",
-    role: "IT Director",
+    role: "Director of Product & Operations",
     dates: CAREER_DATES.httDirector,
     summary:
       "Led enterprise IT for a Riverside private equity-backed multi-brand franchise group. Portfolio: The Lash Lounge (~130 units), Bishops Cuts and Color (~40 units), Frenchies Modern Nail Care (24 units), and Delta Crown Hair Extensions. 200+ locations total. Built the identity governance ecosystem. A master database federating across five brands and Microsoft tenants with role-based access tied to location, brand, and job function. Onboarding reduced from days to minutes.",
@@ -89,10 +89,10 @@ export const careerRoles: CareerRole[] = [
   },
   {
     company: "School of Rock",
-    role: "IT Manager to Senior IT Manager",
+    role: "Operations Manager to Senior Operations Manager",
     dates: CAREER_DATES.schoolOfRock,
     summary:
-      "Joined at ~145 locations in 8 countries. Left at ~300+ locations across 14 countries. I was the primary IT support pillar for every master franchise rollout. Analyzed requirements, adapted systems, built merchant processing integrations through NMI gateways connected to Pike 13, and trained owners and managers. Built Okta identity federation, Google Workspace governance, and custom local solutions for scheduling, invoicing, and payment identity across every new market. Beyond the launches, I owned IT for both corporate-owned and franchised schools, domestic and international: running the help desk for 50+ corporate-owned locations (25+ inherited in a single year), supporting corporate offices, and standing up physical infrastructure from security-camera systems to Wi-Fi upgrades and iPad fleets. When COVID closed the doors, I led the rapid conversion of in-person lessons to fully remote instruction, built an online make-up-lesson booking system for students and parents, and turned monthly in-person owner and manager training into on-demand video modules with quizzes.",
+      "Joined at ~145 locations in 8 countries. Left at ~300+ locations across 14 countries. I was the primary operations support pillar for every master franchise rollout. Analyzed requirements, adapted systems, built merchant processing integrations through NMI gateways connected to Pike 13, and trained owners and managers. Built Okta identity federation, Google Workspace governance, and custom local solutions for scheduling, invoicing, and payment identity across every new market. Beyond the launches, I owned operations for both corporate-owned and franchised schools, domestic and international: running the help desk for 50+ corporate-owned locations (25+ inherited in a single year), supporting corporate offices, and standing up physical infrastructure from security-camera systems to Wi-Fi upgrades and iPad fleets. When COVID closed the doors, I led the rapid conversion of in-person lessons to fully remote instruction, built an online make-up-lesson booking system for students and parents, and turned monthly in-person owner and manager training into on-demand video modules with quizzes.",
     outcomes: [
       "~145 → ~300+ locations, 8 → 14 countries",
       "Global SSO rollout. 300+ schools via Okta",
@@ -156,7 +156,7 @@ export const careerTimeline: ImpactStep[] = [
   },
   {
     company: "School of Rock",
-    role: "IT Manager → Senior IT Manager",
+    role: "Operations Manager → Senior Operations Manager",
     dates: CAREER_DATES.schoolOfRock,
     start: "~145 locations · 8 countries",
     end: "~300+ locations · 14 countries",
@@ -179,7 +179,7 @@ export const careerTimeline: ImpactStep[] = [
     stat: "150+",
     statLabel: "locations helped open",
     story:
-      "The primary IT support pillar for every master-franchise launch across LATAM, Europe, APAC, and Africa. For each new market I analyzed requirements, adapted systems, built what did not exist yet, and trained the owners and managers who would run it. I carried the same load for the corporate-owned schools, domestic and international, running their help desk and physical infrastructure too. Then COVID hit, and the whole business had to move online almost overnight.",
+      "The primary operations support pillar for every master-franchise launch across LATAM, Europe, APAC, and Africa. For each new market I analyzed requirements, adapted systems, built what did not exist yet, and trained the owners and managers who would run it. I carried the same load for the corporate-owned schools, domestic and international, running their help desk and physical infrastructure too. Then COVID hit, and the whole business had to move online almost overnight.",
     achievements: [
       "Built merchant-processing integrations that did not previously exist. Local banks to NMI transnational gateways to Pike 13, with revenue tracking leadership could trust.",
       "Rolled out global SSO and Google Workspace governance across 300+ schools via Okta.",
@@ -253,7 +253,7 @@ export const careerTimeline: ImpactStep[] = [
   },
   {
     company: "Head to Toe Brands",
-    role: "IT Director → IT Ops & Systems Engineer",
+    role: "Director of Product & Operations → Product Manager",
     dates: CAREER_DATES.httCombined,
     start: "Glen Arbor HQ",
     end: "200+ locations · 5 brands",

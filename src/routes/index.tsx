@@ -39,17 +39,17 @@ function ClientGlobe() {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tyler Granlund — IT Operations & Systems Engineer" },
+      { title: "Tyler Granlund — Product Manager" },
       {
         name: "description",
         content:
-          "Tyler Granlund — from Apple's Genius Bar training rooms to IT operations across 14 countries. Building systems, integrations, and teams that scale.",
+          "Tyler Granlund — from Apple's Genius Bar training rooms to product leadership across 14 countries. Building products, systems, and teams that scale.",
       },
-      { property: "og:title", content: "Tyler Granlund — IT Operations & Systems Engineer" },
+      { property: "og:title", content: "Tyler Granlund — Product Manager" },
       {
         property: "og:description",
         content:
-          "From Apple's training methodology to global franchise IT operations — building systems that scale across continents.",
+          "From Apple's training methodology to global franchise product leadership — building products that scale across continents.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://tylergranlund.com/" },
@@ -60,12 +60,12 @@ export const Route = createFileRoute("/")({
       { property: "og:image:height", content: "630" },
       {
         property: "og:image:alt",
-        content: "Tyler Granlund — IT Operations & Systems Engineer, on a misty spruce grove.",
+        content: "Tyler Granlund — Product Manager, on a misty spruce grove.",
       },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:image:alt",
-        content: "Tyler Granlund — IT Operations & Systems Engineer, on a misty spruce grove.",
+        content: "Tyler Granlund — Product Manager, on a misty spruce grove.",
       },
     ],
     links: [
@@ -94,7 +94,7 @@ const structuredData = {
       "@type": "ProfilePage",
       "@id": "https://tylergranlund.com/#profilepage",
       url: "https://tylergranlund.com/",
-      name: "Tyler Granlund — IT Operations & Systems Engineer",
+      name: "Tyler Granlund — Product Manager",
       isPartOf: { "@id": "https://tylergranlund.com/#website" },
       about: { "@id": "https://tylergranlund.com/#person" },
       mainEntity: { "@id": "https://tylergranlund.com/#person" },
@@ -103,7 +103,7 @@ const structuredData = {
       "@type": "Person",
       "@id": "https://tylergranlund.com/#person",
       name: "Tyler Granlund",
-      jobTitle: "IT Operations & Systems Engineer",
+      jobTitle: "Product Manager",
       url: "https://tylergranlund.com/",
       email: "hello@tylergranlund.com",
       image: "https://tylergranlund.com/og-cover.jpg",
@@ -115,8 +115,8 @@ const structuredData = {
       },
       sameAs: ["https://www.linkedin.com/in/tylergranlund", "https://github.com/t-granlund"],
       knowsAbout: [
-        "IT Operations",
-        "Systems Engineering",
+        "Product Management",
+        "Product Operations",
         "Franchise Technology",
         "E-Commerce",
         "Adobe Commerce",
@@ -239,8 +239,8 @@ function Landing() {
                 </h1>
 
                 <p className="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed text-stone/90">
-                  I&apos;m <span className="text-foreground">Tyler Granlund</span>, an IT operations
-                  &amp; systems engineer in Bella Vista, Arkansas. I build the systems and teams
+                  I&apos;m <span className="text-foreground">Tyler Granlund</span>, a product
+                  manager in Bella Vista, Arkansas. I build the products and teams
                   that make work less stressful and home lives better.
                 </p>
 
@@ -260,8 +260,8 @@ function Landing() {
                     <li className="flex items-start gap-3">
                       <span className="mt-2 h-1 w-1 rounded-full bg-cedar shrink-0" />
                       <span>
-                        <strong className="text-foreground">School of Rock.</strong> Primary IT
-                        support pillar for master franchise launches across 14 countries. Built
+                        <strong className="text-foreground">School of Rock.</strong> Primary
+                        operations pillar for master franchise launches across 14 countries. Built
                         merchant processing integrations that did not previously exist.
                       </span>
                     </li>
@@ -283,8 +283,8 @@ function Landing() {
                     <li className="flex items-start gap-3">
                       <span className="mt-2 h-1 w-1 rounded-full bg-cedar shrink-0" />
                       <span>
-                        <strong className="text-foreground">Head to Toe Brands.</strong> Systems
-                        engineering across 200+ locations for a five-brand franchise portfolio.
+                        <strong className="text-foreground">Head to Toe Brands.</strong> Product
+                        management across 200+ locations for a five-brand franchise portfolio.
                       </span>
                     </li>
                   </ul>

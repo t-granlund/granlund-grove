@@ -8,7 +8,7 @@ import { Impact } from "@/components/site/Impact";
 export const Route = createFileRoute("/career")({
   head: () => ({
     meta: [
-      { title: "Career — Tyler Granlund, IT Operations & Systems Engineer" },
+      { title: "Career — Tyler Granlund, Product Manager" },
       {
         name: "description",
         content:
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/career")({
       },
       {
         property: "og:title",
-        content: "Career — Tyler Granlund, IT Operations & Systems Engineer",
+        content: "Career — Tyler Granlund, Product Manager",
       },
       {
         property: "og:description",

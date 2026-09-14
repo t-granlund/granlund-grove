@@ -97,11 +97,11 @@ async function ogCard() {
           Spruce Grove · Granlund
         </div>
         <div class="name">Tyler Granlund</div>
-        <div class="title">IT Operations &amp; Systems Engineer</div>
+        <div class="title">Product Manager</div>
         <div class="tagline">Supervised multi-agent systems, shipped to production — franchise scale.</div>
         <div class="chips">
           <span class="chip">Multi-agent</span>
-          <span class="chip">Franchise IT</span>
+          <span class="chip">Franchise Ops</span>
           <span class="chip">OIDC &amp; Security</span>
         </div>
       </div>

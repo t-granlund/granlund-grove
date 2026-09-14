@@ -42,7 +42,7 @@ export function GlobeNetwork() {
       <div className="mx-auto max-w-7xl px-6 mb-16">
         <div className="max-w-3xl">
           <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-cedar/80 mb-4">
-            The Network · 22 cities · 5 continents
+            The Network · hundreds of cities · 6 continents
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-light text-balance">
             A career that <em className="not-italic text-cedar">crossed continents.</em>
@@ -93,7 +93,7 @@ export function GlobeNetwork() {
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 p-6 sm:p-10 lg:p-12">
             <div className="max-w-xl">
               <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cedar/70 mb-3">
-                22 locations · 5 continents · 10+ years
+                Hundreds of cities · 6 continents · 10+ years
               </div>
               <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-light text-balance text-mist drop-shadow-[0_2px_14px_rgba(0,0,0,0.65)]">
                 From <em className="not-italic text-cedar">one market</em> to{" "}

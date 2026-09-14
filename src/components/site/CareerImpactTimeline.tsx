@@ -69,9 +69,9 @@ function StepCard({
                 {step.dates}
               </span>
             </div>
-            <h3 className="mt-3 font-display text-2xl lg:text-3xl text-foreground">
+            <h2 className="mt-3 font-display text-2xl lg:text-3xl text-foreground">
               {step.company}
-            </h3>
+            </h2>
             <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-cedar/90">
               {step.role}
             </div>
@@ -205,8 +205,8 @@ export function CareerImpactTimeline() {
           </h1>
           <p className="mt-5 text-stone/85 leading-relaxed">
             Every role expanded the footprint. From training Mac and Mobile technicians in South
-            Chicago to building systems that touch 22 cities across 5 continents. Follow the map as
-            each chapter lights up, and read what shipped at every turn.
+            Chicago to building systems that touch hundreds of cities across 6 continents. Follow
+            the map as each chapter lights up, and read what shipped at every turn.
           </p>
         </div>
 
@@ -233,9 +233,9 @@ export function CareerImpactTimeline() {
         <div className="mt-20 rounded-3xl border border-cedar/30 bg-cedar/[0.06] p-8 lg:p-12">
           <div className="grid sm:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="font-display text-4xl lg:text-5xl font-light text-mist">22</div>
+              <div className="font-display text-4xl lg:text-5xl font-light text-mist">500+</div>
               <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cedar">
-                cities across 5 continents
+                locations across 6 continents
               </div>
             </div>
             <div>

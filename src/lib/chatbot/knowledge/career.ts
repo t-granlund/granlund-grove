@@ -17,11 +17,11 @@ export const careerChunks: KnowledgeChunk[] = [
     text:
       "At School of Rock (" +
       CAREER_DATES.schoolOfRock +
-      "), Tyler was IT Manager to Senior IT Manager. He joined at ~145 locations in 8 countries and left at ~300+ locations across 14 countries. He was the primary IT support pillar for every master franchise rollout across LATAM, Europe, APAC, and Africa. For each new market he analyzed requirements, adapted systems, built what did not exist yet, and trained owners and managers.",
+      "), Tyler rose from Operations Manager to Senior Operations Manager. He joined at ~145 locations in 8 countries and left at ~300+ locations across 14 countries. He was the primary operations support pillar for every master franchise rollout across LATAM, Europe, APAC, and Africa. For each new market he analyzed requirements, adapted systems, built what did not exist yet, and trained owners and managers.",
     topics: [
       "school of rock",
       "franchise",
-      "it manager",
+      "operations manager",
       "global",
       "expansion",
       "master franchise",
@@ -119,14 +119,14 @@ export const careerChunks: KnowledgeChunk[] = [
   {
     id: "career-htt-director",
     text:
-      "At Head to Toe Brands (Riverside PE), Tyler was IT Director from " +
+      "At Head to Toe Brands (Riverside PE), Tyler was Director of Product & Operations from " +
       CAREER_DATES.httDirector +
       ". He led enterprise IT for a Riverside private equity-backed multi-brand franchise group. The portfolio included The Lash Lounge (~130 units), Bishops Cuts and Color (~40 units), Frenchies Modern Nail Care (24 units), and Delta Crown Hair Extensions — 200+ locations total. He built the identity governance ecosystem: a master database federating across five brands and Microsoft tenants with role-based access tied to location, brand, and job function. He developed the onboarding framework that cut provisioning from days to minutes, with immediate and auditable offboarding. He left before full portfolio-wide rollout and is open-sourcing the framework so other franchise operators can benefit.",
     topics: [
       "head to toe",
       "riverside",
       "pe",
-      "it director",
+      "product & operations director",
       "lash lounge",
       "bishops",
       "frenchies",
@@ -139,7 +139,7 @@ export const careerChunks: KnowledgeChunk[] = [
   {
     id: "career-htt-ops",
     text:
-      "At Head to Toe Brands, Tyler also served as IT Operations & Systems Engineer (" +
+      "At Head to Toe Brands, Tyler also served as a Product Manager (" +
       CAREER_DATES.httOps +
       "). He developed production software across a five-brand, 200+ location franchise portfolio. He built Control Tower, Knowledge Fabric, and Estate Trace using Code Puppy (a supervised multi-agent system). He used human-in-the-loop guardrails, evaluation harnesses, and zero-secret OIDC-based automation. He left before full portfolio-wide deployment; the architecture and guardrails are being open-sourced for the community. Code Puppy is an open-source agent system created by Michael Pfaffenberger and John Choi; it won Walmart's President's Innovation Award and is used by 4,000+ Walmart employees daily.",
     topics: [

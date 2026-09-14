@@ -438,7 +438,7 @@ export function isGreeting(query: string): boolean {
 export function greetingResponse(): string {
   const greetings = [
     "Hey there! Tyler is currently looking for his next opportunity. I know all about his background, skills, projects, and experience. What would you like to know? If you want to reach him directly, hello@tylergranlund.com is the fastest way.",
-    "Hi! Tyler is available for full-time roles, consulting, and collaborations. Ask me about his work at Apple, School of Rock, Outdoor Cap, North 40, or Head to Toe Brands — or his skills in AI, cloud, identity, and systems engineering. For direct contact: hello@tylergranlund.com.",
+    "Hi! Tyler is available for full-time roles, consulting, and collaborations. Ask me about his work at Apple, School of Rock, Outdoor Cap, North 40, or Head to Toe Brands — or his skills in AI, cloud, identity, and product management. For direct contact: hello@tylergranlund.com.",
     "Hello! Tyler is actively looking for his next role. I can answer questions about his career history, technical skills, projects, and availability. Reach him directly at hello@tylergranlund.com for opportunities or questions.",
   ];
   return greetings[Math.floor(Math.random() * greetings.length)];

@@ -18,8 +18,8 @@ test.describe("landing hub", () => {
     const globeSection = page.locator("[data-testid='globe-network']");
     await expect(globeSection).toBeVisible();
     await expect(globeSection.getByRole("heading", { name: /crossed continents/i })).toBeVisible();
-    await expect(globeSection.getByText(/22 cities/i).first()).toBeVisible();
-    await expect(globeSection.getByText(/5 continents/i).first()).toBeVisible();
+    await expect(globeSection.getByText(/hundreds of cities/i).first()).toBeVisible();
+    await expect(globeSection.getByText(/6 continents/i).first()).toBeVisible();
     await expect(globeSection.getByText(/one market to the world/i)).toBeVisible();
     await expect(globeSection.getByRole("link", { name: /See the journey/i })).toBeVisible();
   });

@@ -13,7 +13,6 @@ import { Route as WorkRouteImport } from './routes/work'
 import { Route as VenturesRouteImport } from './routes/ventures'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResumeRouteImport } from './routes/resume'
-import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as EcosystemRouteImport } from './routes/ecosystem'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -45,11 +44,6 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ResumeRoute = ResumeRouteImport.update({
   id: '/resume',
   path: '/resume',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProgressRoute = ProgressRouteImport.update({
-  id: '/progress',
-  path: '/progress',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -123,7 +117,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/ecosystem': typeof EcosystemRoute
   '/privacy': typeof PrivacyRoute
-  '/progress': typeof ProgressRoute
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ventures': typeof VenturesRoute
@@ -142,7 +135,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/ecosystem': typeof EcosystemRoute
   '/privacy': typeof PrivacyRoute
-  '/progress': typeof ProgressRoute
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ventures': typeof VenturesRoute
@@ -162,7 +154,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/ecosystem': typeof EcosystemRoute
   '/privacy': typeof PrivacyRoute
-  '/progress': typeof ProgressRoute
   '/resume': typeof ResumeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ventures': typeof VenturesRoute
@@ -183,7 +174,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/ecosystem'
     | '/privacy'
-    | '/progress'
     | '/resume'
     | '/sitemap.xml'
     | '/ventures'
@@ -202,7 +192,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/ecosystem'
     | '/privacy'
-    | '/progress'
     | '/resume'
     | '/sitemap.xml'
     | '/ventures'
@@ -221,7 +210,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/ecosystem'
     | '/privacy'
-    | '/progress'
     | '/resume'
     | '/sitemap.xml'
     | '/ventures'
@@ -241,7 +229,6 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   EcosystemRoute: typeof EcosystemRoute
   PrivacyRoute: typeof PrivacyRoute
-  ProgressRoute: typeof ProgressRoute
   ResumeRoute: typeof ResumeRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   VenturesRoute: typeof VenturesRoute
@@ -281,13 +268,6 @@ declare module '@tanstack/react-router' {
       path: '/resume'
       fullPath: '/resume'
       preLoaderRoute: typeof ResumeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/progress': {
-      id: '/progress'
-      path: '/progress'
-      fullPath: '/progress'
-      preLoaderRoute: typeof ProgressRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -385,7 +365,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   EcosystemRoute: EcosystemRoute,
   PrivacyRoute: PrivacyRoute,
-  ProgressRoute: ProgressRoute,
   ResumeRoute: ResumeRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   VenturesRoute: VenturesRoute,

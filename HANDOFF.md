@@ -168,7 +168,7 @@ granlund-grove/
 - Apple (South Chicago) → School of Rock (Glen Ellyn + global) → Outdoor Cap (Bentonville) → Head to Toe Brands (Glen Arbor)
 - Each entry has: role, years, description, contribution, location chips, source links
 - **SVG world map** at top: dots for each city, with step-based coloring (Apple = step 1, SOR = step 2, etc.)
-- Closing section: "22 cities across 5 continents" stat
+- Closing section: "500+ locations across 6 continents" stat (was "22 cities across 5 continents" — corrected 2026-09: SoR alone spanned hundreds of cities worldwide, HTT hundreds more domestic US)
 
 ### `/work` — Case Studies
 

@@ -380,7 +380,7 @@ export function CareerWorldMap({ activeStep }: { activeStep: number }) {
       {/* Stats bar */}
       <div className="mt-3 flex items-center justify-between px-1">
         <span className="font-mono text-[10px] uppercase tracking-widest text-stone/60">
-          {activeCount} of {totalUnique} cities
+          {activeCount} of {totalUnique} cities mapped
         </span>
         <span className="font-mono text-[10px] uppercase tracking-widest text-stone/40">
           {activeSteps.size} of 5 chapters
