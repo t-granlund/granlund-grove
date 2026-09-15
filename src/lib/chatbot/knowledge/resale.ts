@@ -33,7 +33,7 @@ export const resaleChunks: KnowledgeChunk[] = [
   },
   {
     id: "resale-alienware",
-    text: "For sale: Alienware AW3423DWF 34-inch curved QD-OLED ultrawide monitor — $325 (retails $799.99 at Dell right now). 3440x1440, 165Hz, 0.1ms GtG, FreeSync Premium Pro, HDR True Black 400, 99.3% DCI-P3, 10-bit. Manufactured November 2024; panel verified — no burn-in, no dead pixels. Dell warranty checkable via service tag 8FJH2S3 at dell.com/support. Details: tylergranlund.com/resale/site/alienware-aw3423dwf — contact alienware@tylergranlund.com.",
+    text: "For sale: Alienware AW3423DWF 34-inch curved QD-OLED ultrawide monitor — $325 (retails $799.99 at Dell right now). 3440x1440, 165Hz, 0.1ms GtG, FreeSync Premium Pro, HDR True Black 400, 99.3% DCI-P3, 10-bit. Manufactured November 2024; panel verified — no burn-in, no dead pixels. Dell warranty checkable via service tag 8FJH2S3 at dell.com/support. No original box — priced accordingly, local pickup only (Bella Vista, NWA), bubble-wrapped at handover, buyer can inspect it powered on before paying. Details: tylergranlund.com/resale/site/alienware-aw3423dwf — contact alienware@tylergranlund.com.",
     topics: ["alienware", "monitor", "ultrawide", "oled", "qd-oled", "dell", "gaming", "display"],
     source: "Resale storefront",
     priority: 6,
